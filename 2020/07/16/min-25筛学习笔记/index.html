@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">min_25筛学习笔记 | ctz&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/googlefont.css" media="all">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_ndnjfmz11y9.css">
+  <style>
+  .emoji-coda {
+      display: inline-block !important;
+      position: relative;
+      width: 47px;
+      top: 2px;
+      margin: -3px 3px !important;
+      padding: 0;
+  }
+  </style>
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "ctz's blog";
+  mashiro_option.author_name = "ctz's blog";
+  mashiro_option.site_url = "https://ctz45562.github.io";
+  mashiro_option.v_appId = "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz";
+  mashiro_option.v_appKey = "jqULEjwlbvOCM08eEOpTIGOI";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index1.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index2.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index3.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index4.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index5.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index6.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index7.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.4/index8.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.9/index9.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
+    @import url("/code.css");
+  </style>
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed;bottom:64px;left:28px;"> 
+  <div class="theme-controls row-container"> 
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> background <i style="color:grey" class="fa fa-chevron-right"></i></p>
+    <ul class="menu-list"> 
+	  <li id="white-bg"> 
+	    <i class="fa fa-television">
+		</i>
+	  </li> 
+	<li id="sakura-bg"> 
+      <i class="iconfont icon-sakura">
+	  </i>
+	</li> 
+    <li id="gribs-bg"> 
+      <i class="fa fa-slack">
+	  </i>
+    </li> 
+    <li id="KAdots-bg"> 
+      <i class="iconfont icon-dots">
+      </i>
+    </li> 
+    <li id="totem-bg"> 
+      <i class="fa fa-optin-monster">
+      </i>
+    </li> 
+    <li id="pixiv-bg"> 
+      <i class="fa fa-star">
+	  </i>
+      </li> 
+    <li id="bing-bg"> 
+      <i class="fa fa-picture-o">
+	  </i>
+    </li> 
+    <li id="dark-bg"> 
+      <i class="fa fa-moon-o">
+      </i>
+    </li> 
+  </ul> 
+  </div > 
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> font <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="font-family-controls row-container">
+    <button type="button" class="control-btn-serif " data-mode="serif" onclick="mashiro_global.font_control.change_font()">Serif</button>
+    <button type="button" class="control-btn-sans-serif" data-mode="sans-serif" onclick="mashiro_global.font_control.change_font()">Sans Serif</button>
+  </div>
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> script <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="theme-controls row-container">
+  <ul class="menu-list">
+  <style>li>.ctz{font-size: 21px;}</style>
+	<li id="empty-effect">
+	  <i class="ctz ctz-jinzhi">
+	  </i>
+	</li>
+	<li id="sakura-rain-effect">
+	  <i class="ctz ctz-huaxiang">
+	  </i>
+	</li>
+	<li id="snowy-effect">
+	  <i class="ctz ctz-snow">
+	  </i>
+	</li>
+	<li id="lines-effect">
+	  <i class="ctz ctz-xianlu">
+	  </i>
+	</li>
+	<li id="colorful-belts-effect">
+	  <i class="ctz ctz-caidai"></i>
+	  </i>
+	</li>
+	<li id="words-rain-effect">
+	  <i class="ctz ctz-zimuletters2"></i>
+	</li>
+	<li id="point-rain-effect">
+	  <i class="ctz ctz-diandiandian" style="font-size:19px"></i>
+	</li>
+	<li id="rain-drop-effect">
+	  <i class="ctz ctz-yu"></i>
+	</li>
+  </ul>
+  </div>
+<canvas id="night-mode-cover">
+</canvas>
+</div> 
+  <div class="changeSkin-gear no-select" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; visibility: visible; bottom: 0px;"> 
+  <div class="keys" id="setbtn"> 
+    <button id="open-skinMenu">
+		<style>
+		button#open-skinMenu{
+			transition: all 0.2s linear 0s;
+			outline:none;
+			position:fixed;
+			bottom:12px;
+			left:13px;
+			font-size:16px;
+			background-color: rgba(255,255,255,.95);
+			border-radius: 20px;
+			box-shadow: 0 3px 8px 0 rgba(0,0,0,0.1), 0 3px 8px 0 rgba(0,0,0,0.1);
+		}
+		button#open-skinMenu:hover{
+			transition: all 0.2s linear 0s;
+			background-color: #2f98fc;
+			color: rgba(255,255,255);
+		}
+		</style>
+		<i class="iconfont icon-gear inline-block rotating">
+	  </i> 
+		SCHEME TOOL | 主题工具 
+	</button>
+  </div> 
+</div>
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dim">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://ctz45562.github.io">
+          <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Re&amp;Re</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://www.luogu.com.cn/user/111762" target="_blank" class="social-github" title="洛谷">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/social/luogu.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://github.com/ctz45562" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/github.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="mailto:cctz45562@163.com" target="_blank" class="social-github" title="e-mail">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/mail.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://space.bilibili.com/229790690" target="_blank" class="social-github" title="bilibili">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/bilibili.jpg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <!-- <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+ -->
+      <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.0/tocbot.css">
+<div class="pattern-center-blank"></div>
+<div class="gather">
+
+  <div class="pattern-center-sakura single-center">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.4/min25sxxbj.jpg);" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.4/min25sxxbj.jpg">
+    </div>
+    <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
+      <h1 class="entry-title">
+      min_25筛学习笔记</h1>
+      <p class="entry-census">
+	    <span><a href="https://ctz45562.github.io"><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg" style="margin-right:4px">ctz</a>
+        </span>
+		<span class="bull"></span>
+		&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp
+        2020-7-16
+    <span class="bull"></span>
+    
+      <span><i class="fa fa-archive"></i> 分类于  
+        <span class="article-category"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" > 学习笔记</a></span>
+      
+    </span>
+    
+    <span class="bull"></span>
+		<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id='/2020/07/16/min-25筛学习笔记/' class="leancloud-visitors" data-flag-title="min_25筛学习笔记">
+        <a class="leancloud-visitors-count text-cursor">loading...</a>
+        <a class="post-meta-item-text text-cursor"> 次阅读</a>
+        </span>
+      </p>
+	  
+      
+    <div>
+		  <ul class="spfk-ul">
+		    &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<li class="spfk-li"><span class="triangle"></span><a href="/tags/数论/" class="butterfly-tags">数论</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/min-25筛/" class="butterfly-tags">min_25筛</a></li>
+          </ul>
+		</div>
+		<script>
+			function colorInit(c,num){for(var i=1;i<=num;++i)c.push(i+'');}
+			function paintTags(){
+				var colorNumber=8,tagColors=[],tags=document.getElementsByClassName('spfk-li');
+				for(var i = 0 ; i < tags.length ; ++i){
+					if(!tagColors.length)colorInit(tagColors,colorNumber);
+					var j=Math.floor(Math.random()*tagColors.length);
+					tags[i].classList.add("spfk-color"+tagColors[j]);
+					tagColors.splice(j,1);
+        }
+			}
+			paintTags()
+		</script>
+    
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="gather toc" style="width:230px"></div>
+        
+        <div class="entry-content">
+          <p>前几天看贴吧才知道弃坑不久后朝奈就觉醒了。</p>
+<p>于是回去蝗了一波顺便抽了个爱心厨娘（真香）</p>
+<a id="more"></a>
+<hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>$min\_25$筛是一种在亚线性复杂度内计算积性函数单个前缀和的算法。</p>
+<p>我也不知道为什么要学这个。反正NOI就是去玩玩，所以就随便学点算法玩玩吧。</p>
+<hr>
+<h1 id="抄袭来源"><a href="#抄袭来源" class="headerlink" title="抄袭来源"></a>抄袭来源</h1><blockquote>
+<p><a href="https://www.cnblogs.com/cjyyb/p/9185093.html" target="_blank" rel="noopener">https://www.cnblogs.com/cjyyb/p/9185093.html</a></p>
+<p><a href="https://www.luogu.com.cn/problem/solution/P5325" target="_blank" rel="noopener">https://www.luogu.com.cn/problem/solution/P5325</a></p>
+<p><a href="https://challestend.github.io/min-25-sieve-learning-notes/" target="_blank" rel="noopener">https://challestend.github.io/min-25-sieve-learning-notes/</a></p>
+</blockquote>
+<hr>
+<h1 id="define"><a href="#define" class="headerlink" title="#define"></a>#define</h1><p>$P$：质数集合</p>
+<p>$P_i$：第$i$小的质数。特别的，$P_0=0$</p>
+<p>$p$：若未特别说明，$p$均代表质数</p>
+<p>$minp(i)$：$i$的最小质因子</p>
+<hr>
+<h1 id="min-25筛"><a href="#min-25筛" class="headerlink" title="min_25筛"></a>min_25筛</h1><h2 id="适用条件"><a href="#适用条件" class="headerlink" title="适用条件"></a>适用条件</h2><ul>
+<li>$f(x)$为<strong>积性函数</strong></li>
+<li>$f(p)$可以用关于$p$的<strong>简单多项式</strong>表示</li>
+<li>$f(p^k)$能快速算出</li>
+</ul>
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a><a href="https://www.luogu.com.cn/problem/P5325" target="_blank" rel="noopener">模板</a></h2><p>先绕个弯，不妨设$S(n,k)=\sum\limits_{i=1}^n[minp(i)&gt;P_k]f(i)$</p>
+<p>答案就是$S(n,0)+1$（$+1$是因为$1$没有最小质因子，不会被算进$S(n,0)$里，要额外加上）</p>
+<p>考虑怎么求$S(n,k)$。分个类，分别求质数和合数的贡献：</p>
+<h3 id="质数部分"><a href="#质数部分" class="headerlink" title="质数部分"></a>质数部分</h3><p>因为$minp(p)=p$，所以$\sum\limits_{i=1}^n[i\in P\land minp(i)&gt;P_k]f(i)=\sum\limits_{i=1}^n[i\in P]f(i)-\sum\limits_{i=1}^kf(P_i)$</p>
+<p>光看前面的$\sum\limits_{i=1}^n[i\in P]f(i)$，后面的$\sum\limits_{i=1}^kf(P_i)$最后会提到可以预处理。</p>
+<p>根据$min\_25$筛的适用条件：$f(p)$可以用关于$p$的简单多项式表示。如果我们计算出$\sum\limits_{i=1}^n[i\in P]i^k$，就能用$\sum\limits_{k=0}^\infty F_k\sum\limits_{i=1}^n[i\in P]i^k$得出$f(i)$的和（其中，$f(p)=\sum\limits_{k=0}^\infty F_kp^k$）。</p>
+<p>本题中$f(p)=p^2-p$，符合条件。接下来只需要考虑怎么计算$\sum\limits_{i=1}^n[i\in P]i^k$</p>
+<p>再绕个弯，不妨设$g_k(n,j)=\sum\limits_{i=1}^n[i\in P\lor minp(i)&gt;P_j]i^k$</p>
+<p>初始值$g_k(n,0)=\left(\sum\limits_{i=1}^ni^k\right)-1$（$-1$是因为这两个条件$1$都不符合）</p>
+<p>考虑转移：$g_k(n,j)$相较于$g_k(n,j-1)$，去掉了那些最小质因子等于$P_j$且不为质数的数。</p>
+<ul>
+<li><p>如果$P_j^2&gt;n$，显然不会有合数的最小质因子等于$P_j$，于是$g_k(n,j)=g_k(n,j-1)$</p>
+</li>
+<li><p>如果$P_j^2\le n$，把最小质因子$P_j$提出来，有$P_j^k$的贡献，让剩下的数最小质因子不小于$P_j$即可，即$g_k\left(\dfrac{n}{P_j},j-1\right)$。但是由于$g_k$的定义中有一条$i\in P$，小于$P_j$的质数不应该被算上，所以要减去$g_k(P_{j-1},j-1)$，显然$g_k(P_{j-1},j-1)=\sum\limits_{i=1}^{j-1}P_i^k$</p>
+</li>
+</ul>
+<p>综上，$g_k(n,j)=\begin{cases}g_k(n,j-1)&amp;P_j^2&gt;n\\g_k(n,j-1)-P_j^k\left(g_k\left(\dfrac{n}{P_j},j-1\right)-\sum\limits_{i=1}^{j-1}P_i^k\right)&amp;P_j^2\le n\end{cases}$</p>
+<p>而$g_k(n,+\infty)=\sum\limits_{i=1}^n[i\in P]i^k$，即为我们最初想要的答案。当然这个转移需要优化：</p>
+<ul>
+<li>由于只有$P_j^2\le n$时会进行转移，所以只需要用到不大于$\sqrt n$的质数，$\sum\limits_{i=1}^jP_i^k$也可以预处理了。</li>
+<li>注意到整个转移中的$n$只出现过$\left\lfloor\dfrac{n}{i}\right\rfloor$的形式，根据整除分块的性质这个值只有$O(\sqrt n)$个。利用一个$trick$：$i\le\sqrt n$时存到下标$i$里；$i&gt;\sqrt n$时存到下标$\sqrt n+\dfrac{n}{i}$里。同时我们只想知道$g_k(n,+\infty)$，第二维可以滚掉。这样时空都能被大大优化。</li>
+</ul>
+<p>至此，质数部分就计算完了，复杂度是$O(\dfrac{n^{\frac{3}{4}}}{\log n})$（不会证）</p>
+<h3 id="合数部分"><a href="#合数部分" class="headerlink" title="合数部分"></a>合数部分</h3><p>类比上文$g_k$的转移，枚举最小质因子，假设为$P_i$。因为有$minp(i)&gt;P_k$的限制，所以要从第$k+1$个质数开始枚举。但不同于$g_k$的是，这不是完全积性函数，$f(P_i)$不能随便提出来，所以还要枚举其次数$j$，把$f(P_i^j)$整个提出来，这样就符合积性函数的性质了。</p>
+<p>接下来要保证的就是剩下的数最小质因子<strong>大于</strong>$P_i$（注意，这里是把$P_i^j$整个提出来了，所以剩下的数里不能有$P_i$），也就是$S\left(\dfrac{n}{P_i^j},i\right)$。不过这里有一个问题：如果$j&gt;1$，$f(P_i^j)$也应该被算进$S(n,k)$里（$j=1$在质数部分算过了），也就是$f(P_i^j)\times f(1)$。但是$S$并不会计算$1$的贡献，所以这里应该是$S\left(\dfrac{n}{P_i^j},i\right)+[j&gt;1]$。</p>
+<p>根据质数部分的经验，只有$P_i^2\le n$时才会有贡献，所以还是只需要用到不大于$\sqrt n$的质数。</p>
+<p>于是我们得到了合数部分的贡献：$\sum\limits_{i&gt;k,P_i^2\le n,P_i^j\le n}f(P_i^j)\left(S(\dfrac{n}{P_i^j},i)+[j&gt;1]\right)$</p>
+<p>根据$min\_25$筛的条件，$f(P_i^j)$可以快速计算，或者能从$P_i$递推到$P_i^j$，这部分就能快速递归计算了。</p>
+<h3 id="整合"><a href="#整合" class="headerlink" title="整合"></a>整合</h3><p>把式子的完全体写出来：</p>
+<p>$S(n,k)=\sum\limits_{k=0}^\infty F_kg_k(n,+\infty)-\sum\limits_{i=1}^kf(P_i)+\sum\limits_{i&gt;k,P_i^2\le n,P_i^j\le n}f(P_i^j)\left(S(\dfrac{n}{P_i^j},i)+[j&gt;1]\right)$</p>
+<p>自始至终$n$都只取到过$\left\lfloor\dfrac{n}{i}\right\rfloor$，$g_k$也恰好只计算了$\left\lfloor\dfrac{n}{i}\right\rfloor$处的值；而由于只用到了$\sqrt n$以内的质数，$k$不会很大，$\sum\limits_{i=1}^kf(P_i)$也可以预处理了。这样这个式子就没有问题了。</p>
+<p>复杂度是$O(\dfrac{n^{\frac{3}{4}}}{\log n})$（不会证），甚至不用记忆化。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="lang-cpp">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;cstring&gt;
+
+#define maxn 100005
+#define inf 0x3f3f3f3f
+
+const int mod = 1e9 + 7;
+const int inv2 = 500000004;
+const int inv6 = 166666668;
+
+using namespace std;
+
+inline int read(){
+    int x=0,y=0;
+    char ch=getchar();
+    while(ch&lt;&#39;0&#39;||ch&gt;&#39;9&#39;){if(ch==&#39;-&#39;)y=1;ch=getchar();}
+    while(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;)x=(x&lt;&lt;1)+(x&lt;&lt;3)+(ch^48),ch=getchar();
+    return y?-x:x;
+}
+template&lt;typename T&gt;
+inline T read(){
+    T x=0;
+    int y=0;
+    char ch=getchar();
+    while(ch&lt;&#39;0&#39;||ch&gt;&#39;9&#39;){if(ch==&#39;-&#39;)y=1;ch=getchar();}
+    while(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;)x=(x&lt;&lt;1)+(x&lt;&lt;3)+(ch^48),ch=getchar();
+    return y?-x:x;
+}
+long long n;
+int f[maxn],g[2][maxn&lt;&lt;1],prime[maxn&gt;&gt;2],pw[2][maxn],cnt,sq;
+bool is[maxn];
+inline int qm(int x){return x&gt;=mod?x-mod:x;}
+inline int id(long long x){return x&gt;sq?sq+n/x:x;}
+int S(long long N,int k){
+    if(prime[k]&gt;=N)return 0;
+    int ans=qm(qm(g[1][id(N)]+mod-g[0][id(N)])+mod-f[k]);
+    for(register int i=k+1;i&lt;=cnt&amp;&amp;1ll*prime[i]*prime[i]&lt;=N;++i)
+        for(long long j=prime[i];j&lt;=N;j*=prime[i]){
+            int b=j%mod;
+            ans=qm(ans+1ll*b*(b-1)%mod*qm(S(N/j,i)+(j&gt;prime[i]))%mod);
+        }
+    return ans;
+}
+int main(){
+    for(register int i=2;i&lt;maxn;++i){
+        if(!is[i])prime[++cnt]=i,pw[0][cnt]=qm(pw[0][cnt-1]+i),pw[1][cnt]=qm(pw[1][cnt-1]+1ll*i*i%mod),f[cnt]=qm(f[cnt-1]+1ll*i*(i-1)%mod);
+        for(register int j=1;j&lt;=cnt&amp;&amp;i*prime[j]&lt;maxn;++j){
+            is[i*prime[j]]=1;
+            if(i%prime[j]==0)break;
+        }
+    }
+    n=read&lt;long long&gt;(),sq=sqrt(n);
+    for(long long l=1,r;l&lt;=n;l=n/(n/l)+1){
+        int x=n/l%mod,k=id(n/l);
+        g[0][k]=qm(1ll*x*(x+1)%mod*inv2%mod+mod-1);
+        g[1][k]=qm(1ll*x*(x+1)%mod*((x&lt;&lt;1)+1)%mod*inv6%mod+mod-1);
+    }
+    for(register int i=1;i&lt;=cnt;++i)
+        for(long long l=1,r;l&lt;=n&amp;&amp;1ll*prime[i]*prime[i]&lt;=n/l;l=n/(n/l)+1){
+            int k=id(n/l);
+            g[0][k]=qm(g[0][k]+mod-1ll*prime[i]*qm(g[0][id(n/l/prime[i])]+mod-pw[0][i-1])%mod);
+            g[1][k]=qm(g[1][k]+mod-1ll*prime[i]*prime[i]%mod*qm(g[1][id(n/l/prime[i])]+mod-pw[1][i-1])%mod);
+        }
+    printf(&quot;%d\n&quot;,qm(S(n,0)+1));
+}
+</code></pre>
+<hr>
+<h1 id="水题"><a href="#水题" class="headerlink" title="水题"></a>水题</h1><h2 id="【模板】杜教筛"><a href="#【模板】杜教筛" class="headerlink" title="【模板】杜教筛"></a><a href="https://www.luogu.com.cn/problem/P4213" target="_blank" rel="noopener">【模板】杜教筛</a></h2><p>根据小学二年级数学：</p>
+<p>$\varphi(p)=p-1,\varphi(p^k)=p^k-p^{k-1}$</p>
+<p>$\mu(p)=-1,\mu(p^k)=0$</p>
+<p>这样就可以做了。而且由于$\mu(p^k)=0$，筛$\mu$的合数部分甚至不用枚举$P_i$的指数。</p>
+<h2 id="简单的函数"><a href="#简单的函数" class="headerlink" title="简单的函数"></a><a href="https://loj.ac/problem/6053" target="_blank" rel="noopener">简单的函数</a></h2><p>$f(p^k)$表达式已经明确告诉你了，只需要考虑$f(p)=p\oplus 1$的表示。而$p$为偶数时$f(p)=p+1$，否则$f(p)=p-1$。</p>
+<p>因为所有的质数里只有$2$是偶数，所以可以得到：</p>
+<p>$f(p)=\begin{cases}3&amp;p=2\\p-1&amp;ohterwise\end{cases}$</p>
+<p>所以：</p>
+<p>$\sum\limits_{i=1}^n[i\in P]f(i)=\begin{cases}0&amp;n&lt;2\\g_1(n,+\infty)-g_0(n,+\infty)+2&amp;n\ge2\end{cases}$</p>
+<h2 id="梦中的数论"><a href="#梦中的数论" class="headerlink" title="梦中的数论"></a><a href="https://loj.ac/problem/6682" target="_blank" rel="noopener">梦中的数论</a></h2><p>显然答案是$\sum\limits_{i=1}^nC_{d(i)}^2$，$d(i)$为$i$约数个数。</p>
+<p>而$C_{d(i)}^2=\dfrac{d(i)(d(i)-1)}{2}=\dfrac{d^2(i)-d(i)}{2}$不积性，但是$d^2(i)$和$d(i)$是积性的。</p>
+<p>$d(p^k)=k+1$，筛出$d^2(i)$和$d(i)$作差除以$2$即可。</p>
+<h2 id="DIVCNTK"><a href="#DIVCNTK" class="headerlink" title="DIVCNTK"></a><a href="https://www.luogu.com.cn/problem/SP34096" target="_blank" rel="noopener">DIVCNTK</a></h2><p>如果你跑去spoj看原题的话，其实只有$n\le 10^4$时$T\le 10^4$，而$n=10^{10}$时$T\le 5$。</p>
+<p>然后$d(i^k)$积性，$d((p^c)^k)=kc+1$，没了。</p>
+<p>三倍经验：<a href="https://www.luogu.com.cn/problem/SP20173" target="_blank" rel="noopener">DIVCNT2</a> <a href="https://www.luogu.com.cn/problem/SP20174" target="_blank" rel="noopener">DIVCNT3</a></p>
+<p>有点卡常。</p>
+<h2 id="Sanrd"><a href="#Sanrd" class="headerlink" title="Sanrd"></a><a href="http://uoj.ac/problem/188" target="_blank" rel="noopener">Sanrd</a></h2><p><a href="/2020/07/19/UOJ-188-【UR-13】Sanrd/">题解</a></p>
+
+            
+        </div>
+      </article>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/07/19/UOJ-188-%E3%80%90UR-13%E3%80%91Sanrd/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.5/sanrd.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.5/sanrd.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                UOJ #188.【UR #13】Sanrd</h3>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2020/07/10/7.10%E9%97%B2%E6%89%AF/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.3/7.10xc.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.3/7.10xc.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                7.10闲扯</h3>
+              </div> 
+            </a>
+			</div>
+        
+      </section> 
+    </main>
+</div>
+</div>
+</div>
+<div class="gather">
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz",
+        appKey: "jqULEjwlbvOCM08eEOpTIGOI",
+        path: window.location.pathname,
+		visitor: true,
+        placeholder: "日々私たちが过ごしている日常は、実は奇迹の连続なのかもしれない。"
+      })
+  }
+</script>
+
+</div>
+
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+
+<script>
+function imgInit(){
+	var imgs=document.getElementsByClassName('entry-content').item(0).getElementsByTagName('img');
+	for(var i=0;i<imgs.length;++i){
+		var element = document.createElement("a"),record=imgs[i],dsrc=record.getAttribute("data-src");
+		element.setAttribute("data-fancybox","gallery");
+    element.setAttribute("href",dsrc||imgs[i].src);
+		element.setAttribute("id","escape-link");
+		imgs[i].parentNode.appendChild(element);
+		imgs[i].parentNode.removeChild(imgs[i]);
+		element.appendChild(record);
+	}
+}
+var spoiler=document.getElementsByClassName('spoiler');
+for(var i=0;i<spoiler.length;++i)
+spoiler[i].onclick=function(){this.classList.toggle("revealed");};
+imgInit();
+</script>
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.6.7/articleload.gif">
+      </div>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Github Pages</a>
+        </span>
+		<!-- <span style="color: #b9b9b9;display:block">图片外链由<a href="https://img.fghrsh.net/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">FGHRSH图床</a>提供 -->
+        <!-- </span> -->
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.4/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.2/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<!-- <script src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/valine.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.1.4/js/volantis.min.js"></script>
+<script type="text/javascript">
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { 
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;ww">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

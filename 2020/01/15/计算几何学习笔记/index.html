@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">计算几何学习笔记 | ctz&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/googlefont.css" media="all">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_ndnjfmz11y9.css">
+  <style>
+  .emoji-coda {
+      display: inline-block !important;
+      position: relative;
+      width: 47px;
+      top: 2px;
+      margin: -3px 3px !important;
+      padding: 0;
+  }
+  </style>
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "ctz's blog";
+  mashiro_option.author_name = "ctz's blog";
+  mashiro_option.site_url = "https://ctz45562.github.io";
+  mashiro_option.v_appId = "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz";
+  mashiro_option.v_appKey = "jqULEjwlbvOCM08eEOpTIGOI";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index1.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index2.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index3.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index4.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index5.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index6.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index7.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.4/index8.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.9/index9.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
+    @import url("/code.css");
+  </style>
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed;bottom:64px;left:28px;"> 
+  <div class="theme-controls row-container"> 
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> background <i style="color:grey" class="fa fa-chevron-right"></i></p>
+    <ul class="menu-list"> 
+	  <li id="white-bg"> 
+	    <i class="fa fa-television">
+		</i>
+	  </li> 
+	<li id="sakura-bg"> 
+      <i class="iconfont icon-sakura">
+	  </i>
+	</li> 
+    <li id="gribs-bg"> 
+      <i class="fa fa-slack">
+	  </i>
+    </li> 
+    <li id="KAdots-bg"> 
+      <i class="iconfont icon-dots">
+      </i>
+    </li> 
+    <li id="totem-bg"> 
+      <i class="fa fa-optin-monster">
+      </i>
+    </li> 
+    <li id="pixiv-bg"> 
+      <i class="fa fa-star">
+	  </i>
+      </li> 
+    <li id="bing-bg"> 
+      <i class="fa fa-picture-o">
+	  </i>
+    </li> 
+    <li id="dark-bg"> 
+      <i class="fa fa-moon-o">
+      </i>
+    </li> 
+  </ul> 
+  </div > 
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> font <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="font-family-controls row-container">
+    <button type="button" class="control-btn-serif " data-mode="serif" onclick="mashiro_global.font_control.change_font()">Serif</button>
+    <button type="button" class="control-btn-sans-serif" data-mode="sans-serif" onclick="mashiro_global.font_control.change_font()">Sans Serif</button>
+  </div>
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> script <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="theme-controls row-container">
+  <ul class="menu-list">
+  <style>li>.ctz{font-size: 21px;}</style>
+	<li id="empty-effect">
+	  <i class="ctz ctz-jinzhi">
+	  </i>
+	</li>
+	<li id="sakura-rain-effect">
+	  <i class="ctz ctz-huaxiang">
+	  </i>
+	</li>
+	<li id="snowy-effect">
+	  <i class="ctz ctz-snow">
+	  </i>
+	</li>
+	<li id="lines-effect">
+	  <i class="ctz ctz-xianlu">
+	  </i>
+	</li>
+	<li id="colorful-belts-effect">
+	  <i class="ctz ctz-caidai"></i>
+	  </i>
+	</li>
+	<li id="words-rain-effect">
+	  <i class="ctz ctz-zimuletters2"></i>
+	</li>
+	<li id="point-rain-effect">
+	  <i class="ctz ctz-diandiandian" style="font-size:19px"></i>
+	</li>
+	<li id="rain-drop-effect">
+	  <i class="ctz ctz-yu"></i>
+	</li>
+  </ul>
+  </div>
+<canvas id="night-mode-cover">
+</canvas>
+</div> 
+  <div class="changeSkin-gear no-select" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; visibility: visible; bottom: 0px;"> 
+  <div class="keys" id="setbtn"> 
+    <button id="open-skinMenu">
+		<style>
+		button#open-skinMenu{
+			transition: all 0.2s linear 0s;
+			outline:none;
+			position:fixed;
+			bottom:12px;
+			left:13px;
+			font-size:16px;
+			background-color: rgba(255,255,255,.95);
+			border-radius: 20px;
+			box-shadow: 0 3px 8px 0 rgba(0,0,0,0.1), 0 3px 8px 0 rgba(0,0,0,0.1);
+		}
+		button#open-skinMenu:hover{
+			transition: all 0.2s linear 0s;
+			background-color: #2f98fc;
+			color: rgba(255,255,255);
+		}
+		</style>
+		<i class="iconfont icon-gear inline-block rotating">
+	  </i> 
+		SCHEME TOOL | 主题工具 
+	</button>
+  </div> 
+</div>
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dim">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://ctz45562.github.io">
+          <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Re&amp;Re</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://www.luogu.com.cn/user/111762" target="_blank" class="social-github" title="洛谷">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/social/luogu.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://github.com/ctz45562" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/github.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="mailto:cctz45562@163.com" target="_blank" class="social-github" title="e-mail">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/mail.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://space.bilibili.com/229790690" target="_blank" class="social-github" title="bilibili">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/bilibili.jpg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <!-- <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+ -->
+      <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.0/tocbot.css">
+<div class="pattern-center-blank"></div>
+<div class="gather">
+
+  <div class="pattern-center-sakura single-center">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.3/jsjhxxbj.jpg);" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.3/jsjhxxbj.jpg">
+    </div>
+    <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
+      <h1 class="entry-title">
+      计算几何学习笔记</h1>
+      <p class="entry-census">
+	    <span><a href="https://ctz45562.github.io"><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg" style="margin-right:4px">ctz</a>
+        </span>
+		<span class="bull"></span>
+		&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp
+        2020-1-15
+    <span class="bull"></span>
+    
+      <span><i class="fa fa-archive"></i> 分类于  
+        <span class="article-category"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" > 学习笔记</a></span>
+      
+    </span>
+    
+    <span class="bull"></span>
+		<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id='/2020/01/15/计算几何学习笔记/' class="leancloud-visitors" data-flag-title="计算几何学习笔记">
+        <a class="leancloud-visitors-count text-cursor">loading...</a>
+        <a class="post-meta-item-text text-cursor"> 次阅读</a>
+        </span>
+      </p>
+	  
+      
+    <div>
+		  <ul class="spfk-ul">
+		    &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<li class="spfk-li"><span class="triangle"></span><a href="/tags/计算几何/" class="butterfly-tags">计算几何</a></li>
+          </ul>
+		</div>
+		<script>
+			function colorInit(c,num){for(var i=1;i<=num;++i)c.push(i+'');}
+			function paintTags(){
+				var colorNumber=8,tagColors=[],tags=document.getElementsByClassName('spfk-li');
+				for(var i = 0 ; i < tags.length ; ++i){
+					if(!tagColors.length)colorInit(tagColors,colorNumber);
+					var j=Math.floor(Math.random()*tagColors.length);
+					tags[i].classList.add("spfk-color"+tagColors[j]);
+					tagColors.splice(j,1);
+        }
+			}
+			paintTags()
+		</script>
+    
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="gather toc" style="width:230px"></div>
+        
+        <div class="entry-content">
+          <p>退役前最后一个大坑<del>，大概。</del></p>
+<p>还有，关于七都的福袋活动，终于能达成我最后的心愿了（指朝奈）<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.0/emojis/menhera/37.jpg" style=
+"height:60px;width:auto"></p>
+<a id="more"></a>
+<hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>$\LaTeX$的向量高度不统一好难看啊。。。（模仿<a href="https://www.cnblogs.com/shzr/p/12014963.html" target="_blank" rel="noopener">慎老师</a>）</p>
+<p>基础部分的代码是写笔记的时候直接打上去的，不保证没有手滑打错<del>甚至可能CE</del>，有锅的话请告诉我。</p>
+<hr>
+<h1 id="抄袭来源"><a href="#抄袭来源" class="headerlink" title="抄袭来源"></a>抄袭来源</h1><blockquote>
+<p>来自<a href="https://www.luogu.com.cn/blog/Tommyclas/#" target="_blank" rel="noopener">主席</a>的夏令营课件</p>
+<p><a href="https://www.cnblogs.com/lstoi/p/9791654.html" target="_blank" rel="noopener">https://www.cnblogs.com/lstoi/p/9791654.html</a></p>
+<p><a href="https://www.geogebra.org/graphing" target="_blank" rel="noopener">在线几何画板</a></p>
+<p><a href="https://www.cnblogs.com/shzr/p/12014963.html" target="_blank" rel="noopener">https://www.cnblogs.com/shzr/p/12014963.html</a></p>
+<p><a href="https://blog.csdn.net/Mr_HCW/article/details/82857715" target="_blank" rel="noopener">https://blog.csdn.net/Mr_HCW/article/details/82857715</a></p>
+<p><a href="https://blog.csdn.net/qq_40861916/article/details/83541403" target="_blank" rel="noopener">https://blog.csdn.net/qq_40861916/article/details/83541403</a></p>
+</blockquote>
+<hr>
+<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><p>终于（算是）整理完了。。。</p>
+<h2 id="精度问题"><a href="#精度问题" class="headerlink" title="精度问题"></a>精度问题</h2><p>计算几何的运算中会出现很大大大大的精度误差，要重新定义实数的比较运算：</p>
+<pre><code class="lang-cpp">const double eps = 1e-9;
+inline int cmp(double a,double b){return fabs(a-b)&lt;eps?0:a-b&lt;-eps?-1:1;}//0:a==b;-1:a&lt;b;1:a&gt;b
+</code></pre>
+<p>后来发现了一种绝妙的<code>cmp</code>写法：</p>
+<pre><code class="lang-cpp">inline int cmp(double a,double b){return (a-b&gt;eps)-(a-b&lt;-eps);}
+</code></pre>
+<p>你品，你细品。</p>
+<h2 id="点-向量"><a href="#点-向量" class="headerlink" title="点/向量"></a>点/向量</h2><h3 id="定义及四则运算"><a href="#定义及四则运算" class="headerlink" title="定义及四则运算"></a>定义及四则运算</h3><p>必修二基础知识。。。</p>
+<pre><code class="lang-cpp">struct point{
+    double x,y;
+    point(double X=0,double Y=0){x=X,y=Y;}
+    point operator + (point a){return point(x+a.x,y+a.y);}
+    point operator - (point a){return point(x-a.x,y-a.y);}
+    point operator * (double a){return point(x*a,y*a);}
+    point operator / (double a){return point(x/a,y/a);}
+};
+</code></pre>
+<p>以下均以$\vec{a},\vec{b}$举例，坐标分别为$(x_a,y_a),(x_b,y_b)$</p>
+<h3 id="点乘和叉乘"><a href="#点乘和叉乘" class="headerlink" title="点乘和叉乘"></a>点乘和叉乘</h3><p>点乘（$dot\ product$）不说了，以下用$\vec{a}\cdot \vec{b}$表示点乘。</p>
+<p>$\vec{a}\cdot\vec{b}=|a||b|\cos\langle\vec{a},\vec{b}\rangle=x_ax_b+y_ay_b$</p>
+<p>叉乘（$cross\ product$）用$\vec{a}\times\vec{b}$表示。</p>
+<p>$a\times b=|a||b|\sin\langle\vec{a},\vec{b}\rangle=x_ay_b-x_by_a$</p>
+<p>其含义简单地说，就是平行四边形定则中那个平行四边形（ABDC）的有向面积。$\vec{a}$在$\vec{b}$顺时针方向为正，否则为负。</p>
+<p><img src="/images/计算几何学习笔记-1.png" alt=""></p>
+<p>叉乘不满足结合律和交换律（交换时要取反：$\vec{a}\times\vec{b}=-\vec{b}\times\vec{a}$），但满足分配律。</p>
+<pre><code class="lang-cpp">inline double dot(point a,point b){return a.x*b.x+a.y*b.y;}
+inline double cross(point a,poit b){return a.x*b.y-a.y*b.x;}
+</code></pre>
+<p>点乘可以判断向量夹角情况：钝角小于$0$，锐角大于$0$。</p>
+<p>叉乘可以用于判断向量方向关系，大于$0$则$\vec{a}$在$\vec{b}$的顺时针方向，等于$0$共线，否则为逆时针。</p>
+<h3 id="夹角"><a href="#夹角" class="headerlink" title="夹角"></a>夹角</h3><p>计算$\vec{a}$和$\vec{b}$的夹角。</p>
+<p>$\vec{a}\cdot\vec{b}=|a||b|\cos\langle\vec{a},\vec{b}\rangle$</p>
+<p>$\vec{a}\times\vec{b}=|a||b|\sin\langle\vec{a},\vec{b}\rangle$</p>
+<p>$\tan\langle\vec{a},\vec{b}\rangle=\dfrac{\sin\langle\vec{a},\vec{b}\rangle}{\cos\langle\vec{a},\vec{b}\rangle}=\dfrac{\vec{a}\times\vec{b}}{\vec{a}\cdot\vec{b}}$</p>
+<pre><code class="lang-cpp">inline double angle(point a,point b){return atan2(cross(a,b),dot(a,b));}
+</code></pre>
+<p>注：<code>atan2</code>传入两个参数$y$和$x$，返回弧度制，范围$(-\pi,\pi]$。</p>
+<h3 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h3><p>将幅角为$\alpha$的$\vec{a}$旋转$\beta$度。</p>
+<p>$\vec{a}$一定能表示成$k(\cos\alpha,\sin\alpha)$。把$(\cos\alpha,\sin\alpha)$转过去再乘上$k$。</p>
+<p>即$k(\cos(\alpha+\beta),\sin(\alpha+\beta))=k(\cos\alpha\cos\beta-\sin\alpha\sin\beta,\sin\alpha\cos\beta+\cos\alpha\sin\beta)=(x_a\cos\beta-y_a\sin\beta,y_a\cos\beta+x_a\sin\beta)$</p>
+<pre><code class="lang-cpp">inline point rotate(point a,double b){return point(a.x*cos(b)-a.y*sin(b),a.y*cos(b)+a.x*sin(b));}
+</code></pre>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><pre><code class="lang-cpp">inline double abs2(point a){return a.x*a.x+a.y*a.y}//模长的平方
+inline double abs(point a){return sqrt(abs2(a));}//模长
+inline double unit(point a){return a/abs(a);}//单位向量
+inline double dis(point a,point b){return abs(a-b);}//距离
+inline double angle(point a){return atan2(a.y,a.x);}//幅角，也能用来求夹角
+</code></pre>
+<h2 id="直线-线段"><a href="#直线-线段" class="headerlink" title="直线/线段"></a>直线/线段</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>两点确定一条直线。</p>
+<pre><code class="lang-cpp">struct line{
+    point a,b;
+    line(point A=point(0,0),point B=point(0,0)){a=A,b=B;}
+}
+</code></pre>
+<h3 id="点线位置关系"><a href="#点线位置关系" class="headerlink" title="点线位置关系"></a>点线位置关系</h3><h4 id="点在直线上"><a href="#点在直线上" class="headerlink" title="点在直线上"></a>点在<strong>直线</strong>上</h4><p>判断$\overrightarrow{PA}$、$\overrightarrow{PB}$与直线围成的三角形面积是否为$0$，即$\overrightarrow{PA}\times\overrightarrow{PB}=0$</p>
+<pre><code class="lang-cpp">inline bool locate(point a,line b){return cmp(cross(b.a-a,b.b-a),0.0)==0;}
+</code></pre>
+<h4 id="点在线段上"><a href="#点在线段上" class="headerlink" title="点在线段上"></a>点在<strong>线段</strong>上</h4><p>和直线一样，但要判断坐标范围：</p>
+<pre><code class="lang-cpp">inline bool in(double a,double b,double c){return cmp(a,b)==0||cmp(a,c)==0||cmp(a,b)!=cmp(a,c);}
+inline bool in(point a,line b){return in(a.x,b.a.x,b.b.x)&amp;&amp;in(a.y,b.a.y,b.b.y);}
+</code></pre>
+<h3 id="线线位置关系"><a href="#线线位置关系" class="headerlink" title="线线位置关系"></a>线线位置关系</h3><h4 id="平行"><a href="#平行" class="headerlink" title="平行"></a>平行</h4><p>叉乘等于$0$。</p>
+<pre><code class="lang-cpp">inline bool par(line a,line b){return cmp(cross(a.a-a.b,b.a-b.b),0.0)==0;}
+</code></pre>
+<h4 id="垂直"><a href="#垂直" class="headerlink" title="垂直"></a>垂直</h4><p>点乘等于$0$。</p>
+<pre><code class="lang-cpp">inline bool ver(line a,line b){return cmp(dot(a.a-a.b,b.a-b.b),0,0)==0;}
+</code></pre>
+<h4 id="直线交点"><a href="#直线交点" class="headerlink" title="直线交点"></a>直线交点</h4><p><img src="/images/计算几何学习笔记-2.png" alt=""></p>
+<p>直线$P_1P_2$与$Q_1Q_2$交点为$C$。作$P_1A\perp Q_1Q_2,P_2B\perp Q_1Q_2$，垂足分别为$A,B$。连接$Q_2P_1,Q_2,P_2$。</p>
+<p>由三角形面积公式得$\dfrac{|\overrightarrow{P_1A}|}{|\overrightarrow{P_2B}|}=\dfrac{\overrightarrow{Q_2P_1}\times\overrightarrow{Q_2Q_1}}{\overrightarrow{Q_2P_2}\times\overrightarrow{Q_2Q_1}}$</p>
+<p>记$x=\overrightarrow{Q_2P_1}\times\overrightarrow{Q_2Q_1}$，$y=\overrightarrow{Q_2P_2}\times\overrightarrow{Q_2Q_1}$。</p>
+<p>由相似得$\dfrac{|\overrightarrow{P_1C}|}{|\overrightarrow{P_2C}|}=\dfrac{|\overrightarrow{P_1A}|}{|\overrightarrow{P_2B}|}=\dfrac{x}{y}$</p>
+<p>因为这几组模长的比例关系都是平行向量之间的比较，可以把绝对值去掉：</p>
+<p>$\dfrac{\overrightarrow{P_1C}}{\overrightarrow{P_2C}}=\dfrac{x}{y}$</p>
+<p>$\overrightarrow{P_2P_1}=\overrightarrow{P_2C}-\overrightarrow{P_1C}$</p>
+<p>解方程：$\overrightarrow{P_1C}=\dfrac{x}{y-x}\overrightarrow{P_2P_1}$</p>
+<p>$\vec{c}=\vec{p_1}+\overrightarrow{P_1C}$</p>
+<pre><code class="lang-cpp">inline point inter(line a,line b){
+    double x=cross(a.a-b.b,b.b-b.a),y=cross(a.b-b.b,b.b-b.a);
+    return a.a+(a.a-a.b)*x/(y-x);
+}
+</code></pre>
+<p>后来发现太丑了换了一种求法：</p>
+<p>首先，除了用两个点，直线还有一种表示方式：一个端点和方向向量。实际上这个方向向量就是两端点相减。</p>
+<p>假设直线$(P,\vec{a}),(Q,\vec{b})$交点为$C$。</p>
+<p>显然，我们可以用$P+t\vec{a}$来表示一个在直线上的点。</p>
+<p>设$C=P+t_1\vec{a}=Q+t_2\vec{b}$。</p>
+<p>大力列方程：</p>
+<p>$\begin{cases}x_C=x_P+t_1x_a=x_Q+t_2x_b\\y_C=y_P+t_1y_a=y_Q+t_2t_b\end{cases}$</p>
+<p>大力化式子：</p>
+<p>$t_1=\dfrac{x_by_P-x_Py_b+x_Qy_b-x_by_Q}{x_ay_b-x_by_a}$</p>
+<p>大力叉乘：</p>
+<p>$t_1=\dfrac{\vec{b}\times\vec{p}+\vec{q}\times\vec{b}}{\vec{a}\times\vec{b}}=\dfrac{\vec{b}\times(\vec{p}-\vec{q})}{\vec{a}\times\vec{b}}$</p>
+<pre><code class="lang-cpp">inline point inter(line a,line b){
+    point A=a.b-a.a,B=b.b-b.a;
+    return a.a+A*cross(B,a.a-b.a)/cross(A,B);
+}
+</code></pre>
+<h4 id="线段交点"><a href="#线段交点" class="headerlink" title="线段交点"></a>线段交点</h4><p>和直线一样，但是也要判断一下求出来的点是否在线段上。</p>
+<h3 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h3><h4 id="投影"><a href="#投影" class="headerlink" title="投影"></a>投影</h4><p><img src="/images/计算几何学习笔记-3.png" alt=""></p>
+<p>点$C$在$\overrightarrow{AB}$上的投影为$D$。</p>
+<p>$\overrightarrow{AC}\cdot\overrightarrow{AB}=|\overrightarrow{AD}||\overrightarrow{AB}|$</p>
+<p>$|\overrightarrow{AD}|=\dfrac{\overrightarrow{AC}\cdot\overrightarrow{AB}}{|\overrightarrow{AB}|}$</p>
+<p>转化$\overrightarrow{AD}$为其模长乘单位向量：</p>
+<p>$\overrightarrow{AD}=|\overrightarrow{AD}|\dfrac{\overrightarrow{AB}}{|\overrightarrow{AB}|}=\dfrac{(\overrightarrow{AB}\cdot\overrightarrow{AC})\overrightarrow{AB}}{|\overrightarrow{AB}|^2}$</p>
+<p>$\vec{d}=\vec{a}+\overrightarrow{AD}$</p>
+<pre><code class="lang-cpp">inline point project(point a,line b){
+    point AB=b.b-b.a;
+    return b.a+AB*dot(AB,a-b.a)/abs2(AB);
+}
+</code></pre>
+<h4 id="点到直线距离"><a href="#点到直线距离" class="headerlink" title="点到直线距离"></a>点到直线距离</h4><p>投个影求两点距离即可。</p>
+<pre><code class="lang-cpp">inline double dis(point a,line b){
+    point p=project(a,b);
+    return dis(a,p);
+}
+</code></pre>
+<h4 id="点到线段距离"><a href="#点到线段距离" class="headerlink" title="点到线段距离"></a>点到线段距离</h4><p>同上，判断一下投影是否在线段上，不在的话取两端点距离最小值。</p>
+<h4 id="直线到直线距离"><a href="#直线到直线距离" class="headerlink" title="直线到直线距离"></a>直线到直线距离</h4><p>先判断是否平行，不平行距离为$0$；否则任取一点计算到另一条直线的距离。</p>
+<pre><code class="lang-cpp">inline double dis(line a,line b){
+    if(!par(a,b))return 0;
+    return dis(a.a,b);    
+}
+</code></pre>
+<h4 id="线段到线段距离"><a href="#线段到线段距离" class="headerlink" title="线段到线段距离"></a>线段到线段距离</h4><p>判断平行，不平行的话要把不属于同一线段的端点距离都算一遍，取最小值。</p>
+<h2 id="多边形"><a href="#多边形" class="headerlink" title="多边形"></a>多边形</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p><code>vector</code>存储即可。</p>
+<pre><code class="lang-cpp">typedef vector&lt;point&gt; polygon;
+</code></pre>
+<p>为了方便下面计算，要求按逆时针方向存储各顶点。</p>
+<h3 id="面积"><a href="#面积" class="headerlink" title="面积"></a>面积</h3><p>先考虑原点在多边形内部的情况：</p>
+<p><img src="/images/计算几何学习笔记-4.png" alt=""></p>
+<p>把多边形分成若干个三角形，容易看出每个三角形的面积就是相邻两点叉乘的一半。</p>
+<p>如果原点不在多边形内部呢？</p>
+<p><img src="/images/计算几何学习笔记-5.png" alt=""></p>
+<p>在计算下面$\overrightarrow{OA},\overrightarrow{OB},\overrightarrow{OC}$之间的叉乘时，因为和上面的方向相反，正好把多出来的白色部分减掉了，所以一样适用。</p>
+<p>顺便发现了一种不用取模或特判的循环方法：</p>
+<pre><code class="lang-cpp">inline double area(const polygon &amp;a){
+    double ans=0;
+    for(register int i=0,j=a.size()-1;i&lt;a.size();j=i++)ans+=cross(a[j],a[i]);
+    return ans/2;
+}
+</code></pre>
+<h3 id="点在多边形内部"><a href="#点在多边形内部" class="headerlink" title="点在多边形内部"></a>点在多边形内部</h3><p>网上基本都是水平向左引一条射线判断与多边形交点数的奇偶。但这样还要处理过顶点之类的特殊情况。在「算法竞赛·入门经典」上看到一种不用特判的方法。</p>
+<p>水平向右引一条射线，正穿过一条边加1，反穿过一条边减1，最后如果和为$0$，说明不在多边形上。</p>
+<p>判断正穿和反穿：</p>
+<p><img src="/images/计算几何学习笔记-11.png" alt=""></p>
+<ul>
+<li>左边情况：$\overrightarrow{OJ}\times\overrightarrow{JI}&lt;0,y_O\in[y_I,y_J]$</li>
+<li>右边情况：$\overrightarrow{OJ’}\times\overrightarrow{OI’}&gt;0,y_O\in[y_{J’},y_{I’}]$。</li>
+</ul>
+<pre><code class="lang-cpp">inline int contain(point a,polygon &amp;b){
+    int cnt=0;
+    for(register int i=0,j=b.size()-1;i&lt;b.size();j=i++){
+        if(locate(a,line(b[i],b[j])))return -1;//在多边形边界上
+        if(cmp(a.y,b[j].y)==cmp(a.y,b[i].y))continue;
+        double k=cross(b[j]-a,b[i]-b[j]);
+        if(k&lt;0&amp;&amp;cmp(a.y,b[i].y)&gt;=0)++cnt;
+        else if(k&gt;0&amp;&amp;cmp(a.y,b[j].y)&gt;=0)--cnt;
+    }
+    return (bool)cnt;
+}
+</code></pre>
+<h3 id="重心"><a href="#重心" class="headerlink" title="重心"></a>重心</h3><p><del>直接背过吧</del></p>
+<p>分成若干三角形，记$S_i$为第$i$个三角形的有向面积，$(x_i,y_i)$为第$i$个三角形的重心。</p>
+<p>$x=\dfrac{\sum S_ix_i}{\sum S_i},y=\dfrac{\sum S_iy_i}{\sum S_i}$</p>
+<p>三角形$(x_1,y_1)-(x_2,y_2)-(x_3,y_3)$的重心：</p>
+<p>$\left(\dfrac{x_1+x_2+x_3}{3},\dfrac{y_1+y_2+y_3}{3}\right)$</p>
+<pre><code class="lang-cpp">inline point center(const polygon &amp;a){
+    double S=0.0,x=0.0,y=0.0;
+    for(register int i=0,j=a.size()-1;i&lt;a.size();j=i++){
+        double s=cross(a[i],a[j]);
+        S+=s,x+=s*(a[i].x+a[j].x)/3,y+=s*(a[i].y+a[j].y)/3;
+    }
+    return point(x/S,y/S);
+}
+</code></pre>
+<h2 id="圆"><a href="#圆" class="headerlink" title="圆"></a>圆</h2><h3 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h3><p>圆心与半径。</p>
+<pre><code class="lang-cpp">struct circle{
+    point c;
+    double r;
+    circle(point C=point(0,0),double R=0){c=C,r=R;}
+};
+</code></pre>
+<h3 id="三点定圆"><a href="#三点定圆" class="headerlink" title="三点定圆"></a>三点定圆</h3><p>众所周知，不共线的三个点确定一个圆。</p>
+<p>用平面几何可以搞。做两条中垂线算交点即为圆心，算个距离就是半径。</p>
+<p>但这样涉及到旋转、交点和距离，比较繁琐，常数和精度不够优秀。考虑用解析几何。</p>
+<p>设三个点分别为$(x_1,y_1),(x_2,y_2),(x_3,y_3)$，圆的圆心为$(x_0,y_0)$，方程为$(x-x_0)^2+(y-y_0)^2=r^2$。</p>
+<p>直接把三个点带进去，大力搞方程组。解方程的过程太复杂直接说结论了：</p>
+<p>令</p>
+<p>$a=x_1^2-x_2^2+y_1^2-y_2^2$</p>
+<p>$b=x_2^2-x_3^2+y_2^2-y_3^2$</p>
+<p>$c=x_1-x_2$</p>
+<p>$d=y_1-y_2$</p>
+<p>$e=x_2-x_3$</p>
+<p>$f=y_2-y_3$</p>
+<p>$x_0=\dfrac{af-bd}{2(cf-de)}$</p>
+<p>$y_0=\dfrac{bc-ae}{2(cf-de)}$</p>
+<p>最后带回去算$r$即可。</p>
+<pre><code class="lang-cpp">    circle(point A,point B,point C){
+#define sqr(x) ((x)*(x))
+        double a=sqr(A.x)-sqr(B.x)+sqr(A.y)-sqr(B.y),b=sqr(B.x)-sqr(C.x)+sqr(B.y)-sqr(C.y),_c=A.x-B.x,d=A.y-B.y,e=B.x-C.x,f=B.y-C.y,m=2*(_c*f-d*e);
+        c=point((a*f-b*d)/m,(b*_c-a*e)/m);
+        r=sqrt(sqr(A.x-c.x)+sqr(A.y-c.y));
+#undef sqr
+    }
+</code></pre>
+<h3 id="切线"><a href="#切线" class="headerlink" title="切线"></a>切线</h3><p><img src="/images/计算几何学习笔记-6.png" alt=""></p>
+<p>根据点到圆心距离和半径用反三角函数能算出来$\left\langle\overrightarrow{AC},\overrightarrow{AB}\right\rangle$，把$\overrightarrow{AC}$转一下即可。</p>
+<pre><code class="lang-cpp">inline line tangent(point a,circle b){
+    double d=dis(a,b.c);
+    return line(rotate(b.c-a,asin(b.r/d))+a,a);
+    //另一条切线就是-asin
+}
+</code></pre>
+<h3 id="圆和直线的交点"><a href="#圆和直线的交点" class="headerlink" title="圆和直线的交点"></a>圆和直线的交点</h3><p>比较圆心到直线的距离和半径的关系判断有没有交。</p>
+<p><img src="/images/计算几何学习笔记-7.png" alt=""></p>
+<p>一看就是有垂径定理了，作$A$在$CD$上的投影$H$。</p>
+<p>根据勾股定理，$|HF|=\sqrt{|AF|^2-|AH|^2}=\sqrt{r^2-|AH|^2}$。</p>
+<p>$\overrightarrow{HF}=|HF|\dfrac{\overrightarrow{CD}}{|CD|}$</p>
+<p>$\vec{f}=\vec{h}+\overrightarrow{HF}$</p>
+<pre><code class="lang-cpp">inline point inter(line a,circle b){
+    point h=project(b.c,a);
+    return h+(a.b-a.a)*sqrt((b.r*b.r-abs2(b.c-h))/abs2(a.b-a.a));
+    //另一个交点就是h-...
+}
+</code></pre>
+<h3 id="圆和圆的交点"><a href="#圆和圆的交点" class="headerlink" title="圆和圆的交点"></a>圆和圆的交点</h3><p>比较圆心的距离和半径之和的关系判断有没有交。</p>
+<p><img src="/images/计算几何学习笔记-8.png" alt=""></p>
+<p>根据余弦定理：</p>
+<p>$|BE|^2=|AE|^2+|AB|^2-2|AB||AE|\cos\left\langle\overrightarrow{AB},\overrightarrow{AE}\right\rangle$</p>
+<p>$\left\langle\overrightarrow{AB},\overrightarrow{AE}\right\rangle=\arccos\left(\dfrac{|AE|^2+|AB|^2-|BE|^2}{2|AB||AE|}\right)=\arccos\left(\dfrac{r_1^2-r_2^2+|AB|^2}{2r_1|AB|}\right)$</p>
+<p>旋转一下$\overrightarrow{AB}$，乘上$\dfrac{|AE|}{|AB|}$得到$\overrightarrow{AE}$。</p>
+<pre><code class="lang-cpp">inline point inter(circle a,circle b){
+    double d=dis(a.c,b.c);
+    return rotate(b.c-a.c,acos((a.r*a.r-b.r*b.r+d*d)/(2.0*a.r*d)))*a.r/d+a.c;
+    //另一个交点就是-acos
+}
+</code></pre>
+<h3 id="外公切线"><a href="#外公切线" class="headerlink" title="外公切线"></a>外公切线</h3><p><del>GeoGebra画不了公切线将就着看吧</del></p>
+<p><img src="/images/计算几何学习笔记-9.png" alt=""></p>
+<p>作$BC\perp AE$于$C$。</p>
+<p>用反三角函数能得到$\left\langle\overrightarrow{AB},\overrightarrow{AE}\right\rangle$，旋转$\overrightarrow{AB}$，乘上$\dfrac{r_1}{|AB|}$就能得到$\overrightarrow{AE}$，进而得到$\vec{e}$。</p>
+<p>同理能得出$\vec{f}$。</p>
+<pre><code class="lang-cpp">const double pi = acos(-1);
+inline line ex_common_tangent(circle a,circle b){
+    point AB=b.c-a.c;
+    double d=abs(AB),an=acos((a.r-b.r)/d);
+    return line(point(a.c+rotate(AB,an)*a.r/d),point(b.c+rotate(a.c-b.c,an-pi)*b.r/d));
+    //把旋转角度都取反得到另一条外公切线
+}
+</code></pre>
+<h3 id="内公切线"><a href="#内公切线" class="headerlink" title="内公切线"></a>内公切线</h3><p><img src="/images/计算几何学习笔记-10.png" alt=""></p>
+<p>和外公切线差不多。</p>
+<p>作$AH\perp BF$延长线于$H$。</p>
+<p>用反三角函数得到$\left\langle\overrightarrow{BA},\overrightarrow{BH}\right\rangle=\left\langle\overrightarrow{AB},\overrightarrow{AE}\right\rangle$，把$\overrightarrow{AB}$转到$\overrightarrow{AE}$乘上$\dfrac{r_1}{|AB|}$得到$\overrightarrow{AE}$，进而得到$\vec{e}$，同理得到$\vec{f}$。</p>
+<p>代码和外公切线的区别只有<code>a.r-b.r</code>改成<code>a.r+b.r</code>和<code>an-pi</code>改成<code>an</code>。</p>
+<pre><code class="lang-cpp">inline line in_common_tangent(circle a,circle b){
+    point AB=b.c-a.c;
+    double d=abs(AB),an=acos((a.r+b.r)/d);
+    return line(point(a.c+rotate(AB,an)*a.r/d),point(b.c+rotate(a.c-b.c,an)*b.r/d));
+    //旋转角度都取反得到另一条内公切线
+}
+</code></pre>
+<hr>
+<h1 id="二维凸包"><a href="#二维凸包" class="headerlink" title="二维凸包"></a><a href="https://www.luogu.com.cn/problem/P2742" target="_blank" rel="noopener">二维凸包</a></h1><p>凸包就是平面上有一堆点，把最外围的点连成一个凸多边形，框起来这些点。</p>
+<p><img src="/images/计算几何学习笔记-12.png" alt=""></p>
+<p>这里是一种不正经的方法求凸包<del>说不定哪天就翻车了</del>，想学正经的Andrew算法的另寻大佬吧。</p>
+<p>如果学过斜率优化$DP$的话甚至可以自己$yy$出来。对这些点求一个上凸壳和一个下凸壳拼起来即可。</p>
+<p>上凸壳就是维护一个相邻点构成的直线斜率递减的点集，下凸壳则是递增的。不过这里我们还有chuan新的判断方式：计算差积判断方向。</p>
+<p>和斜率优化一样，以横坐标为第一关键字、纵坐标为第二关键字排序，用单调栈维护凸壳。</p>
+<p>找上凸壳的时候可以倒着再求一遍下凸壳，避免重新排序。</p>
+<p>之后我们会发现一个问题：上凸壳和下凸壳的点可能会有交集。</p>
+<p>这样常数大了，有的时候还会导致求某些东西的时候出锅。需要再对凸包上的点去重。</p>
+<pre><code class="lang-cpp">struct point{
+    double x,y;
+    point(double X=0.0,double Y=0.0){x=X,y=Y;}
+    point operator + (const point &amp;a){return point(x+a.x,y+a.y);}
+    point operator - (const point &amp;a){return point(x-a.x,y-a.y);}
+    bool operator &lt; (const point &amp;a)const{return x==a.x?y&lt;a.y:x&lt;a.x;}
+    bool operator != (const point &amp;a){return x!=a.x||y!=a.y;}
+}p[maxn],sta[maxn],u[maxn];
+typedef vector&lt;point&gt; polygon;
+int top;
+polygon v;
+inline int cmp(double a,double b){return fabs(a-b)&lt;eps?0:a-b&gt;eps?1:-1;}
+inline double abs(const point &amp;a){return a.x*a.x+a.y*a.y;}
+inline double abs2(const point &amp;a){return sqrt(abs(a));}
+inline double dis(point a,point b){return abs2(a-b);}
+inline double cross(const point &amp;a,const point &amp;b){return a.x*b.y-a.y*b.x;}
+int main(){
+    int n=read(),cnt=0;
+    double ans=0.0;
+    for(register int i=1;i&lt;=n;++i)scanf(&quot;%lf%lf&quot;,&amp;p[i].x,&amp;p[i].y);
+    sort(p+1,p+1+n);
+    for(register int i=1;i&lt;=n;++i){
+        while(top&gt;1&amp;&amp;cmp(cross(p[i]-sta[top],sta[top]-sta[top-1]),0)&gt;=0)--top;
+        sta[++top]=p[i];
+    }
+    for(register int i=1;i&lt;=top;++i)u[i]=sta[i];
+    cnt=top,top=0;
+    for(register int i=n;i;--i){
+        while(top&gt;1&amp;&amp;cmp(cross(p[i]-sta[top],sta[top]-sta[top-1]),0)&gt;=0)--top;
+        sta[++top]=p[i];
+    }
+    for(register int i=1;i&lt;=top;++i)u[++cnt]=sta[i];
+    for(register int i=1,j=cnt;i&lt;=cnt;j=i++)if(u[i]!=u[j])v.push_back(u[i]);
+    for(register int i=0,j=v.size()-1;i&lt;v.size();j=i++)ans+=dis(v[i],v[j]);
+    printf(&quot;%.2lf\n&quot;,ans);
+}
+</code></pre>
+<hr>
+<h1 id="旋转卡壳"><a href="#旋转卡壳" class="headerlink" title="旋转卡壳"></a><a href="https://www.luogu.com.cn/problem/P1452" target="_blank" rel="noopener">旋转卡壳</a></h1><p>考虑怎么找到一个点的最远点。</p>
+<p><img src="/images/计算几何学习笔记-13.png" alt=""></p>
+<p>过点$A$作一条直线（不能与凸包内有交），再过另一个点作一条平行线，使两条直线距离最大，这个点（$E$）就是最远点了。这两个点就叫对踵点。</p>
+<p>不过随便作一条直线的话好像不太好找，让这条直线过凸包的一条边：</p>
+<p><img src="/images/计算几何学习笔记-14.png" alt=""></p>
+<p>这时通过计算三角形的面积，即通过叉乘，就能判断平行线之间的距离了：</p>
+<p><img src="/images/计算几何学习笔记-15.png" alt=""></p>
+<p>而且，观察一下会发现，这个面积是一个单峰函数。</p>
+<p>于是依次遍历每条边，让最远点跟着动。剽张<code>gif</code>：</p>
+<p><img src="/images/计算几何学习笔记-16.gif" alt=""></p>
+<p>代码很简短：</p>
+<pre><code class="lang-cpp">    if(c.size()==2){printf(&quot;%d\n&quot;,abs2(c[0]-c[1]));return 0;}//特判两个点
+    int k=1,ans=0;
+    for(register int i=0,j=c.size()-1;i&lt;c.size();++i,j=i++){
+        while(cross(c[i]-c[j],c[k]-c[j])&lt;cross(c[i]-c[j],c[(k+1)%c.size()]-c[j]))k=(k+1)%c.size();
+        ans=max(max(ans,abs2(c[i]-c[j])),max(abs2(c[k]-c[i]),abs2(c[k]-c[j])));
+    }
+    printf(&quot;%d\n&quot;,ans);
+</code></pre>
+<hr>
+<h1 id="半平面交"><a href="#半平面交" class="headerlink" title="半平面交"></a><a href="https://www.luogu.com.cn/problem/P4196" target="_blank" rel="noopener">半平面交</a></h1><p>什么是半平面交？</p>
+<p>一条<strong>有向直线</strong>左侧的平面称为<strong>半平面</strong>。顾名思义，半平面交就是若干条有向直线的半平面的交集。</p>
+<p><img src="/images/计算几何学习笔记-17.png" alt=""></p>
+<p>朴素的求法是$O(n^2)$的，维护当前的半平面交，枚举直线切割半平面交，如果能缩小交集就加入，再删去无用直线。</p>
+<p>定义一条有向直线的极角为其与$x$轴正半轴夹角。</p>
+<p>优化朴素算法，要先按极角排序<del>本来求凸包要用极角排序的，但是我求凸包的方法太鬼畜了结果拖到这里</del></p>
+<p>用双端队列维护若干条直线表示当前半平面交。加入一条直线，分别在队尾和队首把无用的直线弹掉：</p>
+<p><img src="/images/计算几何学习笔记-18.png" alt=""></p>
+<p>加入绿色直线后，蓝色直线就无用了。得到判断方式为：只要队尾和队尾前一条直线的交点在新直线右侧（判断左右用叉乘），队尾就无用。队首同理。</p>
+<p>把新直线压到队尾。最后双端队列中相邻元素求交点得到的凸多边形就是半平面交。</p>
+<p>再有两个细节：</p>
+<p>一个是极角排序时，如果有几条直线极角相同，要仅保留最靠左的直线。不然求交点会炸。</p>
+<p>另一个是求完半平面交之后，双端队列里可能会出现这种东西：</p>
+<p><img src="/images/计算几何学习笔记-19.png" alt=""></p>
+<p>两条红色直线是最后加入双端队列的，但它们都没有用。而且如果模拟一下上面的过程，这种直线的出现是合情合理的。</p>
+<p>如果再加一条直线呢？</p>
+<p><img src="/images/计算几何学习笔记-20.png" alt=""></p>
+<p>如果是绿/紫色位置（新直线无用），要么红色直线被判为无用弹出，要么只把新直线压进去；如果是棕色位置（新直线有用），红色直线必定被弹出。</p>
+<p>所以这种直线一定都堆积在队尾。求完半平面交后，检查一下队尾两条直线交点和队首直线的关系即可。</p>
+<p>复杂度瓶颈在排序，$O(n\log n)$的。</p>
+<pre><code class="lang-cpp">inline bool mmp(line &amp;a,line &amp;b){
+    int k=cmp(angle(a),angle(b));
+    if(!k)return cmp(cross(b.b-a.a,b.a-a.a),0)==-1;
+    return k==-1;
+}
+inline bool judge(point &amp;a,line &amp;b){return cmp(cross(b.b-a,b.a-a),0)==1;}
+point p[maxn];
+line l[maxn],q[maxn];
+polygon v;
+int main(){
+    int n=read(),h=1,t=0,cnt=0;
+    while(n--){
+        v.clear();
+        int m=read();
+        point p;
+        while(m--)p.x=read(),p.y=read(),v.push_back(p);
+        for(register int i=0,j=v.size()-1;i&lt;v.size();j=i++)l[++cnt]=line(v[j],v[i]);
+    }
+    sort(l+1,l+1+cnt,mmp);
+    for(register int i=1;i&lt;=cnt;++i){
+        if(i!=1&amp;&amp;!cmp(angle(l[i]),angle(l[i-1])))continue;
+        while(t-h&gt;=1&amp;&amp;judge(p[t],l[i]))--t;
+        while(t-h&gt;=1&amp;&amp;judge(p[h+1],l[i]))++h;
+        q[++t]=l[i];
+        if(t-h&gt;=1)p[t]=inter(q[t],q[t-1]);
+    }
+    v.clear();
+    while(t-h&gt;=1&amp;&amp;judge(p[t],q[h]))--t;
+    v.push_back(inter(q[h],q[t]));
+    for(register int i=h+1;i&lt;=t;++i)v.push_back(p[i]);
+    printf(&quot;%.3lf\n&quot;,area(v));
+}
+</code></pre>
+<p>板子的性质比较好，没有特殊情况。</p>
+<p>如果半平面交不是个封闭图形呢？</p>
+<p>强行用一个极大的矩形规定坐标范围（超过题目给定坐标范围），加进半平面交里即可。</p>
+<p>如果半平面交是空集呢？</p>
+<p>此时队列元素个数不超过2。因为前面用一个大矩形框了起来，所以只要存在半平面交，一定有至少三条直线。</p>
+<p>还有一道<a href="https://www.luogu.com.cn/problem/P2283" target="_blank" rel="noopener">双倍经验</a>。实际上这样能无死角看到整个多边形的区域就是半平面交，被称为多边形的核。</p>
+<hr>
+<h1 id="最小圆覆盖"><a href="#最小圆覆盖" class="headerlink" title="最小圆覆盖"></a>最小圆覆盖</h1><p><a href="https://www.luogu.com.cn/problem/P1742" target="_blank" rel="noopener">板子</a> <a href="https://www.luogu.com.cn/problem/P2533" target="_blank" rel="noopener">双倍经验</a></p>
+<p>给出平面上的$n$个点，求一个最小的圆使其覆盖所有的点。</p>
+<p>这个要用<strong>随机增量法</strong>。</p>
+<p>不难发现一个结论：<strong>如果点集$S$的最小覆盖圆没有覆盖到$P$，则$P$一定在$S\cup\{P\}$的最小覆盖圆上</strong>。</p>
+<p>根据这个，我们可以得到一个复杂度不靠谱的解法：</p>
+<ul>
+<li>遍历一遍点集，维护前$i-1$个点的最小覆盖圆作为当前答案（记为$ans$）</li>
+<li>如果$P_i$没有被$ans$覆盖，则根据上面的结论，更新$ans$为以$P_i$为圆心、半径为$0$的圆，遍历前$i-1$个点（假设当前遍历到了$P_j$）</li>
+<li>如果$P_j$没有被$ans$覆盖，更新$ans$为以$P_i,P_j$中点为圆心，半径为$\frac{dis(P_i,P_j)}{2}$的圆，遍历前$j-1$个点（假设当前遍历到了$P_k$）</li>
+<li>如果$P_k$没有被$ans$覆盖，此时我们就得到了$P_i,P_j,P_k$三个位于当前点集最小覆盖圆上的点，三点定圆更新$ans$</li>
+</ul>
+<p>乍一看是$O(n^3)$的，既然是<strong>随机</strong>增量法，先<code>random_shuffle</code>打乱点集。</p>
+<ul>
+<li>第一层遍历：根据三点定圆，$P_i$有$\frac{3}{i}$的概率在前$i$个点的最小覆盖圆上，进入第二层遍历。</li>
+<li>第二层遍历：遍历到$P_j$时，实际上是在求$\{P_i\}\cup\{P_x|x\le j\}$的最小覆盖圆，点集大小为$j+1$，$P_j$有$\frac{3}{j}$的概率被选中，进入第三层遍历。</li>
+<li>第三层遍历的复杂度显然是点集大小的。</li>
+</ul>
+<p>于是得到：</p>
+<p>$T_1(n)=O(n)+\sum\limits_{i=1}^n\dfrac{3}{i}T_2(i)$</p>
+<p>$T_2(n)=O(n)+\sum\limits_{i=1}^n\dfrac{3}{i}T_3(i)$</p>
+<p>$T_3(n)=O(n)$</p>
+<p>所以期望复杂度是$O(n)$的。</p>
+<pre><code class="lang-cpp">point p[maxn];
+circle ans;
+inline bool contain(point &amp;a,circle &amp;b){return cmp(abs2(a-b.c),b.r*b.r)&lt;=0;}
+int main(){
+    int n=read();
+    for(register int i=1;i&lt;=n;++i)scanf(&quot;%Lf%Lf&quot;,&amp;p[i].x,&amp;p[i].y);
+    random_shuffle(p+1,p+1+n);
+    for(register int i=1;i&lt;=n;++i){
+        if(!contain(p[i],ans)){
+            ans=circle(p[i],0);
+            for(register int j=1;j&lt;i;++j)
+                if(!contain(p[j],ans)){
+                    ans=circle((p[i]+p[j])/2,dis(p[i],p[j])/2);
+                    for(register int k=1;k&lt;j;++k)
+                        if(!contain(p[k],ans))ans=circle(p[i],p[j],p[k]);
+                }
+        }
+    }
+    printf(&quot;%.10Lf\n%.10Lf %.10Lf\n&quot;,ans.r,ans.c.x,ans.c.y);
+}
+</code></pre>
+<hr>
+<h1 id="水题"><a href="#水题" class="headerlink" title="水题"></a>水题</h1><h2 id="信用卡凸包"><a href="#信用卡凸包" class="headerlink" title="信用卡凸包"></a><a href="https://www.luogu.com.cn/problem/P3829" target="_blank" rel="noopener">信用卡凸包</a></h2><p>显然凸包上的圆弧加起来是个整圆，对所有圆心求凸包即可。</p>
+<h2 id="最大土地面积"><a href="#最大土地面积" class="headerlink" title="最大土地面积"></a><a href="https://www.luogu.com.cn/problem/P4166" target="_blank" rel="noopener">最大土地面积</a></h2><p>显然答案一定是在凸包上的四个点。</p>
+<p>枚举对角线，然后四边形的面积就被分成两个三角形。和旋转卡壳一样，这两个三角形的面积都是单峰函数，于是再维护两个指针跟着对角线走即可。$O(n^2)$可过。</p>
+<h2 id="最小矩形覆盖"><a href="#最小矩形覆盖" class="headerlink" title="最小矩形覆盖"></a><a href="https://www.luogu.com.cn/problem/P3187" target="_blank" rel="noopener">最小矩形覆盖</a></h2><p>先求个凸包。</p>
+<p>猜一下结论，矩形的一条边一定和凸包的一条边重合。</p>
+<p>感觉挺对的，那我们枚举这条边就行了，其对边显然过对踵点。而邻边也一定过凸包上的点，维护一下这两个点，旋转卡壳的时候跟着动就行了。</p>
+<p>计算面积和求矩形投影旋转啥的就行了。</p>
+<h2 id="射箭"><a href="#射箭" class="headerlink" title="射箭"></a><a href="https://www.luogu.com.cn/problem/P3222" target="_blank" rel="noopener">射箭</a></h2><p>二分答案。</p>
+<p>观察限制$ax^2+bx\in [y_1,y_2]$，化简为$ax+b\in [\frac{y_1}{x},\frac{y_2}{x}]$。</p>
+<p>把$a$看作自变量，$b$看作因变量，那么形如$ax+b\le c$或$ax+b\ge c$实际上是一个半平面。判断一下半平面交是否为空即可。</p>
+<p>我们需要用一个极大的矩形框起来坐标系，同时由于抛物线在第一象限，有一个潜在的条件$a\lt0,b\gt0$，所以选择第二象限的矩形。</p>
+<p>提前排好序就能$O(n\log n)$了。</p>
+<p>最后，为<del>丧心病狂卡精度卡常的</del>出题人献上祝福：</p>
+<pre><code class="lang-cpp">#define double long double
+const double eps = 1e-18;
+const double inf = 1e10;
+</code></pre>
+<h2 id="数矩形"><a href="#数矩形" class="headerlink" title="数矩形"></a><a href="https://www.luogu.com.cn/problem/P3217" target="_blank" rel="noopener">数矩形</a></h2><p>可以证明，矩形个数上界为$O(n^{2.5})$。</p>
+<p>根据矩形对角线等长同中点，对$C_n^2$条线段排序暴力枚举即可。</p>
+<h2 id="瞭望塔"><a href="#瞭望塔" class="headerlink" title="瞭望塔"></a><a href="https://www.luogu.com.cn/problem/P2600" target="_blank" rel="noopener">瞭望塔</a></h2><p>先求出来多边形的核。然后是一个结论：瞭望塔的位置一定在半平面交或地形的一个端点上。</p>
+<p>证明很简单，把半平面交和地形的端点抠出来，横坐标相邻的放一块，截取中间的半平面交和地形，一定是上下两条线段。</p>
+<p>分类讨论一下，无非是斜率一个大一个小。如果上面的斜率大，在线段上任意一点一定不如左端点；反之为右端点。</p>
+<h2 id="赛车"><a href="#赛车" class="headerlink" title="赛车"></a><a href="https://www.luogu.com.cn/problem/P3256" target="_blank" rel="noopener">赛车</a></h2><p>很裸的半平面交。由于时间是正数，要用一个$y$轴负半轴方向的向量限制一下。</p>
+<h2 id="小凸想跑步"><a href="#小凸想跑步" class="headerlink" title="小凸想跑步"></a><a href="https://www.luogu.com.cn/problem/P4250" target="_blank" rel="noopener">小凸想跑步</a></h2><p><a href="/2020/02/28/洛谷-P4250-SCOI2015-小凸想跑步/">题解</a></p>
+<h2 id="信号增幅仪"><a href="#信号增幅仪" class="headerlink" title="信号增幅仪"></a><a href="https://www.luogu.com.cn/problem/P4288" target="_blank" rel="noopener">信号增幅仪</a></h2><p>把$x$轴逆时针旋转$a^\circ$（也就是把所有点旋转$-a^\circ$），再把所有点的横坐标缩小至$\frac{1}{p}$倍，就是最小圆覆盖了。</p>
+<h2 id="最小覆盖双圆问题"><a href="#最小覆盖双圆问题" class="headerlink" title="最小覆盖双圆问题"></a><a href="https://www.luogu.com.cn/problem/P4586" target="_blank" rel="noopener">最小覆盖双圆问题</a></h2><p><a href="/2020/03/04/洛谷-P4586-FJOI2015-最小覆盖双圆问题/">题解</a></p>
+
+            
+        </div>
+      </article>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/01/20/Vim%E3%81%AE%E4%B8%B4%E6%97%B6%E9%85%8D%E7%BD%AE&linux%E5%AF%B9%E6%8B%8D/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.4/vimdlspzlinuxdp.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.4/vimdlspzlinuxdp.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                Vimの临时配置&amp;Linux对拍</h3>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2020/01/15/%E6%B4%9B%E8%B0%B7-P5504-JSOI2011-%E6%9F%A0%E6%AA%AC/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.3/nm.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.3/nm.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                洛谷 P5504 [JSOI2011]柠檬</h3>
+              </div> 
+            </a>
+			</div>
+        
+      </section> 
+    </main>
+</div>
+</div>
+</div>
+<div class="gather">
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz",
+        appKey: "jqULEjwlbvOCM08eEOpTIGOI",
+        path: window.location.pathname,
+		visitor: true,
+        placeholder: "日々私たちが过ごしている日常は、実は奇迹の连続なのかもしれない。"
+      })
+  }
+</script>
+
+</div>
+
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+
+<script>
+function imgInit(){
+	var imgs=document.getElementsByClassName('entry-content').item(0).getElementsByTagName('img');
+	for(var i=0;i<imgs.length;++i){
+		var element = document.createElement("a"),record=imgs[i],dsrc=record.getAttribute("data-src");
+		element.setAttribute("data-fancybox","gallery");
+    element.setAttribute("href",dsrc||imgs[i].src);
+		element.setAttribute("id","escape-link");
+		imgs[i].parentNode.appendChild(element);
+		imgs[i].parentNode.removeChild(imgs[i]);
+		element.appendChild(record);
+	}
+}
+var spoiler=document.getElementsByClassName('spoiler');
+for(var i=0;i<spoiler.length;++i)
+spoiler[i].onclick=function(){this.classList.toggle("revealed");};
+imgInit();
+</script>
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.6.7/articleload.gif">
+      </div>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Github Pages</a>
+        </span>
+		<!-- <span style="color: #b9b9b9;display:block">图片外链由<a href="https://img.fghrsh.net/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">FGHRSH图床</a>提供 -->
+        <!-- </span> -->
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.4/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.2/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<!-- <script src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/valine.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.1.4/js/volantis.min.js"></script>
+<script type="text/javascript">
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { 
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;ww">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">猛男必刷——「みずしろごちうさクイズ」14题题解 | ctz&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/googlefont.css" media="all">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_ndnjfmz11y9.css">
+  <style>
+  .emoji-coda {
+      display: inline-block !important;
+      position: relative;
+      width: 47px;
+      top: 2px;
+      margin: -3px 3px !important;
+      padding: 0;
+  }
+  </style>
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "ctz's blog";
+  mashiro_option.author_name = "ctz's blog";
+  mashiro_option.site_url = "https://ctz45562.github.io";
+  mashiro_option.v_appId = "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz";
+  mashiro_option.v_appKey = "jqULEjwlbvOCM08eEOpTIGOI";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index1.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index2.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index3.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index4.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index5.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index6.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index7.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.4/index8.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.9/index9.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
+    @import url("/code.css");
+  </style>
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed;bottom:64px;left:28px;"> 
+  <div class="theme-controls row-container"> 
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> background <i style="color:grey" class="fa fa-chevron-right"></i></p>
+    <ul class="menu-list"> 
+	  <li id="white-bg"> 
+	    <i class="fa fa-television">
+		</i>
+	  </li> 
+	<li id="sakura-bg"> 
+      <i class="iconfont icon-sakura">
+	  </i>
+	</li> 
+    <li id="gribs-bg"> 
+      <i class="fa fa-slack">
+	  </i>
+    </li> 
+    <li id="KAdots-bg"> 
+      <i class="iconfont icon-dots">
+      </i>
+    </li> 
+    <li id="totem-bg"> 
+      <i class="fa fa-optin-monster">
+      </i>
+    </li> 
+    <li id="pixiv-bg"> 
+      <i class="fa fa-star">
+	  </i>
+      </li> 
+    <li id="bing-bg"> 
+      <i class="fa fa-picture-o">
+	  </i>
+    </li> 
+    <li id="dark-bg"> 
+      <i class="fa fa-moon-o">
+      </i>
+    </li> 
+  </ul> 
+  </div > 
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> font <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="font-family-controls row-container">
+    <button type="button" class="control-btn-serif " data-mode="serif" onclick="mashiro_global.font_control.change_font()">Serif</button>
+    <button type="button" class="control-btn-sans-serif" data-mode="sans-serif" onclick="mashiro_global.font_control.change_font()">Sans Serif</button>
+  </div>
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> script <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="theme-controls row-container">
+  <ul class="menu-list">
+  <style>li>.ctz{font-size: 21px;}</style>
+	<li id="empty-effect">
+	  <i class="ctz ctz-jinzhi">
+	  </i>
+	</li>
+	<li id="sakura-rain-effect">
+	  <i class="ctz ctz-huaxiang">
+	  </i>
+	</li>
+	<li id="snowy-effect">
+	  <i class="ctz ctz-snow">
+	  </i>
+	</li>
+	<li id="lines-effect">
+	  <i class="ctz ctz-xianlu">
+	  </i>
+	</li>
+	<li id="colorful-belts-effect">
+	  <i class="ctz ctz-caidai"></i>
+	  </i>
+	</li>
+	<li id="words-rain-effect">
+	  <i class="ctz ctz-zimuletters2"></i>
+	</li>
+	<li id="point-rain-effect">
+	  <i class="ctz ctz-diandiandian" style="font-size:19px"></i>
+	</li>
+	<li id="rain-drop-effect">
+	  <i class="ctz ctz-yu"></i>
+	</li>
+  </ul>
+  </div>
+<canvas id="night-mode-cover">
+</canvas>
+</div> 
+  <div class="changeSkin-gear no-select" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; visibility: visible; bottom: 0px;"> 
+  <div class="keys" id="setbtn"> 
+    <button id="open-skinMenu">
+		<style>
+		button#open-skinMenu{
+			transition: all 0.2s linear 0s;
+			outline:none;
+			position:fixed;
+			bottom:12px;
+			left:13px;
+			font-size:16px;
+			background-color: rgba(255,255,255,.95);
+			border-radius: 20px;
+			box-shadow: 0 3px 8px 0 rgba(0,0,0,0.1), 0 3px 8px 0 rgba(0,0,0,0.1);
+		}
+		button#open-skinMenu:hover{
+			transition: all 0.2s linear 0s;
+			background-color: #2f98fc;
+			color: rgba(255,255,255);
+		}
+		</style>
+		<i class="iconfont icon-gear inline-block rotating">
+	  </i> 
+		SCHEME TOOL | 主题工具 
+	</button>
+  </div> 
+</div>
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dim">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://ctz45562.github.io">
+          <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Re&amp;Re</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://www.luogu.com.cn/user/111762" target="_blank" class="social-github" title="洛谷">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/social/luogu.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://github.com/ctz45562" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/github.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="mailto:cctz45562@163.com" target="_blank" class="social-github" title="e-mail">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/mail.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://space.bilibili.com/229790690" target="_blank" class="social-github" title="bilibili">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/bilibili.jpg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <!-- <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+ -->
+      <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.0/tocbot.css">
+<div class="pattern-center-blank"></div>
+<div class="gather">
+
+  <div class="pattern-center-sakura single-center">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/mnbs14ttj.jpg);" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/mnbs14ttj.jpg">
+    </div>
+    <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
+      <h1 class="entry-title">
+      猛男必刷——「みずしろごちうさクイズ」14题题解</h1>
+      <p class="entry-census">
+	    <span><a href="https://ctz45562.github.io"><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg" style="margin-right:4px">ctz</a>
+        </span>
+		<span class="bull"></span>
+		&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp
+        2019-12-19
+    <span class="bull"></span>
+    
+      <span><i class="fa fa-archive"></i> 分类于  
+        <span class="article-category"><a href="/categories/%E9%A2%93/" > 颓</a></span>
+      
+    </span>
+    
+    <span class="bull"></span>
+		<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id='/2019/12/19/14questions/' class="leancloud-visitors" data-flag-title="猛男必刷——「みずしろごちうさクイズ」14题题解">
+        <a class="leancloud-visitors-count text-cursor">loading...</a>
+        <a class="post-meta-item-text text-cursor"> 次阅读</a>
+        </span>
+      </p>
+	  
+      
+    <div>
+		  <ul class="spfk-ul">
+		    &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<li class="spfk-li"><span class="triangle"></span><a href="/tags/番剧/" class="butterfly-tags">番剧</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/二次元/" class="butterfly-tags">二次元</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/请问你今天要来点兔子吗/" class="butterfly-tags">请问你今天要来点兔子吗</a></li>
+          </ul>
+		</div>
+		<script>
+			function colorInit(c,num){for(var i=1;i<=num;++i)c.push(i+'');}
+			function paintTags(){
+				var colorNumber=8,tagColors=[],tags=document.getElementsByClassName('spfk-li');
+				for(var i = 0 ; i < tags.length ; ++i){
+					if(!tagColors.length)colorInit(tagColors,colorNumber);
+					var j=Math.floor(Math.random()*tagColors.length);
+					tags[i].classList.add("spfk-color"+tagColors[j]);
+					tagColors.splice(j,1);
+        }
+			}
+			paintTags()
+		</script>
+    
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="gather toc" style="width:230px"></div>
+        
+        <div class="entry-content">
+          <p>刷这个比做OI题自闭多了。感觉，我可能没看过「点兔」吧。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.0/emojis/gif/14.gif" class="emoji-coda" style="height:60px;width:auto"></p>
+<a id="more"></a>
+<p>契机是在搜点兔图片的时候，康到了<a href="https://tokimeki-popolon.hatenablog.com/entry/2019/06/01/105221" target="_blank" rel="noopener">这个</a>。</p>
+<p>大概意思是，在<a href="https://twitter.com/hashtag/%E3%81%BF%E3%81%9A%E3%81%97%E3%82%8D%E3%81%94%E3%81%A1%E3%81%86%E3%81%95%E3%82%AF%E3%82%A4%E3%82%BA?f=tweets&amp;vertical=default&amp;lang=zh-cn" target="_blank" rel="noopener">这个推特（科学上网）</a>上，每周六会有一道点兔冷门知识题。其中精选了14道正答率低于30%的题。于是就有了这篇题解。</p>
+<hr>
+<h2 id="自闭x1"><a href="#自闭x1" class="headerlink" title="自闭x1"></a>自闭x1</h2><blockquote>
+<p>アニメ「ご注文はうさぎですか？？　～Dear My Sister～」より（在点兔剧场版「Dear My Sister」中）</p>
+<p>青山ブルーマウンテン著「ベーカリークイーン」の出版社は？（青山所著的「面包女王」的出版社是哪一家？）</p>
+<p>1，跳兎舎</p>
+<p>2，跳兎社</p>
+<p>3，走兎舎</p>
+<p>4，走兎社</p>
+</blockquote>
+<p><strong>正答率23%。</strong></p>
+<p>看不透“走兔”和“跳兔”的含义，也分不清“社”和“舎”的区别。</p>
+<p>直接放图吧：</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/1.png"></p>
+<hr>
+<h2 id="自闭x2"><a href="#自闭x2" class="headerlink" title="自闭x2"></a>自闭x2</h2><blockquote>
+<p>アニメ「ご注文はうさぎですか？？」より（在点兔2动画中）</p>
+<p>「手洗いの底力、見せてあげるよ！」（让你见识一下手洗的功力！）</p>
+<p>大量のカーテンを手洗いしようとしたココアに対するシャロのツッコミで、正しいのは？（面对很多要手洗的窗帘，纱路对心爱这句话的吐槽是哪句？）</p>
+<p>1，出来るわけないでしょ！（不可能做到的吧）</p>
+<p>2，何言ってるの！（你在说什么）</p>
+<p>3，どこからその自信が湧いてくるのよ！（你是从哪涌出的自信说这种话）</p>
+<p>4，どこからその自信が出てくるのよ！（你是哪来的信心说出这种话）</p>
+</blockquote>
+<p><strong>正答率28%。</strong></p>
+<p>出自第二季第七集（我非常喜欢的一集）：</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/2-1.png"></p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/2-2.png"></p>
+<p>emm。。。好像仅通过翻译不能确定选3还是4。。。</p>
+<p>反复听了几遍后才确定是4。</p>
+<hr>
+<h2 id="自闭x3"><a href="#自闭x3" class="headerlink" title="自闭x3"></a>自闭x3</h2><blockquote>
+<p>「ご注文はうさぎですか？」コミックス第3巻より（出自漫画第3卷）</p>
+<p>カレーパーティーで皆が作ったカレーの銘柄で、正しいのは？（咖喱派对上大家用的咖喱品牌是哪个？）</p>
+<p>1，とろけてしまうカレー（会融化的咖喱）</p>
+<p>2，カレー大王（咖喱大王）</p>
+<p>3，ラビットカレー（兔子咖喱）</p>
+<p>4，ジョワカレー（看不透）</p>
+</blockquote>
+<p><strong>正答率15%。</strong></p>
+<p>仅凭直觉的话肯定是选3。点兔的兔子元素很多，无论是物品外形还是品牌名字一般都是以兔子为根据。</p>
+<p>然而这套题让我发现有很多特例。</p>
+<p>在漫画里能看到：</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/3-1.png"></p>
+<p>这个翻译应该能对上选项1，不太确定的话直接看日语版的：</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/3-2.png"></p>
+<p>实际上在动漫第二季第七集里，心爱一行人在商店里提出开咖喱派对的计划时，给过这么一个特写：</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/3-3.png"></p>
+<p>但是并没有明确指出她们买的哪种咖喱，而且题目指出是漫画了，实属迷惑行为。</p>
+<hr>
+<h2 id="自闭x4"><a href="#自闭x4" class="headerlink" title="自闭x4"></a>自闭x4</h2><blockquote>
+<p>アニメ「ご注文はうさぎですか？」より（动漫中）</p>
+<p>次のメニューと値段の組み合わせで、間違っているのはどれ？（以下哪组点心和价钱对不上？）</p>
+<p>1，煌めく三宝珠　650円</p>
+<p>2，海に映る月と星々　600円</p>
+<p>3，黄金の鯱スペシャル　900円</p>
+<p>4，姫君の宝石箱　850円</p>
+</blockquote>
+<p><strong>正答率18%。</strong></p>
+<p>出自第一季第二集：</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/4-1.png"></p>
+<p>于是答案是1。</p>
+<p>顺便一提，对比一下漫画的话会发现甘兔庵的价位在动漫里翻了三倍。。。</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/4-2.png"></p>
+<hr>
+<h2 id="自闭x5"><a href="#自闭x5" class="headerlink" title="自闭x5"></a>自闭x5</h2><blockquote>
+<p>「ご注文はうさぎですか？」原作コミックスより（在点兔漫画中）</p>
+<p>モカが中学生の頃、ココアを起こすために歌っていた目覚ましソングの歌詞は？（摩卡是中学生的时候，叫醒心爱起床唱的歌词是什么？）</p>
+<p>1，おっはよー　朝だよ　ヘイヘヘーイ♪（翻）</p>
+<p>2，おきなきゃ　マズイゾ　グッモーニン♪（译）</p>
+<p>3，おっはよー　朝だよ　グッモーニン♪（挂）</p>
+<p>4，おきなきゃ　ダメだゾ　グッモーニン♪（了）</p>
+</blockquote>
+<p><strong>正答率29%。</strong></p>
+<p>摩卡在漫画中正式出场，只有43-44话摩卡攻略木结构街道；60话心爱回老家；80话智乃升学考试，心爱和摩卡打电话。</p>
+<p>然而都没有看到摩卡给心爱唱歌。。。</p>
+<p>又翻了一遍漫画，还是没找着。</p>
+<p>不应该啊，我印象里是有这个场面的。</p>
+<p>最后没办法了去推特抄答案：</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/5.jpg"></p>
+<p>这是每一话最后额外的一张简笔画，但它在大妈之家上没有。我有印象是因为在纸质单行本上看到过。。。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.0/emojis/else/5.jpg" style="height:100px;width:auto"></p>
+<hr>
+<h2 id="自闭x6"><a href="#自闭x6" class="headerlink" title="自闭x6"></a>自闭x6</h2><blockquote>
+<p>「ご注文はうさぎですか？」コミックス第6巻より（漫画第6卷中）</p>
+<p>ラビットハウスを取材した凛の記事が、喫茶店特集として掲載された雑誌の名前は？（凛采访Rabbit House的报道所刊登的杂志名字是哪个？）</p>
+<p>1，KIGUMI WATCHING</p>
+<p>2，KIGUMI WALKING</p>
+<p>3，RABBIT CAFE</p>
+<p>4，RABBIT SWEETS</p>
+</blockquote>
+<p><strong>正答率22%。</strong></p>
+<p>科普一下，这里指的是漫画77~79话，动漫没做到那儿。在圣诞节前凛采访Rabbit House，使Rabbit House人气大增，导致工作量增加。恰好心爱和理世都有事请假。于是千夜和纱路穿着心爱补好的制服（智乃母亲没完成的绿色和黄色制服）、惠和麻耶穿着理世新做的制服来帮助智乃，最后平安夜时心爱理世回到Rabbit House，7色制服大团聚。就是这张图的来源：</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.0/notes.jpg"></p>
+<p><del>扯多了毕竟这一段我非常喜欢</del></p>
+<p>所以这个不是第二季第一集的采访报道：</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/6-1.png"></p>
+<p>答案在漫画77话：</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/6-2.png"></p>
+<hr>
+<h2 id="自闭x7"><a href="#自闭x7" class="headerlink" title="自闭x7"></a>自闭x7</h2><blockquote>
+<p>アニメ「ご注文はうさぎですか？」より（动漫中）</p>
+<p>映画「うさぎになったバリスタ」をココア、チノ、リゼ、千夜、シャロの5人が観に行った映画館の名称は？（5人一起去看电影「变成兔子的咖啡师」，电影院叫什么？）</p>
+<p>1，シネマ　パラダイス（电影天堂）</p>
+<p>2，ラビット　シネマ（兔子电影院）</p>
+<p>3，シネマ　ユートピア（电影乌托邦）</p>
+<p>4，MOVIX　石畳の街（MOVIX石板路街道）</p>
+</blockquote>
+<p><strong>正答率2%！</strong></p>
+<p>正答率很低，因为很大一部分人被兔子电影院诱导了。</p>
+<p>实际上，在第一季第八集：</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/7.png"></p>
+<p>在电影院左侧能看到写着“CINEMA PARADISE”，这是啥意思我就不用说了吧。</p>
+<hr>
+<h2 id="自闭x8"><a href="#自闭x8" class="headerlink" title="自闭x8"></a>自闭x8</h2><blockquote>
+<p>「ご注文はうさぎですか？」コミックス第7巻より（漫画第7卷中）</p>
+<p>ココアとマヤがゲーセンで遊んだゲームの順番で、正しいのは？（心爱和麻耶在游戏中心里游玩的顺序是？）</p>
+<p>1，クレーンゲーム→馬→ボール投げ（抓娃娃→旋转木马→投球）</p>
+<p>2，馬→ボール投げ→クレーンゲーム（旋转木马→投球→抓娃娃）</p>
+<p>3，ボール投げ→クレーンゲーム→馬（抓娃娃→投球→旋转木马）</p>
+<p>4，馬→クレーンゲーム→ボール投げ（旋转木马→抓娃娃→投球）</p>
+</blockquote>
+<p><strong>正答率18%。</strong></p>
+<p>出自漫画82话。</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/8-1.png"></p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/8-2.png"></p>
+<p>容我再扯两句：</p>
+<p>这一话主要内容是被智乃抛弃的心爱和被理世抛弃的麻耶组成新cp愉快玩耍最终迷路<del>走向终结迎来Bad End</del>被其他人捡回了家。</p>
+<p>所以说koi老师就是nb啊，目前的cp关系快要构成完全图了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.0/emojis/fan/2.jpg" style="height:150px;width:auto"></p>
+<hr>
+<h2 id="自闭x9"><a href="#自闭x9" class="headerlink" title="自闭x9"></a>自闭x9</h2><blockquote>
+<p>アニメ「ご注文はうさぎですか？？」より（动漫中）</p>
+<p>リゼとシャロの2人が助っ人にまわった6つの部活を正しい順番に並べると、4番目は？（理世和纱路给其他社团当帮手时，第4个社团是哪个？）</p>
+<p>1，演劇部</p>
+<p>2，庶民研究部</p>
+<p>3，乗馬部</p>
+<p>4，ソフトボール部（垒球部）</p>
+</blockquote>
+<p><strong>正答率28%。</strong></p>
+<p>出自第二季第十集：</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/9-1.png"></p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/9-2.png"></p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/9-3.png"></p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/9-4.png"></p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/9-5.png"></p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/9-6.png"></p>
+<p>漫画第48话顺序也是一样的：</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/9-7.jpg"></p>
+<hr>
+<h2 id="组合技！自闭x11"><a href="#组合技！自闭x11" class="headerlink" title="组合技！自闭x11"></a>组合技！自闭x11</h2><blockquote>
+<p><strong>「ご注文はうさぎですか？」コミックス第3巻より（漫画第3卷中）</strong></p>
+<p>ワイルドギースが隠れていた雑誌の名前は？（Wild Geese躲藏的杂志名称是？）</p>
+<p>1，Walker</p>
+<p>2，Tea times</p>
+<p>3，PYON！</p>
+<p>4，PYON PYON！</p>
+<hr>
+<p><strong>アニメ「ご注文はうさぎですか？？」より（动漫中）</strong></p>
+<p>ワイルドギースが隠れていた雑誌の名前は？（Wild Geese躲藏的杂志名称是？）</p>
+<p>1，Walker</p>
+<p>2，Tea times</p>
+<p>3，PYON！</p>
+<p>4，PYON PYON！</p>
+</blockquote>
+<p><strong>正答率分别为21%和29%。</strong></p>
+<p>第一问出自漫画第3卷第5话：</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/10.png"></p>
+<p>第二问出自动漫第二季第二集：</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/11.png"></p>
+<p>没想到吧，动漫魔改了！我也没想到。。。<img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.0/emojis/menhera/26.jpg" style="height:80px;width:auto"></p>
+<hr>
+<h2 id="自闭x12"><a href="#自闭x12" class="headerlink" title="自闭x12"></a>自闭x12</h2><blockquote>
+<p>アニメ「ご注文はうさぎですか？」より（动漫中）</p>
+<p>チノが毎日少しずつ進めていたうさぎのパズルは何ピース？（智乃以每天拼一点为乐趣的拼图有多少块？）</p>
+<p>1，260ピース</p>
+<p>2，280ピース</p>
+<p>3，300ピース</p>
+<p>4，320ピース</p>
+</blockquote>
+<p><strong>正答率16%。</strong></p>
+<p>出自第一季第七集。</p>
+<p>动漫里并没有提到具体是多少块，只能自己数：</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/12.png"></p>
+<p>答案是14x20=280。</p>
+<hr>
+<h2 id="自闭x13"><a href="#自闭x13" class="headerlink" title="自闭x13"></a>自闭x13</h2><blockquote>
+<p>「ご注文はうさぎですか？」コミックス第6巻より（漫画第6卷中）</p>
+<p>ハロウィンでメグとマヤが仮装した動物はどれ？（麻耶和惠在万圣节扮成了什么动物？）</p>
+<p>1，猫</p>
+<p>2，犬</p>
+<p>3，狼</p>
+<p>4，特に決まっていない（不确定）</p>
+</blockquote>
+<p><strong>正答率26%。</strong></p>
+<p>来自漫画71话的配图：</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/13-1.png" style="height:60px;width:auto"></p>
+<p>你猜这是什么动物？第一感觉应该是狼，事实上选“狼”的人最多。</p>
+<p>答案：</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/13-2.jpg"></p>
+<p>所以是“不确定”。。。<img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.0/emojis/else/49.jpg" class="emoji-coda" style="height:100px;width:auto"></p>
+<p>插句题外话，说到71话，我就想起来我特别喜欢70话和72话，分别为智乃恶意卖萌和万圣节智乃母亲出现，安利一波。<img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.0/emojis/menhera/36.jpg" style="height:80px;width:auto"></p>
+<hr>
+<h2 id="自闭x14"><a href="#自闭x14" class="headerlink" title="自闭x14"></a>自闭x14</h2><blockquote>
+<p>「ご注文はうさぎですか？」コミックス第6巻より（漫画第6卷中）</p>
+<p>青山ブルーマウンテン先生の編集者、真手凛が勤めている出版社の名前は？（青山蓝山的<del>cp</del>编辑真手凛工作的出版社是哪一个？）</p>
+<p>1，生論社</p>
+<p>2，方文社</p>
+<p>3，走兎舎</p>
+<p>4，跳兎舎</p>
+</blockquote>
+<p><strong>正答率9%。</strong></p>
+<p>很容易受第一题的影响选3。</p>
+<p>出自漫画第69话。</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.6/14questions/14.jpg"></p>
+<p>可以看到真手凛名片左上角写着“生論社”，应该选1。</p>
+<p><del>小说和编辑的出版社不一样是什么鬼</del></p>
+
+            
+        </div>
+      </article>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2019/12/27/Codeforces1215F-Radio-Stations/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.7/radiostations.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.7/radiostations.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                Codeforces1215F Radio Stations</h3>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2019/12/17/K-D-Tree%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.0/kdtreexxbj.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.0/kdtreexxbj.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                K-D Tree学习笔记</h3>
+              </div> 
+            </a>
+			</div>
+        
+      </section> 
+    </main>
+</div>
+</div>
+</div>
+<div class="gather">
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz",
+        appKey: "jqULEjwlbvOCM08eEOpTIGOI",
+        path: window.location.pathname,
+		visitor: true,
+        placeholder: "日々私たちが过ごしている日常は、実は奇迹の连続なのかもしれない。"
+      })
+  }
+</script>
+
+</div>
+
+
+
+
+<script>
+function imgInit(){
+	var imgs=document.getElementsByClassName('entry-content').item(0).getElementsByTagName('img');
+	for(var i=0;i<imgs.length;++i){
+		var element = document.createElement("a"),record=imgs[i],dsrc=record.getAttribute("data-src");
+		element.setAttribute("data-fancybox","gallery");
+    element.setAttribute("href",dsrc||imgs[i].src);
+		element.setAttribute("id","escape-link");
+		imgs[i].parentNode.appendChild(element);
+		imgs[i].parentNode.removeChild(imgs[i]);
+		element.appendChild(record);
+	}
+}
+var spoiler=document.getElementsByClassName('spoiler');
+for(var i=0;i<spoiler.length;++i)
+spoiler[i].onclick=function(){this.classList.toggle("revealed");};
+imgInit();
+</script>
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.6.7/articleload.gif">
+      </div>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Github Pages</a>
+        </span>
+		<!-- <span style="color: #b9b9b9;display:block">图片外链由<a href="https://img.fghrsh.net/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">FGHRSH图床</a>提供 -->
+        <!-- </span> -->
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.4/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.2/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<!-- <script src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/valine.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.1.4/js/volantis.min.js"></script>
+<script type="text/javascript">
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { 
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;ww">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

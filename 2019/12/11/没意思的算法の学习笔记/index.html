@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">没意思的算法の学习笔记 | ctz&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/googlefont.css" media="all">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_ndnjfmz11y9.css">
+  <style>
+  .emoji-coda {
+      display: inline-block !important;
+      position: relative;
+      width: 47px;
+      top: 2px;
+      margin: -3px 3px !important;
+      padding: 0;
+  }
+  </style>
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "ctz's blog";
+  mashiro_option.author_name = "ctz's blog";
+  mashiro_option.site_url = "https://ctz45562.github.io";
+  mashiro_option.v_appId = "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz";
+  mashiro_option.v_appKey = "jqULEjwlbvOCM08eEOpTIGOI";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index1.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index2.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index3.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index4.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index5.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index6.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index7.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.4/index8.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.9/index9.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
+    @import url("/code.css");
+  </style>
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed;bottom:64px;left:28px;"> 
+  <div class="theme-controls row-container"> 
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> background <i style="color:grey" class="fa fa-chevron-right"></i></p>
+    <ul class="menu-list"> 
+	  <li id="white-bg"> 
+	    <i class="fa fa-television">
+		</i>
+	  </li> 
+	<li id="sakura-bg"> 
+      <i class="iconfont icon-sakura">
+	  </i>
+	</li> 
+    <li id="gribs-bg"> 
+      <i class="fa fa-slack">
+	  </i>
+    </li> 
+    <li id="KAdots-bg"> 
+      <i class="iconfont icon-dots">
+      </i>
+    </li> 
+    <li id="totem-bg"> 
+      <i class="fa fa-optin-monster">
+      </i>
+    </li> 
+    <li id="pixiv-bg"> 
+      <i class="fa fa-star">
+	  </i>
+      </li> 
+    <li id="bing-bg"> 
+      <i class="fa fa-picture-o">
+	  </i>
+    </li> 
+    <li id="dark-bg"> 
+      <i class="fa fa-moon-o">
+      </i>
+    </li> 
+  </ul> 
+  </div > 
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> font <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="font-family-controls row-container">
+    <button type="button" class="control-btn-serif " data-mode="serif" onclick="mashiro_global.font_control.change_font()">Serif</button>
+    <button type="button" class="control-btn-sans-serif" data-mode="sans-serif" onclick="mashiro_global.font_control.change_font()">Sans Serif</button>
+  </div>
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> script <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="theme-controls row-container">
+  <ul class="menu-list">
+  <style>li>.ctz{font-size: 21px;}</style>
+	<li id="empty-effect">
+	  <i class="ctz ctz-jinzhi">
+	  </i>
+	</li>
+	<li id="sakura-rain-effect">
+	  <i class="ctz ctz-huaxiang">
+	  </i>
+	</li>
+	<li id="snowy-effect">
+	  <i class="ctz ctz-snow">
+	  </i>
+	</li>
+	<li id="lines-effect">
+	  <i class="ctz ctz-xianlu">
+	  </i>
+	</li>
+	<li id="colorful-belts-effect">
+	  <i class="ctz ctz-caidai"></i>
+	  </i>
+	</li>
+	<li id="words-rain-effect">
+	  <i class="ctz ctz-zimuletters2"></i>
+	</li>
+	<li id="point-rain-effect">
+	  <i class="ctz ctz-diandiandian" style="font-size:19px"></i>
+	</li>
+	<li id="rain-drop-effect">
+	  <i class="ctz ctz-yu"></i>
+	</li>
+  </ul>
+  </div>
+<canvas id="night-mode-cover">
+</canvas>
+</div> 
+  <div class="changeSkin-gear no-select" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; visibility: visible; bottom: 0px;"> 
+  <div class="keys" id="setbtn"> 
+    <button id="open-skinMenu">
+		<style>
+		button#open-skinMenu{
+			transition: all 0.2s linear 0s;
+			outline:none;
+			position:fixed;
+			bottom:12px;
+			left:13px;
+			font-size:16px;
+			background-color: rgba(255,255,255,.95);
+			border-radius: 20px;
+			box-shadow: 0 3px 8px 0 rgba(0,0,0,0.1), 0 3px 8px 0 rgba(0,0,0,0.1);
+		}
+		button#open-skinMenu:hover{
+			transition: all 0.2s linear 0s;
+			background-color: #2f98fc;
+			color: rgba(255,255,255);
+		}
+		</style>
+		<i class="iconfont icon-gear inline-block rotating">
+	  </i> 
+		SCHEME TOOL | 主题工具 
+	</button>
+  </div> 
+</div>
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dim">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://ctz45562.github.io">
+          <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Re&amp;Re</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://www.luogu.com.cn/user/111762" target="_blank" class="social-github" title="洛谷">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/social/luogu.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://github.com/ctz45562" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/github.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="mailto:cctz45562@163.com" target="_blank" class="social-github" title="e-mail">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/mail.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://space.bilibili.com/229790690" target="_blank" class="social-github" title="bilibili">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/bilibili.jpg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <!-- <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+ -->
+      <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.0/tocbot.css">
+<div class="pattern-center-blank"></div>
+<div class="gather">
+
+  <div class="pattern-center-sakura single-center">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/mysdsfdxxbj.jpg);" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/mysdsfdxxbj.jpg">
+    </div>
+    <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
+      <h1 class="entry-title">
+      没意思的算法の学习笔记</h1>
+      <p class="entry-census">
+	    <span><a href="https://ctz45562.github.io"><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg" style="margin-right:4px">ctz</a>
+        </span>
+		<span class="bull"></span>
+		&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp
+        2019-12-11
+    <span class="bull"></span>
+    
+      <span><i class="fa fa-archive"></i> 分类于  
+        <span class="article-category"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" > 学习笔记</a></span>
+      
+    </span>
+    
+    <span class="bull"></span>
+		<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id='/2019/12/11/没意思的算法の学习笔记/' class="leancloud-visitors" data-flag-title="没意思的算法の学习笔记">
+        <a class="leancloud-visitors-count text-cursor">loading...</a>
+        <a class="post-meta-item-text text-cursor"> 次阅读</a>
+        </span>
+      </p>
+	  
+      
+    <div>
+		  <ul class="spfk-ul">
+		    &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<li class="spfk-li"><span class="triangle"></span><a href="/tags/动态规划/" class="butterfly-tags">动态规划</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/图论/" class="butterfly-tags">图论</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/2-SAT/" class="butterfly-tags">2-SAT</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/字符串/" class="butterfly-tags">字符串</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/数论/" class="butterfly-tags">数论</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/莫队/" class="butterfly-tags">莫队</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/矩阵树定理/" class="butterfly-tags">矩阵树定理</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/斜率优化/" class="butterfly-tags">斜率优化</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/kruskal重构树/" class="butterfly-tags">kruskal重构树</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/manacher/" class="butterfly-tags">manacher</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/线性基/" class="butterfly-tags">线性基</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/差分约束/" class="butterfly-tags">差分约束</a></li>
+          </ul>
+		</div>
+		<script>
+			function colorInit(c,num){for(var i=1;i<=num;++i)c.push(i+'');}
+			function paintTags(){
+				var colorNumber=8,tagColors=[],tags=document.getElementsByClassName('spfk-li');
+				for(var i = 0 ; i < tags.length ; ++i){
+					if(!tagColors.length)colorInit(tagColors,colorNumber);
+					var j=Math.floor(Math.random()*tagColors.length);
+					tags[i].classList.add("spfk-color"+tagColors[j]);
+					tagColors.splice(j,1);
+        }
+			}
+			paintTags()
+		</script>
+    
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="gather toc" style="width:230px"></div>
+        
+        <div class="entry-content">
+          <blockquote>
+<p>学一个算法，就要把它学精了，理解透彻了。——某金牌教练</p>
+</blockquote>
+<a id="more"></a>
+<p>所以我要多快好省、不求甚解地大量学习算法。</p>
+<hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本来想挺进多项式，因为要耗费太多精力先放放。</p>
+<p>感觉我会的东西好少啊，学弟们会的算法都比我多。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/2233/weiqu.png"></p>
+<p>于是来清一波任务清单。很多算法都太小了就把学习笔记合到一块了。</p>
+<p><img src="/images/没意思的算法の学习笔记-1.png" alt=""></p>
+<hr>
+<h1 id="抄袭来源"><a href="#抄袭来源" class="headerlink" title="抄袭来源"></a>抄袭来源</h1><blockquote>
+<p><a href="https://www.luogu.com.cn/blog/user9012/ke-lu-si-ka-er-zhong-gou-shu-lve-xie" target="_blank" rel="noopener">https://www.luogu.com.cn/blog/user9012/ke-lu-si-ka-er-zhong-gou-shu-lve-xie</a></p>
+<p><a href="https://www.luogu.com.cn/problemnew/solution/P3805" target="_blank" rel="noopener">https://www.luogu.com.cn/problemnew/solution/P3805</a></p>
+<p><a href="https://www.luogu.com.cn/problemnew/solution/P2365" target="_blank" rel="noopener">https://www.luogu.com.cn/problemnew/solution/P2365</a></p>
+<p><a href="https://www.cnblogs.com/twilight-sx/p/9064208.html" target="_blank" rel="noopener">https://www.cnblogs.com/twilight-sx/p/9064208.html</a></p>
+<p><a href="https://blog.csdn.net/Adolphrocs/article/details/88756533" target="_blank" rel="noopener">https://blog.csdn.net/Adolphrocs/article/details/88756533</a></p>
+<p><a href="https://blog.csdn.net/a_forever_dream/article/details/83654397" target="_blank" rel="noopener">https://blog.csdn.net/a_forever_dream/article/details/83654397</a></p>
+<p><a href="https://ouuan.github.io/%E7%BA%BF%E6%80%A7%E5%9F%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank" rel="noopener">https://ouuan.github.io/%E7%BA%BF%E6%80%A7%E5%9F%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a></p>
+<p><a href="https://www.cnblogs.com/cjjsb/p/9771868.html" target="_blank" rel="noopener">https://www.cnblogs.com/cjjsb/p/9771868.html</a></p>
+<p><a href="https://oi-wiki.org/graph/diff-constraints/" target="_blank" rel="noopener">https://oi-wiki.org/graph/diff-constraints/</a></p>
+<p><a href="https://www.cnblogs.com/Parsnip/p/10969989.html" target="_blank" rel="noopener">https://www.cnblogs.com/Parsnip/p/10969989.html</a></p>
+</blockquote>
+<hr>
+<h1 id="kruskal重构树"><a href="#kruskal重构树" class="headerlink" title="kruskal重构树"></a>kruskal重构树</h1><h2 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h2><p>在kruskal的过程中合并两个联通块时，新建一个节点作为重构树上这两个联通块的根的父亲，把该节点的点权设为当前边边权就行了。</p>
+<p>也就是把<code>fa[u]=v</code>改成<code>a[++cnt]=e[i].l,fa[u]=cnt,fa[v]=cnt</code>。</p>
+<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><p>以最小生成树为例。</p>
+<p><strong>1.kruskal重构树是一棵二叉树</strong></p>
+<p><strong>2.原图中的点在重构树上都是叶子节点</strong></p>
+<p><strong>3.点权随深度增加而递减</strong></p>
+<p><strong>4.定义一条路径的权值是其最大边权。原图上两点之间所有路径的最小权值，等于重构树上两点$lca$的点权</strong></p>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><blockquote>
+<p>一个无向连通图，多次询问，给定一个点，只走边权不超过$k$的边，求出所有能到达的点中#@%^&amp;。</p>
+</blockquote>
+<p>在重构树上倍增到第一个权值小于等于$k$的点，它的子树就是能到达的点。</p>
+<p>因为根据性质2,3，如果再往上走的话，经过的边权就大于$k$了。</p>
+<p>选取合适的数据结构维护子树信息即可。</p>
+<h2 id="水题"><a href="#水题" class="headerlink" title="水题"></a>水题</h2><h3 id="Peaks"><a href="#Peaks" class="headerlink" title="Peaks"></a><a href="https://www.luogu.com.cn/problem/P4197" target="_blank" rel="noopener">Peaks</a></h3><p>求子树第$k$大直接$dfs$序+主席树就好了。</p>
+<h3 id="归程"><a href="#归程" class="headerlink" title="归程"></a><a href="https://www.luogu.com.cn/problem/P4768" target="_blank" rel="noopener">归程</a></h3><p>跑一遍点$1$的最短路，以最短路距离作为点权，答案就是子树$\min$。</p>
+<h3 id="werewolf狼人"><a href="#werewolf狼人" class="headerlink" title="werewolf狼人"></a><a href="https://www.luogu.com.cn/problem/P4899" target="_blank" rel="noopener">werewolf狼人</a></h3><p>题意就是一张无向连通图上，给定两个点$s,e$，询问是否存在一个点$x$，使得$s$到$x$的路径上点的编号都大于等于$L$，且$x$到$e$的路径上点的编号都小于等于$R$。</p>
+<p>分别对最小生成树和最大生成树造kruskal重构树。走一条边一定是两端点都经过了，所以边权分别为$\max(x,y)$和$\min(x,y)$。</p>
+<p>让$s$和$e$分别在最小重构树和最大重构树上倍增到合适节点，判断两个子树是否有交，主席树或离线树状数组皆可。</p>
+<hr>
+<h1 id="manacher"><a href="#manacher" class="headerlink" title="manacher"></a>manacher</h1><p>莫名其妙两点睡的困死了大脑已停止工作看不懂矩阵树嘤嘤嘤先学马拉车了</p>
+<h2 id="define"><a href="#define" class="headerlink" title="#define"></a>#define</h2><p>$ma(i)$：以字符$i$为对称轴，向两边扩展的最长回文半径。也就是说开区间$(i-ma(i),i+ma(i))$为回文串。</p>
+<p>$R$：当前所有回文子串能扩展到的最靠右的端点。</p>
+<p>$mid$：$R$对应的对称轴。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>回文子串的对称轴可能是一个字符，也可能是字符间隙。</p>
+<p>在$S$的开头、结尾和字符之间插入特殊字符<code>#</code>，两种情况就可以一块处理了。为了便于处理越界情况，在最开头再插一个<code>#</code>。</p>
+<p>举个栗子：<code>manacher</code> $\rightarrow$ <code>##m#a#n#a#c#h#e#r#</code></p>
+<p>扫一遍串，对于当前位置$i$：</p>
+<ul>
+<li>若$i\le r$，取$i$关于$mid$的对称点$j$（易知$j=mid\times 2 -i$）。$i,j$在同一回文子串中对称，所以有$ma(i)=ma(j)$。但因为该回文串右端点是$R$，$i+ma(j)$不能超过$R$，所以要对$R-i+1$取$\min$。</li>
+<li>若$i&gt;r$，直接从$1$开始暴力向两边拓展得到$ma(i)$。</li>
+</ul>
+<p>最后更新$R$和$mid$。</p>
+<p>答案为$\max\{ma(i)\}-1$。</p>
+<h2 id="板子"><a href="#板子" class="headerlink" title="板子"></a><a href="https://www.luogu.com.cn/problem/P3805" target="_blank" rel="noopener">板子</a></h2><pre><code class="lang-cpp">int ma[maxn&lt;&lt;1];
+char a[maxn],s[maxn&lt;&lt;1],n,len;//a为给定串，n为其长度。s为插入特殊字符后的串，len为其长度
+void manacher(){
+    s[0]=&#39;$&#39;;
+    for(register int i=1;i&lt;=n;++i)s[++len]=&#39;$&#39;,s[++len]=a[i];
+    s[++len]=&#39;$&#39;;
+    int ans=0,R=0,mid;
+    for(register int i=1;i&lt;=len;++i){
+        if(i&lt;=r)ma[i]=min(ma[(mid&lt;&lt;1)-i],r-i+1);
+        while(s[i-ma[i]]==s[i+ma[i]])++ma[i];
+        if(i+ma[i]-1&gt;R)R=i+ma[i]-1,mid=i;
+        ans=max(ans,ma[i]);
+    }
+    printf(&quot;%d\n&quot;,ans-1);
+}
+</code></pre>
+<p>终于不会出现用$hash$求回文串被卡只能默写后缀数组的情况了。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.1/emojis/else/10.jpg" alt="" style="width:100px"></p>
+<h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><p>时间复杂度为$O(|S|)$。</p>
+<p>对于上面第一种情况，因为$ma$的定义是<strong>最大</strong>回文半径了，所以$i$继承的$ma$要么已经是最大的了，不需要拓展，复杂度为$O(1)$；要么右端点在$R$上，需要暴力拓展。</p>
+<p>对于第二种情况，因为$i&gt;R$，所以拓展出的右端点一定大于$R$。</p>
+<p>因此只要暴力拓展，$R$一定会被更新。而$R$是单调不降的，故暴力拓展复杂度为$O(|S|)$。</p>
+<hr>
+<h1 id="斜率优化DP"><a href="#斜率优化DP" class="headerlink" title="斜率优化DP"></a>斜率优化DP</h1><h2 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h2><h3 id="例题1"><a href="#例题1" class="headerlink" title="例题1"></a><a href="https://www.luogu.com.cn/problem/P2365" target="_blank" rel="noopener">例题1</a></h3><p>首先可以得到一个朴素的$DP$：</p>
+<p>设$f(i)$为完成前$i$项任务最小代价，$t_i$为时间前缀和，$sum_i$为费用前缀和。因为启动时间$s$会对后面的人物都产生影响，$DP$时要算上对后面的贡献。</p>
+<p>有转移$f(i)=\min\limits_{j&lt;i}\{f(j)+t_i(sum_i-sum_j)+s(sum_n-sum_j)\}$</p>
+<p>把这个式子变个形：</p>
+<p>$f(j)=(t_i+s)sum_j+f(i)-t_isum_i-sum_ns$</p>
+<p>后面那一坨$-t_isum_i-sum_ns$是个常数，先不要管它。</p>
+<p>如果把这个式子看作直线方程的话，那它就表示<strong>斜率为$t_i+s$，截距为$f(i)$，过点$(sum_j,f(j))$的直线</strong>，而我们的目的是最小化截距$f(i)$。</p>
+<p>有一条已知斜率的直线和若干点，找一个点使该直线与$y$轴交点尽量靠下。就是把直线往上面移动，碰到的第一个点就是转移点。</p>
+<p>考虑什么样的点会使转移点：</p>
+<p>先把点按横坐标排序，相邻点连线。首先能排除掉像这样的上凸包顶点：</p>
+<p><img src="/images/没意思的算法の学习笔记-2.png" alt=""></p>
+<p>那么剩下的点连出来的直线斜率是递增的，大概可以$yy$出来转移点是长这样的：</p>
+<p><img src="/images/没意思的算法の学习笔记-3.png" alt=""></p>
+<p>也就是给定直线的斜率大于该点前一条直线的斜率、小于该点后一条直线的斜率。</p>
+<p>于是我们要做的是：</p>
+<ul>
+<li>维护相邻点连线斜率递增的若干个点</li>
+<li>查询给定斜率的后继</li>
+</ul>
+<p>就本题而言，横坐标$sum$是递增的，可以用单调队列维护第一条，不断弹出队尾直到队尾和前一个点的斜率小于给定点和队尾的斜率。</p>
+<p>而$sum+t$也是递增的，查询时直接弹出队首直到队首和第二个点的斜率大于给定斜率，这时队首就是转移点。</p>
+<h3 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h3><p>用乘法代替直接计算斜率，避免浮点数误差，还能优化常数。</p>
+<pre><code class="lang-cpp">int sum[maxn],t[maxn],f[maxn];
+struct Monoqueue{
+    int x[maxn],y[maxn],p[maxn],head,tail;
+    void push(int xx,int yy,int pos){
+        while(head&lt;tail&amp;&amp;1ll*(xx-x[tail])*(y[tail]-y[tail-1])&gt;=1ll*(x[tail]-x[tail-1])*(yy-y[tail]))--tail;
+        x[++tail]=xx,y[tail]=yy,p[tail]=pos;
+    }
+    void check(int k){while(head&lt;tail&amp;&amp;y[head+1]-y[head]&lt;k*(x[head+1]-x[head]))++head;}
+    int front(){return p[head];}
+    Monoqueue(){head=1,tail=0;}
+}q;
+int main(){
+    int n=read(),s=read();
+    for(register int i=1;i&lt;=n;++i)t[i]=t[i-1]+read(),sum[i]=sum[i-1]+read();
+    q.push(0,0,0);
+    for(register int i=1;i&lt;=n;++i){
+        q.check(t[i]+s);
+        int j=q.front();
+        f[i]=f[j]+t[i]*(sum[i]-sum[j])+s*(sum[n]-sum[j]);    
+        q.push(sum[i],f[i],i);
+    }
+    printf(&quot;%d\n&quot;,f[n]);
+}
+</code></pre>
+<h3 id="例题2"><a href="#例题2" class="headerlink" title="例题2"></a><a href="https://www.luogu.com.cn/problem/P5785" target="_blank" rel="noopener">例题2</a></h3><p>和例题1不同的是时间有负数。</p>
+<p>也就是说斜率不单调了，不能通过弹出队首找后继了。但因为队里的元素都是递增的，直接二分即可。</p>
+<p>同理，如果横坐标不递增，就要用平衡树或cdq分治维护了。</p>
+<h3 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h3><p>其他地方都差不多就只放二分的代码了：</p>
+<pre><code class="lang-cpp">inline int find(long long k){
+    int l=1,r=tail,mid;
+    while(l&lt;r){
+        mid=l+r+1&gt;&gt;1;
+        if(y[mid]-y[mid-1]&lt;=k*(x[mid]-x[mid-1]))l=mid;
+        else r=mid-1;
+    }
+    return p[l];
+}
+</code></pre>
+<h2 id="水题-1"><a href="#水题-1" class="headerlink" title="水题"></a>水题</h2><p>剽的一本通的题。。。然而都是套路。。。</p>
+<h3 id="玩具装箱TOY"><a href="#玩具装箱TOY" class="headerlink" title="玩具装箱TOY"></a><a href="https://www.luogu.com.cn/problem/P3195" target="_blank" rel="noopener">玩具装箱TOY</a></h3><p>设$f(i)$为前$i$件物品的最小费用，$sum_i$为$C_i$的前缀和。容易得到$f(i)=\min\{f(j)+(i-j-1+sum_i-sum_j-L)^2\}$。</p>
+<p>令$s_i=i+sum_i,t_i=i+sum_i-L-1$，方程经过变形可以得到：</p>
+<p>$f(j)+s_j^2=f(i)+2t_is_j-t_i^2$</p>
+<p>$2t_i$为斜率，$s_j$为横坐标，且这两者递增。$f(j)+s_j^2$为纵坐标，单调队列维护即可。</p>
+<h3 id="Cats-Transport"><a href="#Cats-Transport" class="headerlink" title="Cats Transport"></a><a href="https://www.luogu.com.cn/problem/CF311B" target="_blank" rel="noopener">Cats Transport</a></h3><p>对$d$做个前缀和，令$s_i=t_i-d_{h_i}$，即从$s_i$时刻出发恰好能接上猫$i$。</p>
+<p>对$s_i$排个序，令$sum_i$为其前缀和。</p>
+<p>设$f(i,j)$为接了按$s$排好序的前$i$只猫，已经用了$j$个铲屎官的最小等待时间。</p>
+<p>枚举先接哪只猫，转移：$f(i,j)=\min\limits_{k\le i}\{f(k,j-1)+s_i(i-k)-sum_i+sum_k\}$</p>
+<p>变形得$f(k,j-1)+sum_k=f(i,j)+s_ik-is_i+sum_i$</p>
+<p>以$s_i$为斜率，$k$为横坐标，$f(k,j-1)+sum_k$为纵坐标，用单调队列维护斜率优化。</p>
+<h3 id="仓库建设"><a href="#仓库建设" class="headerlink" title="仓库建设"></a><a href="https://www.luogu.com.cn/problem/P2120" target="_blank" rel="noopener">仓库建设</a></h3><p>令$t_i=\sum\limits_{j=1}^ip_j,s_i=\sum\limits_{j=1}^ip_jx_j$。</p>
+<p>设$f(i)$为前$i$个工厂都$OK$的最小费用。</p>
+<p>$f(i)=\min\limits_{j&lt;i}\{f(j)+(t_i-t_j)x_i-s_i+s_j\}+c_i$</p>
+<p>剩下的套路不用说了吧。</p>
+<h3 id="特别行动队"><a href="#特别行动队" class="headerlink" title="特别行动队"></a><a href="https://www.luogu.com.cn/problem/P3628" target="_blank" rel="noopener">特别行动队</a></h3><p>本来期待$APIO$的题能有什么东西的，结果还是没意思。。。</p>
+<p>令$s_i=\sum\limits_{j=1}^ix_j$</p>
+<p>$f(i)=\max\limits_{j&lt;i}\{f(j)+a(s_i-s_j)^2+b(s_i-s_j)+c\}$</p>
+<p>唯一不同的是取$\max$正好反过来，要维护一个斜率递减的点集。</p>
+<h3 id="锯木厂选址"><a href="#锯木厂选址" class="headerlink" title="锯木厂选址"></a><a href="https://www.luogu.com.cn/problem/P4360" target="_blank" rel="noopener">锯木厂选址</a></h3><p>令$D_i=\sum\limits_{j&lt;i}d_i,t_i=\sum\limits_{j\le i}w_j,s_i=\sum\limits_{j\le i}w_jD_j$</p>
+<p>设$g(i)$为前$i$棵树，只有$i$有一个锯木厂的花费，$f(i)$为前$i$棵树已经有两个锯木厂，且$i$有一个锯木厂的最小花费。</p>
+<p>$g(i)=D_it_i-s_i$</p>
+<p>$f(i)=\min\limits_{j&lt;i}\{g(j)+D_i(t_i-t_j)-s_i+s_j\}$</p>
+<p>最后答案在$f(i)+D_{n+1}(t_n-t_i)-s_n+s_i$里取$\min$。</p>
+<h3 id="序列分割"><a href="#序列分割" class="headerlink" title="序列分割"></a><a href="https://www.luogu.com.cn/problem/P3648" target="_blank" rel="noopener">序列分割</a></h3><p><a href="/2019/12/15/洛谷-P3648-APIO2014-序列分割">题解</a></p>
+<hr>
+<h1 id="矩阵树定理"><a href="#矩阵树定理" class="headerlink" title="矩阵树定理"></a>矩阵树定理</h1><h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><p>详情请咨询<a href="/2019/05/13/组合数学食用笔记/">组合数学食用笔记</a></p>
+<h2 id="水题-2"><a href="#水题-2" class="headerlink" title="水题"></a>水题</h2><h3 id="小Z的房间"><a href="#小Z的房间" class="headerlink" title="小Z的房间"></a><a href="https://www.luogu.com.cn/problem/P4111" target="_blank" rel="noopener">小Z的房间</a></h3><p>板子题。唯一要注意的是柱子不能放进Kirchhoff矩阵中。</p>
+<h3 id="黑暗前的幻想乡"><a href="#黑暗前的幻想乡" class="headerlink" title="黑暗前的幻想乡"></a><a href="https://www.luogu.com.cn/problem/P4336" target="_blank" rel="noopener">黑暗前的幻想乡</a></h3><p>枚举集合$S$表示哪些公司没有修路容斥。对剩下的公司矩阵树定理求方案数。</p>
+<p>即$ans=\sum\limits_{S}(-1)^{|S|}calc(S)$</p>
+<p>复杂度$O((n-1)^32^{n-1})$</p>
+<h3 id="重建"><a href="#重建" class="headerlink" title="重建"></a><a href="https://www.luogu.com.cn/problem/P3317" target="_blank" rel="noopener">重建</a></h3><p><a href="/2019/12/17/洛谷-P3317-SDOI2014-重建">题解</a></p>
+<h3 id="最小生成树计数"><a href="#最小生成树计数" class="headerlink" title="最小生成树计数"></a><a href="https://www.luogu.com.cn/problem/P4208" target="_blank" rel="noopener">最小生成树计数</a></h3><p><a href="/2019/12/17/洛谷-P4208-JSOI2008-最小生成树计数">题解</a></p>
+<hr>
+<h1 id="线性基"><a href="#线性基" class="headerlink" title="线性基"></a>线性基</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>对一个数的集合$S$，其线性基就是由最少的数（最小性）构成的集合$B$，满足从$S$中任取一些数异或起来（不包括$0$）得到的值域，与$B$中任取一些数异或起来得到的值域相同。</p>
+<h2 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h2><p><strong>1.对于任意的$i$，$B$中最多只有一个元素二进制下最高位的$1$为第$i$位（下记该元素为$B_i$）</strong></p>
+<p><strong>2.取$B$中任意元素异或起来结果不为$0$</strong></p>
+<p><strong>3.对于任意$B$的元素$x$，不存在取$B$中若干其他元素异或起来等于$x$</strong></p>
+<p><strong>4.若$S$的值域上界为$2^n-1$，则$B$最多有$n$个数</strong></p>
+<h2 id="构造-1"><a href="#构造-1" class="headerlink" title="构造"></a>构造</h2><h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2><p>考虑插入元素$x$的影响：根据性质$3$，如果当前线性基能异或出$x$，就不管$x$；否则添加某个数使线性基能异或出$x$。</p>
+<p>怎么得到$x$呢？根据性质$1$，异或$B_i$（如果$B_i$有值）对$i$以上的位没有影响。从高到低考虑，如果$x$第$i$位上为$1$，就让$x$异或上$B_i$。如果$B_i$不存在就$gg$了，这时我们需要把$x$放到$B_i$上。</p>
+<p>插入复杂度$O(\log V)$，$V$为值域。</p>
+<p>插入代码：</p>
+<pre><code class="lang-cpp">long long b[61];
+void insert(long long x){
+    for(register int i=60;~i;--i){
+        if(x&gt;&gt;i&amp;1){
+            if(!b[i]){b[i]=x;return;}
+            x^=b[i];
+        }
+    }
+}
+</code></pre>
+<h2 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h2><p>把$S_1$和$S_2$的线性基合并，得到的新线性基对应的集合$S=S_1\cup S_2$。</p>
+<p>显然直接把$S_1$插到$S_2$里就行，复杂度$O(\log^2V)$。</p>
+<h2 id="应用-1"><a href="#应用-1" class="headerlink" title="应用"></a>应用</h2><h3 id="判断是否能从S中取若干数异或得到x"><a href="#判断是否能从S中取若干数异或得到x" class="headerlink" title="判断是否能从S中取若干数异或得到x"></a>判断是否能从S中取若干数异或得到x</h3><p>把$x$插入线性基看看是否插入成功就行了。</p>
+<h3 id="子集异或最大值"><a href="#子集异或最大值" class="headerlink" title="子集异或最大值"></a><a href="https://www.luogu.com.cn/problem/P3812" target="_blank" rel="noopener">子集异或最大值</a></h3><p>从高到低贪心，若当前答案第$i$位本来就有$1$，不用管；否则判断与$B_i$是否能异或出第$i$位的$1$（其实就是看看$B_i$是否存在），能就异或上$B_i$。</p>
+<p>当然不用写这么麻烦，直接<code>if((ans^b[i])&gt;ans)ans^=b[i];</code>就行。</p>
+<h3 id="子集异或最小值"><a href="#子集异或最小值" class="headerlink" title="子集异或最小值"></a>子集异或最小值</h3><p>就是$B$的最小值。</p>
+<h3 id="子集异或第k小"><a href="#子集异或第k小" class="headerlink" title="子集异或第k小"></a><a href="https://loj.ac/problem/114" target="_blank" rel="noopener">子集异或第k小</a></h3><p>说实话还没有完全明白。。。</p>
+<p>首先要魔改（其实是正规化）构造方式：</p>
+<p>重新定义$B_i$为满足原来条件的最小值。</p>
+<p>还是考虑插入$x$的影响，若$x$在第$i$位上$gg$了：</p>
+<ul>
+<li>对于低位，$x$可以通过异或它们变得更小，从而使$B_i$最小</li>
+<li>对于高位，它们异或$x$可能会变得更小</li>
+</ul>
+<p>因此扫一遍更新即可。</p>
+<p>代码：</p>
+<pre><code class="lang-cpp">void insert(long long x){
+    for(register int i=60;~i;--i){
+        if(x&gt;&gt;i&amp;1){
+            if(!b[i]){
+                for(register int j=i-1;~j;--j)if(x&gt;&gt;j&amp;1)x^=b[j];
+                for(register int j=i+1;j&lt;=60;++j)if((b[j]^x)&lt;b[j])b[j]^=x;
+                b[i]=x;
+                return;
+            }
+            x^=b[i];
+        }
+    }
+}
+</code></pre>
+<p>然后把有值的$B_i$提出来排好，得到的数组记为$A$。把$k$二进制拆分，答案就是为$1$的位的$A$的异或和。</p>
+<p>由于不能选空集，会有一些细节<del>自己研究去吧我就懒得说了</del></p>
+<h2 id="水题-3"><a href="#水题-3" class="headerlink" title="水题"></a>水题</h2><h3 id="元素"><a href="#元素" class="headerlink" title="元素"></a><a href="https://www.luogu.com.cn/problem/P4570" target="_blank" rel="noopener">元素</a></h3><p>按魔法值从大到小排序，依次插入线性基，如果成功插入就选。</p>
+<h3 id="彩灯"><a href="#彩灯" class="headerlink" title="彩灯"></a><a href="https://www.luogu.com.cn/problem/P3857" target="_blank" rel="noopener">彩灯</a></h3><p>翻译一下，若干个$n$位二进制数，取任意个异或起来有多少种不同的结果？</p>
+<p>因为这和在线性基取若干数是等价的，若线性基有$cnt$个数，还可以取空集，答案就是$2^{cnt}$。</p>
+<h3 id="幸运数字"><a href="#幸运数字" class="headerlink" title="幸运数字"></a><a href="https://www.luogu.com.cn/problem/P3292" target="_blank" rel="noopener">幸运数字</a></h3><p>基于线性基的合并用数据结构维护线性基。</p>
+<p>可以倍增，也可以点分治，题解区五花八门的。</p>
+<p>记$M(A,B)$为$A,B$合并得到的新线性基，显然有性质$M(M(A,B),C)=M(M(A,B),M(B,C))$。</p>
+<p>也就是说合并有重叠性，可以$ST$表维护。于是我选择了树剖+$ST$表，$3$个$\log$。不过合并一般跑不满所以能过。</p>
+<h3 id="最大XOR和路径"><a href="#最大XOR和路径" class="headerlink" title="最大XOR和路径"></a><a href="https://www.luogu.com.cn/problem/P4151" target="_blank" rel="noopener">最大XOR和路径</a></h3><p>题解第一篇讲的很清楚了。</p>
+<h3 id="装备购买"><a href="#装备购买" class="headerlink" title="装备购买"></a><a href="https://www.luogu.com.cn/record/28703736" target="_blank" rel="noopener">装备购买</a></h3><p>第一道水题的实数版。</p>
+<p>OI中的线性基一般都是指上面的异或线性基，这道题就是实数的线性基了。</p>
+<p>考虑把异或拓展到实数运算上：</p>
+<p>构造异或线性基的时候，其实是把每个数看作$n$维向量，对每一维考虑，若为$1$就异或上$B_i$来消掉这一位的$1$，不存在$B_i$就赋值为该数。</p>
+<p>同理，对于实数线性基，把一组数也看作$n$维向量，对有值的位，若$B_i$存在，就消掉该位；否则赋值$B_i$为该实数集。</p>
+<p>怎么消啊？类似于高斯消元搞一搞就行了。</p>
+<hr>
+<h1 id="2-SAT"><a href="#2-SAT" class="headerlink" title="2-SAT"></a>2-SAT</h1><p><del>都9102年了我还在学图论基础算法</del></p>
+<h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p>有一堆变量$a$，现在要给它们赋值为$0$或$1$。</p>
+<p>$k-SAT$问题就是有若干条限制$b$，每条形如$(a_{b_1}=0/1)\lor (a_{b_2}=0/1)\lor \dots \lor (a_{b_k}=0/1)$，问是否存在一种赋值方案满足这些限制。</p>
+<p>$k-SAT$是$NP$完全问题，但当$k=2$时可做。</p>
+<p>复读一遍$2-SAT$的定义：$2-SAT$即有若干条限制$b$，每条形如$(a_{b_1}=0/1)\lor (a_{b_2}=0/1)$，问是否存在一种赋值方案满足这些限制。</p>
+<h2 id="判定"><a href="#判定" class="headerlink" title="判定"></a>判定</h2><p>把$a_i$拆成两个点$a_{i,0}$和$a_{i,1}$，分别表示$a_i=0/1$。</p>
+<p>用有向边$a_{i,x}\rightarrow a_{j,y}$表示$a_i=x\Rightarrow a_j=y$。</p>
+<p>对于一条限制，比如是$a_3=0\lor a_4=0$，就要将$a_{3,1}$向$a_{4,0}$连边，$a_{4,1}$向$a_{3,0}$连边。</p>
+<p>当从$a_{i,0}$沿着边走能走到$a_{i,1}$，且$a_{i,1}$能走到$a_{i,0}$，即$a_i=0\Leftrightarrow a_i=1$，矛盾，就不存在合法方案。</p>
+<p>于是大力缩点判断$a_{i,0}$与$a_{i,1}$是否在同一强连通分量里即可解决。</p>
+<h2 id="输出方案"><a href="#输出方案" class="headerlink" title="输出方案"></a>输出方案</h2><p>枚举每个变量赋值为几。</p>
+<p>为了造成尽可能少的影响，直接选$a_{i,0}$和$a_{i,1}$中拓扑序较大的；或者说我们的目的是选拓扑序较大的一些点，就能保证构造出合法方案。</p>
+<p>而$Tarjan$缩完点给强连通分量的编号就是逆序拓扑序，所以不用再拓扑排序了。</p>
+<p>如果要求按字典序输出，没啥好方法，枚举每个变量选哪个判定是否可行，复杂度$O(nm)$。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p><a href="https://www.luogu.com.cn/problem/P4782" target="_blank" rel="noopener">板子</a></p>
+<p><a href="https://www.luogu.com.cn/problem/P4171" target="_blank" rel="noopener">板子改一改就A了</a></p>
+<pre><code class="lang-cpp">#define px(x) putchar(x)
+#define ps px(&#39; &#39;)
+#define pn px(&#39;\n&#39;)
+struct edge{int pre,to;}e[maxn&lt;&lt;1];
+int h[maxn],seg[maxn],low[maxn],sta[maxn],id[maxn],cnt,num,all,top;
+bool vis[maxn];
+inline void add(int from,int to){e[++num]=(edge){h[from],to},h[from]=num;}
+void TJ(int node){
+    vis[sta[++top]=node]=1;
+    seg[node]=low[node]=++cnt;
+    for(register int i=h[node],x;i;i=e[i].pre){
+        x=e[i].to;
+        if(!seg[x])TJ(x),low[node]=min(low[node],low[x]);
+        else if(vis[x])low[node]=min(low[node],seg[x]);
+    }
+    if(seg[node]==low[node]){
+        id[node]=++all,vis[node]=0;
+        while(sta[top]!=node)id[sta[top]]=all,vis[sta[top--]]=0;
+        --top;
+    }
+}
+int main(){
+    int n=read(),m=read();
+    while(m--){
+        int a=read(),x=read(),b=read(),y=read();
+        add(a+(x^1)*n,b+y*n),add(b+(y^1)*n,a+x*n);
+    }
+    for(register int i=1;i&lt;=n&lt;&lt;1;++i)if(!seg[i])TJ(i);
+    for(register int i=1;i&lt;=n;++i)if(id[i]==id[i+n]){puts(&quot;IMPOSSIBLE&quot;);return 0;}
+    puts(&quot;POSSIBLE&quot;);
+    for(register int i=1;i&lt;=n;++i)px(48+(id[i+n]&lt;id[i])),ps;
+    pn;
+}
+</code></pre>
+<h2 id="水题-4"><a href="#水题-4" class="headerlink" title="水题"></a>水题</h2><h3 id="Flags"><a href="#Flags" class="headerlink" title="Flags"></a><a href="https://www.luogu.com.cn/problem/AT2336" target="_blank" rel="noopener">Flags</a></h3><p>最小距离最大显然要二分。</p>
+<p>二分判定显然是$2-SAT$。记$a_{i,0/1}$分别为$x_i$和$y_i$。如果存在$a_{i,x}-a_{j,y}&lt;mid$且$a_{i,x}\ge a_{j,y}$，则两者不能同时选，连边$a_{i,x}\rightarrow a_{j,y\ xor\ 1},a_{j,y}\rightarrow a_{i,x\ xor 1}$。</p>
+<p>复杂度爆炸显然要线段树优化建图。</p>
+<p>有个坑点是直接连区间会把$a_{i,0}$和$a_{i,1}$连出来环，要把区间里的$a_{i,0}$抠出来。<del>显然不好写。</del></p>
+<h3 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a><a href="https://www.luogu.com.cn/problem/P3825" target="_blank" rel="noopener">游戏</a></h3><p>如果没有<code>x</code>就是裸的$2-SAT$。对于限制$(i,x,j,y)$，连边$a_{i,x}\rightarrow a_{j,y},a_{j,y\ xor\ 1}\rightarrow a_{i,x\ xor\ 1}$。</p>
+<p>$3^d$爆搜每个<code>x</code>的状态时间爆炸。发现<code>x</code>为<code>a,b</code>的时候已经把<code>c</code>的情况包含进去了，$2^d$爆搜即可。</p>
+<h3 id="Radio-Stations"><a href="#Radio-Stations" class="headerlink" title="Radio Stations"></a><a href="https://www.luogu.com.cn/problem/CF1215F" target="_blank" rel="noopener">Radio Stations</a></h3><p><a href="/2019/12/27/Codeforces1215F-Radio-Stations/">题解</a></p>
+<hr>
+<h1 id="差分约束"><a href="#差分约束" class="headerlink" title="差分约束"></a>差分约束</h1><p><del>都9102年了我还在学图论基础算法（复读）</del></p>
+<p><del>而且后天就0202年了</del></p>
+<h2 id="板子-1"><a href="#板子-1" class="headerlink" title="板子"></a><a href="https://www.luogu.com.cn/problem/P1993" target="_blank" rel="noopener">板子</a></h2><p>有$n$个变量$a_{1\dots n}$，$m$个限制形如$a_i-a_j\le c$。</p>
+<p>这个长得很像最短路里的三角形不等式：$a_i-a_j\le c\rightarrow a_j+c\ge a_i\rightarrow dis_j+c\ge dis_i$。</p>
+<p>把$j$向$i$连一条权值为$c$的边，建一个超级源向每个点连一条$0$边。跑一遍最短路，存在负环就无解。</p>
+<p>方案就是$a_i=dis_i$。</p>
+<h2 id="板子代码"><a href="#板子代码" class="headerlink" title="板子代码"></a>板子代码</h2><p>只判断可行性，直接广搜$spfa$会$T$，需要$dfs$版$spfa$。</p>
+<pre><code class="lang-cpp">struct edge{int pre,to,l;}e[maxn&lt;&lt;1];
+int dis[maxn],cnt[maxn],h[maxn],num;
+bool vis[maxn];
+queue&lt;int&gt;q;
+inline void add(int from,int to,int l){e[++num]=(edge){h[from],to,l},h[from]=num;}
+void dfs(int node){
+    vis[node]=1;
+    for(register int i=h[node],x;i;i=e[i].pre){
+        x=e[i].to;
+        if(dis[x]&gt;dis[node]+e[i].l){
+            if(vis[x]){puts(&quot;No&quot;);exit(0);}
+            dis[x]=dis[node]+e[i].l,dfs(x);
+        }
+    }
+    vis[node]=0;
+}
+int main(){
+    int n=read(),m=read();
+    for(register int i=1;i&lt;=n;++i)add(0,i,0);
+    while(m--){
+        int s=read(),a=read(),b=read();
+        if(s==1)add(b,a,read());
+        else if(s==2)add(a,b,-read());
+        else add(b,a,0);
+    }
+    memset(dis,0x3f,sizeof dis),dis[0]=0;
+    dfs(0);
+    puts(&quot;Yes&quot;);
+}
+</code></pre>
+<h2 id="水题-5"><a href="#水题-5" class="headerlink" title="水题"></a>水题</h2><h3 id="糖果"><a href="#糖果" class="headerlink" title="糖果"></a><a href="https://www.luogu.com.cn/problem/P3275" target="_blank" rel="noopener">糖果</a></h3><p>本来是并查集+拓扑排序水题的，不过差分约束也能<del>骗分</del>搞。</p>
+<p>连边关系显然，不过为了计算糖果数要按最长路的连。因为每个人都要有糖果，源点向每个点连的边权为$1$。</p>
+<p>答案就是$dis$之和。</p>
+<p>然后这个题卡$spfa$，第$5$个点要双端队列优化，第$6$个测试点源点向$1\sim n$要逆序连边。</p>
+<h3 id="倍杀测量者"><a href="#倍杀测量者" class="headerlink" title="倍杀测量者"></a><a href="https://www.luogu.com.cn/problem/P4926" target="_blank" rel="noopener">倍杀测量者</a></h3><p>任意情况都有人女装$\rightarrow$所有人都不女装不合法。</p>
+<p>显然可以二分答案。</p>
+<p>对两种条件，分别用$a_i\ge (k-T)a_j$和$a_i\ge \frac{1}{k+T}a_j$表示。</p>
+<p>对已经确定的人，用$a_i\ge 1\times x$且$1\times x\ge a_i$表示。</p>
+<p>取对数跑最长路，有正环就可以。</p>
+<h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a><a href="https://www.luogu.com.cn/problem/P4878" target="_blank" rel="noopener">布局</a></h3><p>很容易转成最短路来做，先判一下负环。</p>
+<p>如果合法，假设答案为$ans$，显然$ans$为满足$dis_n-dis_1\ge ans$的最大值。实际上这就是从$n$到$1$连了一条长为$-ans$的边，且不会产生负环。</p>
+<p>以$1$为起点跑一遍最短路，$dis_n$即为答案。</p>
+<hr>
+<h1 id="莫队"><a href="#莫队" class="headerlink" title="莫队"></a>莫队</h1><p>其实我是会莫队的，不过还没有系统地学过莫队全家桶，在这写一写。</p>
+<h2 id="树上莫队"><a href="#树上莫队" class="headerlink" title="树上莫队"></a>树上莫队</h2><p>搞出来树的括号序：$dfs$整棵树。对于点$i$，进入时加入$i$记为$st_i$，回溯时再加进去记为$en_i$。</p>
+<p>然后把询问$(x,y)$分两种情况扔到括号序上：</p>
+<ul>
+<li>$lca(x,y)=x$：$[st_x,st_y]$（$lca(x,y)=y$一样）</li>
+<li>$\operatorname{otherwise}$：$[en_x,st_y]$（假设$en_x&lt;st_y$）此时$lca$没有算上，要额外计算。</li>
+</ul>
+<p>在括号序上跑莫队。出现过奇数次的点算上贡献，偶数次不算。</p>
+<h2 id="带修莫队"><a href="#带修莫队" class="headerlink" title="带修莫队"></a>带修莫队</h2><p>按左端点的块为第一关键字、右端点的块为第二关键字、时间为第三关键字排序，块大小设置为$n^{\frac{2}{3}}$，维护左右端点和时间三个指针即可，复杂度$O(n^{\frac{5}{3}})$。</p>
+<h2 id="回滚莫队"><a href="#回滚莫队" class="headerlink" title="回滚莫队"></a>回滚莫队</h2><p>如果莫队的添加容易，删除麻烦（或者反过来），可以考虑回滚莫队。</p>
+<p>排序还是一样的。把左端点都在同一个块（假设块的区间为$[L,R]$）里的一块处理，维护一个右指针$pr$，初始值为$R$。对于询问$[l,r]$：</p>
+<ul>
+<li>若$l$与$r$在同一个块里，暴力。</li>
+<li>否则，移动$pr$到$r$，加上$[pr+1,r]$的贡献（因为同一个块里的$r$是单增的，所以只需要添加操作）。然后暴力加上$[l,R]$的贡献，统计答案。再把$[l,R]$的贡献清掉，还原成$[R+1,pr]$的样子。</li>
+</ul>
+<p>处理完一个块后，要把残余的信息清空。</p>
+<p>取块大小为$\frac{n}{\sqrt{m}}$，复杂度还是$O(n\sqrt{m})$的，而且只需要考虑添加操作，在维护最大值的时候有奇效。</p>
+<p>只考虑删除的同理。</p>
+<h2 id="二次离线莫队-amp-在线莫队"><a href="#二次离线莫队-amp-在线莫队" class="headerlink" title="二次离线莫队&amp;在线莫队"></a>二次离线莫队&amp;在线莫队</h2><p><strong>不可能学的，这辈子都不可能学的。</strong></p>
+<h2 id="板子-水题"><a href="#板子-水题" class="headerlink" title="板子+水题"></a>板子+水题</h2><h3 id="糖果公园"><a href="#糖果公园" class="headerlink" title="糖果公园"></a><a href="https://www.luogu.com.cn/problem/P4074" target="_blank" rel="noopener">糖果公园</a></h3><p>树上+带修莫队板子。</p>
+<pre><code class="lang-cpp">long long ans[maxn],sum[maxn],all;
+int be[maxn&lt;&lt;1],st[maxn],en[maxn],f[maxn&lt;&lt;1],tax[maxn],a[maxn],v[maxn],c[maxn],h[maxn],siz[maxn],son[maxn],top[maxn],deep[maxn],fa[maxn],num,cnt;
+bool vis[maxn];
+struct query{
+    int l,r,id,t,lc;
+    bool operator &lt; (const query &amp;x)const{
+        if(be[l]!=be[x.l])return l&lt;x.l;
+        else if(be[r]!=be[x.r])return r&lt;x.r;
+        return t&lt;x.t;
+    }
+}q[maxn];
+struct modify{int x,y;}ch[maxn];
+struct edge{int pre,to;}e[maxn&lt;&lt;1];
+inline void add(int from,int to){e[++num]=(edge){h[from],to},h[from]=num;}
+void dfs1(int node=1){
+    f[st[node]=++cnt]=node,siz[node]=1;
+    for(register int i=h[node],x;i;i=e[i].pre){
+        x=e[i].to;
+        if(siz[x])continue;
+        fa[x]=node,deep[x]=deep[node]+1;
+        dfs1(x),siz[node]+=siz[x];
+        if(siz[x]&gt;siz[son[node]])son[node]=x;
+    }
+    f[en[node]=++cnt]=node;
+}
+void dfs2(int node=1){
+    siz[node]=0;
+    if(!son[node])return;
+    top[son[node]]=top[node],dfs2(son[node]);
+    for(register int i=h[node],x;i;i=e[i].pre){
+        x=e[i].to;
+        if(siz[x])top[x]=x,dfs2(x);
+    }
+}
+inline int lca(int x,int y){
+    while(top[x]!=top[y])deep[top[x]]&lt;deep[top[y]]?y=fa[top[y]]:x=fa[top[x]];
+    return deep[x]&lt;deep[y]?x:y;
+}
+inline void add(int x){all+=1ll*v[x]*c[++tax[x]];}
+inline void del(int x){all-=1ll*v[x]*c[tax[x]--];}
+inline void modify(int x){
+    if(vis[x])del(a[x]);
+    else add(a[x]);
+    vis[x]^=1;
+}
+int main(){
+    int n=read(),m=read(),t=read(),x,y,last=0,ql=0;
+    for(register int i=1;i&lt;=m;++i)v[i]=read();
+    for(register int i=1;i&lt;=n;++i)sum[i]=sum[i-1]+(c[i]=read());
+    for(register int i=1;i&lt;n;++i)x=read(),y=read(),add(x,y),add(y,x);
+    dfs1(),dfs2();
+    for(register int i=1;i&lt;=n;++i)a[i]=read();
+    for(register int i=1;i&lt;=t;++i){
+        bool type=read();
+        if(!type)ch[++last].x=read(),ch[last].y=read();
+        else {
+            x=read(),y=read(),q[++ql].id=ql,q[ql].t=last;
+            int l=lca(x,y);
+            if(st[x]&gt;st[y])swap(x,y);
+            if(l==x)q[ql].l=st[x],q[ql].r=st[y];
+            else q[ql].l=en[x],q[ql].r=st[y],q[ql].lc=l;
+        }
+    }
+    int sq=pow(cnt,2.0/3),len=cnt/sq+(bool)(cnt%sq),l=1,r=0,w=0;
+    for(register int i=1;i&lt;=len;++i)
+        for(register int j=(i-1)*sq+1,r=min(j+sq-1,cnt);j&lt;=r;++j)
+            be[j]=i;
+    sort(q+1,q+1+ql);
+    for(register int i=1;i&lt;=ql;++i){
+        while(l&lt;q[i].l)modify(f[l++]);
+        while(l&gt;q[i].l)modify(f[--l]);
+        while(r&gt;q[i].r)modify(f[r--]);
+        while(r&lt;q[i].r)modify(f[++r]);
+        while(w&lt;q[i].t){
+            x=ch[++w].x,y=ch[w].y;
+            if(vis[x])del(a[x]),add(y);
+            swap(a[x],ch[w].y);
+        }
+        while(w&gt;q[i].t){
+            x=ch[w].x,y=ch[w].y;
+            if(vis[x])del(a[x]),add(y);
+            swap(a[x],ch[w--].y);
+        }
+        if(q[i].lc)add(a[q[i].lc]);
+        ans[q[i].id]=all;
+        if(q[i].lc)del(a[q[i].lc]);
+    }
+    for(register int i=1;i&lt;=ql;++i)printf(&quot;%lld\n&quot;,ans[i]);
+}
+</code></pre>
+<h3 id="歴史の研究"><a href="#歴史の研究" class="headerlink" title="歴史の研究"></a><a href="https://www.luogu.com.cn/problem/AT1219" target="_blank" rel="noopener">歴史の研究</a></h3><p>回滚莫队板子。</p>
+<pre><code class="lang-cpp">long long ans[maxn],all;
+int be[maxn],dis[maxn],a[maxn],tax[maxn];
+struct query{
+    int l,r,id;
+    bool operator &lt; (const query &amp;x)const{
+        if(be[l]!=be[x.l])return l&lt;x.l;
+        return r&lt;x.r;
+    }
+}q[maxn];
+inline void add(int x){++tax[x],all=max(all,1ll*tax[x]*dis[x]);}
+int main(){
+    int n=read(),m=read(),sq=n/sqrt(m),num=n/sq+(bool)(n%sq);
+    for(register int i=1;i&lt;=num;++i)
+        for(register int j=(i-1)*sq+1,r=min(n,j+sq-1);j&lt;=r;++j)
+            be[j]=i,dis[j]=a[j]=read();
+    sort(dis+1,dis+1+n);
+    int len=unique(dis+1,dis+1+n)-dis-1,b=0,r;
+    for(register int i=1;i&lt;=n;++i)a[i]=lower_bound(dis+1,dis+1+len,a[i])-dis;
+    for(register int i=1;i&lt;=m;++i)q[i].id=i,q[i].l=read(),q[i].r=read();
+    sort(q+1,q+1+m);
+    for(register int i=1;i&lt;=m;++i){
+        if(be[q[i].l]!=b)b=be[q[i].l],all=0,memset(tax,0,sizeof tax),r=b*sq;
+        if(be[q[i].l]==be[q[i].r]){
+            for(register int j=q[i].l;j&lt;=q[i].r;++j)add(a[j]);
+            ans[q[i].id]=all,all=0;
+            for(register int j=q[i].l;j&lt;=q[i].r;++j)tax[a[j]]=0;
+            continue;
+        }
+        while(r&lt;q[i].r)add(a[++r]);
+        long long rec=all;
+        for(register int j=b*sq;j&gt;=q[i].l;--j)add(a[j]);
+        ans[q[i].id]=all,all=rec;
+        for(register int j=b*sq;j&gt;=q[i].l;--j)--tax[a[j]];
+    }
+    for(register int i=1;i&lt;=m;++i)printf(&quot;%lld\n&quot;,ans[i]);
+}
+</code></pre>
+<h3 id="【模板】回滚莫队"><a href="#【模板】回滚莫队" class="headerlink" title="【模板】回滚莫队"></a><a href="https://www.luogu.com.cn/problem/P5906" target="_blank" rel="noopener">【模板】回滚莫队</a></h3><p>洛谷有回滚莫队板子辣！</p>
+<p>维护两个桶$tl[i],tr[i]$，分别表示权值$i$出现的最靠左/右的位置。</p>
+<p>左端点移动的时候记录被修改的桶原来的权值，没了。</p>
+<h3 id="ants"><a href="#ants" class="headerlink" title="ants"></a><a href="https://www.cnblogs.com/wzc521/p/11663632.html" target="_blank" rel="noopener">ants</a></h3><p>只加不删的回滚莫队。</p>
+<p>暴力的做法是可撤销并查集，不过带个$\log$。</p>
+<p>优美的做法是链表。对链表每一块元素维护左/右端点。如果新加的点两边有元素就合并起来，删除直接断开更新端点。这样就没有$\log$了。</p>
+
+            
+        </div>
+      </article>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2019/12/15/%E6%B4%9B%E8%B0%B7-P3648-APIO2014-%E5%BA%8F%E5%88%97%E5%88%86%E5%89%B2/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.0/xlfg.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.8.0/xlfg.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                洛谷 P3648 [APIO2014]序列分割</h3>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2019/12/11/Codeforces961G-Partitions/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/partitions.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/partitions.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                Codeforces961G Partitions</h3>
+              </div> 
+            </a>
+			</div>
+        
+      </section> 
+    </main>
+</div>
+</div>
+</div>
+<div class="gather">
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz",
+        appKey: "jqULEjwlbvOCM08eEOpTIGOI",
+        path: window.location.pathname,
+		visitor: true,
+        placeholder: "日々私たちが过ごしている日常は、実は奇迹の连続なのかもしれない。"
+      })
+  }
+</script>
+
+</div>
+
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+
+<script>
+function imgInit(){
+	var imgs=document.getElementsByClassName('entry-content').item(0).getElementsByTagName('img');
+	for(var i=0;i<imgs.length;++i){
+		var element = document.createElement("a"),record=imgs[i],dsrc=record.getAttribute("data-src");
+		element.setAttribute("data-fancybox","gallery");
+    element.setAttribute("href",dsrc||imgs[i].src);
+		element.setAttribute("id","escape-link");
+		imgs[i].parentNode.appendChild(element);
+		imgs[i].parentNode.removeChild(imgs[i]);
+		element.appendChild(record);
+	}
+}
+var spoiler=document.getElementsByClassName('spoiler');
+for(var i=0;i<spoiler.length;++i)
+spoiler[i].onclick=function(){this.classList.toggle("revealed");};
+imgInit();
+</script>
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.6.7/articleload.gif">
+      </div>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Github Pages</a>
+        </span>
+		<!-- <span style="color: #b9b9b9;display:block">图片外链由<a href="https://img.fghrsh.net/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">FGHRSH图床</a>提供 -->
+        <!-- </span> -->
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.4/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.2/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<!-- <script src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/valine.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.1.4/js/volantis.min.js"></script>
+<script type="text/javascript">
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { 
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;ww">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

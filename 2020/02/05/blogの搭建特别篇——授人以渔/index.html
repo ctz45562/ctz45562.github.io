@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">blogの搭建之sakura特别篇——授人以渔 | ctz&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/googlefont.css" media="all">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_ndnjfmz11y9.css">
+  <style>
+  .emoji-coda {
+      display: inline-block !important;
+      position: relative;
+      width: 47px;
+      top: 2px;
+      margin: -3px 3px !important;
+      padding: 0;
+  }
+  </style>
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "ctz's blog";
+  mashiro_option.author_name = "ctz's blog";
+  mashiro_option.site_url = "https://ctz45562.github.io";
+  mashiro_option.v_appId = "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz";
+  mashiro_option.v_appKey = "jqULEjwlbvOCM08eEOpTIGOI";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index1.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index2.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index3.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index4.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index5.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index6.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index7.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.4/index8.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.9/index9.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
+    @import url("/code.css");
+  </style>
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed;bottom:64px;left:28px;"> 
+  <div class="theme-controls row-container"> 
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> background <i style="color:grey" class="fa fa-chevron-right"></i></p>
+    <ul class="menu-list"> 
+	  <li id="white-bg"> 
+	    <i class="fa fa-television">
+		</i>
+	  </li> 
+	<li id="sakura-bg"> 
+      <i class="iconfont icon-sakura">
+	  </i>
+	</li> 
+    <li id="gribs-bg"> 
+      <i class="fa fa-slack">
+	  </i>
+    </li> 
+    <li id="KAdots-bg"> 
+      <i class="iconfont icon-dots">
+      </i>
+    </li> 
+    <li id="totem-bg"> 
+      <i class="fa fa-optin-monster">
+      </i>
+    </li> 
+    <li id="pixiv-bg"> 
+      <i class="fa fa-star">
+	  </i>
+      </li> 
+    <li id="bing-bg"> 
+      <i class="fa fa-picture-o">
+	  </i>
+    </li> 
+    <li id="dark-bg"> 
+      <i class="fa fa-moon-o">
+      </i>
+    </li> 
+  </ul> 
+  </div > 
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> font <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="font-family-controls row-container">
+    <button type="button" class="control-btn-serif " data-mode="serif" onclick="mashiro_global.font_control.change_font()">Serif</button>
+    <button type="button" class="control-btn-sans-serif" data-mode="sans-serif" onclick="mashiro_global.font_control.change_font()">Sans Serif</button>
+  </div>
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> script <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="theme-controls row-container">
+  <ul class="menu-list">
+  <style>li>.ctz{font-size: 21px;}</style>
+	<li id="empty-effect">
+	  <i class="ctz ctz-jinzhi">
+	  </i>
+	</li>
+	<li id="sakura-rain-effect">
+	  <i class="ctz ctz-huaxiang">
+	  </i>
+	</li>
+	<li id="snowy-effect">
+	  <i class="ctz ctz-snow">
+	  </i>
+	</li>
+	<li id="lines-effect">
+	  <i class="ctz ctz-xianlu">
+	  </i>
+	</li>
+	<li id="colorful-belts-effect">
+	  <i class="ctz ctz-caidai"></i>
+	  </i>
+	</li>
+	<li id="words-rain-effect">
+	  <i class="ctz ctz-zimuletters2"></i>
+	</li>
+	<li id="point-rain-effect">
+	  <i class="ctz ctz-diandiandian" style="font-size:19px"></i>
+	</li>
+	<li id="rain-drop-effect">
+	  <i class="ctz ctz-yu"></i>
+	</li>
+  </ul>
+  </div>
+<canvas id="night-mode-cover">
+</canvas>
+</div> 
+  <div class="changeSkin-gear no-select" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; visibility: visible; bottom: 0px;"> 
+  <div class="keys" id="setbtn"> 
+    <button id="open-skinMenu">
+		<style>
+		button#open-skinMenu{
+			transition: all 0.2s linear 0s;
+			outline:none;
+			position:fixed;
+			bottom:12px;
+			left:13px;
+			font-size:16px;
+			background-color: rgba(255,255,255,.95);
+			border-radius: 20px;
+			box-shadow: 0 3px 8px 0 rgba(0,0,0,0.1), 0 3px 8px 0 rgba(0,0,0,0.1);
+		}
+		button#open-skinMenu:hover{
+			transition: all 0.2s linear 0s;
+			background-color: #2f98fc;
+			color: rgba(255,255,255);
+		}
+		</style>
+		<i class="iconfont icon-gear inline-block rotating">
+	  </i> 
+		SCHEME TOOL | 主题工具 
+	</button>
+  </div> 
+</div>
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dim">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://ctz45562.github.io">
+          <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Re&amp;Re</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://www.luogu.com.cn/user/111762" target="_blank" class="social-github" title="洛谷">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/social/luogu.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://github.com/ctz45562" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/github.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="mailto:cctz45562@163.com" target="_blank" class="social-github" title="e-mail">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/mail.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://space.bilibili.com/229790690" target="_blank" class="social-github" title="bilibili">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/bilibili.jpg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <!-- <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+ -->
+      <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.0/tocbot.css">
+<div class="pattern-center-blank"></div>
+<div class="gather">
+
+  <div class="pattern-center-sakura single-center">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.6/blogddjzsakuratbpsryy.jpg);" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.6/blogddjzsakuratbpsryy.jpg">
+    </div>
+    <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
+      <h1 class="entry-title">
+      blogの搭建之sakura特别篇——授人以渔</h1>
+      <p class="entry-census">
+	    <span><a href="https://ctz45562.github.io"><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg" style="margin-right:4px">ctz</a>
+        </span>
+		<span class="bull"></span>
+		&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp
+        2020-2-5
+    <span class="bull"></span>
+    
+      <span><i class="fa fa-archive"></i> 分类于  
+        <span class="article-category"><a href="/categories/%E9%A2%93/" > 颓</a></span>
+      
+    </span>
+    
+    <span class="bull"></span>
+		<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id='/2020/02/05/blogの搭建特别篇——授人以渔/' class="leancloud-visitors" data-flag-title="blogの搭建之sakura特别篇——授人以渔">
+        <a class="leancloud-visitors-count text-cursor">loading...</a>
+        <a class="post-meta-item-text text-cursor"> 次阅读</a>
+        </span>
+      </p>
+	  
+      
+    <div>
+		  <ul class="spfk-ul">
+		    &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<li class="spfk-li"><span class="triangle"></span><a href="/tags/blog/" class="butterfly-tags">blog</a></li>
+          </ul>
+		</div>
+		<script>
+			function colorInit(c,num){for(var i=1;i<=num;++i)c.push(i+'');}
+			function paintTags(){
+				var colorNumber=8,tagColors=[],tags=document.getElementsByClassName('spfk-li');
+				for(var i = 0 ; i < tags.length ; ++i){
+					if(!tagColors.length)colorInit(tagColors,colorNumber);
+					var j=Math.floor(Math.random()*tagColors.length);
+					tags[i].classList.add("spfk-color"+tagColors[j]);
+					tagColors.splice(j,1);
+        }
+			}
+			paintTags()
+		</script>
+    
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="gather toc" style="width:230px"></div>
+        
+        <div class="entry-content">
+          <p>之前有一篇<a href="/2019/06/04/blogの搭建之sakura">授人以鱼</a>的教程，后来看到有人留言希望我授人以渔，再加上我本来就有这个想法，以此文作为退役前给后人的一点贡献吧。</p>
+<a id="more"></a>
+<hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我是作为一个OIer沉迷于搭blog的，没有过多的时间和精力系统地学习前端知识。本文旨在帮助和我一样不能专门学习搭blog的人（尤其是OIer）快速上手，能够对blog简单地个性化，所以里面都是我半吊子的知识，请技术大佬勿喷。</p>
+<p>一点声明：我基本所有的精力都投入到sakura上了，所以涉及主题方面的也只能针对sakura来说，其他主题的还得读者仿照着去研究。</p>
+<hr>
+<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h2><p>功能全面、界面美观的VScode是不错的选择。</p>
+<p>不过VScode在机房的电脑略卡，所以再说一下我早些时候用的Notepad++。几乎不占用资源，打开上百个文件内存不到30M，一些基本的功能也挺全的。</p>
+<h2 id="三大语言"><a href="#三大语言" class="headerlink" title="三大语言"></a>三大语言</h2><p>html、css、javascript。</p>
+<p>W3school、菜鸟教程等网站对这些语言的教程很详细。</p>
+<p>这三种语言不要求完全掌握，如果搭blog只是你的一种兴趣，不要让它占用太多时间。</p>
+<p>所以：</p>
+<ul>
+<li>学会照葫芦画瓢，能模仿着原有的语句写出类似功能的语句，下面的东西，很多都是靠模仿学会的</li>
+<li>不要死记硬背函数、语法，忘了或者不会不要紧，善用搜索引擎</li>
+</ul>
+<h3 id="html：网页的骨架"><a href="#html：网页的骨架" class="headerlink" title="html：网页的骨架"></a>html：网页的骨架</h3><p>乍一看画风很鬼畜，实际上很好上手。</p>
+<p>要能够大致看懂一个html文件的构造并掌握创造一些常用元素如<code>&lt;div&gt;,&lt;p&gt;,&lt;span&gt;,&lt;hr&gt;</code>并添加属性。</p>
+<p>为了更好地看懂hexo的html文件，了解了基础语法后，要掌握一种进阶的语法。</p>
+<p>形如<code>&lt;% ... %&gt;</code>，<code>&lt;%= ... %&gt;</code>，<code>&lt;%- ... %&gt;</code>（也有主题是<code>｛% ... %｝</code>），后面会有说到。</p>
+<h3 id="css：网页的皮肤"><a href="#css：网页的皮肤" class="headerlink" title="css：网页的皮肤"></a>css：网页的皮肤</h3><p>洛谷4.0之前应该还有一些人会css的，通过插件<code>stylus</code>/<code>stylish</code>基本就能掌握。</p>
+<p>当然我还是推荐找专门的教程学一学。会给某一个或某一类元素添加一些基本的属性如<code>background,color,font-size,height</code>。至于其他你想要的效果，善用搜索引擎。</p>
+<h3 id="javascript：网页的血肉"><a href="#javascript：网页的血肉" class="headerlink" title="javascript：网页的血肉"></a>javascript：网页的血肉</h3><p>类似于<code>c++</code>，简单了解js的语法就能上手了。</p>
+<p>但js相比于前两者更nb，也更难写，很多时候还是靠模仿。</p>
+<p>只需要会最基础的函数<code>getElement</code>家族、<code>createElement</code>、<code>setInterval</code>等，以及最基础的语法如<code>var</code>的用法、循环遍历、定义函数。</p>
+<p>其他的，搜索引擎帮你搞定。</p>
+<h2 id="F12大法"><a href="#F12大法" class="headerlink" title="F12大法"></a>F12大法</h2><p>在网页中摁下F12，打开开发者工具。</p>
+<p>开发者工具用处非常大，一定要掌握。</p>
+<p>不同浏览器外观不同，但功能是差不多的。这里以firefox为例，其他浏览器的差异请读者研究吧。</p>
+<h3 id="查看器"><a href="#查看器" class="headerlink" title="查看器"></a>查看器</h3><p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.5/blogcourse/1.png" alt=""></p>
+<p>直接查看和修改内部html构造和css样式。</p>
+<p>右键对指定元素操作。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.5/blogcourse/2.png" alt=""></p>
+<p>点击最左上角的按钮（红色圈出来的），可以用鼠标定位元素。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.5/blogcourse/3.png" alt=""></p>
+<p>搜索元素需要用css语法。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.5/blogcourse/4.png" alt=""></p>
+<p>右边第二栏可以查看所有与指定元素有关的css样式并修改。修改已有规则或者添加新规则都可以。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.5/blogcourse/5.png" alt=""></p>
+<p>点击规则左侧的对勾禁用/启用。</p>
+<p>在右上角还能看到来源（文件:行数）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.5/blogcourse/6.png" alt=""></p>
+<p>至于第三栏，我基本用不到，就不说了。</p>
+<h3 id="控制台"><a href="#控制台" class="headerlink" title="控制台"></a>控制台</h3><p>用于查看警告/错误信息和输出调试。</p>
+<p>警告和错误都会在这显示，并在右侧标注文件。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.5/blogcourse/7.png" alt=""></p>
+<p>而js里的<code>console.log()</code>函数就输出到了这里，可以用于调试。</p>
+<p>下面的文本框用于输入js，定义变量、调用函数之类的。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.5/blogcourse/8.png" alt=""></p>
+<h3 id="调试器"><a href="#调试器" class="headerlink" title="调试器"></a>调试器</h3><p>顾名思义，用于调试js。</p>
+<p>可以看到网页引用的所有js并查看内容<del>剽的一大利器</del></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.5/blogcourse/9.png" alt=""></p>
+<p>单击行数设置断点，和<code>c++</code>一样调试。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.5/blogcourse/10.png" alt=""></p>
+<p>右边那个“异常处暂停”也很有用，最好勾上。</p>
+<h3 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h3><p>查看所有加载的文件以及加载效率，一般就是监测有没有加载奇♂怪的东西以及什么文件拖延了效率。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.5/blogcourse/11.png" alt=""></p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>后面几项平时没怎么用过，感兴趣的自行探索吧。</p>
+<p>btw，右上角有一个“响应式设计模式”，可以把电脑变为手机浏览。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.5/blogcourse/12.png" alt=""></p>
+<p>用于改进移动端的体验。<del>不过移动端的外观我已经完全抛弃了，所以丑的一批</del></p>
+<p>甚至能进入一些只允许移动端访问的网页。</p>
+<h2 id="FontAwesome-amp-Iconfont"><a href="#FontAwesome-amp-Iconfont" class="headerlink" title="FontAwesome&amp;Iconfont"></a>FontAwesome&amp;Iconfont</h2><p><a href="http://www.fontawesome.com.cn/faicons/" target="_blank" rel="noopener">FontAwesome</a>和<a href="https://www.iconfont.cn/" target="_blank" rel="noopener">Iconfont</a>是两个图标库，通过<code>&lt;i&gt;</code>元素加一些简单的图形，非常方便。</p>
+<p>包括sakura在内，大部分主题都支持FontAwesome，但不支持Iconfont（准确来说，Iconfont的图标实在是太多，一般是从中选一些用，所以需要自己设置），<a href="/2019/09/18/iconfont/">这里是添加Iconfont的教程</a>。</p>
+<p>用法很简单，FontAwesome就在上面的链接里找到需要的图标，点进去，复制源码，放到html文件里适当的位置即可。</p>
+<p>Iconfont用法教程里写了，和FontAwesome没啥区别。</p>
+<p>更深入一点，可以看到图标的格式都是<code>&lt;i class=&quot;fa fa-*&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;</code>（<code>aria-hidden=&quot;true&quot;</code>可以省略），了解这个后有助于读懂html文件以及修改。</p>
+<hr>
+<h1 id="hexoの构造"><a href="#hexoの构造" class="headerlink" title="hexoの构造"></a>hexoの构造</h1><p>非常重要，摸清了hexo的目录结构就能对症下药了。</p>
+<p>注：我没有提到的文件就是我不懂或者用不着。</p>
+<h2 id="站点目录结构"><a href="#站点目录结构" class="headerlink" title="站点目录结构"></a>站点目录结构</h2><p>打开存放blog的文件夹，可以看到以下内容：</p>
+<h3 id="deploy-git"><a href="#deploy-git" class="headerlink" title=".deploy_git"></a>.deploy_git</h3><p><code>hexo d</code>生成，<code>hexo cl</code>删除。</p>
+<p>这是<code>git</code>上传用的文件夹，没啥用，不要管它。</p>
+<h3 id="public"><a href="#public" class="headerlink" title="public"></a>public</h3><p><code>hexo g</code>/<code>hexo d</code>生成，<code>hexo cl</code>删除。</p>
+<p><code>hexo g</code>会根据你的<code>/source</code>文件夹和主题生成静态的网页，即将要上传到<code>github</code>仓库，<code>/public</code>就是存放这些的。一般也没用。</p>
+<h3 id="node-modules"><a href="#node-modules" class="headerlink" title="node_modules"></a>node_modules</h3><p>用于存放插件。</p>
+<p>可以修改，但是内容都比较深奥看不透，看个人水平。</p>
+<h3 id="scaffolds"><a href="#scaffolds" class="headerlink" title="scaffolds"></a>scaffolds</h3><p>存放模板。你可以看到里面有几个<code>markdown</code>文件。当执行<code>hexo new [title]</code>或<code>hexo new page [title]</code>时会根据模板创建文件。</p>
+<p><code>post.md</code>是文章模板，<code>page.md</code>是页面模板，根据个人习惯改一下写东西更方便。</p>
+<h3 id="source-config-yml"><a href="#source-config-yml" class="headerlink" title="source,_config.yml"></a>source,_config.yml</h3><p>这两个不用多说了吧。</p>
+<p>把文件放在<code>source</code>里，可以直接通过链接<code>/path</code>（<code>path</code>为在<code>source</code>下的路径名）引用文件。例如，在<code>source</code>文件夹下创建文件夹<code>images</code>，里面放上文件<code>1.jpg</code>，就可以用路径<code>/images/1.jpg</code>引用图片了。甚至可以用<code>博客网址/images/1.jpg</code>在博客外的地方引用。</p>
+<h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><p>记录所有已安装的插件和版本信息。</p>
+<p>有的主题会提供整个博客文件夹（<code>sakura</code>就是），如果出了bug，可以对比一下<code>package.json</code>查看是否是缺少插件或插件版本不够导致的。</p>
+<h2 id="主题目录结构"><a href="#主题目录结构" class="headerlink" title="主题目录结构"></a>主题目录结构</h2><p>不同主题的目录结构是有差异的，但是思路是一样的。这里就以sakura主题为例讲解。</p>
+<p>再一个，不同主题的html文件后缀名可能不同，例如sakura是<code>.ejs</code>，next是<code>.swig</code>，语法基本相同，以文件内容为依据。</p>
+<p>打开<code>/themes/sakura</code>，你会看到：</p>
+<h3 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h3><p>关于主题配置文件，也是很常见了。但不得不提一嘴：</p>
+<p>主题配置文件中的东西，是用于html文件直接引用的，语法格式为<code>&lt;%= theme.* %&gt;</code>。</p>
+<p>甚至能用<code>if</code>语句。举个栗子，如果在<code>_config.yml</code>里写下<code>testImg: /1.jpg</code>，在某个html文件里写下：</p>
+<pre><code class="lang-html">&lt;% if (theme.testImg &amp;&amp; theme.testImg.length){ %&gt;
+&lt;img src=&quot;&lt;%= theme.testImg %&gt;&quot; alt=&quot;&quot;&gt;
+&lt;% } %&gt;
+</code></pre>
+<p>这段话的意思就是，如果在<code>_config.yml</code>里有<code>testImg</code>的定义且不为空的话，就显示<code>testImg</code>代表的图片。</p>
+<p>如果你回去看看我给归档页面添加配图的教程，你会发现我就是用这种方式添加的。这个还是很实用的，多模仿。</p>
+<h3 id="languages"><a href="#languages" class="headerlink" title="languages"></a>languages</h3><p>不多说了，写博客都能用到。</p>
+<h3 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h3><p>划重点。要考的。</p>
+<p>这里存放了主题的骨架，也就是所有html文件，后缀名都是<code>.ejs</code>。一个一个说。</p>
+<h4 id="板子"><a href="#板子" class="headerlink" title="板子"></a>板子</h4><p>一些页面或重要部件的模板。</p>
+<p>里面你可能会看到这样一种语法：<code>&lt;%- partial(&#39;...&#39;) %&gt;</code>。例如在<code>layout.ejs</code>里就有<code>&lt;%- partial(&#39;_partial/head&#39;) %&gt;</code>，它的意思是把<code>_partial/head.ejs</code>里的内容原封不动地搬过来。</p>
+<ul>
+<li><code>layout.ejs</code>：最重要的html文件。<strong>几乎所有</strong>页面和文章都以此为基础。如果有什么东西想对所有页面生效（比如看板娘），放在这里就行</li>
+<li><code>category.ejs</code>：某一分类下所有文章（<a href="/categories/颓/">例子</a>）</li>
+<li><code>tag.ejs</code>：某一标签下的所有文章（<a href="/tags/blog/">例子</a>）</li>
+</ul>
+<p><code>_partial</code>文件夹下：</p>
+<ul>
+<li><code>head.ejs</code>：专门写<code>&lt;head&gt;</code>标签的内容。有了html基础就知道里面该写什么了</li>
+<li><code>footer.ejs</code>：专门写<code>&lt;footer&gt;</code>标签的内容。同上</li>
+<li><code>header.ejs</code>：顶部菜单栏</li>
+<li><code>mheader.ejs</code>：移动端下的顶部菜单栏</li>
+</ul>
+<p><code>_widget</code>文件夹下：</p>
+<p>这里再说一种语法，<code>&lt;%- post.* %&gt;</code>和<code>&lt;%- page.* %&gt;</code>，这是在文章/页面<code>markdown</code>文件里的顶部，用<code>---</code>隔开的文章信息（称为<code>front-matter</code>），和上面主题配置文件说的一样用。</p>
+<ul>
+<li><code>common-article.ejs</code>：文章的通用模板</li>
+<li><code>common-page.ejs</code>：普通页面的通用模板</li>
+<li><code>category-items.ejs</code>：某一标签/分类下单个文章。就是这个东西：</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.5/blogcourse/13.png" alt=""></p>
+<ul>
+<li><code>index-items.ejs</code>：截图更明白：</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.5/blogcourse/14.png" alt=""></p>
+<ul>
+<li><code>/search/insight.ejs</code>：搜索</li>
+</ul>
+<h4 id="特殊页面"><a href="#特殊页面" class="headerlink" title="特殊页面"></a>特殊页面</h4><p>这一类特殊页面仅靠<code>markdown</code>是不够的，都会有一个专门的html文件。</p>
+<ul>
+<li><code>archive.ejs</code>：归档</li>
+<li><code>bangumi.ejs</code>：番剧</li>
+<li><code>donate.ejs</code>：赞赏</li>
+<li><code>index.ejs</code>：主页</li>
+<li><code>links.ejs</code>：友链</li>
+</ul>
+<h4 id="零件"><a href="#零件" class="headerlink" title="零件"></a>零件</h4><p><code>_partial</code>文件夹下：</p>
+<ul>
+<li><code>aplayer.ejs</code>：音乐播放器</li>
+<li><code>comment.ejs</code>：评论</li>
+<li><code>headertop.ejs</code>：这个：</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.5/blogcourse/15.jpg" alt=""></p>
+<ul>
+<li><code>startdash.ejs</code>：顾名思义</li>
+</ul>
+<h3 id="source"><a href="#source" class="headerlink" title="source"></a>source</h3><p>划重点，也要考的。</p>
+<p>和前面的<code>/source</code>一样，主题文件夹下的<code>source</code>同样可以用来引用文件，格式完全一致。</p>
+<p>普及一个常识：如果一个css/js文件后缀名前面有个<code>min</code>或<code>mini</code>，那是说它被压缩了。压缩文件是为了缩小文件体积，加快传输效率，但是也失去了代码可读性。我在教程最后给出的工具里有压缩和解压css/js的。但是js的压缩一般会把变量名和函数名压缩，这是不可逆的。。。注意一下。</p>
+<h4 id="css"><a href="#css" class="headerlink" title="css"></a>css</h4><ul>
+<li><code>style.css</code>：最重要的css文件。绝大多数样式规则都在这里。要修改或者添加就到这儿。其它的稍作了解即可，大部分看名字就知道是干啥的了</li>
+<li><code>APlayer.min.css</code>：音乐播放器</li>
+<li><code>bangumi.css</code>：番剧页面</li>
+<li><code>donate.css</code>：赞赏页面</li>
+<li><code>font.css</code>：iconfont相关。不要动它</li>
+<li><code>insight.styl</code>：搜索相关，不过看起来有些奇怪。这是另一种css，照葫芦画瓢造它就完了</li>
+<li><code>jquery.fancybox.min.css</code>：fancybox相关</li>
+<li><code>lib.min.css</code>：动态图标相关。不要动它</li>
+<li><code>sharejs.css</code>：转载相关</li>
+<li><code>zoom.css</code>：zoom相关</li>
+</ul>
+<h4 id="js"><a href="#js" class="headerlink" title="js"></a>js</h4><ul>
+<li><code>sakura-app.js</code>：最重要的js文件。大部分关键函数都在这里。和<code>style.css</code>一样，要修改或者添加就到这儿。其它的稍作了解即可，大部分看名字就知道是干啥的了</li>
+<li><code>APlayer.min.js</code>：音乐播放器</li>
+<li><code>busuanzi.pure.mini.js</code>：busuanzi访客量计数器</li>
+<li><code>InsightSearch.js,search.js</code>：搜索</li>
+<li><code>jquery.fancybox.min.js</code>：fancybox</li>
+<li><code>lib.min.js</code>：很杂的基础函数，不要动它</li>
+<li><code>valine.min.js</code>：valine评论</li>
+<li><code>zoom.min.js</code>：zoom</li>
+</ul>
+<h4 id="fonts"><a href="#fonts" class="headerlink" title="fonts"></a>fonts</h4><p>用于存放fontawesome和自带的iconfont，不要管</p>
+<hr>
+<h1 id="扯两句"><a href="#扯两句" class="headerlink" title="扯两句"></a>扯两句</h1><h2 id="我是怎么美化blog的"><a href="#我是怎么美化blog的" class="headerlink" title="我是怎么美化blog的"></a>我是怎么美化blog的</h2><p><strong>1.创新</strong></p>
+<p>突然灵光一现，有了新点子。</p>
+<p>刚加上主题工具的时候，“自由切换背景和字体很炫啊，那是不是还可以更进一步呢？”于是「主题工具-特效」诞生了。</p>
+<p>当然这玩意的代码都得自己写，很费时间。本来我还想再加个「主题工具-鼠标」的，太累了写不动了。。。</p>
+<p><strong>2.修改</strong></p>
+<p>经常浏览自己的blog，看到不顺眼的就改掉它。</p>
+<p>只要熟悉了hexo构造就很轻松了。</p>
+<p><strong>3.剽</strong></p>
+<p><del>这才是主要手段</del></p>
+<p>没事多去逛逛别人的blog，或者看看hexo的其他主题和教程，发现很棒的东西就搬过来。</p>
+<p>有教程的还好说，没有的只能靠F12生剽。但生剽不是<code>Ctrl-C,Ctrl-V</code>，考虑到兼容性，一般是了解了原理后自己写出来。所以这活儿其实很累。</p>
+<p>比如我现在的标签样式，从spfk主题搬过来的，但是因为html构造不同，很多样式都要修改，再加上随机颜色和修复bug，基本都相当于自己写了。</p>
+<h2 id="搭blog很累"><a href="#搭blog很累" class="headerlink" title="搭blog很累"></a>搭blog很累</h2><p>想极致地美化blog确实很累，有时候比OI都难，完全靠兴趣支撑。</p>
+<p>绝大部分的颓废时间，别人在水知乎水群，而我不是在找新点子，就是对着源码改来改去。周围有的人不太理解这有啥有意思的，我其实也不明白，大概只是享受blog称我心意的成就感吧。</p>
+<p>如果你真的不想费劲还想美化blog的话，我只能说，别自己搞了，还是大佬的教程适合你。</p>
+<h2 id="注意性能"><a href="#注意性能" class="headerlink" title="注意性能"></a>注意性能</h2><p>尽管我现在能力不足，blog的效率并不高，但还是要说一说。</p>
+<p><strong>速度对访问体验的影响绝对比美观大。</strong></p>
+<p>如果第一次进入都要加载超过10s甚至失败，那很可能就不会有第二次访问了。</p>
+<p>进行一项改动时，要考虑对性能的影响。</p>
+<p>没事就观察一下blog的速度并尽可能优化。注意用<code>Ctrl+F5</code>刷新缓存，能观察到真实的速度。</p>
+<p>一方面是网络速度。很多人都是用<code>github</code>自带的域名或者买个廉价/免费的域名，网站加载效率不高，所以尽量不要使用<code>/source</code>文件夹引用，速度非常慢（大概10k/s），特别对于sakura，图片非常多。目前我在用jsdelivr，加速所有较大的图片、js、css。</p>
+<p>另一方面是cpu和内存的占用。一般是花里胡哨的功能导致的，比如看板娘、背景特效。加入某项东西的时候，要考虑到对性能的影响。某人的blog，虽然是next主题，但是cpu占用达到50%，内存占用超过1G！机房里的电脑性能本来就一般，很多 人访问他的blog差点死机。u1s1，这种blog也不会有什么回头客了吧。</p>
+<h2 id="一些工具"><a href="#一些工具" class="headerlink" title="一些工具"></a>一些工具</h2><p><a href="http://www.jq22.com/daima3" target="_blank" rel="noopener">有很多动画特效且提供源码</a></p>
+<p><a href="https://ping.chinaz.com/" target="_blank" rel="noopener">测速网站</a></p>
+<p><a href="https://developers.google.com/speed/pagespeed/insights/" target="_blank" rel="noopener">又一个测速网站（你需要一架梯子）</a></p>
+<p><a href="https://tool.lu/" target="_blank" rel="noopener">各种工具（js工具和css工具很实用）</a></p>
+<p>压缩系列：</p>
+<p><a href="https://tinypng.com/" target="_blank" rel="noopener">高效无损图片压缩</a></p>
+<p><a href="http://www.bejson.com/ui/compress_img/" target="_blank" rel="noopener">自定义压缩比例，损失清晰度换取压缩度</a></p>
+<p><a href="https://docsmall.com/gif-compress" target="_blank" rel="noopener">gif压缩</a></p>
+<hr>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>断断续续写完了。算是退役前留下的最后的痕迹吧。</p>
+<p>我也不适合教人，语言混乱，还可能漏洞百出，所以欢迎大佬们指出错误。</p>
+
+            
+        </div>
+      </article>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/02/28/%E6%B4%9B%E8%B0%B7-P4250-SCOI2015-%E5%B0%8F%E5%87%B8%E6%83%B3%E8%B7%91%E6%AD%A5/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.6/xtxpb.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.6/xtxpb.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                洛谷 P4250 [SCOI2015]小凸想跑步</h3>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2020/01/20/Vim%E3%81%AE%E4%B8%B4%E6%97%B6%E9%85%8D%E7%BD%AE&linux%E5%AF%B9%E6%8B%8D/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.4/vimdlspzlinuxdp.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.4/vimdlspzlinuxdp.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                Vimの临时配置&amp;Linux对拍</h3>
+              </div> 
+            </a>
+			</div>
+        
+      </section> 
+    </main>
+</div>
+</div>
+</div>
+<div class="gather">
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz",
+        appKey: "jqULEjwlbvOCM08eEOpTIGOI",
+        path: window.location.pathname,
+		visitor: true,
+        placeholder: "日々私たちが过ごしている日常は、実は奇迹の连続なのかもしれない。"
+      })
+  }
+</script>
+
+</div>
+
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+
+<script>
+function imgInit(){
+	var imgs=document.getElementsByClassName('entry-content').item(0).getElementsByTagName('img');
+	for(var i=0;i<imgs.length;++i){
+		var element = document.createElement("a"),record=imgs[i],dsrc=record.getAttribute("data-src");
+		element.setAttribute("data-fancybox","gallery");
+    element.setAttribute("href",dsrc||imgs[i].src);
+		element.setAttribute("id","escape-link");
+		imgs[i].parentNode.appendChild(element);
+		imgs[i].parentNode.removeChild(imgs[i]);
+		element.appendChild(record);
+	}
+}
+var spoiler=document.getElementsByClassName('spoiler');
+for(var i=0;i<spoiler.length;++i)
+spoiler[i].onclick=function(){this.classList.toggle("revealed");};
+imgInit();
+</script>
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.6.7/articleload.gif">
+      </div>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Github Pages</a>
+        </span>
+		<!-- <span style="color: #b9b9b9;display:block">图片外链由<a href="https://img.fghrsh.net/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">FGHRSH图床</a>提供 -->
+        <!-- </span> -->
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.4/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.2/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<!-- <script src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/valine.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.1.4/js/volantis.min.js"></script>
+<script type="text/javascript">
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { 
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;ww">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

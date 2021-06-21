@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">组合数学食用笔记 | ctz&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/googlefont.css" media="all">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_ndnjfmz11y9.css">
+  <style>
+  .emoji-coda {
+      display: inline-block !important;
+      position: relative;
+      width: 47px;
+      top: 2px;
+      margin: -3px 3px !important;
+      padding: 0;
+  }
+  </style>
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "ctz's blog";
+  mashiro_option.author_name = "ctz's blog";
+  mashiro_option.site_url = "https://ctz45562.github.io";
+  mashiro_option.v_appId = "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz";
+  mashiro_option.v_appKey = "jqULEjwlbvOCM08eEOpTIGOI";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index1.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index2.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index3.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index4.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index5.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index6.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index7.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.4/index8.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.9/index9.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
+    @import url("/code.css");
+  </style>
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed;bottom:64px;left:28px;"> 
+  <div class="theme-controls row-container"> 
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> background <i style="color:grey" class="fa fa-chevron-right"></i></p>
+    <ul class="menu-list"> 
+	  <li id="white-bg"> 
+	    <i class="fa fa-television">
+		</i>
+	  </li> 
+	<li id="sakura-bg"> 
+      <i class="iconfont icon-sakura">
+	  </i>
+	</li> 
+    <li id="gribs-bg"> 
+      <i class="fa fa-slack">
+	  </i>
+    </li> 
+    <li id="KAdots-bg"> 
+      <i class="iconfont icon-dots">
+      </i>
+    </li> 
+    <li id="totem-bg"> 
+      <i class="fa fa-optin-monster">
+      </i>
+    </li> 
+    <li id="pixiv-bg"> 
+      <i class="fa fa-star">
+	  </i>
+      </li> 
+    <li id="bing-bg"> 
+      <i class="fa fa-picture-o">
+	  </i>
+    </li> 
+    <li id="dark-bg"> 
+      <i class="fa fa-moon-o">
+      </i>
+    </li> 
+  </ul> 
+  </div > 
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> font <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="font-family-controls row-container">
+    <button type="button" class="control-btn-serif " data-mode="serif" onclick="mashiro_global.font_control.change_font()">Serif</button>
+    <button type="button" class="control-btn-sans-serif" data-mode="sans-serif" onclick="mashiro_global.font_control.change_font()">Sans Serif</button>
+  </div>
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> script <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="theme-controls row-container">
+  <ul class="menu-list">
+  <style>li>.ctz{font-size: 21px;}</style>
+	<li id="empty-effect">
+	  <i class="ctz ctz-jinzhi">
+	  </i>
+	</li>
+	<li id="sakura-rain-effect">
+	  <i class="ctz ctz-huaxiang">
+	  </i>
+	</li>
+	<li id="snowy-effect">
+	  <i class="ctz ctz-snow">
+	  </i>
+	</li>
+	<li id="lines-effect">
+	  <i class="ctz ctz-xianlu">
+	  </i>
+	</li>
+	<li id="colorful-belts-effect">
+	  <i class="ctz ctz-caidai"></i>
+	  </i>
+	</li>
+	<li id="words-rain-effect">
+	  <i class="ctz ctz-zimuletters2"></i>
+	</li>
+	<li id="point-rain-effect">
+	  <i class="ctz ctz-diandiandian" style="font-size:19px"></i>
+	</li>
+	<li id="rain-drop-effect">
+	  <i class="ctz ctz-yu"></i>
+	</li>
+  </ul>
+  </div>
+<canvas id="night-mode-cover">
+</canvas>
+</div> 
+  <div class="changeSkin-gear no-select" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; visibility: visible; bottom: 0px;"> 
+  <div class="keys" id="setbtn"> 
+    <button id="open-skinMenu">
+		<style>
+		button#open-skinMenu{
+			transition: all 0.2s linear 0s;
+			outline:none;
+			position:fixed;
+			bottom:12px;
+			left:13px;
+			font-size:16px;
+			background-color: rgba(255,255,255,.95);
+			border-radius: 20px;
+			box-shadow: 0 3px 8px 0 rgba(0,0,0,0.1), 0 3px 8px 0 rgba(0,0,0,0.1);
+		}
+		button#open-skinMenu:hover{
+			transition: all 0.2s linear 0s;
+			background-color: #2f98fc;
+			color: rgba(255,255,255);
+		}
+		</style>
+		<i class="iconfont icon-gear inline-block rotating">
+	  </i> 
+		SCHEME TOOL | 主题工具 
+	</button>
+  </div> 
+</div>
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dim">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://ctz45562.github.io">
+          <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Re&amp;Re</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://www.luogu.com.cn/user/111762" target="_blank" class="social-github" title="洛谷">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/social/luogu.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://github.com/ctz45562" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/github.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="mailto:cctz45562@163.com" target="_blank" class="social-github" title="e-mail">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/mail.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://space.bilibili.com/229790690" target="_blank" class="social-github" title="bilibili">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/bilibili.jpg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <!-- <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+ -->
+      <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.0/tocbot.css">
+<div class="pattern-center-blank"></div>
+<div class="gather">
+
+  <div class="pattern-center-sakura single-center">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/zhsxsybj.jpg);" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/zhsxsybj.jpg">
+    </div>
+    <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
+      <h1 class="entry-title">
+      组合数学食用笔记</h1>
+      <p class="entry-census">
+	    <span><a href="https://ctz45562.github.io"><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg" style="margin-right:4px">ctz</a>
+        </span>
+		<span class="bull"></span>
+		&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp
+        2019-5-13
+    <span class="bull"></span>
+    
+      <span><i class="fa fa-archive"></i> 分类于  
+        <span class="article-category"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" > 学习笔记</a></span>
+      
+    </span>
+    
+    <span class="bull"></span>
+		<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id='/2019/05/13/组合数学食用笔记/' class="leancloud-visitors" data-flag-title="组合数学食用笔记">
+        <a class="leancloud-visitors-count text-cursor">loading...</a>
+        <a class="post-meta-item-text text-cursor"> 次阅读</a>
+        </span>
+      </p>
+	  
+      
+    <div>
+		  <ul class="spfk-ul">
+		    &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<li class="spfk-li"><span class="triangle"></span><a href="/tags/容斥/" class="butterfly-tags">容斥</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/数论/" class="butterfly-tags">数论</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/组合数学/" class="butterfly-tags">组合数学</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/斯特林数/" class="butterfly-tags">斯特林数</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/二项式反演/" class="butterfly-tags">二项式反演</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/卢卡斯定理/" class="butterfly-tags">卢卡斯定理</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/卡特兰数/" class="butterfly-tags">卡特兰数</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/prufer序列/" class="butterfly-tags">prufer序列</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/矩阵树定理/" class="butterfly-tags">矩阵树定理</a></li>
+          </ul>
+		</div>
+		<script>
+			function colorInit(c,num){for(var i=1;i<=num;++i)c.push(i+'');}
+			function paintTags(){
+				var colorNumber=8,tagColors=[],tags=document.getElementsByClassName('spfk-li');
+				for(var i = 0 ; i < tags.length ; ++i){
+					if(!tagColors.length)colorInit(tagColors,colorNumber);
+					var j=Math.floor(Math.random()*tagColors.length);
+					tags[i].classList.add("spfk-color"+tagColors[j]);
+					tagColors.splice(j,1);
+        }
+			}
+			paintTags()
+		</script>
+    
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="gather toc" style="width:230px"></div>
+        
+        <div class="entry-content">
+          <p>从头开始学组合数学，所以里面有大量很水的芝士。</p>
+<a id="more"></a>
+<hr>
+<h1 id="抄袭来源"><a href="#抄袭来源" class="headerlink" title="抄袭来源"></a>抄袭来源</h1><blockquote>
+<p><a href="https://blog.csdn.net/litble/article/details/75913032" target="_blank" rel="noopener">https://blog.csdn.net/litble/article/details/75913032</a></p>
+<p><a href="http://lanqi.org/skills/10939/" target="_blank" rel="noopener">http://lanqi.org/skills/10939/</a></p>
+<p><a href="https://www.cnblogs.com/COLIN-LIGHTNING/p/8450053.html" target="_blank" rel="noopener">https://www.cnblogs.com/COLIN-LIGHTNING/p/8450053.html</a></p>
+<p><a href="http://blog.miskcoo.com/2015/12/inversion-magic-binomial-inversion" target="_blank" rel="noopener">http://blog.miskcoo.com/2015/12/inversion-magic-binomial-inversion</a></p>
+<p><a href="https://blog.csdn.net/werkeytom_ftd/article/details/74701513" target="_blank" rel="noopener">https://blog.csdn.net/werkeytom_ftd/article/details/74701513</a></p>
+<p><a href="https://www.cnblogs.com/ivorysi/p/9058093.html" target="_blank" rel="noopener">https://www.cnblogs.com/ivorysi/p/9058093.html</a></p>
+<p><a href="https://www.cnblogs.com/zwfymqz/p/8869956.html" target="_blank" rel="noopener">https://www.cnblogs.com/zwfymqz/p/8869956.html</a></p>
+<p><a href="https://www.cnblogs.com/asuldb/p/10917496.html" target="_blank" rel="noopener">https://www.cnblogs.com/asuldb/p/10917496.html</a></p>
+<p><a href="https://www.cnblogs.com/zhouzhendong/p/Stirling-Number.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhouzhendong/p/Stirling-Number.html</a></p>
+<p><a href="https://www.cnblogs.com/candy99/p/6420935.html" target="_blank" rel="noopener">https://www.cnblogs.com/candy99/p/6420935.html</a></p>
+</blockquote>
+<hr>
+<h1 id="组合数一些神奇的性质"><a href="#组合数一些神奇的性质" class="headerlink" title="组合数一些神奇的性质"></a>组合数一些神奇的性质</h1><p>大部分 是从抄袭来源第一篇里整理来的。</p>
+<p>1.$\sum\limits_{i=0}^mC_{n+i}^i=C_{m+n+1}^m$</p>
+<p>证明：</p>
+<p>$\sum\limits_{i=0}^mC_{n+i}^i$</p>
+<p>$=C_n^0+C_{n+1}^1+C_{n+2}^2+…+C_{n+m}^{m}$</p>
+<p>$=C_{n+1}^0+C_{n+1}^1+C_{n+2}^2+…+C_{n+m}^m$</p>
+<p>$=C_{n+2}^1+C_{n+2}^2+…C_{n+m}^m$</p>
+<p>$=C_{n+m+1}^m$</p>
+<p>2.$C_m^nC_n^r=C_m^rC_{m-r}^{n-r}$</p>
+<p>证明：</p>
+<p>$C_m^nC_n^r$</p>
+<p>$=\dfrac{m!}{n!(m-n)!}\dfrac{n!}{r!(n-r)!}$</p>
+<p>$=\dfrac{m!}{(m-n)!}\dfrac{1}{r!(n-r)!}$</p>
+<p>$=\dfrac{m!}{r!(m-r)!}\dfrac{(m-r)!}{(m-n)!(n-r)!}$</p>
+<p>$=C_m^rC_{m-r}^{n-r}$</p>
+<p>也可以考虑它的组合含义：</p>
+<p>$C_m^nC_n^r$就是从大小为$m$的集合里选出大小为$n$的子集，再从这个子集选出大小为$r$的子集。</p>
+<p>倒过来算，先选大小为$r$的子集，再算出它被多少个大小为$n$的子集包含，即$C_m^rC_{m-r}^{n-r}$</p>
+<p>3.$(x+1)^n=\sum\limits_{i=0}^nC_n^ix^i$</p>
+<p>根据二项式定理显然。</p>
+<p>4.$\sum\limits_{i=0}^n(-1)^iC_n^i=0$</p>
+<p>若$n$为奇数，根据$C_n^m=C_{n}^{n-m}$显然</p>
+<p>若$n$为偶数，用递推公式展开：</p>
+<p>$\sum\limits_{i=0}^n(-1)^iC_n^i$</p>
+<p>$=C_n^0-C_n^1+C_n^2-C_n^3+…+C_n^n$</p>
+<p>$=C_{n-1}^0-C_{n-1}^0-C_{n-1}^1+C_{n-1}^1+C_{n-1}^2-…+C_{n-1}^{n-1}$</p>
+<p>$=0$</p>
+<p>$update$：</p>
+<p>被抄袭来源误导了，直接用二项式定理就行：</p>
+<p>$\sum\limits_{i=0}^n(-1)^iC_n^i$</p>
+<p>$=\sum\limits_{i=0}^nC_n^i(-1)^i1^{n-i}$</p>
+<p>$=(-1+1)^n$</p>
+<p>$=0$</p>
+<p>5.$C_{m+n}^r=\sum\limits_{i=0}^rC_m^iC_n^{r-i}$</p>
+<p>这玩意叫<strong>范德蒙恒等式</strong>。</p>
+<p>把$m+n$分成两组，分别有$m$个物品和$n$个物品，枚举在这两组中各取几个。</p>
+<p>特别的，当$r=n$时，根据$C_n^m=C_n^{n-m}$，有：</p>
+<p>$C_{m+n}^n=\sum\limits_{i=0}^nC_m^iC_n^i$</p>
+<p>更特别的，当$r=m=n$时，有：</p>
+<p>$C_{2n}^n=\sum\limits_{i=0}^nC_n^iC_n^{n-i}=\sum\limits_{i=0}^n(C_n^i)^2$</p>
+<p>6.$nC_m^n=mC_{m-1}^{n-1}$</p>
+<p>证明：</p>
+<p>$nC_m^n$</p>
+<p>$=n\dfrac{m!}{n!(m-n)!}$</p>
+<p>$=m\dfrac{(m-1)!}{(n-1)!(m-n)!}$</p>
+<p>$=mC_{m-1}^{n-1}$</p>
+<p>7.$\sum\limits_{i=1}^niC_n^i=n2^{n-1}$</p>
+<p>证明：</p>
+<p>$\sum\limits_{i=1}^niC_n^i$</p>
+<p>$=\sum\limits_{i=1}^ni\dfrac{n!}{i!(n-i)!}$</p>
+<p>$=n\sum\limits_{i=1}^n\dfrac{(n-1)!}{(i-1)!(n-i)!}$</p>
+<p>$=n\sum\limits_{i=1}^nC_{n-1}^{i-1}$</p>
+<p>$=n\sum\limits_{i=0}^{n-1}C_n^i$</p>
+<p>$=n2^{n-1}$</p>
+<p>8.$\sum\limits_{i=1}^ni^2C_n^i=n(n+1)2^{n-2}$</p>
+<p>证明：</p>
+<p>$\sum\limits_{i=1}^ni^2C_n^i$</p>
+<p>$=\sum\limits_{i=1}^ni^2\dfrac{n!}{i!(n-i)!}$</p>
+<p>$=n\sum\limits_{i=1}^ni\dfrac{(n-1)!}{(i-1)!(n-i)!}$</p>
+<p>$=n\sum\limits_{i=0}^{n-1}(i+1)C_n^i$</p>
+<p>$=n\left(\sum\limits_{i=0}^{n-1}iC_n^i+\sum\limits_{i=0}^{n-1}C_n^i\right)$</p>
+<p>$=n\left((n-1)2^{n-2}+2^{n-1}\right)$</p>
+<p>$=n(n+1)2^{n-2}$</p>
+<p><strong>9.$\sum\limits_{i=0}^nC_i^m=C_{n+1}^{m+1}$</strong></p>
+<p>考虑组合意义。从$n+1$个物品里选$m+1$个，枚举最后一个选的位置为$i+1$，在前$i$个里选$m$个，即$\sum\limits_{i=0}^nC_i^m$。</p>
+<p><strong>10.$\sum\limits_{i=0}^nC_n^i[2|i]=\sum\limits_{i=0}^nC_n^i[2\nmid i]=2^{n-1}$</strong></p>
+<p>考虑组合意义，在$n$个物品里选偶数个，先在前$n-1$个里任选，选了偶数个第$n$个就不选，选了奇数个就选第$n$个。</p>
+<hr>
+<h1 id="容斥"><a href="#容斥" class="headerlink" title="容斥"></a>容斥</h1><p>最近刷了刷容斥和二项式反演，感觉有点理解了，于是重写了一遍。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>容斥就是一个式子：</p>
+<p>$|\bigcup\limits_{i=1}^nA_i|=\sum\limits_{1\le i\le n}|A_i|-\sum\limits_{1\le i&lt; j\le n}|A_i\bigcap A_j|+\sum\limits_{1\le i &lt; j &lt;k\le n}|A_i\bigcap A_j\bigcap A_k|-…+(-1)^{n-1}|A_1\bigcap A_2…\bigcap A_n|$</p>
+<p>简单来说（请$yy$一个维恩图出来）：</p>
+<p>假设我们要求满足某几个条件的方案数。</p>
+<p>算出总方案数，减去不合法的。分别算出不满足条件$1$的方案数、不满足条件$2$的方案数。。。</p>
+<p>这时我们发现同时不满足$1,2$、$2,3$、$1,3$。。。的方案被减去了两次，于是要再把它们加回来。</p>
+<p>然而同时不满足$1,2,3$、$2,3,4$、$1,2,4$。。。的方案又被加了两次，再减去。</p>
+<p>算到$n$个条件都不满足就到头了，也就是答案。</p>
+<p>形象的说，就是拆了东墙补西墙，补着补着。。。就补好了。</p>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>一种最直接的应用就是根据定义去容斥，直接枚举子集算出方案数，乘上容斥系数$(-1)^{|S|}$。比如<a href="https://www.luogu.com.cn/problem/P5376" target="_blank" rel="noopener">这道题</a>（<a href="/2019/12/05/%E6%B4%9B%E8%B0%B7-P5376-THUPC2019-%E8%BF%87%E6%B2%B3%E5%8D%92%E4%BA%8C/">题解</a>）</p>
+<p>另一种是算出<strong>至少</strong>的方案数。其实说<strong>至少</strong>不太贴切，这里是指枚举有多少不合法的，钦定它们的方案，剩下的随便放。这样会有算重的，容斥减掉。</p>
+<p>举个栗子，经典的错排问题：求出长度为$n$满足$p_i\neq i$的排列数。</p>
+<p>枚举有多少位置$p_i=i$，$C_n^i$选出是那些位置，剩下位置$(n-i)!$随便放。</p>
+<p>于是有$\sum\limits_{i=0}^n(-1)^iC_n^i(n-i)!$</p>
+<p>也就是说涉及到<strong>“恰好”</strong>，就可以考虑容斥转到<strong>“至少/多”</strong>上了。而“至少/多”一般易于计算。</p>
+<p>其他的容斥还有$\min-\max$容斥、子集容斥，甚至莫比乌斯反演也算是容斥。我太菜了就不说了。</p>
+<hr>
+<h1 id="二项式反演"><a href="#二项式反演" class="headerlink" title="二项式反演"></a>二项式反演</h1><p>就是几个式子：</p>
+<p>$f(n)=\sum\limits_{i=0}^n(-1)^iC_n^ig(i)\leftrightarrow g(n)=\sum\limits_{i=0}^n(-1)^iC_n^if(i)$</p>
+<p>$f(n)=\sum\limits_{i=0}^nC_n^ig(i)\leftrightarrow g(n)=\sum\limits_{i=0}^n(-1)^{n-i}C_n^if(i)$</p>
+<p>$f(i)=\sum\limits_{j=i}^n(-1)^jC_j^ig(j)\leftrightarrow g(i)=\sum\limits_{j=i}^n(-1)^jC_j^if(j)$</p>
+<p>$f(i)=\sum\limits_{j=i}^nC_j^ig(j)\leftrightarrow g(i)=\sum\limits_{j=i}^n(-1)^{j-i}C_j^if(j)$</p>
+<p>其中第二个和第四个用的最多。</p>
+<p>证明可能以后会搞。</p>
+<p>二项式反演本质就是容斥。但是有的时候用二项式反演更无脑，因为你只要设出两个函数，找到关系，反演过去就没了。</p>
+<p>一般用二项式反演也是涉及<strong>“恰好”</strong>，在求恰好$k$个<code>#!%&amp;@</code>时尤有奇效。根据套路，设$f(i)$为恰好有$i$个<code>#!%&amp;@</code>，$g(i)$为至少有$i$个<code>#!%&amp;@</code>（这里的至少和容斥里的类似）。</p>
+<p>$g(i)$一般比较好算，还是钦定$i$个<code>#!%&amp;@</code>，剩下的随意。有的时候要结合$DP$来算。</p>
+<p>这时会发现对于一种恰好有$i$个<code>#!%&amp;@</code>的方案，它会在$g(j)$中被计算$C_j^i$次。</p>
+<p>于是就能列出式子$g(i)=\sum\limits_{j=i}^nC_j^if(j)$</p>
+<p>二项式反演得$f(i)=\sum\limits_{j=i}^n(-1)^{j-i}C_j^ig(j)$，对于任意的$i$我们都可以用这个式子求了。</p>
+<p>求至多类似。例题<a href="https://www.luogu.com.cn/problem/P4859" target="_blank" rel="noopener">已经没有什么好害怕的了</a>（<a href="https://ctz45562.github.io/2019/06/25/%E6%B4%9B%E8%B0%B7-P4859-%E5%B7%B2%E7%BB%8F%E6%B2%A1%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E5%AE%B3%E6%80%95%E7%9A%84%E4%BA%86/">题解</a>）。里面至少要用$DP$求。</p>
+<p>另一种二项式反演的套路是把所有方案分类。比如<a href="https://ctz45562.github.io/2019/06/03/bzoj-2839-%E9%9B%86%E5%90%88%E8%AE%A1%E6%95%B0/">集合计数</a>。</p>
+<p>套路大概是设$f(i)$为恰好，$g(n)$为$n$个东西的总方案数。列出$g(n)=\sum\limits_{i=0}^nC_n^if(i)$的式子反演过去。</p>
+<hr>
+<h1 id="卢卡斯定理"><a href="#卢卡斯定理" class="headerlink" title="卢卡斯定理"></a>卢卡斯定理</h1><p>当$C_n^m$的$n,m$太大时或者超过了模数，就得上卢卡斯：</p>
+<p>$C_n^m=C_{n/p}^{m/p}C_{n\%p}^{m\%p}(\bmod p)$</p>
+<p>其中$p$为质数。</p>
+<p>然后递归计算$C_{n/p}^{m/p}$即可，复杂度$O(\log_pn)$</p>
+<p>代码：</p>
+<pre><code class="lang-cpp">const int mod = 2333;
+int fac[mod],inv[mod];//阶乘、阶乘逆元
+int C(int n,int m){
+    if(n&lt;m)return 0;
+    if(n&gt;=mod)return 1ll*C(n/mod,m/mod)*C(n%mod,m%mod)%mod;
+    return 1ll*fac[n]*inv[m]%mod*inv[n-m]%mod;
+}
+</code></pre>
+<p>并不想也不会证明。</p>
+<p>当然卢卡斯也不光能干这个，比如<a href="https://www.luogu.org/problemnew/show/P4345" target="_blank" rel="noopener">这道题</a>。</p>
+<p>还有<a href="https://www.luogu.org/problemnew/show/P4720" target="_blank" rel="noopener">扩展卢卡斯</a>，可以解决模数非质数情况。不过好像没什么用就没学。</p>
+<hr>
+<h1 id="卡特兰数"><a href="#卡特兰数" class="headerlink" title="卡特兰数"></a>卡特兰数</h1><h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><blockquote>
+<p> 我考一考你。卡特兰数的第$n$项，怎么算的？</p>
+<p> 卡特兰数有四种算法，你知道吗？</p>
+</blockquote>
+<p>1.$C_n=\dfrac{C_{2n}^n}{n+1}=C_{2n}^n-C_{2n}^{n-1}$</p>
+<p>2.$C_n=\dfrac{\sum\limits_{i=0}^n(C_n^i)^2}{n+1}$</p>
+<p>3.$C_{n+1}=\sum\limits_{i=0}^nC_iC_{n-i},C_0=1$</p>
+<p>4.$C_{n+1}=\dfrac{4n+2}{n+2}C_n,C_0=1$</p>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><h3 id="坐标系游走"><a href="#坐标系游走" class="headerlink" title="坐标系游走"></a>坐标系游走</h3><p>在一个坐标系中从原点出发，只能向右或向上走，有多少种走法不跨越直线$y=x$到达点$(n,n)$？</p>
+<p>如图（<a href="http://lanqi.org/skills/10939/" target="_blank" rel="noopener">图片来源</a>）</p>
+<p><img src="\images\组合数学食用笔记-1.png" alt=""></p>
+<p>以此来推导一下卡特兰数：</p>
+<p>总方案数有$C_{2n}^n$种，考虑不合法的方案数。</p>
+<p>如果跨越了$y=x$这条直线，则一定到达直线$y=x+1$。</p>
+<p>对某条不合法的路线，沿$y=x+1$翻折一下：</p>
+<p><img src="\images\组合数学食用笔记-4.png" alt=""></p>
+<p>（<a href="https://www.cnblogs.com/COLIN-LIGHTNING/p/8450053.html" target="_blank" rel="noopener">图片来源</a>）</p>
+<p>起点就变成了$(-1,1)$。则不合法的情况为从$(-1,1)$走到$(n,n)$的方案数，即$C_{2n}^{n-1}$。</p>
+<p>所以$C_n=C_{2n}^n-C_{2n}^{n-1}$</p>
+<h3 id="合法出栈序列"><a href="#合法出栈序列" class="headerlink" title="合法出栈序列"></a>合法出栈序列</h3><p>一个足够大的栈的入栈序列为$1,2,3,…n$，求有多少种合法的出栈序列？（也可以是合法的括号序列数）</p>
+<p>设$f(n)$为答案。枚举最后一个出栈的是几号元素，设为$i$。</p>
+<p>那么在$i$入栈前，$1\sim i-1$都要先出栈，有$f(i-1)$种序列。</p>
+<p>在$i$出栈前，$i+1\sim n$都要先出栈，有$f(n-i)$种序列。</p>
+<p>所以$f(n)=\sum\limits_{i=1}^nf(i-1)f(n-i)$，即卡特兰数。</p>
+<p>或者抽象成坐标系游走，入栈看作向右走，出栈看作向上走。</p>
+<h3 id="满2B树计数"><a href="#满2B树计数" class="headerlink" title="满2B树计数"></a>满2B树计数</h3><p>求节点数为$2n+1$的满二叉树个数。</p>
+<p>设$f(n)$为答案。枚举根节点左右子树节点的个数，就有$f(n)=\sum\limits_{i=0}^{n-1}f(i)f(n-1-i)$，还是卡特兰数。</p>
+<h3 id="噶凸多边形"><a href="#噶凸多边形" class="headerlink" title="噶凸多边形"></a>噶凸多边形</h3><p>求连接一个凸$n+3$边形的对角线使它们互不相交，将其分成若干个三角形的方案数。</p>
+<p>同样设$f(n)$为答案，从一个顶点开始枚举它连向的点，还是有$f(n)=\sum\limits_{i=0}^{n-1}f(i)f(n-1-i)$</p>
+<h3 id="造楼梯"><a href="#造楼梯" class="headerlink" title="造楼梯"></a><a href="https://www.luogu.org/problemnew/show/P2532" target="_blank" rel="noopener">造楼梯</a></h3><p>求用$n$个任意尺寸的矩形造出高度为$n$的楼梯的方案数。</p>
+<p>如图（<a href="https://blog.csdn.net/wookaikaiko/article/details/81105031" target="_blank" rel="noopener">图片来源</a>）</p>
+<p><img src="\images\组合数学食用笔记-2.png" alt=""></p>
+<p>设$f(n)$为答案。选一个高度$k$，在这一层上覆盖一个大长方形（下图红色部分）。</p>
+<p><img src="\images\组合数学食用笔记-3.png" alt=""></p>
+<p>然后填满蓝色区域和绿色区域，有$f(n-k)f(k-1)$种方案。每个高度加起来，就是卡特兰数。</p>
+<p>（吐槽一句：题水就拿高精凑）</p>
+<h3 id="奥义·强化坐标系游走！"><a href="#奥义·强化坐标系游走！" class="headerlink" title="奥义·强化坐标系游走！"></a><a href="https://www.luogu.org/problemnew/show/P1641" target="_blank" rel="noopener">奥义·强化坐标系游走！</a></h3><p>如果<strong>坐标系游走</strong>终点为$(n,m)$，有多少种方案？</p>
+<p>属于卡特兰数的拓展。</p>
+<p>总方案数为$C_{n+m}^n$，和坐标系游走一样推导，易知不合法方案数为$C_{n+m}^{m-1}$</p>
+<p>所以答案为$C_{n+m}^n-C_{n+m}^{m-1}$</p>
+<hr>
+<h1 id="Prufer序列"><a href="#Prufer序列" class="headerlink" title="Prufer序列"></a>Prufer序列</h1><p>一棵无根树可以唯一对应一个$prufer$序列。</p>
+<p>用来解决有关节点度数的无根树计数问题。</p>
+<h2 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h2><p>不断找到当前编号最小的叶节点，把与它相连的点的编号写入$prufer$序列中并删除该叶节点，直到整棵树只有$2$个节点。</p>
+<p>也就是说$n$个节点的无根树$prufer$序列长度为$n-2$。</p>
+<p>比如这棵无根树：</p>
+<p><img src="\images\组合数学食用笔记-5.png" alt=""></p>
+<p>它的$prufer$序列为$\{2,7,2,1,1\}$</p>
+<p>容易发现$prufer$序列的一个重要性质：某个点在$prufer$序列中出现次数等于它的度数-1。</p>
+<h2 id="还原"><a href="#还原" class="headerlink" title="还原"></a>还原</h2><p>维护一个点集$P$，初始包含$n$个点。</p>
+<p>不断找到$P$中不在$prufer$序列中出现的编号最小的节点，把它与$prufer$序列中第一个点相连，在$P$中删除它并删去$prufer$序列的第一个点，直到$prufer$序列为空。最后把$P$中剩余的$2$个点相连。</p>
+<h2 id="应用-1"><a href="#应用-1" class="headerlink" title="应用"></a>应用</h2><h3 id="n个点的有标号无根树计数"><a href="#n个点的有标号无根树计数" class="headerlink" title="n个点的有标号无根树计数"></a>n个点的有标号无根树计数</h3><p>或者说$n$个点的完全图生成树计数。</p>
+<p>相当于值域为$[1,n]$、长为$n-2$的序列计数。</p>
+<p>即$n^{n-2}$。</p>
+<p>这个也叫$Cayley$公式。</p>
+<h3 id="限制度数的无根树计数"><a href="#限制度数的无根树计数" class="headerlink" title="限制度数的无根树计数"></a><a href="https://www.luogu.org/problemnew/show/P2290" target="_blank" rel="noopener">限制度数的无根树计数</a></h3><p>也就是点$i$在$prufer$序列中出现次数为$d(i)-1$。</p>
+<p>用一下无标号转有标号再转回无标号的$trick$易知答案为$\dfrac{(n-2)!}{\prod\limits_{i=1}^n(d(i)-1)!}$</p>
+<p>这个题比较坑的就是高精和判无解。</p>
+<p>若存在$d(i)=0$且$n&gt;1$，或$\sum\limits_{i=1}^nd(i)-1\neq n-2$则无解。</p>
+<p><a href="https://www.luogu.org/problemnew/show/P2624" target="_blank" rel="noopener">更高端的计数</a></p>
+<h3 id="有标号有根树计数"><a href="#有标号有根树计数" class="headerlink" title="有标号有根树计数"></a>有标号有根树计数</h3><p>给一棵无根树任意定根，有$n$种情况。</p>
+<p>即$n^{n-1}$。</p>
+<hr>
+<h1 id="斯特林数"><a href="#斯特林数" class="headerlink" title="斯特林数"></a>斯特林数</h1><h2 id="第二类斯特林数"><a href="#第二类斯特林数" class="headerlink" title="第二类斯特林数"></a>第二类斯特林数</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>用$\begin{Bmatrix}n\\m\end{Bmatrix}$表示把$n$个有标号元素划分成$m$个无标号集合（不允许有空集）的方案数。也可写作$S(n,m)$。</p>
+<h3 id="递推公式"><a href="#递推公式" class="headerlink" title="递推公式"></a>递推公式</h3><p>考虑第$n$个元素的去向。可以单独一个集合，也可以放到已经有的$m$个集合里。</p>
+<p>$\begin{Bmatrix}n\\m\end{Bmatrix}=\begin{Bmatrix}n-1\\m-1\end{Bmatrix}+m\times\begin{Bmatrix}n-1\\m\end{Bmatrix}$</p>
+<p>边界：$\begin{Bmatrix}0\\0\end{Bmatrix}=1,\begin{Bmatrix}n\\0\end{Bmatrix}=0(n&gt;0)$</p>
+<h3 id="通项公式"><a href="#通项公式" class="headerlink" title="通项公式"></a>通项公式</h3><p>先计算集合有标号的方案数，用容斥。</p>
+<p>枚举至少有多少个集合是空的，$C_m^i$选出来，剩下$m-i$个集合放$n$个元素，转无标号除以$m!$：</p>
+<p>$\begin{Bmatrix}n\\m\end{Bmatrix}=\dfrac{1}{m!}\sum\limits_{i=0}^m(-1)^iC_m^i(m-i)^n$</p>
+<p>把组合数拆开：$\sum\limits_{i=0}^m\dfrac{(-1)^i}{i!}\cdot\dfrac{(m-i)^n}{(m-i)!}$</p>
+<p><del>惊奇地</del>发现这是个卷积的形式。于是可以用$FFT/NTT$在$O(m\log n)$内算出$\begin{Bmatrix}n\\0\sim m\end{Bmatrix}$。（<a href="https://www.luogu.com.cn/problem/P5395" target="_blank" rel="noopener">板子</a>）</p>
+<h3 id="应用-2"><a href="#应用-2" class="headerlink" title="应用"></a>应用</h3><h4 id="自然数幂次方转下降幂"><a href="#自然数幂次方转下降幂" class="headerlink" title="自然数幂次方转下降幂"></a>自然数幂次方转下降幂</h4><p>简单说一下下降幂：$m^{\underline n}=m(m-1)(m-2)\cdots(m-n+1)=\dfrac{m!}{(m-n)!}=A_m^n$</p>
+<p>考虑$m^n$的含义：把$n$个有标号小球放进$m$个有标号盒子里（允许有空盒子）的方案数。这和第二类斯特林数有点像。</p>
+<p>以非空集的个数把$m^n$种方案分类：</p>
+<p>$m^n=\sum\limits_{i=1}^n\begin{Bmatrix}n\\i\end{Bmatrix}C_m^ii!=\sum\limits_{i=1}^n\begin{Bmatrix}n\\i\end{Bmatrix}m^{\underline i}$</p>
+<p>当然下标从$0$开始也可以，反正$\begin{Bmatrix}n\\0\end{Bmatrix}=0$。</p>
+<p>而$i$的上界其实是$\min\{n,m\}$，$i&gt;m$时$C_m^i=0$，$i&gt;n$时$\begin{Bmatrix}n\\i\end{Bmatrix}=0$。所以写$n,m$皆可。</p>
+<h4 id="自然数幂次方和"><a href="#自然数幂次方和" class="headerlink" title="自然数幂次方和"></a>自然数幂次方和</h4><p>用上面那个来推。</p>
+<p>$\sum\limits_{i=0}^ni^k$</p>
+<p>$=\sum\limits_{i=0}^n\sum\limits_{j=0}^k\begin{Bmatrix}k\\j\end{Bmatrix}C_i^jj!$</p>
+<p>$=\sum\limits_{j=0}^k\begin{Bmatrix}k\\j\end{Bmatrix}j!\sum\limits_{i=0}^nC_i^j$</p>
+<p>（上文提到过$\sum\limits_{i=0}^nC_i^m=C_{n+1}^{m+1}$）</p>
+<p>$=\sum\limits_{j=0}^k\begin{Bmatrix}k\\j\end{Bmatrix}j!C_{n+1}^{j+1}$</p>
+<p>$=\sum\limits_{j=0}^k\begin{Bmatrix}k\\j\end{Bmatrix}\dfrac{(n+1)^{\underline{j+1}}}{j+1}$</p>
+<p>不考虑斯特林数的复杂度，如果预处理出阶乘和逆元可以做到$O(n)$预处理，$O(k)$回答；如果暴力算后面那一坨的话可以做到$O(k^2)$回答。</p>
+<p>朴素的算法是$O(n\log k)$的。通过斯特林数我们得到了去掉$\log$的算法和与$n$无关的算法，普天同庆皆大欢喜啊。</p>
+<h2 id="第一类斯特林数"><a href="#第一类斯特林数" class="headerlink" title="第一类斯特林数"></a>第一类斯特林数</h2><h3 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h3><p>用$\begin{bmatrix}n\\m\end{bmatrix}$表示把$n$个有标号元素形成$m$个环（圆排列）的方案数。也可写作$s(n,m)$。</p>
+<h3 id="递推公式-1"><a href="#递推公式-1" class="headerlink" title="递推公式"></a>递推公式</h3><p>还是考虑第$n$个元素的去向，单独成环，或者与放在前$n-1$个元素里任意一个元素前面。</p>
+<p>$\begin{bmatrix}n\\m\end{bmatrix}=\begin{bmatrix}n-1\\m-1\end{bmatrix}+(n-1)\begin{bmatrix}n-1\\m\end{bmatrix}$。</p>
+<p>边界：$\begin{bmatrix}0\\0\end{bmatrix}=1,\begin{bmatrix}n\\0\end{bmatrix}=\begin{bmatrix}0\\m\end{bmatrix}=0(n,m&gt;0)$</p>
+<p>这个递推可以用生成函数搞一搞但我不会生成函数告辞。</p>
+<h3 id="应用-3"><a href="#应用-3" class="headerlink" title="应用"></a>应用</h3><p><del>证明什么的好麻烦啊自己搜去吧</del></p>
+<h4 id="阶乘相关"><a href="#阶乘相关" class="headerlink" title="阶乘相关"></a>阶乘相关</h4><p>$n!=\sum\limits_{i=0}^n\begin{bmatrix}n\\i\end{bmatrix}$</p>
+<h4 id="下降幂转幂次方"><a href="#下降幂转幂次方" class="headerlink" title="下降幂转幂次方"></a>下降幂转幂次方</h4><p>$x^{\underline n}=\sum\limits_{i=0}^n(-1)^{n-i}\begin{bmatrix}n\\i\end{bmatrix}x^i$</p>
+<h2 id="斯特林反演"><a href="#斯特林反演" class="headerlink" title="斯特林反演"></a>斯特林反演</h2><h3 id="式子"><a href="#式子" class="headerlink" title="式子"></a>式子</h3><p>一个不会证的式子：</p>
+<p>$\sum\limits_{i=1}^n(-1)^{n-i}\begin{bmatrix}n\\i\end{bmatrix}\begin{Bmatrix}i\\m\end{Bmatrix}=\sum\limits_{i=1}^n(-1)^{n-i}\begin{Bmatrix}n\\i\end{Bmatrix}\begin{bmatrix}i\\m\end{bmatrix}=[n=m]$</p>
+<p>由这个我们可以推出：</p>
+<p>$f(n)=\sum\limits_{i=0}^n\begin{Bmatrix}n\\i\end{Bmatrix}g(i)\leftrightarrow g(n)=\sum\limits_{i=0}^n(-1)^{n-i}\begin{bmatrix}n\\i\end{bmatrix}f(i)$</p>
+<p>$f(n)=\sum\limits_{i=0}^n\begin{bmatrix}n\\i\end{bmatrix}g(i)\leftrightarrow g(n)=\sum\limits_{i=0}^n(-1)^{n-i}\begin{Bmatrix}n\\i\end{Bmatrix}f(i)$</p>
+<h3 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h3><blockquote>
+<p>一个$n$行$m$列的矩阵，每个格子填入一个$[1,c]$的数。求任意两行、任意两列均不同的方案数。$n,m\le 5000$</p>
+</blockquote>
+<p>设$g(i)$为$n$行$i$列的矩阵，任意两行不同的方案数。</p>
+<p>容易得到$g(i)=A_{c^i}^n$。</p>
+<p>设$f(i)$为$n$行$i$列的矩阵的答案。</p>
+<p>枚举$g(m)$有多少种不同的列把$g(m)$分类：</p>
+<p>$g(m)=\sum\limits_{i=0}^m\begin{Bmatrix}m\\i\end{Bmatrix}f(i)$</p>
+<p>解释一下：把$i$种不同列看作$i$个集合，把$m$列分配进$i$个集合里，即$\begin{Bmatrix}m\\i\end{Bmatrix}$。而对列去重之后就是一个$n$行$i$列的行列都不同的矩阵，即$f(i)$。</p>
+<p>反演得$f(m)=\sum\limits_{i=0}^m(-1)^{m-i}\begin{bmatrix}m\\i\end{bmatrix}g(i)$</p>
+<hr>
+<h1 id="矩阵树定理"><a href="#矩阵树定理" class="headerlink" title="矩阵树定理"></a>矩阵树定理</h1><p>绝大部分内容不予证明。</p>
+<h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h2><h3 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h3><p><strong>行列式是一个数。</strong></p>
+<p>记$\det(A)$或$|A|$为$n$阶矩阵$A$的行列式，$P$为$(p_1,p_2…p_n)$，即$1\sim n$的一个排列，$r(P)$为$P$的逆序对数。</p>
+<p>$\det(A)=\sum\limits_P(-1)^{r(P)}\prod\limits_{i=1}^na_{i,p_i}$</p>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><p><strong>1.$\det(A)=\det(A^T)$</strong></p>
+<p><strong>2.将矩阵任意两行交换，行列式取相反数</strong></p>
+<p>交换两行可以看做交换排列中的两个数。</p>
+<p>假设交换$i,j$行，则会影响到的只有$i,j$之间的逆序对。</p>
+<p>记$k$为$i,j$之间任意一行。若$p_k&lt;\min\{p_i,p_j\}$或$p_k&gt;\max\{p_i,p_j\}$对逆序对数显然没有影响；若$p_i&lt;p_k&lt;p_j$，交换后就多了$2$个逆序对，反过来就是少了$2$个逆序对，也就是说$i,j$之间逆序对数变化一定是偶数。</p>
+<p>最后$i,j$两者之间一定有$\pm1$的贡献，所以总逆序对数变化量为奇数。行列式取相反数。</p>
+<p><strong>推论：存在两行相同时，行列式的值为$0$</strong></p>
+<p><strong>3.任意一行乘$k$，行列式的值乘$k$</strong></p>
+<p><strong>4.任意一行减去另一行乘$k$，行列式不变</strong></p>
+<p><strong>5.根据性质2,4用高斯消元把$A$消成新的上三角矩阵记为$A’$，则$\det(A)=\det(A’)$</strong></p>
+<h3 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h3><p>显然一个上三角矩阵的行列式就是对角线的数的乘积。</p>
+<p>根据性质$4$，把矩阵$O(n^3)$消成上三角直接求即可。</p>
+<p>但是矩阵树定理一般会涉及到取模的问题，不能直接用两个浮点数做运算。</p>
+<p>考虑高斯消元的过程，我们只是想使对应位置消成$0$。</p>
+<p>使用辗转相除法。具体地说，如果矩阵有两行：</p>
+<p>$\begin{bmatrix}a_1\cdots\\a_2\cdots\end{bmatrix}$</p>
+<p>第$1$行减去第$2$行乘$\left\lfloor\frac{a_1}{a_2}\right\rfloor$，再交换两行（根据性质$2$答案要取相反数）得到新矩阵：</p>
+<p>$\begin{bmatrix}a_2\cdots\\a_1\bmod a_2\cdots\end{bmatrix}$</p>
+<p>类似于求$\gcd$，不断辗转相除，最终使得第$2$行第$1$列为$0$，复杂度多一个$\log$，但保证了取模问题。</p>
+<p>代码见下文。</p>
+<h2 id="矩阵树定理-1"><a href="#矩阵树定理-1" class="headerlink" title="矩阵树定理"></a>矩阵树定理</h2><h3 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h3><p>矩阵树定理用于解决无向图生成树计数问题。</p>
+<p>记$n$阶矩阵$D$为度数矩阵，$A$为邻接矩阵。</p>
+<p>$D_{i,i}$为$i$的度数，$A_{i,j}$为$i,j$之间的边数。</p>
+<p>令基尔霍夫（Kirchhoff）矩阵$K=D-A$。</p>
+<p>对于任意$i$，去掉$K$的第$i$行和第$i$列，所得矩阵的行列式等于改无向图的生成树计数。</p>
+<p>实际使用中，对于一条边$(x,y)$，<code>++a[x][x],++a[y][y],--a[x][y],--a[y][x]</code>，对$a$的$2\sim n$或$1\sim n-1$行求行列式即可。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="lang-cpp">#define maxn 105
+const int mod = 998244353;
+int a[maxn][maxn],n;
+inline void add(int x,int y){++a[x][x],++a[y][y],--a[x][y],--a[y][x];}
+int Gauss(){
+    int ans=1;
+    for(register int i=2;i&lt;=n;++i){
+        for(register int j=i+1;j&lt;=n;++j){
+            while(a[j][i]){
+                int t=a[i][i]/a[j][i];
+                for(register int k=i;k&lt;=n;++k)(a[i][k]-=1ll*t*a[j][k]%mod)%=mod,swap(a[i][k],a[j][k]);
+                ans=-ans;
+            }
+        }
+        ans=1ll*ans*a[i][i]%mod;
+    }
+    return (ans+mod)%mod;
+}
+</code></pre>
+<h3 id="变元矩阵树定理"><a href="#变元矩阵树定理" class="headerlink" title="变元矩阵树定理"></a>变元矩阵树定理</h3><p>把$D_{i,i}$的定义改为与$i$相连的边权之和，$A_{i,j}$改为$i,j$之间边权之和，就能求出所有生成树边权之积的和。</p>
+<h3 id="水题"><a href="#水题" class="headerlink" title="水题"></a>水题</h3><p>详情请咨询<a href="/2019/12/11/没意思的算法の学习笔记/">没意思的算法の学习笔记</a></p>
+<hr>
+<h1 id="广义二项式定理"><a href="#广义二项式定理" class="headerlink" title="广义二项式定理"></a>广义二项式定理</h1><h2 id="推广组合数"><a href="#推广组合数" class="headerlink" title="推广组合数"></a>推广组合数</h2><p>首先推广组合数到实数域：$C_n^m=\dfrac{n^{\underline{m}}}{m!}$</p>
+<p>这里的组合数就没什么实际意义了，只是作为一个式子。</p>
+<p>由此能得出负数下的组合数：</p>
+<p>$C_n^m(n&lt;0)$</p>
+<p>$=\dfrac{n(n-1)(n-2)\dots(n-m+1)}{m!}$</p>
+<p>$=(-1)^m\dfrac{-n(-n+1)(-n+2)\dots(-n+m-1)}{m!}$</p>
+<p>$=(-1)^m\dfrac{(m-n-1)^{\underline{m}}}{m!}$</p>
+<p>$=(-1)^mC_{m-n-1}^m$</p>
+<h2 id="推广二项式定理"><a href="#推广二项式定理" class="headerlink" title="推广二项式定理"></a>推广二项式定理</h2><p>把$(x+y)^k=\sum\limits_{n=0}^kC_k^nx^ny^{k-n}$推广到实数域。</p>
+<p>展开$(x+y)^\alpha,\alpha\in R$。</p>
+<p>这时我们不能确定$n$取到多少这个组合数为$0$，所以上界为$+\infty$</p>
+<p>$(x+y)^\alpha=\sum\limits_{n=0}^\infty C_\alpha^nx^ny^{\alpha-n}$</p>
+<p>这就是<strong>牛顿广义二项式定理</strong>。</p>
+
+            
+        </div>
+      </article>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2019/05/16/bzoj-4487-JSOI2015-%E6%9F%93%E8%89%B2%E9%97%AE%E9%A2%98/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/rswt.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/rswt.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                bzoj 4487 [JSOI2015]染色问题</h3>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2019/05/11/%E6%B4%9B%E8%B0%B7-P5112FZOUTSY/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/fzoutsy.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/fzoutsy.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                洛谷 P5112 FZOUTSY</h3>
+              </div> 
+            </a>
+			</div>
+        
+      </section> 
+    </main>
+</div>
+</div>
+</div>
+<div class="gather">
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz",
+        appKey: "jqULEjwlbvOCM08eEOpTIGOI",
+        path: window.location.pathname,
+		visitor: true,
+        placeholder: "日々私たちが过ごしている日常は、実は奇迹の连続なのかもしれない。"
+      })
+  }
+</script>
+
+</div>
+
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+
+<script>
+function imgInit(){
+	var imgs=document.getElementsByClassName('entry-content').item(0).getElementsByTagName('img');
+	for(var i=0;i<imgs.length;++i){
+		var element = document.createElement("a"),record=imgs[i],dsrc=record.getAttribute("data-src");
+		element.setAttribute("data-fancybox","gallery");
+    element.setAttribute("href",dsrc||imgs[i].src);
+		element.setAttribute("id","escape-link");
+		imgs[i].parentNode.appendChild(element);
+		imgs[i].parentNode.removeChild(imgs[i]);
+		element.appendChild(record);
+	}
+}
+var spoiler=document.getElementsByClassName('spoiler');
+for(var i=0;i<spoiler.length;++i)
+spoiler[i].onclick=function(){this.classList.toggle("revealed");};
+imgInit();
+</script>
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.6.7/articleload.gif">
+      </div>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Github Pages</a>
+        </span>
+		<!-- <span style="color: #b9b9b9;display:block">图片外链由<a href="https://img.fghrsh.net/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">FGHRSH图床</a>提供 -->
+        <!-- </span> -->
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.4/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.2/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<!-- <script src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/valine.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.1.4/js/volantis.min.js"></script>
+<script type="text/javascript">
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { 
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;ww">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

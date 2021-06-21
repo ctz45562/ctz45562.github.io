@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">blogの搭建之next | ctz&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/googlefont.css" media="all">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_ndnjfmz11y9.css">
+  <style>
+  .emoji-coda {
+      display: inline-block !important;
+      position: relative;
+      width: 47px;
+      top: 2px;
+      margin: -3px 3px !important;
+      padding: 0;
+  }
+  </style>
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "ctz's blog";
+  mashiro_option.author_name = "ctz's blog";
+  mashiro_option.site_url = "https://ctz45562.github.io";
+  mashiro_option.v_appId = "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz";
+  mashiro_option.v_appKey = "jqULEjwlbvOCM08eEOpTIGOI";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index1.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index2.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index3.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index4.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index5.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index6.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index7.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.4/index8.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.9/index9.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
+    @import url("/code.css");
+  </style>
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed;bottom:64px;left:28px;"> 
+  <div class="theme-controls row-container"> 
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> background <i style="color:grey" class="fa fa-chevron-right"></i></p>
+    <ul class="menu-list"> 
+	  <li id="white-bg"> 
+	    <i class="fa fa-television">
+		</i>
+	  </li> 
+	<li id="sakura-bg"> 
+      <i class="iconfont icon-sakura">
+	  </i>
+	</li> 
+    <li id="gribs-bg"> 
+      <i class="fa fa-slack">
+	  </i>
+    </li> 
+    <li id="KAdots-bg"> 
+      <i class="iconfont icon-dots">
+      </i>
+    </li> 
+    <li id="totem-bg"> 
+      <i class="fa fa-optin-monster">
+      </i>
+    </li> 
+    <li id="pixiv-bg"> 
+      <i class="fa fa-star">
+	  </i>
+      </li> 
+    <li id="bing-bg"> 
+      <i class="fa fa-picture-o">
+	  </i>
+    </li> 
+    <li id="dark-bg"> 
+      <i class="fa fa-moon-o">
+      </i>
+    </li> 
+  </ul> 
+  </div > 
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> font <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="font-family-controls row-container">
+    <button type="button" class="control-btn-serif " data-mode="serif" onclick="mashiro_global.font_control.change_font()">Serif</button>
+    <button type="button" class="control-btn-sans-serif" data-mode="sans-serif" onclick="mashiro_global.font_control.change_font()">Sans Serif</button>
+  </div>
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> script <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="theme-controls row-container">
+  <ul class="menu-list">
+  <style>li>.ctz{font-size: 21px;}</style>
+	<li id="empty-effect">
+	  <i class="ctz ctz-jinzhi">
+	  </i>
+	</li>
+	<li id="sakura-rain-effect">
+	  <i class="ctz ctz-huaxiang">
+	  </i>
+	</li>
+	<li id="snowy-effect">
+	  <i class="ctz ctz-snow">
+	  </i>
+	</li>
+	<li id="lines-effect">
+	  <i class="ctz ctz-xianlu">
+	  </i>
+	</li>
+	<li id="colorful-belts-effect">
+	  <i class="ctz ctz-caidai"></i>
+	  </i>
+	</li>
+	<li id="words-rain-effect">
+	  <i class="ctz ctz-zimuletters2"></i>
+	</li>
+	<li id="point-rain-effect">
+	  <i class="ctz ctz-diandiandian" style="font-size:19px"></i>
+	</li>
+	<li id="rain-drop-effect">
+	  <i class="ctz ctz-yu"></i>
+	</li>
+  </ul>
+  </div>
+<canvas id="night-mode-cover">
+</canvas>
+</div> 
+  <div class="changeSkin-gear no-select" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; visibility: visible; bottom: 0px;"> 
+  <div class="keys" id="setbtn"> 
+    <button id="open-skinMenu">
+		<style>
+		button#open-skinMenu{
+			transition: all 0.2s linear 0s;
+			outline:none;
+			position:fixed;
+			bottom:12px;
+			left:13px;
+			font-size:16px;
+			background-color: rgba(255,255,255,.95);
+			border-radius: 20px;
+			box-shadow: 0 3px 8px 0 rgba(0,0,0,0.1), 0 3px 8px 0 rgba(0,0,0,0.1);
+		}
+		button#open-skinMenu:hover{
+			transition: all 0.2s linear 0s;
+			background-color: #2f98fc;
+			color: rgba(255,255,255);
+		}
+		</style>
+		<i class="iconfont icon-gear inline-block rotating">
+	  </i> 
+		SCHEME TOOL | 主题工具 
+	</button>
+  </div> 
+</div>
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dim">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://ctz45562.github.io">
+          <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Re&amp;Re</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://www.luogu.com.cn/user/111762" target="_blank" class="social-github" title="洛谷">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/social/luogu.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://github.com/ctz45562" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/github.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="mailto:cctz45562@163.com" target="_blank" class="social-github" title="e-mail">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/mail.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://space.bilibili.com/229790690" target="_blank" class="social-github" title="bilibili">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/bilibili.jpg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <!-- <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+ -->
+      <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.0/tocbot.css">
+<div class="pattern-center-blank"></div>
+<div class="gather">
+
+  <div class="pattern-center-sakura single-center">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/blogddjznext.jpg);" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/blogddjznext.jpg">
+    </div>
+    <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
+      <h1 class="entry-title">
+      blogの搭建之next</h1>
+      <p class="entry-census">
+	    <span><a href="https://ctz45562.github.io"><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg" style="margin-right:4px">ctz</a>
+        </span>
+		<span class="bull"></span>
+		&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp
+        2019-3-21
+    <span class="bull"></span>
+    
+      <span><i class="fa fa-archive"></i> 分类于  
+        <span class="article-category"><a href="/categories/%E9%A2%93/" > 颓</a></span>
+      
+    </span>
+    
+    <span class="bull"></span>
+		<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id='/2019/03/21/blogの搭建/' class="leancloud-visitors" data-flag-title="blogの搭建之next">
+        <a class="leancloud-visitors-count text-cursor">loading...</a>
+        <a class="post-meta-item-text text-cursor"> 次阅读</a>
+        </span>
+      </p>
+	  
+      
+    <div>
+		  <ul class="spfk-ul">
+		    &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<li class="spfk-li"><span class="triangle"></span><a href="/tags/blog/" class="butterfly-tags">blog</a></li>
+          </ul>
+		</div>
+		<script>
+			function colorInit(c,num){for(var i=1;i<=num;++i)c.push(i+'');}
+			function paintTags(){
+				var colorNumber=8,tagColors=[],tags=document.getElementsByClassName('spfk-li');
+				for(var i = 0 ; i < tags.length ; ++i){
+					if(!tagColors.length)colorInit(tagColors,colorNumber);
+					var j=Math.floor(Math.random()*tagColors.length);
+					tags[i].classList.add("spfk-color"+tagColors[j]);
+					tagColors.splice(j,1);
+        }
+			}
+			paintTags()
+		</script>
+    
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="gather toc" style="width:230px"></div>
+        
+        <div class="entry-content">
+          <p>可以说这是份指南，也算是如果某天blog炸了后的重构指导书。<del>（其实我只是今晚想颓）</del></p>
+<a id="more"></a>
+<hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>首先来一句：next吼啊！（破音</p>
+<p>不得不说next主题提供的配置还是非常全面的，几乎800行的配置文件看着就爽啊。本文记录我对next-Gemini主题的修改。其中大部分也适用于其他<code>hexo</code>主题。</p>
+<p>目前我已换成了sakura主题，本文不再更新。sakura修改内容全部写在<a href="/2019/06/04/blogの搭建之sakura/">blogの搭建之sakura</a>里。</p>
+<hr>
+<h1 id="常见配置"><a href="#常见配置" class="headerlink" title="常见配置"></a>常见配置</h1><p>什么Latex、鼠标点击特效、动态背景、访客计数器等等网上关于next的全是，就不再说了。主要说一些不好找的。</p>
+<hr>
+<h1 id="live2d看板娘"><a href="#live2d看板娘" class="headerlink" title="live2d看板娘"></a>live2d看板娘</h1><h2 id="普通的"><a href="#普通的" class="headerlink" title="普通的"></a>普通的</h2><p><code>git bash</code>中执行：</p>
+<pre><code class="lang-bash">npm install hexo-helper-live2d --save
+</code></pre>
+<p>在站点配置文件中添加：</p>
+<pre><code>live2d:
+  enable: true
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  debug: false
+  model:
+    use: live2d-widget-model-wanko # 模型名称
+  display:
+    position: right # 位置
+    width: 285 # 宽
+    height: 570 # 高
+    hOffset: -20 # 水平向左偏移量
+    vOffset: -50 # 垂直向上偏移量
+  mobile:
+    show: true
+  react:
+    opacity: 1 # 透明度
+</code></pre><p>更多的设置可以参考<a href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md" target="_blank" rel="noopener">官方说明</a>。</p>
+<p>更换模型：</p>
+<p><a href="https://blog.csdn.net/wang_123_zy/article/details/87181892#_1" target="_blank" rel="noopener">这个地方</a>里有模型名称和预览。找到想要的（以<code>live2d-widget-model-z16</code>为例），执行：</p>
+<pre><code class="lang-bash">npm install live2d-widget-model-z16 --save
+</code></pre>
+<p>在上面加的文本中，模型名称一栏改为<code>live2d-widget-model-z16</code>。</p>
+<h2 id="高级的"><a href="#高级的" class="headerlink" title="高级的"></a>高级的</h2><h3 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h3><p>可以换装、说话、换看板娘、玩游戏、拍照。</p>
+<p>首先把<a href="https://github.com/stevenjoezhang/live2d-widget" target="_blank" rel="noopener">这个仓库</a>的压缩包下载，解压到一个文件夹里。或者在git bash中克隆到一个文件夹里：</p>
+<pre><code class="lang-bash">git clone https://github.com/stevenjoezhang/live2d-widget
+</code></pre>
+<p>然后整个文件夹扔进<code>\themes\next\source</code>​里，记住这个文件夹的名字（名字可以改）。</p>
+<p>打开文件夹里的$autoload.js$，把第一行的：</p>
+<pre><code class="lang-javascript">const live2d_path = &quot;...&quot;;
+</code></pre>
+<p>$…$改成</p>
+<pre><code class="lang-javascript">/你刚才记的名字/
+</code></pre>
+<p>打开<code>\themes\next\layout\_layout.swig</code>文件，把下面一句话扔到最后的<code>&lt;/body&gt;</code>上面：</p>
+<pre><code class="lang-html">  &lt;script src=&quot;/你刚才记的名字/autoload.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>（不知道为啥网上的教程都把$autoload.js$写成了$autolload.js$，结果捣鼓了好久。。。）</p>
+<p>如果玩过了普通版本，两个看板娘可能会冲突，把配置普通live2d时在主站配置文件添加的东西里enable底下的删掉（注释掉），然后把enable改为false。</p>
+<h3 id="调整"><a href="#调整" class="headerlink" title="调整"></a>调整</h3><p>懂一点css、js、html可能会更好一些。。。（当然不会也行，蒟蒻就不会）</p>
+<p>主要是在live2d文件夹里的$waifu.css$、$waifu-tips.js$、$waifu-tips.json$。</p>
+<h4 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h4><p>$waifu.css$文件中第一个大括号里：</p>
+<pre><code class="lang-css">#waifu{
+    ...
+}
+</code></pre>
+<p>里面的bottom改后面的数值可以调整上下位置；把left改为right能直接变到右边去（没试过，应该是可以的），后面的数值可以微调左右位置。</p>
+<h4 id="大小"><a href="#大小" class="headerlink" title="大小"></a>大小</h4><p>因为我没想调所以暂时不会（咕咕咕</p>
+<h4 id="言论"><a href="#言论" class="headerlink" title="言论"></a>言论</h4><p>$waifu-tips.json$和$waifu-tips.js$都有，前者好像更多。</p>
+<p>就按里面的格式直接添加或删除就行了。</p>
+<p>在$waifu-tips.js$里还能改某句话停留的时间。showmessage(文字,数字,数字)里第一个数字就是了（改炸了我不负责。。。）</p>
+<h3 id="一些小bug"><a href="#一些小bug" class="headerlink" title="一些小bug"></a>一些小bug</h3><p>1.把鼠标放上去和鼠标点击说话会冲突，我就直接把$waifu-tips.json$里鼠标放上去那一段删掉，里面的话都移到点击事件里了。</p>
+<p>2.第一个看板娘Pio眼睛偶尔会短暂消失。。。好像是开发者的bug吧。。。</p>
+<blockquote>
+<p>参考：</p>
+<p><a href="https://www.jianshu.com/p/89440678ee3c" target="_blank" rel="noopener">https://www.jianshu.com/p/89440678ee3c</a></p>
+<p><a href="https://blog.csdn.net/dataiyangu/article/details/83021854?utm_source=blogxgwz3" target="_blank" rel="noopener">https://blog.csdn.net/dataiyangu/article/details/83021854?utm_source=blogxgwz3</a></p>
+<p><a href="https://imjad.cn/archives/lab/add-dynamic-poster-girl-with-live2d-to-your-blog-02" target="_blank" rel="noopener">https://imjad.cn/archives/lab/add-dynamic-poster-girl-with-live2d-to-your-blog-02</a></p>
+</blockquote>
+<hr>
+<h1 id="一言Hitokoto"><a href="#一言Hitokoto" class="headerlink" title="一言Hitokoto"></a>一言Hitokoto</h1><p>先说一句我只会把一言放到侧栏上。。。</p>
+<p>提供两种方法：</p>
+<h2 id="Ⅰ"><a href="#Ⅰ" class="headerlink" title="Ⅰ"></a>Ⅰ</h2><p>一直在找能不能添加随机一言在blog上，然而并没有找到什么教程，我也不会写js和html就搁置了很长时间。</p>
+<p>后来偶然在某位大佬的博客里找到了一种比较粗糙的方法（好像仅适用next-Gemini主题？）：<a href="https://ouuan.github.io/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8C%97/" target="_blank" rel="noopener">附上链接</a></p>
+<p>这里再感谢大佬，了却我一个心愿QwQ。</p>
+<p>里面最后写了一言的添加方法，还是可行的。如果自定义格式的话可以到第一段添加的文字里魔改，font-size、color、font-family啥的应该看的懂吧。。。（改炸了我也不负责。。。）</p>
+<p>不过还是有一些bug：</p>
+<p>1.页面向下滚动时一言会突然消失，向上滚动又会突然出现。。。</p>
+<p>2.一言过长时侧边栏遮不住，就会多出一块来。。。我是直接暴力延长侧边栏解决的。。。</p>
+<p>因为现在换了挂个预览图：</p>
+<p><img src="\images\blog-2.png" alt=""></p>
+<h2 id="Ⅱ"><a href="#Ⅱ" class="headerlink" title="Ⅱ"></a>Ⅱ</h2><p>写完上面的第二天我又找到新方案了。。。上谷歌一搜就出来一篇。。。就是我现在的这种，主要是没啥bug，而且和下面个人信息合并了。</p>
+<p>如果您用过上面那个想换的话，得先照着上面那篇再删掉。一定要注意别删多了。</p>
+<p><a href="https://willv.cn/2018/01/14/hitokoto/" target="_blank" rel="noopener">链接</a></p>
+<p>按里面说的配好hitokoto.js和_layout.swig后，在\themes\next\layout_macro\sidebar.swig里这段下面：</p>
+<pre><code class="lang-html">    {% if theme.sidebar.onmobile %}
+      <div id="sidebar-dimmer"></div>
+    {% endif %}
+    &lt;div class=&quot;sidebar-inner&quot;&gt;
+</code></pre>
+<p>添加：</p>
+<pre><code class="lang-html">&lt;div&gt;
+    &lt;p class=&quot;hitokoto&quot;&gt;&lt;/p&gt;
+    &lt;p class=&quot;from&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>然后预览一下就会看到一言了！（如果想放到底下<del>我猜的</del>大概放到底下吧。。。可以试验一下）</p>
+<p>当然这个很丑，需要自己改里面的格式（需要html语言，好像有大佬说这是swig语言。。。蒟蒻不太懂）。我费了2个小时现学html改成现在这样子。放上丑陋的配置：</p>
+<pre><code class="lang-html">      &lt;div style=&quot;margin:1px auto;font-family:&#39;微软雅黑&#39;;font-weight:bold; font-size: 19px; color: #100ae0&quot;&gt;「 一言 」&lt;/div&gt;
+        &lt;p class=&quot;hitokoto&quot; style=&quot;font-family:&#39;楷体&#39;; text-indent:2em; margin-top:8px;margin-bottom:5px;text-align:left; font-size:17px;font-weight:bold&quot;&gt;&lt;/p&gt;
+        &lt;p class=&quot;from&quot; style=&quot;font-size:15px;text-align:right; margin:0;color:grey&quot;&gt;&lt;/p&gt;
+      &lt;hr style=&quot;height:2px; margin:10px auto;color:blue&quot;&gt;
+</code></pre>
+<p>仅供参考，可以自己魔改。如果您是html大佬轻喷蒟蒻的半吊子html写法。。。</p>
+<hr>
+<h1 id="加载条调整"><a href="#加载条调整" class="headerlink" title="加载条调整"></a>加载条调整</h1><p>加载条的话在next主题配置文件中的pace改为true，下面的pace_theme可以选列出来的主题。</p>
+<p>主要说一下个性化样式。（同机房大佬<a href="https://challestend.github.io/" target="_blank" rel="noopener">CLT</a>教的）</p>
+<p>在<code>\themes\next\source\lib\pace</code>里找到你选的主题，改里面的<code>color</code>、<code>font-size</code>之类的。一个主题可能会有多个要改的地方注意一下。</p>
+<hr>
+<h1 id="如果你玩Stylus-会css-…"><a href="#如果你玩Stylus-会css-…" class="headerlink" title="如果你玩Stylus(会css)…"></a>如果你玩Stylus(会css)…</h1><p>在<code>\themes\next\source\css\_custom\custom.styl​</code>文件中可以自由编辑css代码！</p>
+<p>$update$：</p>
+<p>这里写一个next的小bug：</p>
+<p>（以下皆为闲扯）</p>
+<p>很久之前wavwing想把blog换成绿色背景，我帮他写了个css。结果发现在侧栏个人信息出现前（它有动画效果延迟出现），下方会有白底，表示有强迫症，看着很难受：</p>
+<p><img src="\images\blog-3.png" alt="就像这样"></p>
+<p>后来试了试其他背景同样会出现这个bug。于是尝试写css消掉它，不过我都不知道这个叫啥。。。</p>
+<p>一开始傻了，拼手速在侧栏出现前F12抓取，然而时间太短抓不出来。。。</p>
+<p>又试着写了关于侧栏<code>sidebar</code>模块的调整，对白底并没有影响。</p>
+<p>很久之后的某天写了个<code>margin-left​</code>，发现侧栏和白底脱离了！</p>
+<p><img src="\images\blog-4.png" alt=""></p>
+<p>这样F12就能随便抓取了。</p>
+<p>于是有了解决方案：</p>
+<p>在<code>custom.styl</code>里加上：</p>
+<pre><code class="lang-css">aside#sidebar.sidebar{
+    background:#fff0;
+}
+</code></pre>
+<p>成功解决！</p>
+<hr>
+<h1 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h1><h2 id="来必力"><a href="#来必力" class="headerlink" title="来必力"></a>来必力</h2><p>界面<strong>非常美观</strong>，登录方式多，管理快捷，功能全。之前是想一直用来必力的。</p>
+<p>然而我没用它是因为它是外国的，加载比较慢甚至有时候加载不出来。。。（我的blog上放的东西太多很卡。。。）</p>
+<p>当然还是稍微说一下：</p>
+<p>网上还是有不少教程的，大概是申请个账号、安装一下、获取uid、扔到next主题配置文件里的livere_uid里就行了。还可以在来必力网站上设置邮件提醒、管理评论什么的。</p>
+<h2 id="Valine"><a href="#Valine" class="headerlink" title="Valine"></a>Valine</h2><h3 id="添加-1"><a href="#添加-1" class="headerlink" title="添加"></a>添加</h3><p>访问速度快，支持markdown（不过不支持latex)，界面十分简洁，不需要登陆。</p>
+<p>当然美观性还是比来必力差很多。。。</p>
+<p>网上也是有不少教程的，在<a href="https://leancloud.cn/" target="_blank" rel="noopener">leancloud</a>上注册个账号照着配就行了。</p>
+<p>如果用的github博客，评论里可能会提示</p>
+<blockquote>
+<p>code 403：api访问白名单拒绝bulabula（差不多这个意思）</p>
+</blockquote>
+<p>（在localhost:4000预览时出现是正常的）可能是配置域名时（新建的应用-&gt;设置-&gt;安全中心-&gt;Web安全域名）只添加了http或https开头的域名，把另一个换行补上就好了。</p>
+<h3 id="邮件提醒"><a href="#邮件提醒" class="headerlink" title="邮件提醒"></a>邮件提醒</h3><p>很麻烦。。。网上有教程。（<a href="https://cloud.tencent.com/developer/article/1142500" target="_blank" rel="noopener">这个就不错</a>）</p>
+<p>这里说一下添加各种自定义环境变量这一步：</p>
+<p>先<a href="https://jingyan.baidu.com/article/7f41ecec3e8d35593d095c93.html" target="_blank" rel="noopener">搞一下SMTP授权码</a>（我用的163邮箱，qq啥的从网上查一下吧应该有。。。）</p>
+<p>添加的变量网上有好多版本，有的变量我都不知道干啥的。。。</p>
+<p>如下图添加这些就能用：</p>
+<p><img src="\images\blog-1.png" alt=""></p>
+<p>保存后要在云引擎-&gt;实例-&gt;设置图标-&gt;重启之后才会生效</p>
+<p>管理评论：</p>
+<p>在存储-&gt;数据-&gt;Comment里可以看到评论并删除</p>
+<p>和看板娘的互动：</p>
+<p>上面说的高级的看板娘会在Valine评论里时有互动，和来必力就没有QwQ</p>
+<p>定时器：</p>
+<p>leancloud有这么个休眠策略：</p>
+<ul>
+<li>每天必须休眠 6 个小时</li>
+<li>30 分钟内没有外部请求，则休眠。</li>
+<li>休眠后如果有新的外部请求实例则马上启动（但激活时此次发送邮件会失败）。</li>
+</ul>
+<p>在云引擎-&gt;定时任务-&gt;创建定时器里，一共有三栏：</p>
+<p>名称随便填；函数选self-wake；下面选Cron表达式，里面填：</p>
+<pre><code>0 0/20 7-23 * * ?
+</code></pre><p>别忘了启用定时器。（不知道要不要重启实例。。。）</p>
+<p>这样就可以在每天7点到23点，每20分钟唤醒一次。在云引擎-&gt;应用日志可以看到它被唤醒的记录。</p>
+<p>教程上说要设置什么Web主机域名，然而要实名认证很麻烦。。。结果不设置也能用？</p>
+<blockquote>
+<p> 参考：<a href="https://github.98.tn/hexo-valine-admin/" target="_blank" rel="noopener">https://github.98.tn/hexo-valine-admin/</a></p>
+</blockquote>
+<h2 id="gitalk-gitment"><a href="#gitalk-gitment" class="headerlink" title="gitalk/gitment"></a>gitalk/gitment</h2><p>外观都还行，速度也不错。但是必须使用github登录才能评论。</p>
+<p>好像gitment是原生的，最稳定。但是据说作者弃了一堆bug没人修。。。</p>
+<hr>
+<h1 id="加快博客访问速度"><a href="#加快博客访问速度" class="headerlink" title="加快博客访问速度"></a>加快博客访问速度</h1><p>先放一个很有意思的网站：<a href="https://developers.google.com/speed/pagespeed/insights/" target="_blank" rel="noopener">https://developers.google.com/speed/pagespeed/insights/</a> （可能需要翻墙？）</p>
+<p>可以测试网站速度，给出评分、详细加载信息和优化建议。</p>
+<h2 id="改域名"><a href="#改域名" class="headerlink" title="改域名"></a>改域名</h2><p>blog里东西太多，加载起来很卡甚至有时候出不来东西，毕竟github是外国网站。网上说关联上coding能快很多，然而coding好像升级成了腾讯云开发者平台好像很麻烦的样子。。。</p>
+<p>按教程搞了一遍后发现coding的访问速度和github差不了多少。。。<del>所以还是我blog上东西太多了</del></p>
+<p>慢慢找解决方案吧。。。（cry大佬说过买个域名会快？然而我太穷了）</p>
+<p>2019/3/25：又试了一下发现了神奇的问题：晚上在家上github博客极慢甚至加载不出来，coding就很快；在机房正好反过来。。。（没有文明上网）</p>
+<p>我也不知道该咋弄了。。。。</p>
+<h2 id="静态资源压缩"><a href="#静态资源压缩" class="headerlink" title="静态资源压缩"></a>静态资源压缩</h2><p>无意间看到的，什么html文件空行很多之类的原因会拖慢blog加载速度。</p>
+<p>看到有很多gulp压缩的。但是配置起来比较麻烦，搞了半天还失败了。</p>
+<p>又看到了hexo-neat插件，安装简洁，效果也不错。</p>
+<p>安装：</p>
+<pre><code class="lang-bash">npm install hexo-neat --save
+</code></pre>
+<p>在站点配置文件中添加：</p>
+<pre><code># 文件压缩，在exclude设置一些需要跳过的文件 
+# hexo-neat
+neat_enable: true
+# 压缩 html
+neat_html:
+  enable: true
+  exclude:
+# 压缩 css
+neat_css:
+  enable: true
+  exclude:
+    - &#39;**/*.min.css&#39;
+# 压缩 js
+neat_js:
+  enable: true
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - &#39;**/*.min.js&#39;
+    - &#39;**/jquery.fancybox.pack.js&#39;
+    - &#39;**/index.js&#39;
+</code></pre><p>然后。。。就完了</p>
+<p>执行<code>hexo g</code>部署时这个插件就会压缩资源（<code>hexo s</code>预览时也会压缩），会稍微慢一点。</p>
+<p>在火狐下右键查看页面源代码就会发现很多东西都被压成了一行。。。</p>
+<p><del>所以这证明了压行能提高程序效率</del></p>
+<p>还有一个坑点：</p>
+<p>刚用上就发现看板娘和鼠标点击特效不见了。。。</p>
+<p>调了调发现它成功把我的看板娘$js,css$和鼠标特效的$js$压缩了，然后莫名出了BUG（不过一言的$js$压缩了没事？）</p>
+<p>在站点配置文件中，<code>neat_css</code>的<code>exclude</code>里添加：</p>
+<pre><code>    - &#39;**/waifu.css&#39;
+</code></pre><p><code>neat_js</code>的<code>exclude</code>里添加：</p>
+<pre><code>    - &#39;**/waifu-tips.js&#39;
+    - &#39;**/autoload.js&#39;
+    - &#39;**/love.js&#39;
+</code></pre><p>参考：<a href="https://www.playpi.org/2018112101.html" target="_blank" rel="noopener">https://www.playpi.org/2018112101.html</a></p>
+<h2 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h2><p>懒加载就是不一次性完全加载图片，需要的时候再加载。</p>
+<p>网上说可以安个插件：</p>
+<pre><code class="lang-bash">npm install hexo-lazyload --save
+</code></pre>
+<p>在站点配置文件中添加：</p>
+<pre><code>lazyload:
+  enable: true
+  # className: #可选 e.g. .J-lazyload-img
+  # loadingImg: #可选 eg. ./images/loading.png
+</code></pre><p>然而。。。它报错了，没找到解决方法。</p>
+<p>还有一种麻烦一点的方法：<br><del>懒得写了</del>挂个链接吧：<a href="https://mmmmmm.me/hexo_er_lazy.html" target="_blank" rel="noopener">https://mmmmmm.me/hexo_er_lazy.html</a></p>
+<p>然而。。。它又报错了。。。</p>
+<p>$update$：发现为啥报错了，他的第一步里的$js$代码第一行<code>use strict&#39;</code>少了个引号，应该是<code>&#39;use strict&#39;</code></p>
+<h2 id="cdn加速"><a href="#cdn加速" class="headerlink" title="cdn加速"></a>cdn加速</h2><h3 id="js加速"><a href="#js加速" class="headerlink" title="js加速"></a>js加速</h3><p>把国外的$cdn$源换成国内的<del>大概</del>会快一点</p>
+<p>在主题配置文件中找到<code>vendors</code>一栏，把下面对应地方修改为：</p>
+<pre><code>vendors:
+  # Internal path prefix. Please do not edit it.
+  _internal: vendors
+  # Internal version: 2.1.3
+  jquery: https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js
+  # Internal version: 2.1.5
+  # See: http://fancyapps.com/fancybox/
+  fancybox: https://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js
+  fancybox_css: https://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css
+  # Internal version: 1.0.6
+  # See: https://github.com/ftlabs/fastclick
+  fastclick: https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  # Internal version: 1.9.7
+  # See: https://github.com/tuupola/jquery_lazyload
+  lazyload: https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js
+  # Internal version: 1.2.1
+  # See: http://VelocityJS.org
+  velocity: https://cdn.bootcss.com/velocity/1.2.1/velocity.min.js
+  # Internal version: 1.2.1
+  # See: http://VelocityJS.org
+  velocity_ui: https://cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js
+  # Internal version: 0.7.9
+  # See: https://faisalman.github.io/ua-parser-js/
+  ua_parser: https://cdn.bootcss.com/UAParser.js/0.7.9/ua-parser.min.js
+  # Internal version: 4.6.2
+  # See: http://fontawesome.io/
+  fontawesome: https://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css
+  # Internal version: 1
+  # https://www.algolia.com
+  algolia_instant_js:
+  algolia_instant_css:
+  # Internal version: 1.0.2
+  # See: https://github.com/HubSpot/pace
+  # Or use direct links below:
+  # pace: //cdn.bootcss.com/pace/1.0.2/pace.min.js
+  # pace_css: //cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css
+  pace:
+  pace_css:
+  # Internal version: 1.0.0
+  # https://github.com/hustcc/canvas-nest.js
+  canvas_nest: https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js
+  # three
+  three: https://cdn.bootcss.com/three.js/r83/three.min.js
+</code></pre><h3 id="jsdelivr"><a href="#jsdelivr" class="headerlink" title="jsdelivr"></a>jsdelivr</h3><p><del>懒得写了</del>这篇讲的就挺详细的：<a href="https://www.hojun.cn/2019/01/18/jsDeliver-github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%8C%E5%85%8D%E8%B4%B9%E5%A5%BD%E7%94%A8%E7%9A%84cdn/" target="_blank" rel="noopener">https://www.hojun.cn/2019/01/18/jsDeliver-github%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%8C%E5%85%8D%E8%B4%B9%E5%A5%BD%E7%94%A8%E7%9A%84cdn/</a></p>
+<p>这个东西我刚用的时候还是很快的，不过不知道为啥速度越来越慢。。。</p>
+<h3 id="全局cdn"><a href="#全局cdn" class="headerlink" title="全局cdn"></a>全局cdn</h3><p>正在研究。。。</p>
+<blockquote>
+<p>参考：<a href="https://www.itcto.cn/blog/hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/" target="_blank" rel="noopener">https://www.itcto.cn/blog/hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/</a></p>
+</blockquote>
+<h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><p><a href="https://tinypng.com/" target="_blank" rel="noopener">Tinypng</a></p>
+<p><a href="https://www.jpeg.io/" target="_blank" rel="noopener">jpeg.io</a></p>
+<p>这俩网站都可以压缩图片，在几乎不损失清晰度情况下，平均能压缩$70\%$的大小。</p>
+<p>然后<code>png</code>图片可以用格式工厂之类的软件改成<code>jpg(jpeg)</code>，大小也会减小。</p>
+<p>$Tinypng$压缩效果更好，$jpeg.io$会自动转换成<code>jpg</code>格式。</p>
+<hr>
+<h1 id="自定义404页面"><a href="#自定义404页面" class="headerlink" title="自定义404页面"></a>自定义404页面</h1><p>首先在根目录下的\souce里新建一个404.html文件，用html语言写。。。</p>
+<p>$emm…$</p>
+<p>我好像不会html…</p>
+<p>方案：新建页面404$\rightarrow$在404页面里的index.md里用<strong>markdown</strong>语法写$\rightarrow$hexo g部署$\rightarrow$在根目录下的\public\404\index.html里的内容就是markdown转变成的html语言啦，粘过去就好了。</p>
+<p>在站点配置文件中找到“skip_render”一项，改为：</p>
+<pre><code>skip_render: 404.html
+</code></pre><p>如果有多项的话：</p>
+<pre><code>skip_render:
+ - README.md
+ - 404.html
+</code></pre><p>（注意空格）</p>
+<p>这样在访问了不存在的网页时就会跳到404页面上去了。</p>
+<p>（404在本地预览时是看不到效果的，必须上传上去。。。）</p>
+<p>附上我个人<del>丑陋的</del>404.html：</p>
+<pre><code class="lang-html">&lt;body&gt;
+  &lt;div&gt;
+      &lt;p&gt;&lt;center&gt;&lt;img src=&quot;https://i.loli.net/2019/04/09/5cac36216530c.jpg&quot; width=&quot;340&quot; height=&quot;350&quot;&gt;&lt;/center&gt;&lt;/p&gt;
+    &lt;p style=&quot;text-align: center;font-size:30px&quot;&gt;&lt;strong&gt;啊嘞？网页丢了？&lt;/strong&gt;&lt;/p&gt;
+    &lt;p style=&quot;text-align: center;font-size:20px&quot;&gt;&lt;a href=&quot;https://ctz45562.github.io&quot;&gt;&lt;strong&gt;回到主页&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+    &lt;p style=&quot;text-align: center;font-size:20px&quot;&gt;&lt;a href=&quot;javascript:history.go(-1);&quot;&gt;&lt;strong&gt;返回上一页&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/html&gt;
+</code></pre>
+<p><a href="https://ctz45562.github.io/QwQ">效果</a></p>
+<p><a href="https://ouuan.github.io/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8C%97/" target="_blank" rel="noopener"><del>抄袭</del>参考来源</a>（没错和一言那个是同一篇）</p>
+<hr>
+
+            
+        </div>
+      </article>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2019/03/25/%E9%A2%98%E8%A7%A3-%E6%B4%9B%E8%B0%B7-P2568-%E3%80%90GCD%E3%80%91/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/gcd.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/gcd.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                洛谷 P2568 GCD</h3>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2019/03/20/%E9%A2%98%E8%A7%A3-%E6%B4%9B%E8%B0%B7-P1903-%E3%80%90-%E5%9B%BD%E5%AE%B6%E9%9B%86%E8%AE%AD%E9%98%9F-%E6%95%B0%E9%A2%9C%E8%89%B2-%E7%BB%B4%E6%8A%A4%E9%98%9F%E5%88%97%E3%80%91/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/syswhdl.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/syswhdl.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                洛谷 P1903 [国家集训队] 数颜色 / 维护队列</h3>
+              </div> 
+            </a>
+			</div>
+        
+      </section> 
+    </main>
+</div>
+</div>
+</div>
+<div class="gather">
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz",
+        appKey: "jqULEjwlbvOCM08eEOpTIGOI",
+        path: window.location.pathname,
+		visitor: true,
+        placeholder: "日々私たちが过ごしている日常は、実は奇迹の连続なのかもしれない。"
+      })
+  }
+</script>
+
+</div>
+
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+
+<script>
+function imgInit(){
+	var imgs=document.getElementsByClassName('entry-content').item(0).getElementsByTagName('img');
+	for(var i=0;i<imgs.length;++i){
+		var element = document.createElement("a"),record=imgs[i],dsrc=record.getAttribute("data-src");
+		element.setAttribute("data-fancybox","gallery");
+    element.setAttribute("href",dsrc||imgs[i].src);
+		element.setAttribute("id","escape-link");
+		imgs[i].parentNode.appendChild(element);
+		imgs[i].parentNode.removeChild(imgs[i]);
+		element.appendChild(record);
+	}
+}
+var spoiler=document.getElementsByClassName('spoiler');
+for(var i=0;i<spoiler.length;++i)
+spoiler[i].onclick=function(){this.classList.toggle("revealed");};
+imgInit();
+</script>
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.6.7/articleload.gif">
+      </div>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Github Pages</a>
+        </span>
+		<!-- <span style="color: #b9b9b9;display:block">图片外链由<a href="https://img.fghrsh.net/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">FGHRSH图床</a>提供 -->
+        <!-- </span> -->
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.4/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.2/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<!-- <script src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/valine.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.1.4/js/volantis.min.js"></script>
+<script type="text/javascript">
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { 
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;ww">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

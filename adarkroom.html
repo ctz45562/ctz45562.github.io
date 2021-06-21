@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html itemscope itemtype="https://schema.org/CreativeWork">
+<head>
+	<meta charset="UTF-8"/>
+	<title>A Dark Room</title>
+	<meta itemprop="description" name="description" property="og:description" content="A minimalist text adventure">
+	<meta itemprop="image" property="og:image" content="img/adr.png" />
+	<meta itemprop="name" property="og:title" content="A Dark Room" />
+	<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/favicon.ico" />
+	<link rel="image_src" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/img/adr.png" />
+	<script>
+		if(!window.jQuery) {
+			document.write('<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/lib/jquery.min.js"><\/script>')
+		}
+	</script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/lib/jquery.color-2.1.2.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/lib/jquery.event.move.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/lib/jquery.event.swipe.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/lib/base64.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/lib/translate.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/lang/langs.js"></script>
+	<script>
+		// try to read "lang" param's from url
+		var lang = decodeURIComponent((new RegExp('[?|&]lang=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+		// if no language requested, try to read it from local storage
+		if(!lang){
+			try {
+				lang = localStorage.lang;
+			} catch(e) {}
+		}
+		// if a language different than english requested, load all translations
+		if(lang && lang != 'en'){
+			document.write('<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/lang/'+lang+'/strings.js"><\/script>');
+			document.write('<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/lang/'+lang+'/main.css" \/>');
+		}
+	</script>
+	
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/Button.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/engine.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/state_manager.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/header.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/notifications.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/events.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/dropbox.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/room.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/outside.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/world.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/path.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/ship.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/space.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/prestige.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/scoring.js"></script>
+	<!-- Event modules -->
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/events/global.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/events/room.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/events/outside.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/events/encounters.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/events/setpieces.js"></script>
+	
+	<script type='text/javascript'>
+		var oldIE = false;
+	</script>
+	<!--[if lt IE 9]> 
+		<script type="text/javascript">oldIE = true;</script> 
+	<![endif]-->
+	
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/css/room.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/css/outside.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/css/path.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/css/world.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/css/ship.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/css/space.css" />
+	
+	<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.0/adarkroom/script/localization.js"></script>
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-41314886-1', 'doublespeakgames.com');
+		ga('send', 'pageview');
+	</script>
+	
+</head>
+<body>
+	<div id="wrapper">
+		<div id="saveNotify"><script>document.write(_("saved."));</script></div>
+		<div id="content">
+			<div id="outerSlider">
+				<div id="main">
+					<div id="header"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

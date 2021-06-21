@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">洛谷 P4886 快递员 | ctz&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/googlefont.css" media="all">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_ndnjfmz11y9.css">
+  <style>
+  .emoji-coda {
+      display: inline-block !important;
+      position: relative;
+      width: 47px;
+      top: 2px;
+      margin: -3px 3px !important;
+      padding: 0;
+  }
+  </style>
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "ctz's blog";
+  mashiro_option.author_name = "ctz's blog";
+  mashiro_option.site_url = "https://ctz45562.github.io";
+  mashiro_option.v_appId = "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz";
+  mashiro_option.v_appKey = "jqULEjwlbvOCM08eEOpTIGOI";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index1.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index2.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index3.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index4.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index5.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index6.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index7.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.4/index8.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.9/index9.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
+    @import url("/code.css");
+  </style>
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed;bottom:64px;left:28px;"> 
+  <div class="theme-controls row-container"> 
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> background <i style="color:grey" class="fa fa-chevron-right"></i></p>
+    <ul class="menu-list"> 
+	  <li id="white-bg"> 
+	    <i class="fa fa-television">
+		</i>
+	  </li> 
+	<li id="sakura-bg"> 
+      <i class="iconfont icon-sakura">
+	  </i>
+	</li> 
+    <li id="gribs-bg"> 
+      <i class="fa fa-slack">
+	  </i>
+    </li> 
+    <li id="KAdots-bg"> 
+      <i class="iconfont icon-dots">
+      </i>
+    </li> 
+    <li id="totem-bg"> 
+      <i class="fa fa-optin-monster">
+      </i>
+    </li> 
+    <li id="pixiv-bg"> 
+      <i class="fa fa-star">
+	  </i>
+      </li> 
+    <li id="bing-bg"> 
+      <i class="fa fa-picture-o">
+	  </i>
+    </li> 
+    <li id="dark-bg"> 
+      <i class="fa fa-moon-o">
+      </i>
+    </li> 
+  </ul> 
+  </div > 
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> font <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="font-family-controls row-container">
+    <button type="button" class="control-btn-serif " data-mode="serif" onclick="mashiro_global.font_control.change_font()">Serif</button>
+    <button type="button" class="control-btn-sans-serif" data-mode="sans-serif" onclick="mashiro_global.font_control.change_font()">Sans Serif</button>
+  </div>
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> script <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="theme-controls row-container">
+  <ul class="menu-list">
+  <style>li>.ctz{font-size: 21px;}</style>
+	<li id="empty-effect">
+	  <i class="ctz ctz-jinzhi">
+	  </i>
+	</li>
+	<li id="sakura-rain-effect">
+	  <i class="ctz ctz-huaxiang">
+	  </i>
+	</li>
+	<li id="snowy-effect">
+	  <i class="ctz ctz-snow">
+	  </i>
+	</li>
+	<li id="lines-effect">
+	  <i class="ctz ctz-xianlu">
+	  </i>
+	</li>
+	<li id="colorful-belts-effect">
+	  <i class="ctz ctz-caidai"></i>
+	  </i>
+	</li>
+	<li id="words-rain-effect">
+	  <i class="ctz ctz-zimuletters2"></i>
+	</li>
+	<li id="point-rain-effect">
+	  <i class="ctz ctz-diandiandian" style="font-size:19px"></i>
+	</li>
+	<li id="rain-drop-effect">
+	  <i class="ctz ctz-yu"></i>
+	</li>
+  </ul>
+  </div>
+<canvas id="night-mode-cover">
+</canvas>
+</div> 
+  <div class="changeSkin-gear no-select" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; visibility: visible; bottom: 0px;"> 
+  <div class="keys" id="setbtn"> 
+    <button id="open-skinMenu">
+		<style>
+		button#open-skinMenu{
+			transition: all 0.2s linear 0s;
+			outline:none;
+			position:fixed;
+			bottom:12px;
+			left:13px;
+			font-size:16px;
+			background-color: rgba(255,255,255,.95);
+			border-radius: 20px;
+			box-shadow: 0 3px 8px 0 rgba(0,0,0,0.1), 0 3px 8px 0 rgba(0,0,0,0.1);
+		}
+		button#open-skinMenu:hover{
+			transition: all 0.2s linear 0s;
+			background-color: #2f98fc;
+			color: rgba(255,255,255);
+		}
+		</style>
+		<i class="iconfont icon-gear inline-block rotating">
+	  </i> 
+		SCHEME TOOL | 主题工具 
+	</button>
+  </div> 
+</div>
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dim">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://ctz45562.github.io">
+          <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Re&amp;Re</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://www.luogu.com.cn/user/111762" target="_blank" class="social-github" title="洛谷">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/social/luogu.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://github.com/ctz45562" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/github.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="mailto:cctz45562@163.com" target="_blank" class="social-github" title="e-mail">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/mail.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://space.bilibili.com/229790690" target="_blank" class="social-github" title="bilibili">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/bilibili.jpg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <!-- <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+ -->
+      <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.0/tocbot.css">
+<div class="pattern-center-blank"></div>
+<div class="gather">
+
+  <div class="pattern-center-sakura single-center">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/kdy.jpg);" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/kdy.jpg">
+    </div>
+    <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
+      <h1 class="entry-title">
+      洛谷 P4886 快递员</h1>
+      <p class="entry-census">
+	    <span><a href="https://ctz45562.github.io"><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg" style="margin-right:4px">ctz</a>
+        </span>
+		<span class="bull"></span>
+		&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp
+        2019-8-27
+    <span class="bull"></span>
+    
+      <span><i class="fa fa-archive"></i> 分类于  
+        <span class="article-category"><a href="/categories/%E9%A2%98%E8%A7%A3/" > 题解</a></span>
+      
+    </span>
+    
+    <span class="bull"></span>
+		<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id='/2019/08/27/洛谷-P4886-快递员/' class="leancloud-visitors" data-flag-title="洛谷 P4886 快递员">
+        <a class="leancloud-visitors-count text-cursor">loading...</a>
+        <a class="post-meta-item-text text-cursor"> 次阅读</a>
+        </span>
+      </p>
+	  
+      
+    <div>
+		  <ul class="spfk-ul">
+		    &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<li class="spfk-li"><span class="triangle"></span><a href="/tags/点分治/" class="butterfly-tags">点分治</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/并查集/" class="butterfly-tags">并查集</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/LCA/" class="butterfly-tags">LCA</a></li>
+          </ul>
+		</div>
+		<script>
+			function colorInit(c,num){for(var i=1;i<=num;++i)c.push(i+'');}
+			function paintTags(){
+				var colorNumber=8,tagColors=[],tags=document.getElementsByClassName('spfk-li');
+				for(var i = 0 ; i < tags.length ; ++i){
+					if(!tagColors.length)colorInit(tagColors,colorNumber);
+					var j=Math.floor(Math.random()*tagColors.length);
+					tags[i].classList.add("spfk-color"+tagColors[j]);
+					tagColors.splice(j,1);
+        }
+			}
+			paintTags()
+		</script>
+    
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="gather toc" style="width:230px"></div>
+        
+        <div class="entry-content">
+          <p><a href="https://www.luogu.org/problem/P4886" target="_blank" rel="noopener">传送门</a></p>
+<p>介是你没有体验过的$chuan$新做法。</p>
+<p>暴力点分治算出每个点作为中心时的答案。</p>
+<a id="more"></a>
+<p>对于路径$c\rightarrow u\rightarrow c\rightarrow v\rightarrow c$的长度除以$2$，我们可以看做$dis(u,v)+c$到路径$(u,v)$的距离乘$2$。</p>
+<p>把路径分成两类：</p>
+<p>经过分治中心的：</p>
+<p><img src="\images\快递员1.png" alt=""></p>
+<p>对于这种路径，$dfs$一遍树，当脱离了某条路径时，比如走边$(2,4)$或$(2,5)$，开始计算该路径的贡献。假设走边$(x,y)$脱离了该路径，则$y$子树内每个点$i$都会有$dis(i,x)\times 2+dis(u,v)$的贡献。</p>
+<p>具体实现：给每条边维护一个权值$V$，对每条路径上的边的$V$对$dis(u,v)$取$\max$。算出每个点每条出边$V$的最大值和次大值。$dfs$时维护当前最大贡献$now$，对每个点，等于该点最大值的边选次小值更新$now$，否则选最大值，累加边权乘$2$即可。</p>
+<p>这样会发现从根节点开始$dfs$时会出现这种情况：</p>
+<p><img src="\images\快递员3.png" alt=""></p>
+<p>此时，红色路径和绿色路径为最大和次大。</p>
+<p>由于一条路径可能会占据根节点的两条出边，维护最大值和次大值就出$bug$了。</p>
+<p>这样我们直接维护一个堆把每条路径加进去，从根节点出发时把每条经过该点的路径删掉，统计完再加回去。</p>
+<hr>
+<p>不经过分治中心的：</p>
+<p><img src="\images\快递员2.png" alt=""></p>
+<p>把$(u,v)$的$lca$标记为关键点，并赋予一个权值$mx$为<strong>所有标记它的点对中最大的$dis(u,v)$</strong>。记$ma(i)$为$i$到其子树内所有关键点中（设关键点为$p$），最大的$mx(p)+dis(p,i)\times 2$。</p>
+<p>转移很简单：$ma(i)=\max\{mx(i),\max\limits_{edge(i,j)}\{ma(j)+edge(i,j).l\times 2\}\}$</p>
+<p>对根维护一个$ma1$和$ma2$表示根的儿子中最大和次大的$ma$。</p>
+<p>$dfs$根的每个儿子$i$的子树，同样的，若$ma(i)=ma1$选$ma2$，否则选$ma1$为$now$，对每个点$j$的贡献就是$now+dis(root,j)\times 2$。</p>
+<p>注意不用也不能在统计时进一步更新$now$了。</p>
+<hr>
+<p>繁琐的细节：</p>
+<ul>
+<li>分类路径时，可以巧妙运用$tarjan\ lca$。</li>
+<li>处理边的$V$时，其实就是链取$\max$单点查。由于这些路径都<strong>经过根节点</strong>，直接对两端点取$\max$，统计子树最大值即可。</li>
+<li>直接位于路径$(u,v)$的点算不上$(u,v)$的贡献，需要额外处理，可以在统计$V$时一块算，免去了树剖两个$\log$或$lct$的大常数。</li>
+<li>由于一些神奇的原因，形如$(u,u)$的路径不会被算到，把$u$拆出来$u’$连上长为$0$的边，把路径改为$(u,u’)$即可。</li>
+</ul>
+<p>关于正确性：</p>
+<p>如果一条路径经过根节点，就会统计上它对当前树内所有点的贡献。</p>
+<p>否则会统计它对<strong>和它不属于根节点同一个儿子的子树的节点</strong>的贡献，然后分治它的子树。</p>
+<p>我们就能把它对每个点的贡献算上。</p>
+<p>关于复杂度：</p>
+<p>随便想一想就会发现复杂度是$O((m+n)\log n)$的。</p>
+<p>代码：</p>
+<p>我的$priority\_queue$不知道为啥会在程序结束时炸掉于是<del>抄</del>手写的堆。</p>
+<p>尽量精简了代码还是有$200+$行毕竟是暴力。</p>
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;cstring&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
+
+#define maxn 200005
+#define inf 0x3f3f3f3f
+
+using namespace std;
+
+inline int read(){
+    int x=0,y=0;
+    char ch=getchar();
+    while(ch&lt;&#39;0&#39;||ch&gt;&#39;9&#39;){if(ch==&#39;-&#39;)y=1;ch=getchar();}
+    while(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;)x=(x&lt;&lt;1)+(x&lt;&lt;3)+(ch^48),ch=getchar();
+    return y?-x:x;
+}
+namespace origin{
+    int h[maxn],num;
+    struct edge{
+        int pre,to,l;
+    }e[maxn&lt;&lt;1];
+    inline void add(int from,int to,int l){
+        e[++num].pre=h[from],h[from]=num,e[num].to=to,e[num].l=l;
+        e[++num].pre=h[to],h[to]=num,e[num].to=from,e[num].l=l;
+    }
+}
+int h[maxn],siz[maxn],top[maxn],son[maxn],deep[maxn],fa[maxn],F[maxn],qu[maxn][2],num,all,mx,root,cnt;
+int ma1[maxn],ma2[maxn],ema1[maxn],ema2[maxn],ans[maxn],dis[maxn],ee[maxn],bl[maxn],sp[maxn];
+vector&lt;pair&lt;int,int&gt; &gt;v[maxn];
+vector&lt;int&gt;poi[maxn];
+bool vis[maxn],ap[maxn];
+struct heap{
+    int H[maxn],heap_size;
+    void push(int d){
+        int now=++heap_size;
+        H[heap_size]=d;
+        while(now&gt;1){
+            if(H[now]&lt;H[now&gt;&gt;1]) return;
+            swap(H[now],H[now&gt;&gt;1]);
+            now&gt;&gt;=1;
+        }
+    }
+    void pop(){
+        int now=1,next;
+        H[1]=H[heap_size--];
+        while((now&lt;&lt;1)&lt;=heap_size){
+            next=now&lt;&lt;1;
+            if(next&lt;heap_size&amp;&amp;H[next+1]&gt;H[next]) next++;
+            if(H[now]&gt;H[next]) return;
+            swap(H[now],H[next]);
+            now=next;                      
+        } 
+    }
+    bool empty(){return !(bool(heap_size));}
+};
+struct del_heap{
+    heap q,d;
+    void push(int x){q.push(x);}
+    void del(int x){d.push(x);}
+    void clear(){q.heap_size=d.heap_size=0;}
+    int top(){
+        while(!d.empty()&amp;&amp;q.H[1]==d.H[1])q.pop(),d.pop();
+        if(q.empty())return -inf;
+        return q.H[1];
+    }
+}q;
+struct edge{
+    int pre,to,l,v;
+}e[maxn&lt;&lt;1];
+int find(int x){
+    if(F[x]==x)return x;
+    return F[x]=find(F[x]);
+}
+inline void add(int from,int to,int l){
+    e[++num].pre=h[from],h[from]=num,e[num].to=to,e[num].l=l,e[num].v=-inf;
+}
+void dfs1(int node=1){
+    siz[node]=1;
+    int x;
+    for(register int i=h[node];i;i=e[i].pre){
+        x=e[i].to;
+        if(siz[x])continue;
+        fa[x]=node,deep[x]=deep[node]+1,dis[x]=dis[node]+e[i].l;
+        dfs1(x),siz[node]+=siz[x];
+        if(siz[x]&gt;siz[son[node]])son[node]=x;
+    }
+}
+void dfs2(int node=1){
+    vis[node]=1;
+    if(son[node]){
+        top[son[node]]=top[node],dfs2(son[node]);
+        int x;
+        for(register int i=h[node];i;i=e[i].pre){
+            x=e[i].to;
+            if(!vis[x])top[x]=x,dfs2(x);
+        }
+    }
+}
+inline int lca(int x,int y){
+    while(top[x]!=top[y])deep[top[x]]&lt;deep[top[y]]?y=fa[top[y]]:x=fa[top[x]];
+    return deep[x]&lt;deep[y]?x:y;
+}
+inline void check(int &amp;m1,int &amp;m2,int x){
+    if(x&gt;m1)m2=m1,m1=x;
+    else if(x&gt;m2)m2=x;
+}
+void getroot(int node,int f){
+    int x,ma=0;
+    for(register int i=h[node];i;i=e[i].pre){
+        x=e[i].to;
+        if(x==f||vis[x])continue;
+        getroot(x,node),ma=max(ma,siz[x]);
+    }
+    ma=max(ma,all-siz[node]);
+    if(ma&lt;mx)mx=ma,root=node;
+}
+void init(int node,int f,int b){
+    int x;
+    bl[node]=b,ema1[node]=ema2[node]=ma1[node]=ma2[node]=-inf,ap[node]=1,F[node]=node;
+    for(vector&lt;pair&lt;int,int&gt; &gt;::iterator iter=v[node].begin();iter!=v[node].end();++iter)
+        if(ap[iter-&gt;first]){
+            x=find(iter-&gt;first);
+            if(x!=root)ma1[x]=max(ma1[x],iter-&gt;second);
+            else {
+                ee[iter-&gt;first]=max(ee[iter-&gt;first],iter-&gt;second),ee[node]=max(ee[node],iter-&gt;second);
+                ma2[node]=max(ma2[node],iter-&gt;second),poi[b].push_back(iter-&gt;second);
+                if(iter-&gt;first!=root)poi[bl[iter-&gt;first]].push_back(iter-&gt;second),ma2[iter-&gt;first]=max(ma2[iter-&gt;first],iter-&gt;second);
+                q.push(iter-&gt;second);
+            }
+        }
+    for(register int i=h[node];i;i=e[i].pre){
+        x=e[i].to;
+        if(x==f||vis[x])continue;
+        init(x,node,b),F[x]=node,ma1[node]=max(ma1[node],ma1[x]+(e[i].l&lt;&lt;1));
+    }
+}
+void calc(int node,int f,int now){
+    siz[node]=1,ans[node]=max(ans[node],now);
+    int x;
+    for(register int i=h[node];i;i=e[i].pre){
+        x=e[i].to;
+        if(x==f||vis[x])continue;
+        calc(x,node,max(e[i].v==ema1[node]?ema2[node]:ema1[node],max(now,ma2[node]))+(e[i].l&lt;&lt;1));
+        siz[node]+=siz[x];
+    }
+}
+void calc_edge_value(int node,int f){
+    int x;
+    for(register int i=h[node];i;i=e[i].pre){
+        x=e[i].to;
+        if(x==f||vis[x])continue;
+        calc_edge_value(x,node);
+        ee[node]=max(ee[node],ee[x]),check(ema1[node],ema2[node],e[i].v=ee[x]);
+    }
+    ans[node]=max(ans[node],ee[node]);
+}
+void clear(int node,int f){
+    ap[node]=0,ee[node]=-inf;
+    int x;
+    for(register int i=h[node];i;i=e[i].pre){
+        x=e[i].to;
+        if(x==f||vis[x])continue;
+        clear(x,node),e[i].v=-inf;
+    }
+}
+void solve(int node){
+    q.clear(),vis[node]=1;
+    int x;
+    ma1[node]=ma2[node]=-inf,F[node]=node,ap[node]=1,bl[node]=0;
+    for(register int i=h[node];i;i=e[i].pre){
+        x=e[i].to;
+        if(vis[x])continue;
+        init(x,node,x),F[x]=node,check(ma1[node],ma2[node],ma1[x]+(e[i].l&lt;&lt;1));
+    }
+    calc_edge_value(node,0);
+    ans[node]=max(ans[node],ma1[node]);
+    for(register int i=h[node];i;i=e[i].pre){
+        x=e[i].to;
+        if(vis[x])continue;
+        for(register int j=0;j&lt;poi[x].size();++j)q.del(poi[x][j]);
+        calc(x,node,max((ma1[x]+(e[i].l&lt;&lt;1)==ma1[node]?ma2[node]:ma1[node]),q.top())+(e[i].l&lt;&lt;1));
+        for(register int j=0;j&lt;poi[x].size();++j)q.push(poi[x][j]);
+        poi[x].clear();
+    }
+    clear(node,0);
+    for(register int i=h[node];i;i=e[i].pre){
+        x=e[i].to;
+        if(vis[x])continue;
+        mx=inf,all=siz[x],getroot(x,node),solve(root);
+    }
+}
+void rebuild(int node=1,int f=0,int gf=0){
+    int x;    
+    if(node&gt;all)for(register int i=h[node];i;i=e[i].pre){
+        x=e[i].to;
+        if(x==f)continue;
+        rebuild(x,node,f);
+    }
+    else for(register int i=origin::h[node];i;i=origin::e[i].pre){
+        x=origin::e[i].to;
+        if(x==f||x==gf)continue;
+        if(sp[x])add(node,sp[x],origin::e[i].l),add(sp[x],node,origin::e[i].l),add(sp[x],x,0),add(x,sp[x],0),x=sp[x];
+        else add(node,x,origin::e[i].l),add(x,node,origin::e[i].l);
+        rebuild(x,node,f);
+    }
+}
+int DIS(int x,int y){
+    return dis[x]+dis[y]-(dis[lca(x,y)]&lt;&lt;1);
+}
+int main(){
+    memset(ee,~0x3f,sizeof ee);
+    int n=all=read(),m=read(),k=n,x,y,z,res=inf;
+    for(register int i=1;i&lt;n;++i)x=read(),y=read(),z=read(),origin::add(x,y,z);
+    for(register int i=1;i&lt;=m;++i){
+        qu[i][0]=x=read(),qu[i][1]=y=read();
+        if(x==y&amp;&amp;!sp[x])sp[x]=++k,qu[i][1]=k;
+    }
+    if(sp[1])add(sp[1],1,0),add(1,sp[1],0);
+    rebuild(1,sp[1]),dfs1(),dfs2();    
+    for(register int i=1;i&lt;=m;++i){
+        x=qu[i][0],y=qu[i][1],z=dis[x]+dis[y]-(dis[lca(x,y)]&lt;&lt;1);
+        v[x].push_back((pair&lt;int,int&gt;){y,z}),v[y].push_back((pair&lt;int,int&gt;){x,z});
+    }
+    memset(vis,0,sizeof vis);
+    all=k,mx=inf,getroot(1,0),solve(root);
+    for(register int i=1;i&lt;=n;++i)res=min(res,ans[i]);
+    printf(&quot;%d\n&quot;,res);
+}
+</code></pre>
+
+            
+        </div>
+      </article>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2019/09/02/%E6%B4%9B%E8%B0%B7-P4211-LNOI2014-LCA/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lca.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lca.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                洛谷 P4211 [LNOI2014]LCA</h3>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2019/08/15/cdq%E5%88%86%E6%B2%BB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/cdqfzxxbj.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/cdqfzxxbj.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                cdq分治学习笔记</h3>
+              </div> 
+            </a>
+			</div>
+        
+      </section> 
+    </main>
+</div>
+</div>
+</div>
+<div class="gather">
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz",
+        appKey: "jqULEjwlbvOCM08eEOpTIGOI",
+        path: window.location.pathname,
+		visitor: true,
+        placeholder: "日々私たちが过ごしている日常は、実は奇迹の连続なのかもしれない。"
+      })
+  }
+</script>
+
+</div>
+
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+
+<script>
+function imgInit(){
+	var imgs=document.getElementsByClassName('entry-content').item(0).getElementsByTagName('img');
+	for(var i=0;i<imgs.length;++i){
+		var element = document.createElement("a"),record=imgs[i],dsrc=record.getAttribute("data-src");
+		element.setAttribute("data-fancybox","gallery");
+    element.setAttribute("href",dsrc||imgs[i].src);
+		element.setAttribute("id","escape-link");
+		imgs[i].parentNode.appendChild(element);
+		imgs[i].parentNode.removeChild(imgs[i]);
+		element.appendChild(record);
+	}
+}
+var spoiler=document.getElementsByClassName('spoiler');
+for(var i=0;i<spoiler.length;++i)
+spoiler[i].onclick=function(){this.classList.toggle("revealed");};
+imgInit();
+</script>
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.6.7/articleload.gif">
+      </div>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Github Pages</a>
+        </span>
+		<!-- <span style="color: #b9b9b9;display:block">图片外链由<a href="https://img.fghrsh.net/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">FGHRSH图床</a>提供 -->
+        <!-- </span> -->
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.4/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.2/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<!-- <script src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/valine.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.1.4/js/volantis.min.js"></script>
+<script type="text/javascript">
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { 
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;ww">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">多项式全家桶&amp;生成函数学习笔记 | ctz&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/googlefont.css" media="all">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_ndnjfmz11y9.css">
+  <style>
+  .emoji-coda {
+      display: inline-block !important;
+      position: relative;
+      width: 47px;
+      top: 2px;
+      margin: -3px 3px !important;
+      padding: 0;
+  }
+  </style>
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "ctz's blog";
+  mashiro_option.author_name = "ctz's blog";
+  mashiro_option.site_url = "https://ctz45562.github.io";
+  mashiro_option.v_appId = "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz";
+  mashiro_option.v_appKey = "jqULEjwlbvOCM08eEOpTIGOI";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index1.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index2.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index3.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index4.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index5.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index6.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index7.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.4/index8.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.9/index9.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
+    @import url("/code.css");
+  </style>
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed;bottom:64px;left:28px;"> 
+  <div class="theme-controls row-container"> 
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> background <i style="color:grey" class="fa fa-chevron-right"></i></p>
+    <ul class="menu-list"> 
+	  <li id="white-bg"> 
+	    <i class="fa fa-television">
+		</i>
+	  </li> 
+	<li id="sakura-bg"> 
+      <i class="iconfont icon-sakura">
+	  </i>
+	</li> 
+    <li id="gribs-bg"> 
+      <i class="fa fa-slack">
+	  </i>
+    </li> 
+    <li id="KAdots-bg"> 
+      <i class="iconfont icon-dots">
+      </i>
+    </li> 
+    <li id="totem-bg"> 
+      <i class="fa fa-optin-monster">
+      </i>
+    </li> 
+    <li id="pixiv-bg"> 
+      <i class="fa fa-star">
+	  </i>
+      </li> 
+    <li id="bing-bg"> 
+      <i class="fa fa-picture-o">
+	  </i>
+    </li> 
+    <li id="dark-bg"> 
+      <i class="fa fa-moon-o">
+      </i>
+    </li> 
+  </ul> 
+  </div > 
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> font <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="font-family-controls row-container">
+    <button type="button" class="control-btn-serif " data-mode="serif" onclick="mashiro_global.font_control.change_font()">Serif</button>
+    <button type="button" class="control-btn-sans-serif" data-mode="sans-serif" onclick="mashiro_global.font_control.change_font()">Sans Serif</button>
+  </div>
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> script <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="theme-controls row-container">
+  <ul class="menu-list">
+  <style>li>.ctz{font-size: 21px;}</style>
+	<li id="empty-effect">
+	  <i class="ctz ctz-jinzhi">
+	  </i>
+	</li>
+	<li id="sakura-rain-effect">
+	  <i class="ctz ctz-huaxiang">
+	  </i>
+	</li>
+	<li id="snowy-effect">
+	  <i class="ctz ctz-snow">
+	  </i>
+	</li>
+	<li id="lines-effect">
+	  <i class="ctz ctz-xianlu">
+	  </i>
+	</li>
+	<li id="colorful-belts-effect">
+	  <i class="ctz ctz-caidai"></i>
+	  </i>
+	</li>
+	<li id="words-rain-effect">
+	  <i class="ctz ctz-zimuletters2"></i>
+	</li>
+	<li id="point-rain-effect">
+	  <i class="ctz ctz-diandiandian" style="font-size:19px"></i>
+	</li>
+	<li id="rain-drop-effect">
+	  <i class="ctz ctz-yu"></i>
+	</li>
+  </ul>
+  </div>
+<canvas id="night-mode-cover">
+</canvas>
+</div> 
+  <div class="changeSkin-gear no-select" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; visibility: visible; bottom: 0px;"> 
+  <div class="keys" id="setbtn"> 
+    <button id="open-skinMenu">
+		<style>
+		button#open-skinMenu{
+			transition: all 0.2s linear 0s;
+			outline:none;
+			position:fixed;
+			bottom:12px;
+			left:13px;
+			font-size:16px;
+			background-color: rgba(255,255,255,.95);
+			border-radius: 20px;
+			box-shadow: 0 3px 8px 0 rgba(0,0,0,0.1), 0 3px 8px 0 rgba(0,0,0,0.1);
+		}
+		button#open-skinMenu:hover{
+			transition: all 0.2s linear 0s;
+			background-color: #2f98fc;
+			color: rgba(255,255,255);
+		}
+		</style>
+		<i class="iconfont icon-gear inline-block rotating">
+	  </i> 
+		SCHEME TOOL | 主题工具 
+	</button>
+  </div> 
+</div>
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dim">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://ctz45562.github.io">
+          <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Re&amp;Re</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://www.luogu.com.cn/user/111762" target="_blank" class="social-github" title="洛谷">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/social/luogu.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://github.com/ctz45562" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/github.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="mailto:cctz45562@163.com" target="_blank" class="social-github" title="e-mail">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/mail.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://space.bilibili.com/229790690" target="_blank" class="social-github" title="bilibili">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/bilibili.jpg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <!-- <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+ -->
+      <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.0/tocbot.css">
+<div class="pattern-center-blank"></div>
+<div class="gather">
+
+  <div class="pattern-center-sakura single-center">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.5/dxsqjtschsxxbj.jpg);" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.5/dxsqjtschsxxbj.jpg">
+    </div>
+    <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
+      <h1 class="entry-title">
+      多项式全家桶&生成函数学习笔记</h1>
+      <p class="entry-census">
+	    <span><a href="https://ctz45562.github.io"><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg" style="margin-right:4px">ctz</a>
+        </span>
+		<span class="bull"></span>
+		&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp
+        2020-1-6
+    <span class="bull"></span>
+    
+      <span><i class="fa fa-archive"></i> 分类于  
+        <span class="article-category"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" > 学习笔记</a></span>
+      
+    </span>
+    
+    <span class="bull"></span>
+		<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id='/2020/01/06/多项式-生成函数学习笔记/' class="leancloud-visitors" data-flag-title="多项式全家桶&amp;生成函数学习笔记">
+        <a class="leancloud-visitors-count text-cursor">loading...</a>
+        <a class="post-meta-item-text text-cursor"> 次阅读</a>
+        </span>
+      </p>
+	  
+      
+    <div>
+		  <ul class="spfk-ul">
+		    &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<li class="spfk-li"><span class="triangle"></span><a href="/tags/数论/" class="butterfly-tags">数论</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/FFT-NTT/" class="butterfly-tags">FFT/NTT</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/多项式/" class="butterfly-tags">多项式</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/生成函数/" class="butterfly-tags">生成函数</a></li>
+          </ul>
+		</div>
+		<script>
+			function colorInit(c,num){for(var i=1;i<=num;++i)c.push(i+'');}
+			function paintTags(){
+				var colorNumber=8,tagColors=[],tags=document.getElementsByClassName('spfk-li');
+				for(var i = 0 ; i < tags.length ; ++i){
+					if(!tagColors.length)colorInit(tagColors,colorNumber);
+					var j=Math.floor(Math.random()*tagColors.length);
+					tags[i].classList.add("spfk-color"+tagColors[j]);
+					tagColors.splice(j,1);
+        }
+			}
+			paintTags()
+		</script>
+    
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="gather toc" style="width:230px"></div>
+        
+        <div class="entry-content">
+          <p><strong>重 拳 出 击</strong><img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.2/emojis/menhera/11.jpg" style="height:70px;width:auto"></p>
+<a id="more"></a>
+<hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>OI生涯中最大的坑。<del>虽然我觉得填不上了</del></p>
+<p>我的学习笔记真是越写越烂：缺少证明、漏洞百出。</p>
+<p>难得要专攻算法了，（大概）会写的详细点。</p>
+<hr>
+<h1 id="抄袭来源"><a href="#抄袭来源" class="headerlink" title="抄袭来源"></a>抄袭来源</h1><blockquote>
+<p><a href="https://www.luogu.com.cn/blog/command-block/ntt-yu-duo-xiang-shi-quan-jia-tong" target="_blank" rel="noopener">https://www.luogu.com.cn/blog/command-block/ntt-yu-duo-xiang-shi-quan-jia-tong</a></p>
+<p>sls的课件</p>
+<p><a href="https://www.luogu.com.cn/blog/lx-2003/generating-function" target="_blank" rel="noopener">https://www.luogu.com.cn/blog/lx-2003/generating-function</a></p>
+<p><a href="https://www.luogu.com.cn/blog/lx-2003/generating-function-advanced" target="_blank" rel="noopener">https://www.luogu.com.cn/blog/lx-2003/generating-function-advanced</a></p>
+</blockquote>
+<hr>
+<h1 id="define"><a href="#define" class="headerlink" title="#define"></a>#define</h1><p>以下，代码以<code>mod</code>表示模数，其他地方以$p$表示模数。</p>
+<p>$g$为模$p$意义下的原根，$ig$为$g^{-1}$。</p>
+<p>$tr$：$FFT/NTT$用的反转数组。</p>
+<hr>
+<h1 id="多项式全家桶"><a href="#多项式全家桶" class="headerlink" title="多项式全家桶"></a>多项式全家桶</h1><p>再次复读又又的励志语录：</p>
+<blockquote>
+<p>“大声大声！熟练熟练！”</p>
+</blockquote>
+<p>为了封装完整，保证多次调用函数不会有影响，我的写法常数不小，也很丑，将就着看吧。</p>
+<h2 id="找原根"><a href="#找原根" class="headerlink" title="找原根"></a>找原根</h2><p>$g$为模$p$意义下的原根，需要满足$\forall d|(p-1)\land d\neq p-1,g^d\not\equiv1\pmod p$。</p>
+<p>而且最小的原根一般都比较小，只检验$100$以内的数即可：</p>
+<pre><code class="lang-cpp">const int mod = 998244353;
+inline int quickpow(int x,int y=mod-2){
+    int ans=1;
+    while(y){
+        if(y&amp;1)ans=1ll*ans*x%mod;
+        x=1ll*x*x%mod,y&gt;&gt;=1;
+    }
+}
+bool check(int x){
+    for(register int i=2;i*i&lt;mod;++i)
+        if((mod-1)%i==0&amp;&amp;(quickpow(x,i)==1||quickpow(x,(mod-1)/i)==1))return 0;
+    return 1;
+}
+int getG(){
+    for(register int i=2;i&lt;=100;++i)if(check(i))return i;
+}
+</code></pre>
+<h2 id="FFT-NTT"><a href="#FFT-NTT" class="headerlink" title="FFT/NTT"></a><a href="https://www.luogu.com.cn/problem/P3803" target="_blank" rel="noopener">FFT/NTT</a></h2><p>详见<a href="/2019/12/07/FFT-NTT学习笔记/">FFT/NTT学习笔记</a><del>（虽然我只是粘了个板子啥都没讲）</del></p>
+<p>一般用不着$FFT$就只放$NTT$辣。</p>
+<pre><code class="lang-cpp">int tr[maxn];
+inline int qm(int x){return x&gt;=mod?x-mod:x;}
+void NTT(int *f,int n,bool t){//f为多项式；n为多项式项数；t=0为dft，否则为idft
+    for(register int i=0;i&lt;n;++i)if(i&lt;tr[i])swap(f[i],f[tr[i]]);
+    for(register int p=2;p&lt;=n;p&lt;&lt;=1){
+        int len=p&gt;&gt;1,o=quickpow(t?ig:g,(mod-1)/p);
+        for(register int i=0;i&lt;n;i+=p){
+            int gen=1,cop;
+            for(register int j=i;j&lt;i+len;++j){
+                cop=1ll*f[j+len]*gen%mod,gen=1ll*gen*o%mod;
+                f[j+len]=qm(f[j]+mod-cop),f[j]=qm(f[j]+cop);
+            }
+        }
+    }
+    if(t){
+        int inv=quickpow(n);
+        for(register int i=0;i&lt;n;++i)f[i]=1ll*f[i]*inv%mod;
+    }
+}
+</code></pre>
+<h2 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h2><p>就是把$NTT$板子封装成函数。</p>
+<pre><code class="lang-cpp">int A[maxn],B[maxn];
+void mul(int *a,int *b,int *c,int n,int lim){//长度为n的多项式a和b相乘，结果前lim位保存在c中
+    for(register int i=0;i&lt;n;++i)A[i]=a[i],B[i]=b[i];
+    int m=n&lt;&lt;1;
+    n=1;
+    while(n&lt;m)n&lt;&lt;=1;
+    for(register int i=0;i&lt;n;++i)tr[i]=(tr[i&gt;&gt;1]&gt;&gt;1)|(i&amp;1?n&gt;&gt;1:0);
+    NTT(A,n,0),NTT(B,n,0);
+    for(register int i=0;i&lt;n;++i)A[i]=1ll*A[i]*B[i]%mod;
+    NTT(A,n,1);
+    for(register int i=0;i&lt;lim;++i)c[i]=A[i];
+    for(register int i=0;i&lt;n;++i)A[i]=B[i]=0;
+}
+</code></pre>
+<h2 id="泰勒公式"><a href="#泰勒公式" class="headerlink" title="泰勒公式"></a>泰勒公式</h2><p>用多项式来拟合函数：</p>
+<p>若$f(x)$在$x_0$处可$n$阶导，有：</p>
+<p>$f(x)=R_n(x)+\sum\limits_{i=0}^n\dfrac{f^{(i)}(x_0)}{i!}(x-x_0)^i$</p>
+<p>其中$f^{(i)}(x)$表示$i$阶导数，$R_n(x)$是余项（毕竟拟合是有误差的）</p>
+<p>若能无限求导，有：</p>
+<p>$f(x)=\sum\limits_{i=0}^\infty \dfrac{f^{(i)}(x_0)}{i!}(x-x_0)^i$</p>
+<p>一般取$x_0=0$计算方便，这时也叫麦克劳林公式。</p>
+<h2 id="牛顿迭代"><a href="#牛顿迭代" class="headerlink" title="牛顿迭代"></a>牛顿迭代</h2><p>根据泰勒公式得出来的。</p>
+<p>已知多项式$G(x)$，求多项式$F(x)$满足$G(F(x))\equiv 0\pmod {x^n}$（$\bmod {x^n}$表示只考虑前$n$项）</p>
+<p>倍增求解。假设已经求出$G(F^*(x))\equiv 0\pmod {x^{\frac{n}{2}}}$，要求$G(F(x))\equiv 0\pmod{x^n}$。</p>
+<p>有$F(x)\equiv F^*(x)-\dfrac{G(F^*(x))}{G’(F^*(x))}\pmod{x^n}$</p>
+<p>泰勒公式和牛顿迭代的证明不写了，网上到处都是。</p>
+<h2 id="求逆"><a href="#求逆" class="headerlink" title="求逆"></a><a href="https://www.luogu.com.cn/problem/P4238" target="_blank" rel="noopener">求逆</a></h2><p>已知多项式$F$，求出多项式$G$满足$F\times G\equiv 1\pmod {x^n}$。</p>
+<p>倍增求解。当多项式只有常数项时，直接求出常数项的逆元即可。</p>
+<p>可以用牛顿迭代来推：</p>
+<p>$F(x)G(x)-1\equiv 0$</p>
+<p>令$H(G(x))=F(x)G(x)-1$</p>
+<p>$F(x)$已知，实际上是个系数，求完导后$G(x)$就没了，所以$H’(G(x))=F(x)$。</p>
+<p>直接把牛顿迭代套上去：</p>
+<p>$G(x)\equiv G^*(x)-\dfrac{H(G^*(x))}{H’(G^*(x))}\equiv G^*(x)-\dfrac{F(x)G^*(x)-1}{F(x)}\equiv G^*(x)-G(x)(F(x)G^*(x)-1)$</p>
+<p>由于$F(x)G^*(x)-1\equiv 0\pmod{x^{\frac{n}{2}}}$即$F(x)G^*(x)-1$的前$\frac{n}{2}$为$0$。</p>
+<p>所以$G(x)$乘上去的时候，在$\bmod{x^n}$时它的后$\frac{n}{2}$项是没有用的，用$G^*(x)$代替它。</p>
+<p>于是$G(x)\equiv G^*(x)-G^*(x)(F(x)G^*(x)-1)\equiv (2-F(x)G^*(x))G^*(x)$</p>
+<p>或者平方法推式子：</p>
+<p>假设已知$F\times R’\equiv 1\pmod {x^{\frac{n}{2}}}$</p>
+<p>要求$R$满足$F\times R\equiv 1\pmod{x^n}$</p>
+<p>显然$R\equiv R’\pmod {x^{\frac{n}{2}}}$</p>
+<p>$R-R’\equiv 0\pmod {x^{\frac{n}{2}}}$</p>
+<p>两边平方，扩展到$x^n$：</p>
+<p>$(R-R’)^2\equiv 0\pmod {x^n}$</p>
+<p>$R^2-2RR’+R’^2\equiv 0\pmod {x^n}$</p>
+<p>两边都乘一个$F$，由于是$\bmod x^n$，$F\times R$可以消掉，但$F\times R’$不能。</p>
+<p>$R\equiv 2R’-FR’^2\pmod {x^n}$</p>
+<p>于是可以愉快地扩展了。</p>
+<p>此时我们发现要做$2$遍多项式乘法，$6$遍$NTT$。虽然可以把$R’^2$优化成$2$次效果也不大。</p>
+<p>但其实可以先两遍$DFT$把$F$和$R’$转成点值，然后对点值做上面的运算，最后$IDFT$回去，只需要$3$遍$NTT$。</p>
+<p>时间复杂度为$T(n)=T(\frac{n}{2})+O(n\log n)=O(n\log n)$，不是很明白为啥有人觉得是$\log^2$，是$T(\frac{n}{2})$不是$2T(\frac{n}{2})$啊。</p>
+<p>肝了一上午终于把迭代+$3$次$NTT$版本搞出来了<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/quyin/die.png"></p>
+<pre><code class="lang-cpp">int invR[maxn],_invR[maxn];
+void inv(int *f,int *g,int n){//对项数为n的多项式f求逆，结果保存在g中
+#define R invR
+#define _R _invR
+    int lim=2;
+    R[0]=quickpow(f[0]);
+    while(lim&lt;n&lt;&lt;1){
+        for(register int i=0;i&lt;lim;++i)_R[i]=R[i],R[i]=f[i];
+        for(register int i=0;i&lt;lim&lt;&lt;1;++i)tr[i]=(tr[i&gt;&gt;1]&gt;&gt;1)|(i&amp;1?lim:0);
+        NTT(_R,lim&lt;&lt;1,0),NTT(R,lim&lt;&lt;1,0);
+        for(register int i=0;i&lt;lim&lt;&lt;1;++i)R[i]=1ll*qm(2+mod-1ll*_R[i]*R[i]%mod)*_R[i]%mod;
+        NTT(R,lim&lt;&lt;1,1),lim&lt;&lt;=1;
+        for(register int i=lim&gt;&gt;1;i&lt;lim;++i)R[i]=0;
+    }
+    for(register int i=0;i&lt;n;++i)g[i]=R[i];
+    for(register int i=0;i&lt;lim;++i)R[i]=_R[i]=0;
+#undef R
+#undef _R
+}
+</code></pre>
+<h2 id="求导-amp-积分"><a href="#求导-amp-积分" class="headerlink" title="求导&amp;积分"></a>求导&amp;积分</h2><p>众所周知，$(x^\mu)’=\mu x^{\mu-1}$。</p>
+<p>众所周知，求导逆回去就是积分。</p>
+<pre><code class="lang-cpp">void derivate(int *f,int *g,int n){//对n项多项式f求导，结果存在g中
+    for(register int i=1;i&lt;n;++i)g[i-1]=1ll*f[i]*i%mod;
+    g[n-1]=0;
+}
+void intergrate(int *f,int *g,int n){//积分，同上
+    for(register int i=n;i;--i)g[i]=1ll*f[i-1]*quickpow(i);
+    g[0]=0;
+}
+</code></pre>
+<h2 id="ln"><a href="#ln" class="headerlink" title="ln"></a><a href="https://www.luogu.com.cn/problem/P4725" target="_blank" rel="noopener">ln</a></h2><p>给定多项式$A$，求出多项式$B=\ln A$。</p>
+<p>众所周知，$\ln’(x)=\dfrac{1}{x}$。于是考虑求导。</p>
+<p>但$\ln A$实际上是复合函数求导，要用链式法则$(f(g(x)))’=f’(g(x))g’(x)$。</p>
+<p>$B=\ln A$</p>
+<p>$B’=\ln’A\times A’$</p>
+<p>$B’=A^{-1}A’$</p>
+<p>$B=\int(A^{-1}A’)$</p>
+<p>求逆+求导+乘法+积分就好了。</p>
+<pre><code class="lang-cpp">int lnR[maxn];
+void ln(int *f,int *g,int n){//对n项多项式f求ln，结果存在g中
+#define R lnR
+    inv(f,R,n),derivate(f,g,n),mul(R,g,g,n,n),intergrate(g,g,n);
+    for(register int i=0;i&lt;n;++i)R[i]=0;
+#undef R
+}
+</code></pre>
+<h2 id="exp"><a href="#exp" class="headerlink" title="exp"></a><a href="https://www.luogu.com.cn/problem/P4726" target="_blank" rel="noopener">exp</a></h2><p>给出$F$，求$G$满足$e^F\equiv G\pmod{x^n}$</p>
+<p>倍增+牛顿迭代。</p>
+<p>两边取个$\ln$：</p>
+<p>$F\equiv \ln G$</p>
+<p>$\ln G-F\equiv 0$</p>
+<p>令$H(G(x))\equiv \ln G-F$</p>
+<p>$H’(G(x))\equiv \dfrac{1}{G}$</p>
+<p>套公式：$G\equiv G^*(x)-G^*(\ln G^*-F)\pmod{x^n}$</p>
+<p>$G\equiv G^*(1-\ln G^*+F)\pmod{x^n}$</p>
+<p>复杂度$O(n\log n)$</p>
+<pre><code class="lang-cpp">int expR[maxn],_expR[maxn];
+void Exp(int *f,int *g,int n){//对n项多项式f做exp，结果存在g中
+#define R expR
+#define _R _expR
+    int lim=2;
+    R[0]=1;
+    while(lim&lt;n&lt;&lt;1){
+        for(register int i=0;i&lt;lim;++i)_R[i]=R[i];
+        ln(_R,_R,lim);
+        for(register int i=1;i&lt;lim;++i)_R[i]=qm(f[i]+mod-_R[i]);
+        _R[0]=1,mul(_R,R,R,lim,lim),lim&lt;&lt;=1;
+    }
+    for(register int i=0;i&lt;n;++i)g[i]=R[i];
+    for(register int i=0;i&lt;lim;++i)R[i]=_R[i]=0;
+#undef R
+#undef _R
+}
+</code></pre>
+<h2 id="开根"><a href="#开根" class="headerlink" title="开根"></a><a href="https://www.luogu.com.cn/problem/P5205" target="_blank" rel="noopener">开根</a></h2><p>已知多项式$F$，求出$G$满足$G^2\equiv F\pmod {x^n}$。</p>
+<p>最暴力的方法：根据小学数学$\ln x^k=k\ln x$，先把$F\ln$过去，除个$2$再$exp$回来。这样常数较大，但可以开任意$k$次根。</p>
+<p>而对于开平方根，同样可以倍增求解。</p>
+<p>当多项式只有常数项时，解为常数项模$p$意义下的二次剩余。模板里保证常数项为$1$，解为$1$。</p>
+<p>先用牛顿迭代试试：</p>
+<p>$G^2-F\equiv 0\pmod{x^n}$</p>
+<p>令$H(G(x))\equiv G^2(x)-F(x)$</p>
+<p>$H’(G(x))\equiv 2G(x)$</p>
+<p>公式套一套：$G(x)\equiv G^*(x)-\dfrac{G^{*2}(x)-F(x)}{2G^*(x)}\pmod{x^n}$</p>
+<p>$G^*(x)\equiv \dfrac{F(x)+G^{*2}(x)}{2G^*(x)}\pmod{x^n}$</p>
+<p>再试试平方法：</p>
+<p>现在已知$R’^2\equiv F\pmod {x^{\frac{n}{2}}}$，要求$R^2\equiv F\pmod {x^n}$</p>
+<p>还是根据$R\equiv R’\pmod {x^{\frac{n}{2}}}$</p>
+<p>移项平方后得到：</p>
+<p>$R^2-2RR’+R’^2\equiv 0\pmod {x^n}$</p>
+<p>$F-2RR’+R’^2\equiv 0\pmod{x^n}$</p>
+<p>$R=\dfrac{F+R’^2}{2R’}\pmod{x^n}$</p>
+<p>套个多项式求逆即可，复杂度$O(n\log n)$。</p>
+<pre><code class="lang-cpp">const int inv2 = quickpow(2);
+int sqrtR[maxn],_sqrtR[maxn],tem[maxn];
+void Sqrt(int *f,int *g,int n){//对项数为n的多项式f开根，结果存在g里
+#define R sqrtR
+#define _R _sqrtR
+    int lim=2;
+    R[0]=1;
+    while(lim&lt;n&lt;&lt;1){
+        for(register int i=0;i&lt;lim;++i)tem[i]=f[i],_R[i]=R[i];
+        inv(R,R,lim);
+        for(register int i=0;i&lt;lim&lt;&lt;1;++i)tr[i]=(tr[i&gt;&gt;1]&gt;&gt;1)|(i&amp;1?lim:0);
+        NTT(R,lim&lt;&lt;1,0),NTT(tem,lim&lt;&lt;1,0);
+        for(register int i=0;i&lt;lim&lt;&lt;1;++i)R[i]=1ll*R[i]*tem[i]%mod;
+        NTT(R,lim&lt;&lt;1,1);
+        for(register int i=0;i&lt;lim;++i)R[i]=1ll*qm(R[i]+_R[i])*inv2%mod;
+        lim&lt;&lt;=1;
+        for(register int i=lim&gt;&gt;1;i&lt;lim;++i)R[i]=0;
+    }
+    for(register int i=0;i&lt;n;++i)g[i]=R[i];
+    for(register int i=0;i&lt;lim;++i)R[i]=_R[i]=tem[i]=0;
+#undef R
+#undef _R
+}
+</code></pre>
+<h2 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a><a href="https://www.luogu.com.cn/problem/P5245" target="_blank" rel="noopener">快速幂</a></h2><p>快速幂好说，直接$A^k=\exp(k\ln A)=\exp((k\bmod p)\ln A)$。</p>
+<p>$\ln+\exp$即可，常数很大。</p>
+<p>也可以直接倍增快速幂，看上面的式子发现$k$可以对$p$（不是$p-1$）取模，$O(n\log^2 n)$暴力乘法。</p>
+<pre><code class="lang-cpp">void Pow(int *f,int *g,int n,int k){//f^k
+    ln(f,g,n);
+    for(register int i=0;i&lt;n;++i)g[i]=1ll*g[i]*k%mod;
+    Exp(g,g,n);
+}
+</code></pre>
+<h2 id="带余除法"><a href="#带余除法" class="headerlink" title="带余除法"></a>带余除法</h2><p>给定$n$项多项式$A(x)$和$m$项多项式$B(x)$，求出$n-m+1$项多项式$F(x)$和$m-1$次多项式$G(x)$，使得$A=B\times F+G$。</p>
+<p>把$x$都换成$x^{-1}$，显然还是相等的。</p>
+<p>$A(x^{-1})=B(x^{-1})F(x^{-1})+G(x^{-1})$</p>
+<p>两边同乘$x^n$：</p>
+<p>$x^nA(x^{-1})=x^nB(x^{-1})F(x^{-1})+x^nG(x^{-1})$</p>
+<p>考虑一个$n$项多项式$A(x)$，$x^nA(x^{-1})$相当于是把$A$的系数翻转了一下，以下记为$A^R(x)$。</p>
+<p>$A^R(x)=B^R(x)F^R(x)+x^{n-m+1}G^R(x)$</p>
+<p>看到后面那个$x^{n-m+1}$，直接强制$\bmod {x^{n-m+1}}$消掉它。</p>
+<p>$A^R(x)\equiv B^R(x)F^R(x)\pmod{x^{n-m+1}}$</p>
+<p>求逆再翻转回来就能得到$F(x)$，然后根据最原始的式子$A=B\times F+G$就能得到$G$。</p>
+<pre><code class="lang-cpp">int divR[maxn],divF[maxn],divG[maxn];
+void div(int *f,int *g,int n,int m,int *d,int *mo){//f=d*g+mo
+#define R divR
+#define F divF
+#define G divG
+    for(register int i=0;i&lt;n;++i)F[i]=f[n-i-1];
+    for(register int i=0;i&lt;m;++i)G[i]=g[m-i-1];
+    inv(G,R,n-m+1),mul(R,F,R,n-m+1,n-m+1);
+    reverse(F,F+n),reverse(G,G+n),reverse(R,R+n);
+    for(register int i=0;i&lt;=n-m;++i)d[i]=R[i];
+    mul(R,G,R,n,n);
+    for(register int i=0;i&lt;m;++i)mo[i]=qm(F[i]+mod-R[i]);
+    for(register int i=0;i&lt;n;++i)F[i]=G[i]=R[i]=0;
+#undef R
+#undef F
+#undef G
+}
+</code></pre>
+<h2 id="任意模数NTT"><a href="#任意模数NTT" class="headerlink" title="任意模数NTT"></a>任意模数NTT</h2><p>咕咕咕</p>
+<h2 id="分治FFT"><a href="#分治FFT" class="headerlink" title="分治FFT"></a>分治FFT</h2><p>咕咕咕</p>
+<h2 id="三角函数"><a href="#三角函数" class="headerlink" title="三角函数"></a>三角函数</h2><p>咕咕咕咕咕咕咕咕咕</p>
+<hr>
+<h1 id="生成函数"><a href="#生成函数" class="headerlink" title="生成函数"></a>生成函数</h1><p>初来乍到，多多包涵。</p>
+<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><blockquote>
+<p>假设你在看cxk的视频。同时你有一个愉♀悦度。已知：</p>
+<ul>
+<li>看cxk唱歌可以增加1点愉♀悦度</li>
+<li>看cxk跳舞可以增加2点愉♀悦度</li>
+<li>看cxk说rap可以增加3点愉♀悦度</li>
+<li>看cxk打篮球可以增加4点愉♀悦度</li>
+</ul>
+<p>重复看每种视频只能增加一次愉♀悦度。对于$n\in[1,10]$，有多少种看视频的方案能使愉♀悦度达到恰好$n$？</p>
+</blockquote>
+<p>显然，这个问题可以用背包轻松解决。</p>
+<p>考虑另一种奇妙的做法。对每种方式，构造一个形如$\sum\limits_{i=0}^\infty a_ix^i$多项式代表它。其中$x$的指数代表<strong>一个状态</strong>，这里表示愉♀悦度；$a_i$表示<strong>达到这种状态的方案数</strong>；而$x$本身没有意义，只是一个载体。</p>
+<p>以唱歌为例构造多项式：有两种选择：看cxk唱歌或不看。这就分别代表了$1x^1$和$1x^0$。所以唱歌的多项式为$1+x$</p>
+<p>类似的，跳舞的多项式为$1+x^2$，rap为$1+x^3$，打篮球为$1+x^4$。</p>
+<p>那么将两个多项式相乘会发生什么？</p>
+<p>考虑一个多项式的某一项$a_ix^i$和另一个多项式的某一项$a_jx^j$的贡献，指数$i,j$相加，表示了状态$i+j$；系数$a_i,a_j$相乘，是乘法原理，即达到状态$i+j$的方案数；而每一个$x^{i+j}$的系数$a_ia_j$加起来，又是加法原理。最终得到的新多项式就是用这两种方式的方案情况！</p>
+<p>所以，将$4$个多项式乘起来，取$n$次项就是答案。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>对一个数列$\{a_i\}$，其普通生成函数（$OGF$）为$\sum\limits_{i=0}^\infty a_ix^i$，指数生成函数（$EGF$）为$\sum\limits_{i=0}^\infty \dfrac{a_i}{i!}x^i$。</p>
+<p>比如说数列$\{1,1,1,1…\}$的生成函数为$\sum\limits_{i=0}^\infty x^i$。</p>
+<p>我们发现这其实是一个等比数列求和，等于$\dfrac{1-x^\infty}{1-x}$。根据引入部分，这个$x$其实没啥意义。如果给$x$代一个$(-1,1)$的数，$x^\infty$趋近于$0$，这个式子就为$\dfrac{1}{1-x}$。</p>
+<p>普通生成函数，一般用于无标号计数问题。而指数生成函数一般用于有标号计数问题。这个很好理解，因为有标号的除以$n!$就成为无标号问题了。</p>
+<p>一些常见的生成函数：</p>
+<ul>
+<li>$\sum\limits_{n=0}^\infty ax^n=\dfrac{a}{1-x}$</li>
+<li>$\sum\limits_{n=0}^\infty x^{dn}=\dfrac{1}{1-x^d}$</li>
+<li>$\sum\limits_{n=0}^\infty c^nx^n=\dfrac{1}{1-cx}$</li>
+<li>$\sum\limits_{n=0}^\infty C_k^nx^n=(x+1)^k$</li>
+<li>$\sum\limits_{n=0}^\infty C_{n+k-1}^{k-1}x^n=\dfrac{1}{(1-x)^k}$。（广义二项式定理）</li>
+<li>$\sum\limits_{n=0}^\infty \dfrac{c^nx^n}{n!}=e^{cx}$（泰勒公式）</li>
+<li>$\sum\limits_{n=1}^\infty \dfrac{c^nx^{dn}}{n}=\ln\left(\dfrac{1}{1-cx^d}\right)$</li>
+</ul>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="推导通项公式"><a href="#推导通项公式" class="headerlink" title="推导通项公式"></a>推导通项公式</h3><h4 id="序"><a href="#序" class="headerlink" title="序"></a>序</h4><p>有$k$个非负变量$x_i$，求满足$\sum\limits_{i=1}^kx_i=n$的方案数。</p>
+<p>考虑生成函数做法，因为$x_i\in[0,n]$，所以它对应的数列就是$\{1,1,1\dots\}$，构造生成函数$\sum\limits_{i=0}^nx^i=\dfrac{1}{1-x}$，乘$k$次就是每个$n$的方案数的生成函数，即$\dfrac{1}{(1-x)^k}$。</p>
+<p>我们只要找出这个生成函数对应数列就能知道答案。</p>
+<p>根据前文，$\dfrac{1}{(1-x)^k}=\sum\limits_{i=0}^\infty C_{i+k-1}^{k-1}x^i$。</p>
+<p>于是得到答案为$C_{n+k-1}^{k-1}$。实际上这和插板法得到的是一样的。</p>
+<h4 id="简单的例题"><a href="#简单的例题" class="headerlink" title="简单的例题"></a><a href="https://www.luogu.com.cn/problem/P2000" target="_blank" rel="noopener">简单的例题</a></h4><p>直接根据题意构造$10$个生成函数就好了：</p>
+<ul>
+<li>$6$的倍数：$\sum\limits_{n=0}^\infty[6|n]x^n=\dfrac{1}{1-x^6}$</li>
+<li>最多用$9$块：$\sum\limits_{n=0}^9 x^n=\dfrac{1-x^{10}}{1-x}$</li>
+<li>$\dots$</li>
+</ul>
+<p>把这些乘起来，化简得到$\dfrac{1}{(1-x)^5}$。再把这个生成函数还原成数列。</p>
+<p>$\dfrac{1}{(1-x)^5}=\sum\limits_{n=0}^\infty C_{n+4}^4x^n$</p>
+<p>第$n$项就是答案，即$C_{n+4}^4=\dfrac{(n+1)(n+2)(n+3)(n+4)}{24}$。</p>
+<p>只要套个高精就行了<span class="spoiler">事实上不久之前这个题缩短时限把python卡掉了，涉及到100000位的高精乘高精你还要写个FFT/NTT</span></p>
+<h4 id="斐波那契数列通项公式"><a href="#斐波那契数列通项公式" class="headerlink" title="斐波那契数列通项公式"></a>斐波那契数列通项公式</h4><p>上面这些没啥意思，我们试试用生成函数推导斐波那契数列的通项公式。</p>
+<p>定义斐波那契数列$fib_0=0,fib_1=1,fib_i=fib_{i-1}+fib_{i-2}$。</p>
+<p>令$\{fib_n\}$的$OGF$为$F(x)=\sum\limits_{n=0}^\infty fib_nx^n$.</p>
+<p>根据斐波那契数列的递推式，可以考虑<strong>错位相减法</strong>。乘上$x$就能使数列平移一位。</p>
+<p>$\ \ \ F(x)=fib_1x^1+fib_2x^2+fib_3x^3\dots$</p>
+<p>$\ xF(x)=0\qquad\ +fib_1x^2+fib_2x^3\dots$</p>
+<p>$x^2F(x)=0\qquad\ +0\qquad\ +fib_1x^3\dots$</p>
+<p>我们发现$F(x)$和$xF(x)+x^2F(x)$只差了个$fib_1x=x$。</p>
+<p>于是$F=x+xF+x^2F$，即$F=\dfrac{x}{1-x-x^2}$。</p>
+<p>这玩意看不透它的数列，考虑转化为常见的形式：</p>
+<p>设$\dfrac{x}{1-x-x^2}=\dfrac{A}{1-ax}+\dfrac{B}{1-bx}$</p>
+<p>相加肯定是要通分的，看分母，有$1-x-x^2=(1-ax)(1-bx)=abx^2-(a+b)x+1$</p>
+<p>系数分别相同，有$\begin{cases}ab=-1\\a+b=1\end{cases}$</p>
+<p>解得$a=\dfrac{1+\sqrt5}{2},b=\dfrac{1-\sqrt5}{2}$。</p>
+<p>代回去看分子：$A(1-bx)+B(1-ax)=A+B-\dfrac{(1-\sqrt5)Ax}{2}-\dfrac{(1+\sqrt5)Bx}{2}=x$</p>
+<p>还是看相同的系数，得出$\begin{cases}A+B=0\\ -\dfrac{(1-\sqrt5)A}{2}-\dfrac{(1+\sqrt5)B}{2}=1\end{cases}$</p>
+<p>解得$A=\dfrac{1}{\sqrt5},B=-\dfrac{1}{\sqrt5}$</p>
+<p>回到最初的目的，$\dfrac{x}{1-x-x^2}=\dfrac{1}{\sqrt5}\left[\dfrac{1}{1-(\frac{1+\sqrt5}{2})x}-\dfrac{1}{1-(\frac{1-\sqrt5}{2})x}\right]$</p>
+<p>我们知道，$\dfrac{1}{1-ax}=\sum\limits_{n=0}^\infty a^nx^n$</p>
+<p>于是斐波那契数列生成函数为$\sum\limits_{n=0}^\infty\frac{1}{\sqrt5}\left[(\frac{1+\sqrt5}{2})^n-(\frac{1-\sqrt5}{2})^n\right]x^n$</p>
+<p>就能得到$fib_n=\frac{1}{\sqrt5}\left[(\frac{1+\sqrt5}{2})^n-(\frac{1-\sqrt5}{2})^n\right]$</p>
+<h4 id="卡特兰数通项公式"><a href="#卡特兰数通项公式" class="headerlink" title="卡特兰数通项公式"></a>卡特兰数通项公式</h4><p>我不是鸽子！我来<del>抄</del>推卡特兰数通项辣！</p>
+<p>卡特兰数的定义式为$c_0=1,c_n=\sum\limits_{i=0}^{n-1}c_ic_{n-1-i}$。看起来很卷积。</p>
+<p>令$F(x)$为$\{c_n\}$的生成函数。</p>
+<p>$F=\sum\limits_{n=0}^\infty c_nx^n$</p>
+<p>$=\sum\limits_{n=0}^\infty x^n\left([n=0]+\sum\limits_{i=1}^{n-1}c_ic_{n-1-i}\right)$</p>
+<p>$=1+xF^2$</p>
+<p>解一元二次方程，$F=\dfrac{1\pm\sqrt{1-4x}}{2x}$</p>
+<p>诶？这咋有个$\pm$啊？</p>
+<p>$F$当然不会有两个解，要舍掉一个。</p>
+<p>虽然生成函数中$x$本身没有意义，但是给它代个值是可以的。比如$0$就很好，因为$F(0)$就是常数项。</p>
+<p>而本题中$F(0)=1$，取加号时等式右边为$\dfrac{2}{0}=+\infty$，取减号时为$\dfrac{0}{0}=1$，舍掉加号。</p>
+<p>所以$F(x)=\dfrac{1-\sqrt{1-4x}}{2x}$</p>
+<p>然后开始抄<del>rqy</del>铃悬的博客：</p>
+<p>根据广义二项式定理展开$\sqrt{1-4x}$</p>
+<p>$(1-4x)^{\frac{1}{2}}$</p>
+<p>$=\sum\limits_{n=0}^\infty C_{\frac{1}{2}}^n(-4x)^n$</p>
+<p>$=1+\sum\limits_{n=1}^\infty\dfrac{\frac{1}{2}(-\frac{1}{2})(-\frac{3}{2})\dots(\frac{3}{2}-n)}{n!}(-4x)^n$</p>
+<p>$=1+\sum\limits_{n=1}^\infty\dfrac{(-1)(-3)\dots(3-2n)}{n!}(-2x)^n$</p>
+<p>$=1-\sum\limits_{n=1}^\infty\dfrac{1\times3\times\dots(2n-3)}{n!}(2x)^n$</p>
+<p>$=1-\sum\limits_{n=1}^\infty\dfrac{1\times2\times 3\times4\times\dots(2n-3)\times(2n-2)}{2\times4\times\dots(2n-2)n!}(2x)^n$</p>
+<p>$=1-\sum\limits_{n=1}^\infty\dfrac{(2n-2)!}{1\times2\times\dots(n-1)n!}2x^n$</p>
+<p>$=1-\sum\limits_{n=1}^\infty\dfrac{(2n-2)!}{(n-1)!n!}2x^n$</p>
+<p>把它代回去：</p>
+<p>$F(x)=\dfrac{1-\sqrt{1-4x}}{2x}$</p>
+<p>$=\dfrac{\sum\limits_{n=1}^\infty\dfrac{(2n-2)!}{(n-1)!n!}2x^n}{2x}$</p>
+<p>$=\sum\limits_{n=1}^\infty\dfrac{(2n-2)!}{n!(n-1)!}x^{n-1}$</p>
+<p>$=\sum\limits_{n=0}^\infty\dfrac{(2n)!}{(n+1)!n!}x^n$</p>
+<p>$=\sum\limits_{n=0}^\infty\dfrac{C_{2n}^n}{n+1}x^n$</p>
+<p>于是得出卡特兰数通项公式为$c_n=\dfrac{C_{2n}^n}{n+1}$</p>
+<h3 id="结合多项式"><a href="#结合多项式" class="headerlink" title="结合多项式"></a>结合多项式</h3><p><a href="https://www.luogu.com.cn/problem/CF438E" target="_blank" rel="noopener">例题</a></p>
+<p>设$f(n)$为权值为$n$的神犇二叉树数量。</p>
+<p>枚举根、左右儿子的权值，$f(0)=1,f(n)=\sum\limits_{i=1}^n[i\in C]\sum\limits_{j=0}^{n-i}f(j)f(n-i-j)$</p>
+<p>后面那个看起来很卷积很多项式。</p>
+<p>令$\{a_n=[n\in C]\}$的$OGF$为$G(x)=\sum\limits_{n=0}^\infty[n\in C]x^n$，$\{f(n)\}$的$OGF$为$F(x)\sum\limits_{n=0}^\infty f(n)x^n$</p>
+<p>$F(x)=\sum\limits_{n=0}^\infty x^n\left([n=0]+\sum\limits_{i=1}^n[i\in C]\sum\limits_{j=0}^{n-i}f(i)f(n-i-j)\right)$</p>
+<p>于是有$F=1+GF^2$。</p>
+<p>解这个一元二次方程得$F=\dfrac{1\pm\sqrt{1-4G}}{2G}$。</p>
+<p>$G(0)=0,F(0)=1$，令$x=0$，计算可知取减号。</p>
+<p>$F=\dfrac{1-\sqrt{1-4G}}{2G}$。这就是个多项式问题了。直接上板子。</p>
+<p>但是当你兴冲冲地默写完多项式开根和求逆后会懵逼地发现：由于$G(0)=0$，$2G$求逆后全变成$0$了！</p>
+<p>这咋整啊？分母无理化呗！</p>
+<p>分式上下同乘$1+\sqrt{1-4G}$得：$F=\dfrac{1-(1-4G)}{2G(1+\sqrt{1-4G})}=\dfrac{2}{1+\sqrt{1-4G}}$</p>
+<p>这样就可以做了。</p>
+<hr>
+<h1 id="水题"><a href="#水题" class="headerlink" title="水题"></a>水题</h1><h2 id="整数的lqp拆分"><a href="#整数的lqp拆分" class="headerlink" title="整数的lqp拆分"></a><a href="https://www.luogu.com.cn/problem/P4451" target="_blank" rel="noopener">整数的lqp拆分</a></h2><p>设$f(n)$为答案。</p>
+<p><del>根据打表可知f(n)=2f(n-1)+f(n-2)，高精矩乘应该能过</del></p>
+<p>显然有$f(0)=1,f(n)=\sum\limits_{i=1}^nfib(i)f(n-i)$</p>
+<p>设$\{fib(i)\}$的$OGF$为$G(x)=\sum\limits_{n=0}^\infty fib(n)x^n$（不要在意为什么是$G$），$\{f(i)\}$的$OGF$为$F(x)=\sum\limits_{n=0}^\infty f(n)x^n$</p>
+<p>$F(x)=\sum\limits_{n=0}^\infty x^n\left([n=0]+\sum\limits_{i=1}^nfib(i)f(n-i)\right)$</p>
+<p>$F=1+F\times G$</p>
+<p>$F=\dfrac{1}{1-G}$</p>
+<p>根据前文，$G(x)=\dfrac{x}{1-x-x^2}$</p>
+<p>$F=\dfrac{1}{1-\frac{x}{1-x-x^2}}=\dfrac{1-x-x^2}{1-2x-x^2}=1+\dfrac{x}{1-2x-x^2}$</p>
+<p>和斐波那契数列通项的推导类似，设$\dfrac{1}{1-2x-x^2}=\dfrac{A}{1-ax}+\dfrac{B}{1-bx}$</p>
+<p>解方程就不说了，最终解得$a=1+\sqrt2,b=1-\sqrt2,A=\dfrac{1}{2\sqrt2},B=-\dfrac{1}{2\sqrt2}$</p>
+<p>得出通项为$f(n)=\dfrac{\sqrt2}{4}[(1+\sqrt2)^n-(1-\sqrt2)^n]$</p>
+<p>不会二次剩余？$O(p)$枚举得出$59713600^2\equiv2\pmod{10^9+7}$</p>
+<h2 id="城市规划"><a href="#城市规划" class="headerlink" title="城市规划"></a><a href="https://www.luogu.com.cn/problem/P4841" target="_blank" rel="noopener">城市规划</a></h2><p>$EGF$结合多项式。</p>
+<p><a href="/2020/01/08/洛谷-P4841-集训队作业2013-城市规划">题解</a></p>
+<h2 id="付公主的背包"><a href="#付公主的背包" class="headerlink" title="付公主的背包"></a><a href="https://www.luogu.com.cn/problem/P4389" target="_blank" rel="noopener">付公主的背包</a></h2><p>生成函数与多项式$\ln$和$\exp$的应用。</p>
+<p><a href="/2020/01/08/洛谷-P4389-付公主的背包">题解</a></p>
+<h2 id="ZJL的妹子序列"><a href="#ZJL的妹子序列" class="headerlink" title="ZJL的妹子序列"></a><a href="https://www.luogu.com.cn/problem/T46780" target="_blank" rel="noopener">ZJL的妹子序列</a></h2><p>一句话题意：求恰好有$k$对逆序对的$1\sim n$排列数。$n,k\le 10^5$。</p>
+<p>和「付公主的背包」挺像的。设$f(i,j)$为恰有$j$对逆序对的$1\sim i$排列数。</p>
+<p>$f(i,0)=1,f(i,j)=\sum\limits_{k=0}^{i-1}f(i-1,j-k)$</p>
+<p>令$\{f(i)\}$的普通生成函数为$F_i(x)$。</p>
+<p>$F_i=\sum\limits_{n=0}^\infty f(i,n)x^n$</p>
+<p>$=\sum\limits_{n=0}^\infty x^n\sum\limits_{j=0}^{i-1}f(i-1,n-j)$</p>
+<p>$=\sum\limits_{j=0}^{i-1}x^jF_{i-1}$</p>
+<p>$\dfrac{F_i}{F_{i-1}}=\dfrac{1-x^i}{1-x}$</p>
+<p>累乘得到$F_n=F_0\prod\limits_{i=1}^n\dfrac{1-x^i}{1-x}$</p>
+<p>$F_0=1$就不要了。还是通过取对数转乘为加：</p>
+<p>$F_n=\exp\sum\limits_{i=1}^n\ln\dfrac{1-x^i}{1-x}$</p>
+<p>$=\exp\sum\limits_{i=1}^n\left(\ln\dfrac{1}{1-x}-\ln\dfrac{1}{1-x^i}\right)$</p>
+<p>$=\exp\sum\limits_{i=1}^n\left(\sum\limits_{k=1}^\infty\dfrac{x^k}{k}-\sum\limits_{k=1}^\infty\dfrac{x^{ik}}{k}\right)$</p>
+<p>$=\exp\left(\sum\limits_{k=1}^\infty\dfrac{n}{k}x^k-\sum\limits_{i=1}^n\sum\limits_{k=1}^\infty\dfrac{x^{ik}}{k}\right)$</p>
+<p>枚举倍数构造多项式再$\exp$回来即可，$O(n\log k)$的。</p>
+<h2 id="射命丸文的笔记"><a href="#射命丸文的笔记" class="headerlink" title="射命丸文的笔记"></a><a href="https://www.luogu.com.cn/problem/P4233" target="_blank" rel="noopener">射命丸文的笔记</a></h2><p>和「城市规划」差不多。</p>
+<p><a href="/2020/01/10/洛谷-P4233-射命丸文的笔记">题解</a></p>
+<h2 id="玩游戏"><a href="#玩游戏" class="headerlink" title="玩游戏"></a><a href="https://www.luogu.com.cn/problem/P4705" target="_blank" rel="noopener">玩游戏</a></h2><p>答案为$\dfrac{\sum\limits_{i=1}^n\sum\limits_{j=1}^m(a_i+b_j)^k}{nm}$，只考虑分子。</p>
+<p>用二项式定理展开：</p>
+<p>$\sum\limits_{i=1}^n\sum\limits_{j=1}^m(a_i+b_j)^k$</p>
+<p>$=\sum\limits_{x=0}^k\sum\limits_{i=1}^n\sum\limits_{j=1}^mC_k^xa_i^xb_i^{k-x}$</p>
+<p>$=k!\sum\limits_{x=0}^k\dfrac{\sum\limits_{i=1}^na_i^x}{x!}\dfrac{\sum\limits_{j=1}^mb_j^{k-x}}{(k-x)!}$</p>
+<p>搞出来$3$个$EGF$卷一下就好了，问题是怎么求$\sum\limits_{i=1}^na_i^k$。</p>
+<p>先把$\{a_i^k\}$写成生成函数：$\sum\limits_{k=1}^\infty a_i^kx^k=\dfrac{1}{1-a_ix}$。</p>
+<p>那么$\left\{\sum\limits_{i=1}^na_i^k\right\}$的生成函数$F(x)$就是这$n$个生成函数的和，即$F(x)=\sum\limits_{i=1}^n\dfrac{1}{1-a_ix}$。</p>
+<p>令$G(x)=\sum\limits_{i=1}^n\dfrac{-a_i}{1-a_ix}$。</p>
+<p>接下来变魔术：</p>
+<p>$F(x)=n+\sum\limits_{i=1}^n\dfrac{1-1+a_ix}{1-a_ix}=-xG(x)+n$</p>
+<p>现在要求$G(x)$。发现$\ln’(1-a_ix)=\dfrac{-a_i}{1-a_ix}$。</p>
+<p>于是$G(x)=\sum\limits_{i=1}^n\ln’(1-a_ix)=\ln’\left(\prod\limits_{i=1}^n(1-a_ix)\right)=\dfrac{\left(\prod\limits_{i=1}^n(1-a_ix)\right)’}{\prod\limits_{i=1}^n(1-a_ix)}$</p>
+<p>这个连乘用分治求。将两边区间的结果$NTT$乘起来。复杂度为$T(n)=2T(\frac{n}{2})+O(n\log n)=O(n\log^2n)$。 最后还原上面的推导。</p>
+<p>终于做完了。。。<img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.4/emojis/menhera/73.jpg" class="emoji-coda" alt="" style="vertical-align:middle;height:60px;width:auto;margin-top:-10px"></p>
+<p><del>然后发现我是真的真的真的写不动，那就光嘴巴好了</del></p>
+<h2 id="概率论"><a href="#概率论" class="headerlink" title="概率论"></a><a href="https://www.luogu.com.cn/problem/P3978" target="_blank" rel="noopener">概率论</a></h2><p><a href="/2020/01/11/洛谷-P3978-TJOI2015-概率论">题解</a></p>
+
+            
+        </div>
+      </article>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/01/08/%E6%B4%9B%E8%B0%B7-P4841-%E9%9B%86%E8%AE%AD%E9%98%9F%E4%BD%9C%E4%B8%9A2013-%E5%9F%8E%E5%B8%82%E8%A7%84%E5%88%92/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.7/csgh.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.7/csgh.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                洛谷 P4841 [集训队作业2013]城市规划</h3>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2020/01/04/bzoj-3252-%E6%94%BB%E7%95%A5/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.4/gl.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.4/gl.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                bzoj 3252 攻略</h3>
+              </div> 
+            </a>
+			</div>
+        
+      </section> 
+    </main>
+</div>
+</div>
+</div>
+<div class="gather">
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz",
+        appKey: "jqULEjwlbvOCM08eEOpTIGOI",
+        path: window.location.pathname,
+		visitor: true,
+        placeholder: "日々私たちが过ごしている日常は、実は奇迹の连続なのかもしれない。"
+      })
+  }
+</script>
+
+</div>
+
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+
+<script>
+function imgInit(){
+	var imgs=document.getElementsByClassName('entry-content').item(0).getElementsByTagName('img');
+	for(var i=0;i<imgs.length;++i){
+		var element = document.createElement("a"),record=imgs[i],dsrc=record.getAttribute("data-src");
+		element.setAttribute("data-fancybox","gallery");
+    element.setAttribute("href",dsrc||imgs[i].src);
+		element.setAttribute("id","escape-link");
+		imgs[i].parentNode.appendChild(element);
+		imgs[i].parentNode.removeChild(imgs[i]);
+		element.appendChild(record);
+	}
+}
+var spoiler=document.getElementsByClassName('spoiler');
+for(var i=0;i<spoiler.length;++i)
+spoiler[i].onclick=function(){this.classList.toggle("revealed");};
+imgInit();
+</script>
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.6.7/articleload.gif">
+      </div>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Github Pages</a>
+        </span>
+		<!-- <span style="color: #b9b9b9;display:block">图片外链由<a href="https://img.fghrsh.net/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">FGHRSH图床</a>提供 -->
+        <!-- </span> -->
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.4/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.2/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<!-- <script src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/valine.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.1.4/js/volantis.min.js"></script>
+<script type="text/javascript">
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { 
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;ww">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

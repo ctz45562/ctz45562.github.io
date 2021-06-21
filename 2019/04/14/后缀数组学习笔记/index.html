@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">后缀数组学习笔记 | ctz&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/googlefont.css" media="all">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_ndnjfmz11y9.css">
+  <style>
+  .emoji-coda {
+      display: inline-block !important;
+      position: relative;
+      width: 47px;
+      top: 2px;
+      margin: -3px 3px !important;
+      padding: 0;
+  }
+  </style>
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "ctz's blog";
+  mashiro_option.author_name = "ctz's blog";
+  mashiro_option.site_url = "https://ctz45562.github.io";
+  mashiro_option.v_appId = "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz";
+  mashiro_option.v_appKey = "jqULEjwlbvOCM08eEOpTIGOI";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index1.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index2.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index3.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index4.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index5.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index6.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index7.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.4/index8.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.9/index9.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
+    @import url("/code.css");
+  </style>
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed;bottom:64px;left:28px;"> 
+  <div class="theme-controls row-container"> 
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> background <i style="color:grey" class="fa fa-chevron-right"></i></p>
+    <ul class="menu-list"> 
+	  <li id="white-bg"> 
+	    <i class="fa fa-television">
+		</i>
+	  </li> 
+	<li id="sakura-bg"> 
+      <i class="iconfont icon-sakura">
+	  </i>
+	</li> 
+    <li id="gribs-bg"> 
+      <i class="fa fa-slack">
+	  </i>
+    </li> 
+    <li id="KAdots-bg"> 
+      <i class="iconfont icon-dots">
+      </i>
+    </li> 
+    <li id="totem-bg"> 
+      <i class="fa fa-optin-monster">
+      </i>
+    </li> 
+    <li id="pixiv-bg"> 
+      <i class="fa fa-star">
+	  </i>
+      </li> 
+    <li id="bing-bg"> 
+      <i class="fa fa-picture-o">
+	  </i>
+    </li> 
+    <li id="dark-bg"> 
+      <i class="fa fa-moon-o">
+      </i>
+    </li> 
+  </ul> 
+  </div > 
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> font <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="font-family-controls row-container">
+    <button type="button" class="control-btn-serif " data-mode="serif" onclick="mashiro_global.font_control.change_font()">Serif</button>
+    <button type="button" class="control-btn-sans-serif" data-mode="sans-serif" onclick="mashiro_global.font_control.change_font()">Sans Serif</button>
+  </div>
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> script <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="theme-controls row-container">
+  <ul class="menu-list">
+  <style>li>.ctz{font-size: 21px;}</style>
+	<li id="empty-effect">
+	  <i class="ctz ctz-jinzhi">
+	  </i>
+	</li>
+	<li id="sakura-rain-effect">
+	  <i class="ctz ctz-huaxiang">
+	  </i>
+	</li>
+	<li id="snowy-effect">
+	  <i class="ctz ctz-snow">
+	  </i>
+	</li>
+	<li id="lines-effect">
+	  <i class="ctz ctz-xianlu">
+	  </i>
+	</li>
+	<li id="colorful-belts-effect">
+	  <i class="ctz ctz-caidai"></i>
+	  </i>
+	</li>
+	<li id="words-rain-effect">
+	  <i class="ctz ctz-zimuletters2"></i>
+	</li>
+	<li id="point-rain-effect">
+	  <i class="ctz ctz-diandiandian" style="font-size:19px"></i>
+	</li>
+	<li id="rain-drop-effect">
+	  <i class="ctz ctz-yu"></i>
+	</li>
+  </ul>
+  </div>
+<canvas id="night-mode-cover">
+</canvas>
+</div> 
+  <div class="changeSkin-gear no-select" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; visibility: visible; bottom: 0px;"> 
+  <div class="keys" id="setbtn"> 
+    <button id="open-skinMenu">
+		<style>
+		button#open-skinMenu{
+			transition: all 0.2s linear 0s;
+			outline:none;
+			position:fixed;
+			bottom:12px;
+			left:13px;
+			font-size:16px;
+			background-color: rgba(255,255,255,.95);
+			border-radius: 20px;
+			box-shadow: 0 3px 8px 0 rgba(0,0,0,0.1), 0 3px 8px 0 rgba(0,0,0,0.1);
+		}
+		button#open-skinMenu:hover{
+			transition: all 0.2s linear 0s;
+			background-color: #2f98fc;
+			color: rgba(255,255,255);
+		}
+		</style>
+		<i class="iconfont icon-gear inline-block rotating">
+	  </i> 
+		SCHEME TOOL | 主题工具 
+	</button>
+  </div> 
+</div>
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dim">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://ctz45562.github.io">
+          <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Re&amp;Re</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://www.luogu.com.cn/user/111762" target="_blank" class="social-github" title="洛谷">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/social/luogu.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://github.com/ctz45562" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/github.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="mailto:cctz45562@163.com" target="_blank" class="social-github" title="e-mail">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/mail.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://space.bilibili.com/229790690" target="_blank" class="social-github" title="bilibili">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/bilibili.jpg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <!-- <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+ -->
+      <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.0/tocbot.css">
+<div class="pattern-center-blank"></div>
+<div class="gather">
+
+  <div class="pattern-center-sakura single-center">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/hzszxxbj.jpg);" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/hzszxxbj.jpg">
+    </div>
+    <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
+      <h1 class="entry-title">
+      后缀数组学习笔记</h1>
+      <p class="entry-census">
+	    <span><a href="https://ctz45562.github.io"><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg" style="margin-right:4px">ctz</a>
+        </span>
+		<span class="bull"></span>
+		&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp
+        2019-4-14
+    <span class="bull"></span>
+    
+      <span><i class="fa fa-archive"></i> 分类于  
+        <span class="article-category"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" > 学习笔记</a></span>
+      
+    </span>
+    
+    <span class="bull"></span>
+		<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id='/2019/04/14/后缀数组学习笔记/' class="leancloud-visitors" data-flag-title="后缀数组学习笔记">
+        <a class="leancloud-visitors-count text-cursor">loading...</a>
+        <a class="post-meta-item-text text-cursor"> 次阅读</a>
+        </span>
+      </p>
+	  
+      
+    <div>
+		  <ul class="spfk-ul">
+		    &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<li class="spfk-li"><span class="triangle"></span><a href="/tags/字符串/" class="butterfly-tags">字符串</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/后缀数组/" class="butterfly-tags">后缀数组</a></li>
+          </ul>
+		</div>
+		<script>
+			function colorInit(c,num){for(var i=1;i<=num;++i)c.push(i+'');}
+			function paintTags(){
+				var colorNumber=8,tagColors=[],tags=document.getElementsByClassName('spfk-li');
+				for(var i = 0 ; i < tags.length ; ++i){
+					if(!tagColors.length)colorInit(tagColors,colorNumber);
+					var j=Math.floor(Math.random()*tagColors.length);
+					tags[i].classList.add("spfk-color"+tagColors[j]);
+					tagColors.splice(j,1);
+        }
+			}
+			paintTags()
+		</script>
+    
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="gather toc" style="width:230px"></div>
+        
+        <div class="entry-content">
+          <p>终于正式开新算法啦！</p>
+<p><del>发现学过的东西至今只会打板子很方赶紧学点很酷很炫的新算法安抚一下自己QAQ</del></p>
+<a id="more"></a>
+<hr>
+<h1 id="前言（瞎扯）"><a href="#前言（瞎扯）" class="headerlink" title="前言（瞎扯）"></a>前言（<del>瞎扯</del>）</h1><p>后缀很好理解，就是一个字符串从某个位置到结尾连成的子串。</p>
+<p>后缀数组（$Suffix\ Array$）就是把这些后缀按字典序排序后的数组。功能十分强大。</p>
+<p>后缀数组主要是用来练习单调栈、二分和$ST$表的（雾</p>
+<hr>
+<h1 id="抄袭来源"><a href="#抄袭来源" class="headerlink" title="抄袭来源"></a>抄袭来源</h1><blockquote>
+<p><a href="http://www.cnblogs.com/zwfymqz/p/8413523.html" target="_blank" rel="noopener">http://www.cnblogs.com/zwfymqz/p/8413523.html</a></p>
+<p><a href="https://blog.csdn.net/a1035719430/article/details/80217267" target="_blank" rel="noopener">https://blog.csdn.net/a1035719430/article/details/80217267</a></p>
+<p><a href="https://www.cnblogs.com/victorique/p/8480093.html" target="_blank" rel="noopener">https://www.cnblogs.com/victorique/p/8480093.html</a></p>
+<p><a href="https://challestend.github.io/suffix-array-learning-notes/" target="_blank" rel="noopener">https://challestend.github.io/suffix-array-learning-notes/</a></p>
+<p><a href="https://wavwing.top/2019/01/18/2019.1.18/" target="_blank" rel="noopener">https://wavwing.top/2019/01/18/2019.1.18/</a></p>
+</blockquote>
+<hr>
+<h1 id="define"><a href="#define" class="headerlink" title="#define"></a>#define</h1><h2 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h2><p>$S(i)$：从位置$i$开始的后缀</p>
+<p>$s[l,r]$：截取字符串$s$第$l$到第$r$个字符得到的子串</p>
+<p>$n$：字符串长度</p>
+<p>$len(p)$：字符串$p$的长度</p>
+<h2 id="后缀数组"><a href="#后缀数组" class="headerlink" title="后缀数组"></a>后缀数组</h2><p>$sa[i]$：（字典序）排第$i$名的后缀的下标</p>
+<p>$rk[i]$：$S(i)$的排名</p>
+<p>（显然$rk[sa[i]]=i$，$sa[rk[i]]=i$，知道一个就能求出另一个）</p>
+<h2 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h2><p>$tax[i]$：第一关键字的桶（在基数排序中会处理成前缀和）</p>
+<p>$tp[i]$：第二关键字排名第$i$名的<strong>下标</strong></p>
+<p>$m$：第一关键字有多少种排名（一开始为字符集大小）</p>
+<h2 id="height数组"><a href="#height数组" class="headerlink" title="height数组"></a>height数组</h2><p>$LCP(i,j)$：$S(i)$和$S(j)$的最长公共前缀</p>
+<p>$lcp(i,j)$：$LCP(sa[i],sa[j])$（注意区分$LCP$）</p>
+<p>$height[i]$：$lcp(i-1,i)$</p>
+<p>$h[i]$：$height[rk[i]]$</p>
+<hr>
+<h1 id="后缀排序"><a href="#后缀排序" class="headerlink" title="后缀排序"></a>后缀排序</h1><p>先不管后缀数组干啥，得先能造出来后缀数组，就要对后缀排序。</p>
+<p>$sort$显然不行。</p>
+<p>于是有了倍增$O(n\log n)$、$DC3\ O(n)$、$SA-IS\ O(n)$、潮爷几个数组随便模拟$O(1)$的后缀排序。</p>
+<blockquote>
+<p><del>不要学很酷很炫的算法，学了你就失败。——某金牌教练</del></p>
+</blockquote>
+<p>所以我就学了最好懂(?)最好写(?)的倍增。</p>
+<h2 id="倍增"><a href="#倍增" class="headerlink" title="倍增"></a>倍增</h2><h3 id="前置芝士"><a href="#前置芝士" class="headerlink" title="前置芝士"></a>前置芝士</h3><ul>
+<li><a href="https://baike.baidu.com/item/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/7875498?fr=aladdin" target="_blank" rel="noopener">基数排序</a>：<del>说实话现在还没搞懂。</del>概括一下就是<strong>逐位比较</strong>，先比较个位，再比较十位。。。复杂度$O(n\lg n)$。不过在后缀排序中只有两个关键字，所以复杂度是$O(n)$的。</li>
+</ul>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>$S(i)$的前$k$位就是$S(i-k)$的$k+1\sim 2k$位，两者的字典序排名也是一样的。那么我们就可以通过$S(i)$的前$k$位排名获取$S(i-k)$的$k+1\sim 2k$位的排名了。</p>
+<p>设倍增跳到了第$k$层，我们要以每个后缀前$k$位的排名为第一关键字，$k+1\sim  2k$位的排名为第二关键字排序。结合上面那个原理转移，进行双关键字基数排序。</p>
+<p>最多跳$\log n$层，每次基数排序是$O(n)$的，总复杂度$O(n\log n)$。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">int tax[maxn],tp[maxn],sa[maxn],rk[maxn],m,n;
+char s[maxn];
+void rsort(){
+    for(register int i=0;i&lt;=m;++i)tax[i]=0;
+    for(register int i=1;i&lt;=n;++i)++tax[rk[i]];
+    for(register int i=1;i&lt;=m;++i)tax[i]+=tax[i-1];
+    for(register int i=n;i;--i)sa[tax[rk[tp[i]]]--]=tp[i];
+}//基数排序
+void ssort(){
+    m=75;
+    for(register int i=1;i&lt;=n;++i)rk[i]=s[i]-&#39;0&#39;,tp[i]=i;
+    rsort();
+    for(register int k=1,p=0;p&lt;n;m=p,k&lt;&lt;=1){
+        p=0;
+        for(register int i=1;i&lt;=k;++i)tp[++p]=n-k+i;
+        for(register int i=1;i&lt;=n;++i)
+            if(sa[i]&gt;k)tp[++p]=sa[i]-k;
+        rsort();
+        for(register int i=1;i&lt;=n;++i)tp[i]=rk[i];
+        rk[sa[1]]=p=1;
+        for(register int i=2;i&lt;=n;++i)
+            rk[sa[i]]=tp[sa[i]]==tp[sa[i-1]]&amp;&amp;tp[sa[i]+k]==tp[sa[i-1]+k]?p:++p;
+    }
+}//后缀排序
+</code></pre>
+<h4 id="后缀排序ssort"><a href="#后缀排序ssort" class="headerlink" title="后缀排序ssort"></a>后缀排序ssort</h4><p>先不看基数排序，现在先理解为一次<code>rsort</code>后，$sa$数组会更新为依据$rk$（第一关键字的排名）和$tp$（第二关键字的位置）排序后的结果。</p>
+<p><code>m=75;</code>是初始化字符集大小。</p>
+<p>首先以第$1$位为第一关键字、位置为第二关键字排序：</p>
+<pre><code class="lang-cpp">    for(register int i=1;i&lt;=n;++i)rk[i]=s[i]-&#39;0&#39;,tp[i]=i;
+</code></pre>
+<p><code>rsort();</code>基数排序。</p>
+<p>排序的变量：</p>
+<pre><code class="lang-cpp">    for(register int k=1,p=0;p&lt;n;m=p,k&lt;&lt;=1)
+</code></pre>
+<p>$k$是当前倍增长度，也就是这次排序要对前$2k$个字母排序。</p>
+<p>$p$是一个计数器，下面要用到。</p>
+<p>循环条件先不用管最后说，<code>m=p</code>是一个小优化也先不管，<code>k&lt;&lt;=1</code>每次$k$延展一倍。</p>
+<p>现在我们有每个后缀前$k$个字符的排名情况，要扩展到$2k$上，也就是以每个后缀的前$k$位为第一关键字，$k+1\sim 2k$位为第二关键字进行基数排序。那么要先获取第二关键字的排名。</p>
+<p>首先有的后缀长度达不到$k$个，排序时后$k$个字符是空的，认为它们排名最靠前，先加进$tp$数组里：</p>
+<pre><code class="lang-cpp">    for(register int i=1;i&lt;=k;++i)tp[++p]=n-k+i;
+</code></pre>
+<p>然后是重点：</p>
+<pre><code class="lang-cpp">    for(register int i=1;i&lt;=n;++i)if(sa[i]&gt;k)tp[++p]=sa[i]-k;
+</code></pre>
+<p>原理中“通过$S(i)$的前$k$位排名获取$S(i-k)$的$k+1\sim 2k$位的排名”。当前$sa$存的是$S(sa[i])$的前$k$位排名，就用它更新$S(sa[i]-k)$第二关键字的排名。</p>
+<p><code>rsort();</code>基数排序。</p>
+<p>接下来更新$rk$数组以进行新一轮的排序，需要一个新数组存一下原$rk$数组，$tp$排完序后就没用了，正好用上（$memcpy$也行）：</p>
+<pre><code class="lang-cpp">    for(register int i=1;i&lt;=n;++i)tp[i]=rk[i];
+</code></pre>
+<p>（最好还是不要直接$swap$两个数组，有的地方会$CE$）</p>
+<p>初始化第一名和计数器：</p>
+<pre><code class="lang-cpp">    rk[sa[1]]=p=1;
+</code></pre>
+<p>按$sa$依次更新$rk$，更新$rk$时要注意可能有重复的排名。</p>
+<pre><code class="lang-cpp">    for(register int i=2;i&lt;=n;++i)
+        rk[sa[i]]=(tp[sa[i]]==tp[sa[i-1]]&amp;&amp;tp[sa[i]+k]==tp[sa[i-1]+k])?p:++p;
+</code></pre>
+<p><strong>注意$tp$数组已经赋值为原$rk$数组！</strong></p>
+<p>比较一下原$S(sa[i])$和$S(sa[i-1])$的前$k$个字符的$tp$，再比较一下$k+1\sim 2k$的$tp$，两个都相等说明这一轮排名相等，$p$不变；否则$++p$。</p>
+<p>我们回过头来看循环条件：<code>p&lt;n</code>。</p>
+<p>更新完$rk$后，$p$作为计数器，意义是<strong>有多少个不同的排名</strong>。所以只要<code>p==n</code>即每个后缀排名都不同就排完了。</p>
+<h4 id="基数排序rsort"><a href="#基数排序rsort" class="headerlink" title="基数排序rsort"></a>基数排序rsort</h4><p>$m$为第一关键字有多少种的排名，也就是$tax$桶的上界。一开始初始化<code>m=75</code>即字符集大小。</p>
+<p>前面提到的<code>m=p</code>即更新桶的上界。注意桶的下标是从$0\sim m$的。</p>
+<p>先清空第一关键字的桶（$memset$也行）：</p>
+<pre><code class="lang-cpp">    for(register int i=0;i&lt;=m;++i)tax[i]=0;
+</code></pre>
+<p>把每个后缀的第一关键字排名加进对应的桶里：</p>
+<pre><code class="lang-cpp">    for(register int i=1;i&lt;=n;++i)++tax[rk[i]];
+</code></pre>
+<p>对桶做一个前缀和：</p>
+<pre><code class="lang-cpp">    for(register int i=1;i&lt;=m;++i)tax[i]+=tax[i-1];
+</code></pre>
+<p>做完前缀和后，每个桶的意义就变为：<strong>第一关键字排名为$i$，前面就有$tax[i]$个比它小的</strong></p>
+<p>最难理解的一步：</p>
+<pre><code class="lang-cpp">    for(register int i=n;i;--i)sa[tax[rk[tp[i]]]--]=tp[i];
+</code></pre>
+<p>先复习一下定义：</p>
+<blockquote>
+<p>$tp[i]$：第二关键字排名第$i$名的<strong>下标</strong></p>
+</blockquote>
+<p>一层一层看：</p>
+<p>$i$从大到小循环：优先处理第二关键字排名靠后的</p>
+<p>$tp[i]$：找到第二关键字排名为$i$的<strong>下标</strong></p>
+<p>$rk[tp[i]]$：找到它第一关键字的排名</p>
+<p>$tax[rk[tp[i]]]$：找到对应的桶</p>
+<p>$tax[rk[tp[i]]]—$：现在我们从这个桶里拿走它的排名。对于第一关键字比它小的，已经通过前缀和处理出来；因为是<strong>倒序循环</strong>，保证了第二关键字比它小的在它后面取到，实现了优先第一关键字排序，再以第二关键字排序。</p>
+<p>$sa[tax[rk[tp[i]]]—]=tp[i]$：更新$sa$数组。</p>
+<p>（模拟一下对理解很有帮助）</p>
+<p>最后<del>偷</del>放一张图理解一下（<a href="https://blog.csdn.net/a1035719430/article/details/80217267" target="_blank" rel="noopener">来源</a>）：</p>
+<p><img src="\images\后缀数组学习笔记-1.png" alt=""></p>
+<hr>
+<h1 id="height数组-1"><a href="#height数组-1" class="headerlink" title="height数组"></a>height数组</h1><p>后缀数组的精髓。</p>
+<h2 id="性质及XJB证明："><a href="#性质及XJB证明：" class="headerlink" title="性质及XJB证明："></a>性质及<del>XJB</del>证明：</h2><p><strong>1.</strong>$lcp(i,j)=\min\{lcp(i,k),lcp(k,j)\}(i&lt;k&lt;j)$</p>
+<p>放个图会直观一些（以$aaaaabaaab$为例，下面的数组是$sa$）</p>
+<p><img src="\images\后缀数组学习笔记-2.png" alt=""></p>
+<p><del>抄来的</del>证明：</p>
+<p>设$I=S(i),J=S(j),K=S(k),p=\min\{lcp(i,k),lcp(k,j)\}$</p>
+<p>则$I$与$K$前$p$个字符相同，$K$与$J$前$p$个字符相同。$I$与$J$最少有前$p$个字符相同。</p>
+<p>由$p=\min\{lcp(i,k),lcp(k,j)\}$可知$I$与$K$第$p+1$个字符不相同或$K$与$J$第$p+1$个字符不相同。即$I$与$J$第$p+1$个字符不相同。</p>
+<p>所以$I$与$J$最长公共前缀为$p$。</p>
+<p><strong>2.</strong>$h[i]\ge h[i-1]-1$<strong>（重点）</strong></p>
+<p>对于$h[i-1]\le 1$时显然成立。</p>
+<p>考虑$h[i-1]&gt;1$的情况：</p>
+<p>设$k$为$sa[rk[i-1]-1]$。</p>
+<p>则$h[i-1]=LCP(i-1,k)$</p>
+<p>把$S(i-1)$和$S(k)$去掉首字母，得到$S(i)$和$S(k+1)$，可知$LCP(i,k+1)=LCP(i-1,k)-1=h[i-1]-1$</p>
+<p>同时$k+1$在$sa$中一定排在$i$的前面。</p>
+<p>上面这句话卡了我一天$QAQ$，所以详细写一下原因。</p>
+<p>放一张图：</p>
+<p><img src="\images\后缀数组学习笔记-3.png" alt=""></p>
+<p>$S(k)$之所以排在$S(i-1)$的前面，就是在第$LCP(i-1,k)+1$的字符差异导致的。如上图灰框圈出的部分。</p>
+<p>当去掉首字母后，因为$h[i-1]&gt;1$，所以$S(i)$与$S(k+1)$还是会在同样的地方有差异，$rk[k+1]$还是小于$rk[i]$，$k+1$在$sa$中一定排在$i$前面。</p>
+<p>那么所有比$i$排名靠前的里谁和$i$最像（$LCP$最大）呢？一定是和它相邻的，也就是$sa[rk[i]-1]$。</p>
+<p>则$lcp(rk[i],rk[i-1])\ge LCP(i,k+1)$</p>
+<p>$height[rk[i]]\ge h[i-1]-1$</p>
+<p>$h[i]\ge h[i-1]-1$</p>
+<p>（阳阳$2$分钟讲明白了我看了一天的证明，$TQL$！）</p>
+<p><strong>3.</strong>$lcp(i,j)=\min\{height[k]\}(i&lt; k\le j)$</p>
+<p>根据性质$1$，有：</p>
+<p>$lcp(i,j)=\min\{lcp(i,i+1),lcp(i+1,j)\}\\ \qquad\quad\ =\min\{lcp(i,i+1),lcp(i+1,i+2),lcp(i+2,j)\}\\ \qquad\quad\ =\min\{lcp(k,k-1)\}(i&lt;k\le j)\\ \qquad\quad\ =\min\{height[k]\}(i&lt;k\le j)$</p>
+<p><del>（还是抄的）</del></p>
+<h2 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h2><p>说了那么多，怎么求$height$数组呢？</p>
+<p>根据上面的性质$2$，就有线性时间复杂度推出$h$数组的方法，进而求出$height$数组。</p>
+<p>当然并不需要真的开$h$数组，直接按位置循环求$height$即可。</p>
+<pre><code class="lang-cpp">int height[maxn];
+void get_height(){
+    int k=0,x;//k是h[i-1]
+    for(register int i=1;i&lt;=n;++i){
+        if(rk[i]==1)continue;
+        if(k)--k;//h[i]&gt;=h[i-1]-1
+        x=sa[rk[i]-1];//获取待匹配的串
+        while(i+k&lt;=n&amp;&amp;x+k&lt;=n&amp;&amp;s[i+k]==s[x+k])++k;//匹配
+        height[rk[i]]=k;//更新height
+    }
+}
+</code></pre>
+<p>这样就能$O(n)$求$height$啦！</p>
+<hr>
+<h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><h2 id="任意两个后缀的LCP​"><a href="#任意两个后缀的LCP​" class="headerlink" title="任意两个后缀的LCP​"></a>任意两个后缀的LCP​</h2><p>由性质$3$可知：</p>
+<p>$LCP(i,j)=\min\{height[k]\}(\min\{rk[i],rk[j]\}+1&lt;k\le \max\{rk[i],rk[j]\})$</p>
+<p>用$ST$表$O(n\log n)$预处理，$O(1)$回答。</p>
+<h2 id="不同子串个数"><a href="#不同子串个数" class="headerlink" title="不同子串个数"></a>不同子串个数</h2><p>求一个字符串<strong>本质不同</strong>的子串个数。</p>
+<p>总子串个数为$\dfrac{n(n+1)}{2}$</p>
+<p>每个后缀的所有前缀构成了所有子串。对于某一个后缀$S(i)$的前缀，与前面重复的个数为$height[rk[i]]$。</p>
+<p>答案即为$\dfrac{n(n+1)}{2}-\sum\limits_{i=1}^{n}height[i]$</p>
+<h2 id="最长公共子串"><a href="#最长公共子串" class="headerlink" title="最长公共子串"></a>最长公共子串</h2><p>求多个字符串的最长公共子串。</p>
+<p>把每个字符串依次连接起来，每个串之间用一个特殊字符隔开。再给每个串的字符染上颜色。构建后缀数组。</p>
+<p>扫一遍$sa$数组，用<strong>尺取法</strong>获取尽可能小的区间$[l,r]$使$sa[i]$$(i\in [l,r])$能覆盖所有颜色，所有的$\min\{hei[i]\}(i\in (l,r])$的最大值即为答案。用单调队列维护达到$O(\sum len(S))$。</p>
+<h2 id="模式串出现次数"><a href="#模式串出现次数" class="headerlink" title="模式串出现次数"></a>模式串出现次数</h2><p>给定一些模式串和一些母串，求每个模式串在所有母串中出现过多少次。</p>
+<p>把所有串拼到一起建出$SA$，找到每个模式串$p$的“匹配区间”，也就是最大的区间$[l,r]$使所有的$LCP(i,p)\ge len(p)(i\in[l,r])$。答案具有单调性可以$ST$表+二分。由于模式串之间可能有子串关系，统计时染个色，模式串不加入答案，做一个前缀和就好了。</p>
+<h2 id="模式串出现次数（去重）"><a href="#模式串出现次数（去重）" class="headerlink" title="模式串出现次数（去重）"></a>模式串出现次数（去重）</h2><p>给定一些模式串和母串，求每个模式串在<strong>多少个母串</strong>里出现过。</p>
+<p>和上面一样，二分出来区间，数颜色种数。</p>
+<p>额。。。$HH$的项链？主席树？离线+树状数组？莫队？有那么麻烦？</p>
+<p>好吧真的这么做。。。</p>
+<h2 id="可重叠最长重复子串"><a href="#可重叠最长重复子串" class="headerlink" title="可重叠最长重复子串"></a>可重叠最长重复子串</h2><p>$\max\{height[i]\}$</p>
+<h2 id="不可重叠最长重复子串"><a href="#不可重叠最长重复子串" class="headerlink" title="不可重叠最长重复子串"></a>不可重叠最长重复子串</h2><p>二分答案。找到所有满足$\min\{height[i]\}\ge mid(i\in[l,r])$的区间（区间尽可能大），若$\max\{sa[i]\}-\min\{sa[i]\}\ge mid$则答案可行。</p>
+<h2 id="最长回文子串"><a href="#最长回文子串" class="headerlink" title="最长回文子串"></a>最长回文子串</h2><p><del>并不会manacher和哈希</del>所以在这里写写。</p>
+<p>枚举一下回文中心$p$，求出翻转过来的前缀$p$与后缀$p$的$LCP$更新答案。把串翻转过来接在后面用$ST$表维护。</p>
+<h2 id="最小表示法"><a href="#最小表示法" class="headerlink" title="最小表示法"></a>最小表示法</h2><p>给定一个串，可以任意把最后面的字符移到开头，求能得到的字典序最小的串。</p>
+<p>把原串复制一遍接在后面（不加特殊字符），两边染个色。找到染前半段颜色的$rk$最小的后缀就是答案。</p>
+<hr>
+<h1 id="水题"><a href="#水题" class="headerlink" title="水题"></a>水题</h1><h2 id="不同子串个数-1"><a href="#不同子串个数-1" class="headerlink" title="不同子串个数"></a><a href="https://www.luogu.org/problemnew/show/P2408" target="_blank" rel="noopener">不同子串个数</a></h2><p>就是上面应用第二个。</p>
+<h2 id="LCS-Longest-Common-Substring"><a href="#LCS-Longest-Common-Substring" class="headerlink" title="LCS - Longest Common Substring"></a><a href="https://www.luogu.org/problemnew/show/SP1811" target="_blank" rel="noopener">LCS - Longest Common Substring</a></h2><p>两个串的$LCS$，应用第三个求解即可。</p>
+<p>不过这个题就两个串也可以直接取$\max\{height[i]\}(col[i-1]\neq col[i])$</p>
+<h2 id="字符加密"><a href="#字符加密" class="headerlink" title="字符加密"></a><a href="https://www.luogu.org/problemnew/show/P4051" target="_blank" rel="noopener">字符加密</a></h2><p>把字符串复制一遍接到后面，直接后缀排序，按$sa$的顺序输出。</p>
+<h2 id="Sandy的卡片"><a href="#Sandy的卡片" class="headerlink" title="Sandy的卡片"></a><a href="https://www.luogu.org/problemnew/show/P2463" target="_blank" rel="noopener">Sandy的卡片</a></h2><p>多个串的$LCS$。显然两个串相同时相邻两项之间的差是相等的。</p>
+<p>差分一下上板子就完了。</p>
+<h2 id="差异"><a href="#差异" class="headerlink" title="差异"></a><a href="https://www.luogu.org/problemnew/show/P4248" target="_blank" rel="noopener">差异</a></h2><p>$asuldb$强推此题，他说有六成$SA$的题都能转到这个题上。</p>
+<p>求$\sum\limits_{1\le i&lt;j\le n} len(S(i))+len(S(j))-2LCP(i,j)$</p>
+<p>前面的$len(S(i)),len(S(j))$和系数$2$提出来，就成了求：</p>
+<p>$\sum\limits_{1\le i&lt;j\le n}LCP(i,j)=\sum\limits_{1\le i&lt;j\le n}\min\{height[k]\}(i&lt;k\le j)$</p>
+<p>也就是$sa$里每个子区间的$min\{height[i]\}$之和。</p>
+<p>枚举一下每个$height[i]$在哪个区间为最小值，找到左右第一个比它小的$height$，单调栈扫两遍乘起来就行了。注意处理好$height$值相同的数。</p>
+<h2 id="喵星球上的点名"><a href="#喵星球上的点名" class="headerlink" title="喵星球上的点名"></a><a href="https://www.luogu.org/problemnew/show/P2336" target="_blank" rel="noopener">喵星球上的点名</a></h2><p>题意概述：给一堆母串和模式串，求出每个模式串在多少个母串中出现过，每个母串包含了多少个模式串。</p>
+<p>第一问<strong>应用</strong>里讲过了，为了处理第二问得用莫队。</p>
+<p>第二问就是每种颜色在多少询问区间里出现过。</p>
+<p>莫队移动指针时如果某种颜色没了，那么它就会在它上次出现的那个询问$\sim$当前询问之间的区间里出现过，然后作差加起来就完了。。。</p>
+<p><a href="/2019/04/16/洛谷-P2336-SCOI2012-喵星球上的点名/">更详细的题解</a></p>
+<blockquote>
+<p>后记：调了一晚上<del>，蒟蒻命要没了</del></p>
+</blockquote>
+<h2 id="仰望半月的夜空"><a href="#仰望半月的夜空" class="headerlink" title="仰望半月的夜空"></a><a href="https://www.luogu.org/problemnew/show/P5108" target="_blank" rel="noopener">仰望半月的夜空</a></h2><p>对每个长度$L$，找到它在$sa$数组里最靠前且最大的<strong>可行区间</strong>，然后$ST$表查询这个区间的$\min\{sa[i]\}$即可。</p>
+<p>这里可行区间就是<strong>对区间内每个后缀，截取的长度为$L$的子串相同</strong>的区间。最靠前保证了字典序最小。容易想到区间$[l,r]$满足$\min\{height[i]\}\ge len(i\in[l,r])$就是可行区间。</p>
+<p>左端点好确定，$O(n)$扫一遍。右端点$ST$表维护$\min\{height[i]\}$+二分。</p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a><a href="https://www.luogu.org/problemnew/show/P4094" target="_blank" rel="noopener">字符串</a></h2><p>显然是要从$S(a\sim b)$和$S(c)$取$LCP$。则$S(i)$与$S(c)$的$LCP$为$\min\{LCP(i,c),b-i+1,d-c+1\}$</p>
+<p>这个$b-i+1$是变化的，很麻烦，那么二分答案。</p>
+<p>对于当前答案$mid$，$S(a\sim b-mid+1)$不受影响，求出这个区间内最大$LCP$值确定二分边界。</p>
+<p>显然$sa$里离得越近$LCP$越大（废话），问题就成了求$S(a\sim b-mid+1)$谁的$rk$和$S(c)$的$rk$离得最近。</p>
+<p>静态区间前驱后继，上主席树就是了。</p>
+<p>复杂度$O(n\log^2 n)$，有点卡常。。。</p>
+<h2 id="弦论"><a href="#弦论" class="headerlink" title="弦论"></a><a href="https://www.luogu.org/problemnew/show/P3975" target="_blank" rel="noopener">弦论</a></h2><p>$t=0$时造出$SA$求出$height$数组。枚举答案所在的后缀，$S(sa[i])$前有$\sum\limits_{j=1}^{i-1} len(S(sa[j]))-height[j]$个子串比$S(sa[i])$的子串小。</p>
+<p>$t=1$，$emm…$学了$SAM$再做，先咕了。</p>
+<p>$update$：<a href="/2019/04/23/后缀自动机学习笔记">填坑</a></p>
+
+            
+        </div>
+      </article>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2019/04/16/%E6%B4%9B%E8%B0%B7-P2336-SCOI2012-%E5%96%B5%E6%98%9F%E7%90%83%E4%B8%8A%E7%9A%84%E7%82%B9%E5%90%8D/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/mxqsddm.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/mxqsddm.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                洛谷 P2336 [SCOI2012]喵星球上的点名</h3>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2019/04/13/%E6%B4%9B%E8%B0%B7-P3558-POI2013-BAJ-Bytecomputer/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/bajbytecomputer.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/bajbytecomputer.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                洛谷 P3558 [POI2013]BAJ-Bytecomputer</h3>
+              </div> 
+            </a>
+			</div>
+        
+      </section> 
+    </main>
+</div>
+</div>
+</div>
+<div class="gather">
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz",
+        appKey: "jqULEjwlbvOCM08eEOpTIGOI",
+        path: window.location.pathname,
+		visitor: true,
+        placeholder: "日々私たちが过ごしている日常は、実は奇迹の连続なのかもしれない。"
+      })
+  }
+</script>
+
+</div>
+
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+
+<script>
+function imgInit(){
+	var imgs=document.getElementsByClassName('entry-content').item(0).getElementsByTagName('img');
+	for(var i=0;i<imgs.length;++i){
+		var element = document.createElement("a"),record=imgs[i],dsrc=record.getAttribute("data-src");
+		element.setAttribute("data-fancybox","gallery");
+    element.setAttribute("href",dsrc||imgs[i].src);
+		element.setAttribute("id","escape-link");
+		imgs[i].parentNode.appendChild(element);
+		imgs[i].parentNode.removeChild(imgs[i]);
+		element.appendChild(record);
+	}
+}
+var spoiler=document.getElementsByClassName('spoiler');
+for(var i=0;i<spoiler.length;++i)
+spoiler[i].onclick=function(){this.classList.toggle("revealed");};
+imgInit();
+</script>
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.6.7/articleload.gif">
+      </div>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Github Pages</a>
+        </span>
+		<!-- <span style="color: #b9b9b9;display:block">图片外链由<a href="https://img.fghrsh.net/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">FGHRSH图床</a>提供 -->
+        <!-- </span> -->
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.4/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.2/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<!-- <script src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/valine.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.1.4/js/volantis.min.js"></script>
+<script type="text/javascript">
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { 
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;ww">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

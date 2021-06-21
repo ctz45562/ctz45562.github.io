@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">降智の应急处理笔记 | ctz&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/googlefont.css" media="all">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_ndnjfmz11y9.css">
+  <style>
+  .emoji-coda {
+      display: inline-block !important;
+      position: relative;
+      width: 47px;
+      top: 2px;
+      margin: -3px 3px !important;
+      padding: 0;
+  }
+  </style>
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "ctz's blog";
+  mashiro_option.author_name = "ctz's blog";
+  mashiro_option.site_url = "https://ctz45562.github.io";
+  mashiro_option.v_appId = "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz";
+  mashiro_option.v_appKey = "jqULEjwlbvOCM08eEOpTIGOI";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index1.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index2.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index3.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index4.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index5.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index6.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index7.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.4/index8.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.9/index9.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
+    @import url("/code.css");
+  </style>
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed;bottom:64px;left:28px;"> 
+  <div class="theme-controls row-container"> 
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> background <i style="color:grey" class="fa fa-chevron-right"></i></p>
+    <ul class="menu-list"> 
+	  <li id="white-bg"> 
+	    <i class="fa fa-television">
+		</i>
+	  </li> 
+	<li id="sakura-bg"> 
+      <i class="iconfont icon-sakura">
+	  </i>
+	</li> 
+    <li id="gribs-bg"> 
+      <i class="fa fa-slack">
+	  </i>
+    </li> 
+    <li id="KAdots-bg"> 
+      <i class="iconfont icon-dots">
+      </i>
+    </li> 
+    <li id="totem-bg"> 
+      <i class="fa fa-optin-monster">
+      </i>
+    </li> 
+    <li id="pixiv-bg"> 
+      <i class="fa fa-star">
+	  </i>
+      </li> 
+    <li id="bing-bg"> 
+      <i class="fa fa-picture-o">
+	  </i>
+    </li> 
+    <li id="dark-bg"> 
+      <i class="fa fa-moon-o">
+      </i>
+    </li> 
+  </ul> 
+  </div > 
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> font <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="font-family-controls row-container">
+    <button type="button" class="control-btn-serif " data-mode="serif" onclick="mashiro_global.font_control.change_font()">Serif</button>
+    <button type="button" class="control-btn-sans-serif" data-mode="sans-serif" onclick="mashiro_global.font_control.change_font()">Sans Serif</button>
+  </div>
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> script <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="theme-controls row-container">
+  <ul class="menu-list">
+  <style>li>.ctz{font-size: 21px;}</style>
+	<li id="empty-effect">
+	  <i class="ctz ctz-jinzhi">
+	  </i>
+	</li>
+	<li id="sakura-rain-effect">
+	  <i class="ctz ctz-huaxiang">
+	  </i>
+	</li>
+	<li id="snowy-effect">
+	  <i class="ctz ctz-snow">
+	  </i>
+	</li>
+	<li id="lines-effect">
+	  <i class="ctz ctz-xianlu">
+	  </i>
+	</li>
+	<li id="colorful-belts-effect">
+	  <i class="ctz ctz-caidai"></i>
+	  </i>
+	</li>
+	<li id="words-rain-effect">
+	  <i class="ctz ctz-zimuletters2"></i>
+	</li>
+	<li id="point-rain-effect">
+	  <i class="ctz ctz-diandiandian" style="font-size:19px"></i>
+	</li>
+	<li id="rain-drop-effect">
+	  <i class="ctz ctz-yu"></i>
+	</li>
+  </ul>
+  </div>
+<canvas id="night-mode-cover">
+</canvas>
+</div> 
+  <div class="changeSkin-gear no-select" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; visibility: visible; bottom: 0px;"> 
+  <div class="keys" id="setbtn"> 
+    <button id="open-skinMenu">
+		<style>
+		button#open-skinMenu{
+			transition: all 0.2s linear 0s;
+			outline:none;
+			position:fixed;
+			bottom:12px;
+			left:13px;
+			font-size:16px;
+			background-color: rgba(255,255,255,.95);
+			border-radius: 20px;
+			box-shadow: 0 3px 8px 0 rgba(0,0,0,0.1), 0 3px 8px 0 rgba(0,0,0,0.1);
+		}
+		button#open-skinMenu:hover{
+			transition: all 0.2s linear 0s;
+			background-color: #2f98fc;
+			color: rgba(255,255,255);
+		}
+		</style>
+		<i class="iconfont icon-gear inline-block rotating">
+	  </i> 
+		SCHEME TOOL | 主题工具 
+	</button>
+  </div> 
+</div>
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dim">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://ctz45562.github.io">
+          <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Re&amp;Re</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://www.luogu.com.cn/user/111762" target="_blank" class="social-github" title="洛谷">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/social/luogu.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://github.com/ctz45562" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/github.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="mailto:cctz45562@163.com" target="_blank" class="social-github" title="e-mail">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/mail.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://space.bilibili.com/229790690" target="_blank" class="social-github" title="bilibili">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/bilibili.jpg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <!-- <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+ -->
+      <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.0/tocbot.css">
+<div class="pattern-center-blank"></div>
+<div class="gather">
+
+  <div class="pattern-center-sakura single-center">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/jzdyjclbj.jpg);" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/jzdyjclbj.jpg">
+    </div>
+    <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
+      <h1 class="entry-title">
+      降智の应急处理笔记</h1>
+      <p class="entry-census">
+	    <span><a href="https://ctz45562.github.io"><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg" style="margin-right:4px">ctz</a>
+        </span>
+		<span class="bull"></span>
+		&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp
+        2019-9-27
+    <span class="bull"></span>
+    
+      <span><i class="fa fa-archive"></i> 分类于  
+        <span class="article-category"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" > 学习笔记</a></span>
+      
+    </span>
+    
+    <span class="bull"></span>
+		<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id='/2019/09/27/IQ-improvement/' class="leancloud-visitors" data-flag-title="降智の应急处理笔记">
+        <a class="leancloud-visitors-count text-cursor">loading...</a>
+        <a class="post-meta-item-text text-cursor"> 次阅读</a>
+        </span>
+      </p>
+	  
+      
+    <div>
+		  <ul class="spfk-ul">
+		    &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<li class="spfk-li"><span class="triangle"></span><a href="/tags/动态规划/" class="butterfly-tags">动态规划</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/贪心/" class="butterfly-tags">贪心</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/状态压缩/" class="butterfly-tags">状态压缩</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/图论/" class="butterfly-tags">图论</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/数位DP/" class="butterfly-tags">数位DP</a></li>
+          </ul>
+		</div>
+		<script>
+			function colorInit(c,num){for(var i=1;i<=num;++i)c.push(i+'');}
+			function paintTags(){
+				var colorNumber=8,tagColors=[],tags=document.getElementsByClassName('spfk-li');
+				for(var i = 0 ; i < tags.length ; ++i){
+					if(!tagColors.length)colorInit(tagColors,colorNumber);
+					var j=Math.floor(Math.random()*tagColors.length);
+					tags[i].classList.add("spfk-color"+tagColors[j]);
+					tagColors.splice(j,1);
+        }
+			}
+			paintTags()
+		</script>
+    
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="gather toc" style="width:230px"></div>
+        
+        <div class="entry-content">
+          <p>智商不够用，刷$DP$来凑。</p>
+<a id="more"></a>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>和我去年同一时间的状态一样开始刷$DP$，预示了我$CSP$凉凉的结局。</p>
+<p>题单来源于<a href="https://www.cnblogs.com/asuldb/" target="_blank" rel="noopener">asuldb</a>。以前做过的就不整理了，<del>还混有一些我绝不会碰的题和抄不动题解自闭了的题也不写了</del>。</p>
+<p>至于后面没有出现的题，那就是刷不动了。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/quyin/watermaleon.png"></p>
+<p>$update$:一些我被降智的题也被收录了。 </p>
+<hr>
+<h1 id="DP的精髓——asuldb"><a href="#DP的精髓——asuldb" class="headerlink" title="DP的精髓——asuldb"></a>DP的精髓——asuldb</h1><h2 id="GDOI2014-拯救莫莉斯"><a href="#GDOI2014-拯救莫莉斯" class="headerlink" title="[GDOI2014]拯救莫莉斯"></a><a href="https://www.luogu.org/problem/P3888" target="_blank" rel="noopener">[GDOI2014]拯救莫莉斯</a></h2><p>$n\times m\le 50$，$\min\{n,m\}\le 7$，考虑状压。（以下$n&gt;m$）</p>
+<p>设$f(i,j,k)$为前$i$行，第$i-1$行状态为$j$，第$i$行状态为$k$的最小花费。</p>
+<p>先$O(m2^{3m})$处理出每个状态$j,k$能向那些状态转移，且$k$的油库满足。</p>
+<p>然后直接$O(n2^{3m})$转移即可，还要输出方案数随便搞一搞就行了。</p>
+<p>这样第一行和最后一行可能不满足，预处理和取答案时判断一下就好了。</p>
+<h2 id="APIO2010-巡逻"><a href="#APIO2010-巡逻" class="headerlink" title="[APIO2010]巡逻"></a><a href="https://www.luogu.org/problem/P3629" target="_blank" rel="noopener">[APIO2010]巡逻</a></h2><p>$k=1$显然是在直径两端点连边。</p>
+<p>$k=2$时，若连的两端点形成的环与第一条边形成的环有交，交集的边就要走两次，也就是抵消了第一条边的贡献。</p>
+<p>把直径上的边权值改为$-1$再求一遍直径即可。</p>
+<h2 id="AHOI2008-逆序对"><a href="#AHOI2008-逆序对" class="headerlink" title="[AHOI2008]逆序对"></a><a href="https://www.luogu.org/problem/P4280" target="_blank" rel="noopener">[AHOI2008]逆序对</a></h2><p><a href="/2019/09/26/洛谷-P4280-AHOI2008-逆序对/">题解</a></p>
+<p>奇妙的性质：填进去的数是单调不降的。</p>
+<p>然后就$O(nk)$随便$DP$了。</p>
+<h2 id="NOI2009-管道取珠"><a href="#NOI2009-管道取珠" class="headerlink" title="[NOI2009]管道取珠"></a><a href="https://www.luogu.org/problem/P1758" target="_blank" rel="noopener">[NOI2009]管道取珠</a></h2><p>考虑$\sum a_i^2$的含义：有两套管道，两套管道取出的珠子序列相同的方案数。</p>
+<p>设$f(i,j,k,l)$为第一套上管道取了$i$个，下管道取了$j$个，第二套上管道取了$k$个，下管道取了$l$个，所得序列相同的方案数。</p>
+<p>$i+j=k+l$可以消掉一维。</p>
+<p>刷表转移：$f(i,j,k)\rightarrow \begin{cases}f(i+1,j,k+1)&amp;a_{i+1}=a_{k+1}\\f(i+1,j,k)&amp;a_{i+1}=b_{i+j-k+1}\\f(i,j+1,k+1)&amp;b_{j+1}=a_{k+1}\\f(i,j+1,k)&amp;b_{j+1}=b_{i+j-k+1}\end{cases}$</p>
+<h2 id="CQOI2018-解锁屏幕"><a href="#CQOI2018-解锁屏幕" class="headerlink" title="[CQOI2018]解锁屏幕"></a><a href="https://www.luogu.org/problem/P4460" target="_blank" rel="noopener">[CQOI2018]解锁屏幕</a></h2><p>$n\le 20$直接状压。</p>
+<p>搞个状态数组$s[i][j]$，将点$i,j$间连线，经过的点在$s[i][j]$对应位上是$1$。</p>
+<p>设$f(i,j)$表示状态为$j$（$1$表示已使用过），最后一个点为$i$的方案数，结合$s$数组随便转移即可。</p>
+<h2 id="APIO2007-动物园"><a href="#APIO2007-动物园" class="headerlink" title="[APIO2007]动物园"></a><a href="https://www.luogu.org/problem/P3622" target="_blank" rel="noopener">[APIO2007]动物园</a></h2><p>状压。设$f(i,j)$为前$i$个围栏，第$i\sim i+4$个围栏的状态为$j$（$1$表示留下）的最多高兴人数。</p>
+<p>$O(n2^5)$预处理数组$cnt[i][j]$表示仅考虑第$i$个位置的人，$i\sim i+4$的状态为$j$的高兴人数。</p>
+<p>由于是个环，枚举第一个位置的状态依次$DP$，刷表转移$f(i,j)+cnt[i+1][j&gt;&gt;1]\rightarrow f(i+1,j&gt;&gt;1),f(i,j)+cnt[i+1][j&gt;&gt;1|16]\rightarrow f(i+1,j&gt;&gt;1|16)$</p>
+<p>取答案时只取与当前枚举的状态符合的答案。复杂度$O(2^{10}n)$。</p>
+<h2 id="HAOI2015-树上染色"><a href="#HAOI2015-树上染色" class="headerlink" title="[HAOI2015]树上染色"></a><a href="https://www.luogu.org/problem/P3177" target="_blank" rel="noopener">[HAOI2015]树上染色</a></h2><p>考虑每条边的贡献。设$f(i,j)$为在子树$i$中钦定$j$个黑点，<strong>里面的边对整棵树的最大贡献</strong>。</p>
+<p>转移时考虑连向子节点的边的贡献，即两侧黑点数的乘积加上白点数的乘积。</p>
+<p>$f(i,j)=\max\limits_{x\in son(i)}\{f(i,j-k)+f(x,k)+edge(i,x).l\times[k\times(K-k)+(size_x-k)\times(n-K-size_x+k)]\}$</p>
+<h2 id="SDOI2017-序列计数"><a href="#SDOI2017-序列计数" class="headerlink" title="[SDOI2017]序列计数"></a><a href="https://www.luogu.org/problem/P3702" target="_blank" rel="noopener">[SDOI2017]序列计数</a></h2><p>一开始我是想设$f(i,j,0/1)$表示前$i$个数、和模$p$等于$j$、是否出现过质数的方案数。</p>
+<p>后来发现都搞的容斥。。。</p>
+<p>设$f(i,j)$为前$i$个数、和模$p$等于$j$的方案数，枚举数字转移。两遍$DP$，第一遍没有限制，第二遍只枚举合数。用第一遍的减去第二遍的就是答案。</p>
+<p>再来个矩乘优化就行了。</p>
+<h2 id="SDOI2008-山贼集团"><a href="#SDOI2008-山贼集团" class="headerlink" title="[SDOI2008]山贼集团"></a><a href="https://www.luogu.org/problem/P2465" target="_blank" rel="noopener">[SDOI2008]山贼集团</a></h2><p>$p\le 12$显然状压。</p>
+<p>设$f(i,j)$表示子树$i$状态为$j$（$1$表示在<strong>子树</strong>$i$建立分部）的最大收益。</p>
+<p>转移类似树形背包：$f(i,j)=\max\limits_{x\in son(i),(k)_2\subseteq (j)_2}\{f(x,k)+f(i,k\ xor\ j)\}$</p>
+<p>其中$k\ xor\ j$相当于取补集。</p>
+<p>由于要枚举子集，复杂度是$O(n3^p)$的。</p>
+<h2 id="SDOI2009-Bill的挑战"><a href="#SDOI2009-Bill的挑战" class="headerlink" title="[SDOI2009]Bill的挑战"></a><a href="https://www.luogu.org/problem/P2167" target="_blank" rel="noopener">[SDOI2009]Bill的挑战</a></h2><p>状压。第一眼以为要上$AC$自动机，发现串长都相等直接暴力$DP$。</p>
+<p>$O(26|S|)$预处理一个状态数组$g[i][j]$，二进制下第$x$位为$1$表示$S_x$第$i$位是字母$j$或$?$。</p>
+<p>设$f(i,j)$为填到第$i$位，当前还能匹配的串为状态$j$。</p>
+<p>枚举字母刷表转移： $f(i,j)\rightarrow f(i+1,j\&amp;g[i+1][‘a’\sim’z’])$</p>
+<p>复杂度$O(T26|S|2^n)$。</p>
+<h2 id="POI2015-WIL-Wilcze-doly"><a href="#POI2015-WIL-Wilcze-doly" class="headerlink" title="[POI2015]WIL-Wilcze doły"></a><a href="https://www.luogu.org/problem/P3594" target="_blank" rel="noopener">[POI2015]WIL-Wilcze doły</a></h2><p>这题和$DP$没啥关系。</p>
+<p>不过我还是十分睿智地写了个二分，$O(2000000\log 2000000)$才$4e7$不慌。</p>
+<p>记$sum$为前缀和，$ma_i$为$sum_{i+d}-sum_{i-1}$。</p>
+<p>某个区间的最小权值就是区间和减去长度为$d$的最大子段和，即$sum_r-sum_{l-1}-\max\limits_{i=l}^{r-d+1}\{ma_i\}$。</p>
+<p>然后尺取就好了啊，中间要维护一个左右端点单调不降的区间$\max$，上单调队列。</p>
+<p>当然如果和我一样$zz$非要写二分我也不拦你。</p>
+<h2 id="USACO09DEC-牛收费路径Cow-Toll-Paths"><a href="#USACO09DEC-牛收费路径Cow-Toll-Paths" class="headerlink" title="[USACO09DEC]牛收费路径Cow Toll Paths"></a><a href="https://www.luogu.org/problem/P2966" target="_blank" rel="noopener">[USACO09DEC]牛收费路径Cow Toll Paths</a></h2><p>非要说和$DP$有啥关系的话，大概是$floyd$吧。</p>
+<p>直接对点权排序跑$floyd$就完了。</p>
+<h2 id="USACO12FEB-附近的牛Nearby-Cows"><a href="#USACO12FEB-附近的牛Nearby-Cows" class="headerlink" title="[USACO12FEB]附近的牛Nearby Cows"></a><a href="https://www.luogu.org/problem/P3047" target="_blank" rel="noopener">[USACO12FEB]附近的牛Nearby Cows</a></h2><p>题单逐渐水了起来。。。</p>
+<p>由于$k\le 20$，直接算出$f(i,j)$表示$i$子树中与$i$距离为$j$的点权和。</p>
+<p>然后暴力跳$k$层父亲算上祖先的贡献，还要容斥减掉同一棵子树的点。</p>
+<h2 id="USACO13NOV-没有找零No-Change"><a href="#USACO13NOV-没有找零No-Change" class="headerlink" title="[USACO13NOV]没有找零No Change"></a><a href="https://www.luogu.org/problem/P3092" target="_blank" rel="noopener">[USACO13NOV]没有找零No Change</a></h2><p>状压。</p>
+<p>设$f(i)$为状态为$i$（$1$表示已用过该硬币）能买的最多的物品数。</p>
+<p>枚举下一个用的硬币，二分出最大能买到的位置，刷表转移。复杂度$O(k2^k\log n)$。</p>
+<p>答案在满足$f(i)=n$的$i$里取即可。</p>
+<h2 id="SCOI2009-粉刷匠"><a href="#SCOI2009-粉刷匠" class="headerlink" title="[SCOI2009]粉刷匠"></a><a href="https://www.luogu.org/problem/P4158" target="_blank" rel="noopener">[SCOI2009]粉刷匠</a></h2><p>一开始以为可以随便刷，是个神仙题。</p>
+<p>后来发现只能横向刷，瞬间沦为$zz$题。</p>
+<p>对每行处理出一个$g(i,j)$，表示该行对前$i$个格子刷$j$次最多的正确格子数。</p>
+<p>转移就枚举上次刷的位置和刷的颜色：$g(i,j)=\max\limits_{k=0}^{i-1}\{g(k,j-1)+\max\{sum_i-sum_k,i-k-sum_i+sum_k\}\}$（$sum_i$为前$i$个格子中蓝色格子数）</p>
+<p>把每行看作一组，枚举刷的次数，$g(m,i)$看作若干件物品，直接做个分组背包即可。</p>
+<h2 id="HAOI2008-木棍分割"><a href="#HAOI2008-木棍分割" class="headerlink" title="[HAOI2008]木棍分割"></a><a href="https://www.luogu.org/problem/P2511" target="_blank" rel="noopener">[HAOI2008]木棍分割</a></h2><p>就是跳石头统计方案数。</p>
+<p>$O(n\log n)$预处理出每个点最靠左的端点$le_i$满足$sum_i-sum_{le_i}\le ans$。</p>
+<p>设$f(i,j)$为跳了$j$步到点$i$的方案数。</p>
+<p>普及难度的转移：$f(i,j)=\sum\limits_{k=le_i}^{i-1}f(k,j-1)$</p>
+<p>$O(nm)$的空间开不下。然后思维僵化了，$i$的取值与前面的都有关系滚不动咋办啊。</p>
+<p>第一维滚不动滚第二维啊。</p>
+<p>再来个前缀和优化就没了。</p>
+<h2 id="TJOI2017-城市"><a href="#TJOI2017-城市" class="headerlink" title="[TJOI2017]城市"></a><a href="https://www.luogu.org/problem/P3761" target="_blank" rel="noopener">[TJOI2017]城市</a></h2><p><a href="/2019/10/09/洛谷-P3761-TJOI2017-城市/">水の题解</a></p>
+<h2 id="简单题"><a href="#简单题" class="headerlink" title="简单题"></a><a href="https://darkbzoj.tk/problem/3687" target="_blank" rel="noopener">简单题</a></h2><p>设$f(i)$为所有子集和中，$i$是否出现了奇数次。</p>
+<p>实际上这就是个完全背包变形，<code>bitset</code>优化即可。</p>
+<p>最后答案把所有$f(i)=1$的$i$异或起来。</p>
+<p>复杂度$O(n\sum a_i/32)$</p>
+<h2 id="Codeforces1025D-Recovering-BST"><a href="#Codeforces1025D-Recovering-BST" class="headerlink" title="Codeforces1025D Recovering BST"></a><a href="https://www.luogu.org/problem/CF1025D" target="_blank" rel="noopener">Codeforces1025D Recovering BST</a></h2><p>先$O(n^2\log a_i)$把边处理出来。</p>
+<p>容易想到设$f(i,j,k)$为取$[j,k]$的点能否构成以$i$为根的$BST$。</p>
+<p>然而时空都受不了。</p>
+<p>重新搞状态：设$l(i,j)$为取$[i,j]$的点能否构成以$i$为根的$BST$，$r(i,j)$为取$[i,j]$的点能否构成以$j$为根的$BST$。</p>
+<p>做个区间$DP$。若存在$l(1,i)\&amp;r(i,n)=1$则可行。</p>
+<h2 id="SNOI2017-英雄联盟"><a href="#SNOI2017-英雄联盟" class="headerlink" title="[SNOI2017]英雄联盟"></a><a href="https://www.luogu.org/problem/P5365" target="_blank" rel="noopener">[SNOI2017]英雄联盟</a></h2><p>正当逐渐走向自闭时，眼前一晃而过一抹绿色。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/2233/chijing.png"></p>
+<p>设$f(i,j)$为前$i$个英雄，用$j\ QB$能买出的最大展示策略。</p>
+<p>这不就一分组背包吗。</p>
+<p>$f(i,j)=\max\limits_{k=1}^{K_i}\{f(i-1,j-k\times C_i)\times k\}$</p>
+<p>算一下$n$最大才$120$，背包容量也不超过$300000$。滚动数组优化一波就水过去了~</p>
+<h2 id="SDOI2016-储能表"><a href="#SDOI2016-储能表" class="headerlink" title="[SDOI2016]储能表"></a><a href="https://www.luogu.org/problem/P4067" target="_blank" rel="noopener">[SDOI2016]储能表</a></h2><p><a href="/2019/10/10/洛谷-P4067-SDOI2016-储能表/">题解</a></p>
+<h2 id="CTSC2017-吉夫特"><a href="#CTSC2017-吉夫特" class="headerlink" title="[CTSC2017]吉夫特"></a><a href="https://www.luogu.org/problem/P3773" target="_blank" rel="noopener">[CTSC2017]吉夫特</a></h2><p><a href="/2019/10/10/洛谷-P3773-CTSC2017-吉夫特/">题解</a></p>
+<h2 id="JSOI2018-潜入行动"><a href="#JSOI2018-潜入行动" class="headerlink" title="[JSOI2018]潜入行动"></a><a href="https://www.luogu.org/problem/P4516" target="_blank" rel="noopener">[JSOI2018]潜入行动</a></h2><p><a href="/2019/10/11/洛谷-P4516-JSOI2018-潜入行动/">题解</a></p>
+<h2 id="SDOI2018-荣誉称号"><a href="#SDOI2018-荣誉称号" class="headerlink" title="[SDOI2018]荣誉称号"></a><a href="https://www.luogu.org/problem/P4620" target="_blank" rel="noopener">[SDOI2018]荣誉称号</a></h2><p><a href="/2019/10/12/洛谷-P4620-SDOI2018-荣誉称号/">题解</a></p>
+<h2 id="CQOI2007-涂色"><a href="#CQOI2007-涂色" class="headerlink" title="[CQOI2007]涂色"></a><a href="https://www.luogu.org/problem/P4170" target="_blank" rel="noopener">[CQOI2007]涂色</a></h2><p>我是不是要重学区间$DP$了<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/quyin/cry.png"></p>
+<p>设$f(i,j)$为涂完区间$[i,j]$的最少次数。</p>
+<p>初始$f(i,i)=1$。</p>
+<p>讨论转移：</p>
+<ul>
+<li>若$a_i=a_j$，可以涂$a_i$的时候一块把$a_j$涂了，或者反过来，即$f(i,j)=\min\{f(i+1,j),f(i,j-1)\}$</li>
+<li>若$a_i\neq a_j$，枚举断点合并，$f(i,j)=\min\limits_{k=i}^{j-1}\{f(i,k)+f(k+1,j)\}$</li>
+</ul>
+<h2 id="Alice-in-linear-land"><a href="#Alice-in-linear-land" class="headerlink" title="Alice in linear land"></a><a href="https://www.luogu.org/problem/AT2401" target="_blank" rel="noopener">Alice in linear land</a></h2><p>神仙题。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/quyin/look.png"></p>
+<p>题意：</p>
+<blockquote>
+<p>数轴原点上有一个机器人，终点为$D$。有$n$条命令，每条命令为$d_i$，机器人会向终点移动$d_i$距离，若移动后距离变大则不移动。给定$m$次询问，允许改变$d_{q_i}$为任意整数，若存在方案使机器人不能走到终点输出$YES$，否则输出$NO$。</p>
+</blockquote>
+<p>先处理出$pos_i$，表示前$i$条命令后与终点的距离。</p>
+<p>考虑一个朴素的$DP$，设$g(i,j)$为当前与终点距离为$j$，仅后$i$条指令能否到达终点。</p>
+<p>转移：$g(i,j)=\begin{cases}g(i+1,j)&amp;d_i\ge 2j\\g(i+1,d_i-j)&amp;j&lt;d_i&lt;2j\\g(i+1,j-d_i)&amp;d_i\le j\end{cases}$</p>
+<p>修改$d_i$时，可视为改变到终点的距离，取值范围$[0,pos_{i-1}]$。若$g(i+1,[0,pos_{i-1}])$存在$0$的话，就把距离改过去，就不能走到终点了。</p>
+<p>发现我们只需求出满足$g(i,j)=0$的最小的$j$，设$f(i)$为该值。</p>
+<p>类比$g$转移：</p>
+<p>$f(i)=\min\begin{cases}f(i+1)&amp;d_i\ge2f(i+1)\\d_i-f(i+1)&amp;d_i&gt;2f(i+1)\\f(i+1)+d_i\end{cases}$</p>
+<p>初值$f(n+1)=1$，因为任意$g(i,0)=1$。</p>
+<p>询问时判断$pos_{q_i-1}$与$f(q_i+1)$的大小即可。</p>
+<h2 id="JSOI2016-最佳团体"><a href="#JSOI2016-最佳团体" class="headerlink" title="[JSOI2016]最佳团体"></a><a href="https://www.luogu.org/problem/P4322" target="_blank" rel="noopener">[JSOI2016]最佳团体</a></h2><p>一看$\dfrac{\sum p_i}{\sum s_i}$这样的式子就跑不掉$01$分数规划。</p>
+<p>二分答案，问题转化为判定是否存在方案选$k$个人，使$\sum p_i-\sum mid\times s_i\ge 0$。</p>
+<p>然后就是树形背包了。</p>
+<p>话说$O(nk\log)$能跑过去真是神奇。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/xiaodianshi/xiao.png"></p>
+<hr>
+<h1 id="さようなら-，IQ-さん"><a href="#さようなら-，IQ-さん" class="headerlink" title="さようなら ，IQ さん"></a>さようなら ，IQ さん</h1><h2 id="Codeforces55D-Beautiful-numbers"><a href="#Codeforces55D-Beautiful-numbers" class="headerlink" title="Codeforces55D Beautiful numbers"></a><a href="https://www.luogu.org/problem/CF55D" target="_blank" rel="noopener">Codeforces55D Beautiful numbers</a></h2><p>数位$DP$。模$2520$的余数肯定是要记的。</p>
+<p>然后钻到状压每个数字是否出现的牛角尖里出不来了<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/xiaodianshi/fachou.png">。</p>
+<p>实际上从$1\sim 9$选若干个数，它们的$lcm$情况不到$50$种，把这个作为状态就没了。</p>
+<h2 id="Codeforces815C-Karen-and-Supermarket"><a href="#Codeforces815C-Karen-and-Supermarket" class="headerlink" title="Codeforces815C Karen and Supermarket"></a><a href="https://www.luogu.org/problem/CF815C" target="_blank" rel="noopener">Codeforces815C Karen and Supermarket</a></h2><p>硬核可怜题<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/2233/han.png">。</p>
+<p>显然是个树形背包，但这个依赖关系是对优惠券来说的。</p>
+<p>尝试构造这棵树，失败，告辞。</p>
+<p>实际上再加一维$0/1$表示该点是否用优惠券就行了。。。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/luotianyi/无言以对.png"></p>
+<h2 id="Codeforces1114D-Flood-Fill"><a href="#Codeforces1114D-Flood-Fill" class="headerlink" title="Codeforces1114D Flood Fill"></a><a href="https://www.luogu.org/problem/CF1114D" target="_blank" rel="noopener">Codeforces1114D Flood Fill</a></h2><p>区间$DP$再起不能。</p>
+<p>设$f(i,j)$为使区间$[i,j]$同色的最小次数。</p>
+<ul>
+<li>若$i,j$同色，可以把$[i+1,j-1]$涂好后再变成$i$的颜色：$f(i,j)=f(i+1,j-1)+1$</li>
+<li>若$i,j$不同色，就从$[i+1,j]$和$[i,j-1]$里选代价最小的转移：$f(i,j)=\min\{f(i,j-1),f(i+1,j)\}+1$</li>
+</ul>
+<h2 id="Codeforces922E-Birds"><a href="#Codeforces922E-Birds" class="headerlink" title="Codeforces922E Birds"></a><a href="https://www.luogu.org/problem/CF922E" target="_blank" rel="noopener">Codeforces922E Birds</a></h2><p>看数据范围状态显然与$n$和$\sum c_i$有关。</p>
+<p>设$f(i,j)$为到了第$i$棵树，有$j$只鸟的最大魔法值。</p>
+<p>由于$B$是固定的，魔法上限也就确定了。直接枚举召唤几只鸟转移。</p>
+<p>复杂度不对。然后优化，优化，优化。。。咋优化啊？</p>
+<p>这$TM$不就是个多重背包吗！二进制优化啊！<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/2233/nu.png"></p>
+<p>有一点要注意的是不能直接把每棵树拆成若干件物品做$01$背包，只有当跨了一棵树才能魔法值$+X$。对每棵树单独背包，拆分前先把所有$f(i,j)$ 统一$+X$。</p>
+<h2 id="Codeforces983B-XOR-pyramid"><a href="#Codeforces983B-XOR-pyramid" class="headerlink" title="Codeforces983B XOR-pyramid"></a><a href="https://www.luogu.org/problem/CF983B" target="_blank" rel="noopener">Codeforces983B XOR-pyramid</a></h2><p>$n\le 5000$考虑$O(n^2)$预处理。</p>
+<p>列个更美观的表：</p>
+<pre><code>1: 1 2 4 8
+2: 3 6 12
+3: 5 10
+4: 15
+</code></pre><p>设$f(i,j)$为$a$数组经过$i$轮变换，第$j$位上的数字是多少。</p>
+<p>观察得到转移：$f(i,j)=f(i-1,j)xorf(i-1.j+1)$</p>
+<p>再观察可知：$f(i,j)$表示了$j$为左端点，长度为$i$的区间权值。</p>
+<p>设$g(i,j)$为左端点大于等于$j$，长度不大于$i$的最大区间权值。</p>
+<p>$g(i,j)=\max\{f(i,j),f(i-1,j+1),f(i-1,j)\}$</p>
+<h2 id="SHOI2008-循环的债务"><a href="#SHOI2008-循环的债务" class="headerlink" title="[SHOI2008]循环的债务"></a><a href="https://www.luogu.com.cn/problem/P4026" target="_blank" rel="noopener">[SHOI2008]循环的债务</a></h2><p>先搞个宏伟的$DP$数组：</p>
+<p>$f(i,j,k,a100,a50,a20,a10,a5,a1,b100,b50,b20,b10,b5,b1,c100,c50,c20,c10,c5,c1)$</p>
+<p>慢慢优化，优化不动，自闭了。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/quyin/fue.png"></p>
+<p>每种钞票是独立的，所以设$f(i,j,k)$为前$i$种钞票，$Alice$有$j$元，$Bob$有$k$元。钱的总和是定值所以把$Ciyang$压没了。<del>(暝阳·梅勒)</del></p>
+<p>枚举交换完第$i$种钞票后$Alice,Bob$分别有多少张$i$钞票，没了。</p>
+<h2 id="ATcoder3870-Reversed-LCS"><a href="#ATcoder3870-Reversed-LCS" class="headerlink" title="ATcoder3870 Reversed LCS"></a><a href="https://www.luogu.org/problem/AT3870" target="_blank" rel="noopener">ATcoder3870 Reversed LCS</a></h2><p>我又双叒叕被区间$DP$虐了。</p>
+<p>显然与反串的$LCS$是最长回文子序列长度。</p>
+<p>设$f(i,j,k)$为区间$[i,j]$修改$k$个字符的最大值。</p>
+<p>转移：</p>
+<ul>
+<li>啥都不干：$f(i,j,k)=\max\{f(i+1,j,k),f(i,j-1,k)\}$</li>
+<li>$s_i$与$s_j$相同，回文子序列延长：$f(i,j,k)=\max\{f(i,j,k),f(i+1,j-1,k)+2\}$</li>
+<li>$k&gt;0$，修改$s_i$或$s_j$：$f(i,j,k)=\max\{f(i,j,k),f(i+1,j-1,k-1)+2\}$</li>
+</ul>
+<h2 id="Codeforces946G-Almost-Increasing-Array"><a href="#Codeforces946G-Almost-Increasing-Array" class="headerlink" title="Codeforces946G Almost Increasing Array"></a><a href="https://www.luogu.org/problem/CF946G" target="_blank" rel="noopener">Codeforces946G Almost Increasing Array</a></h2><p>被同一场的<a href="https://www.luogu.org/problem/CF946F" target="_blank" rel="noopener">F题</a>吓到了，然而$G$比$F$简单？</p>
+<p>如果不带删除，其实是一个套路：</p>
+<p>还是求最长上升子序列，考虑最朴素的方程$f(i)=\max\{f(j)\}+1(j&lt;i,a_j&lt;a_i)$</p>
+<p>现在可以任意修改，要满足区间$[j,i]$能修改成上升的，所以还有个条件$i-j\le a_i-a_j$。</p>
+<p>我们发现这三个大小关系可以合并成$j&lt;i,a_i-i\ge a_j-j$，令$a_i$减去$i$，求一遍最长不下降子序列，答案就是$n-\max\{f(i)\}$。</p>
+<p>考虑加上删除，让$f$再加一维$0/1$表示是否用过删除。</p>
+<p>转移：</p>
+<ul>
+<li>$f(i,0)=\max\{f(j,0)\}+1(j&lt;i,a_j\le a_i)$</li>
+<li>在$j$之前用删除：$f(i,1)=\max\{f(j,1)\}+1(j&lt;i,a_j\le a_i)$</li>
+<li>在$[j+1,i-1]$之间用删除：$f(i,1)=\max\{f(j,0)\}+1(j&lt;i-1,a_j\le a_i+1)$</li>
+</ul>
+<p>由于在转移时没有考虑到被删的数不需要再修改了，所以答案为$\max\{n-\max\{f(i,0),f(i,1)\}+1,0\}$</p>
+<p>离散化+树状数组就能优化到$O(n\log n)$。</p>
+<h2 id="Codeforces940E-Cashback"><a href="#Codeforces940E-Cashback" class="headerlink" title="Codeforces940E Cashback"></a><a href="https://www.luogu.org/problem/CF940E" target="_blank" rel="noopener">Codeforces940E Cashback</a></h2><p>按分段长度$len$分别考虑：</p>
+<ul>
+<li>$len&lt;c$，这时不会去掉任何数。无论$len$为多少代价都是这一段的和，把它看做$len$个长度为$1$的段处理。</li>
+<li>$len\ge c$。设它要去掉$k$个数。定义$kth(A,k)$为可重集$A$的前$k$小数的和。显然有$\sum\limits_{i=1}^kkth(A_i,1)\ge kth(\bigcup\limits_{i=1}^kA_i,k)$。所以当$len=c$时是最优的。</li>
+</ul>
+<p>设$f(i)$为分完前$i$个数的最小代价。</p>
+<p>根据上面两条，$f(i)=\min\{f(i-1)+a_i,f(i-k)+\min\{a_j\}\}(j\in[i-k+1,i])$。</p>
+<p>要维护一个滑动窗口的$\min$，单调队列即可。</p>
+<h2 id="Codeforces505C-Mr-Kitayuta-the-Treasure-Hunter"><a href="#Codeforces505C-Mr-Kitayuta-the-Treasure-Hunter" class="headerlink" title="Codeforces505C Mr. Kitayuta, the Treasure Hunter"></a><a href="https://www.luogu.org/problem/CF505C" target="_blank" rel="noopener">Codeforces505C Mr. Kitayuta, the Treasure Hunter</a></h2><p>大概是观摩一个沙雕网友过多了，从昨天下午起全机房都石乐志。我的智力水平再次刷新下限，已经切不动绿题了。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/luotianyi/吃药.png"></p>
+<p>很自然能想到设$f(i,j)$为跳到位置$i$，上一步跳了$j$步的最大宝藏数。</p>
+<p>$O(30000\times 30000)$不大行。</p>
+<p>我们发现真正有用的状态不多，可以队列优化$DP$，但是数组还是滚不起来。</p>
+<p>于是我们得到了空间爆炸、时间无保证的<del>优秀</del>做法。</p>
+<p>根据<a href="https://www.luogu.org/problem/P3953" target="_blank" rel="noopener">逛公园</a>的经验，把状态定义改为跳到位置$i$，上一步跳的步数与第一步的步数差值为$j$的最大宝藏数。</p>
+<p>最差情况是第一步为$1$，之后依次递增，等差数列求和会发现$j$最大不超过$300$。</p>
+<p>这就没了啊。</p>
+<h2 id="TJOI2013-拯救小矮人"><a href="#TJOI2013-拯救小矮人" class="headerlink" title="[TJOI2013]拯救小矮人"></a><a href="https://www.luogu.org/problem/P4823" target="_blank" rel="noopener">[TJOI2013]拯救小矮人</a></h2><p>显然要让难出去的人先出去，按$a_i+b_i$排序。</p>
+<p>设$f(i)$为跑了$i$个人剩下人的最大高度，搞个背包。</p>
+<h2 id="ZJOI2006-超级麻将"><a href="#ZJOI2006-超级麻将" class="headerlink" title="[ZJOI2006]超级麻将"></a><a href="https://www.luogu.org/problem/P2593" target="_blank" rel="noopener">[ZJOI2006]超级麻将</a></h2><p>设$f(i,j,k,0/1)$为考虑到第$i$张牌，第$i-1$张牌剩余$j$张，第$i-2$张牌剩余$k$张，是否打出过对子，前$i-3$张牌都已打完是否可行。</p>
+<p>先在内部把打$2,3,4$张的情况考虑完：</p>
+<p>$f(i,j,k,0/1)\rightarrow \begin{cases}f(i,j-3,k,0/1)\\f(i,j-4,k,0/1)\\f(i,j,k-3,0/1)\\f(i,j,k-4,0/1)\end{cases}$</p>
+<p>$f(i,j,k,0)\rightarrow\begin{cases}f(i,j-2,k,1)\\f(i,j,k-2,1)\end{cases}$</p>
+<p>最后考虑顺子，因为要保证前$i-3$张都打完，$k$是多少就要打多少个顺子：</p>
+<p>$f(i,j,k,0/1)\rightarrow f(i+1,a_i-k,j-k,0/1)$</p>
+<p>需要$DP$到$f(102,j,k,0/1)$，$f(103,0,0,1)$即为答案。</p>
+<h2 id="Codeforces846E-Chemistry-in-Berland"><a href="#Codeforces846E-Chemistry-in-Berland" class="headerlink" title="Codeforces846E Chemistry in Berland"></a><a href="https://www.luogu.org/problem/CF846E" target="_blank" rel="noopener">Codeforces846E Chemistry in Berland</a></h2><p>显然连上边是棵树。$DP$没啥难的，设$f(i)$为点$i$的需求量，$f(i)$为负表示有剩余。</p>
+<p>贪心转移，如果儿子有剩余就全转过来，否则$i$需要给儿子转化。</p>
+<p>$f(i)=a_i-b_i+\sum\limits_{j\in son(i)}f(j)\times [f(j)<0]+k_j\times f(j)\times[f(j)>0]$</p>
+<p>判一下$f(1)$是否小于等于$0$就行。</p>
+<p>然而这题很坑的地方是$f$的最大值$n\times a\times k$会爆$long\ long$。</p>
+<p>可以高精，本来$DP$是$O(n)$的压压位没问题。</p>
+<p>更巧妙的处理方法：观察方程，$f(i)$单次最多减少$b$，$n$个点最多减少$n\times b\le 10^{17}$。所以$f(i)$只要超过$10^{17}$，就不可能达到要求，直接输出”NO”即可。</p>
+<h2 id="Codeforces727F-Polycarp’s-problems"><a href="#Codeforces727F-Polycarp’s-problems" class="headerlink" title="Codeforces727F Polycarp’s problems"></a><a href="https://www.luogu.org/problem/CF727F" target="_blank" rel="noopener">Codeforces727F Polycarp’s problems</a></h2><p>这都做不动是基本告别自行车了。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/xiaodianshi/fachou.png"></p>
+<p>最简单的是贪心。倒着考虑，这个问题本质上就是用前面的正数尽可能多的抵消后面的负数。剩下的交给$b_i$解决。</p>
+<p>非常显然的普及贪心，一个正数要优先抵消较大的负数。维护一个堆倒着扫一遍。</p>
+<p>最后把堆里的元素取出来做个前缀和，对每个询问二分出$b_i$最大能抵消到哪儿。为了照顾$DP$所以$n\le 750$，直接$O(nm)$枚举都行。</p>
+<p>比贪心难想还不如贪心优的$DP$做法：</p>
+<p>设$f(i,j)$为$i\sim n$删掉$j$道题最小需要的心情。</p>
+<p>枚举$i$删或不删：$f(i,j)=\min\{f(i+1,j-1),\max\{f(i+1,j)-a_i,0\}\}$</p>
+<p>最后在$f(1,i)$上二分或枚举。</p>
+
+            
+        </div>
+      </article>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2019/10/08/Codeforces521D-Shop/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/shop.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/shop.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                Codeforces521D Shop</h3>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2019/09/26/%E6%B4%9B%E8%B0%B7-P4280-AHOI2008-%E9%80%86%E5%BA%8F%E5%AF%B9/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/nxd.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/nxd.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                洛谷 P4280 [AHOI2008]逆序对</h3>
+              </div> 
+            </a>
+			</div>
+        
+      </section> 
+    </main>
+</div>
+</div>
+</div>
+<div class="gather">
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz",
+        appKey: "jqULEjwlbvOCM08eEOpTIGOI",
+        path: window.location.pathname,
+		visitor: true,
+        placeholder: "日々私たちが过ごしている日常は、実は奇迹の连続なのかもしれない。"
+      })
+  }
+</script>
+
+</div>
+
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+
+<script>
+function imgInit(){
+	var imgs=document.getElementsByClassName('entry-content').item(0).getElementsByTagName('img');
+	for(var i=0;i<imgs.length;++i){
+		var element = document.createElement("a"),record=imgs[i],dsrc=record.getAttribute("data-src");
+		element.setAttribute("data-fancybox","gallery");
+    element.setAttribute("href",dsrc||imgs[i].src);
+		element.setAttribute("id","escape-link");
+		imgs[i].parentNode.appendChild(element);
+		imgs[i].parentNode.removeChild(imgs[i]);
+		element.appendChild(record);
+	}
+}
+var spoiler=document.getElementsByClassName('spoiler');
+for(var i=0;i<spoiler.length;++i)
+spoiler[i].onclick=function(){this.classList.toggle("revealed");};
+imgInit();
+</script>
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.6.7/articleload.gif">
+      </div>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Github Pages</a>
+        </span>
+		<!-- <span style="color: #b9b9b9;display:block">图片外链由<a href="https://img.fghrsh.net/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">FGHRSH图床</a>提供 -->
+        <!-- </span> -->
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.4/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.2/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<!-- <script src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/valine.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.1.4/js/volantis.min.js"></script>
+<script type="text/javascript">
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { 
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;ww">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

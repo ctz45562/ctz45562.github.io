@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">OI走马灯 | ctz&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/googlefont.css" media="all">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_ndnjfmz11y9.css">
+  <style>
+  .emoji-coda {
+      display: inline-block !important;
+      position: relative;
+      width: 47px;
+      top: 2px;
+      margin: -3px 3px !important;
+      padding: 0;
+  }
+  </style>
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "ctz's blog";
+  mashiro_option.author_name = "ctz's blog";
+  mashiro_option.site_url = "https://ctz45562.github.io";
+  mashiro_option.v_appId = "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz";
+  mashiro_option.v_appKey = "jqULEjwlbvOCM08eEOpTIGOI";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index1.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index2.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index3.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index4.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index5.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index6.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index7.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.4/index8.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.9/index9.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
+    @import url("/code.css");
+  </style>
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed;bottom:64px;left:28px;"> 
+  <div class="theme-controls row-container"> 
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> background <i style="color:grey" class="fa fa-chevron-right"></i></p>
+    <ul class="menu-list"> 
+	  <li id="white-bg"> 
+	    <i class="fa fa-television">
+		</i>
+	  </li> 
+	<li id="sakura-bg"> 
+      <i class="iconfont icon-sakura">
+	  </i>
+	</li> 
+    <li id="gribs-bg"> 
+      <i class="fa fa-slack">
+	  </i>
+    </li> 
+    <li id="KAdots-bg"> 
+      <i class="iconfont icon-dots">
+      </i>
+    </li> 
+    <li id="totem-bg"> 
+      <i class="fa fa-optin-monster">
+      </i>
+    </li> 
+    <li id="pixiv-bg"> 
+      <i class="fa fa-star">
+	  </i>
+      </li> 
+    <li id="bing-bg"> 
+      <i class="fa fa-picture-o">
+	  </i>
+    </li> 
+    <li id="dark-bg"> 
+      <i class="fa fa-moon-o">
+      </i>
+    </li> 
+  </ul> 
+  </div > 
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> font <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="font-family-controls row-container">
+    <button type="button" class="control-btn-serif " data-mode="serif" onclick="mashiro_global.font_control.change_font()">Serif</button>
+    <button type="button" class="control-btn-sans-serif" data-mode="sans-serif" onclick="mashiro_global.font_control.change_font()">Sans Serif</button>
+  </div>
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> script <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="theme-controls row-container">
+  <ul class="menu-list">
+  <style>li>.ctz{font-size: 21px;}</style>
+	<li id="empty-effect">
+	  <i class="ctz ctz-jinzhi">
+	  </i>
+	</li>
+	<li id="sakura-rain-effect">
+	  <i class="ctz ctz-huaxiang">
+	  </i>
+	</li>
+	<li id="snowy-effect">
+	  <i class="ctz ctz-snow">
+	  </i>
+	</li>
+	<li id="lines-effect">
+	  <i class="ctz ctz-xianlu">
+	  </i>
+	</li>
+	<li id="colorful-belts-effect">
+	  <i class="ctz ctz-caidai"></i>
+	  </i>
+	</li>
+	<li id="words-rain-effect">
+	  <i class="ctz ctz-zimuletters2"></i>
+	</li>
+	<li id="point-rain-effect">
+	  <i class="ctz ctz-diandiandian" style="font-size:19px"></i>
+	</li>
+	<li id="rain-drop-effect">
+	  <i class="ctz ctz-yu"></i>
+	</li>
+  </ul>
+  </div>
+<canvas id="night-mode-cover">
+</canvas>
+</div> 
+  <div class="changeSkin-gear no-select" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; visibility: visible; bottom: 0px;"> 
+  <div class="keys" id="setbtn"> 
+    <button id="open-skinMenu">
+		<style>
+		button#open-skinMenu{
+			transition: all 0.2s linear 0s;
+			outline:none;
+			position:fixed;
+			bottom:12px;
+			left:13px;
+			font-size:16px;
+			background-color: rgba(255,255,255,.95);
+			border-radius: 20px;
+			box-shadow: 0 3px 8px 0 rgba(0,0,0,0.1), 0 3px 8px 0 rgba(0,0,0,0.1);
+		}
+		button#open-skinMenu:hover{
+			transition: all 0.2s linear 0s;
+			background-color: #2f98fc;
+			color: rgba(255,255,255);
+		}
+		</style>
+		<i class="iconfont icon-gear inline-block rotating">
+	  </i> 
+		SCHEME TOOL | 主题工具 
+	</button>
+  </div> 
+</div>
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dim">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://ctz45562.github.io">
+          <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Re&amp;Re</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://www.luogu.com.cn/user/111762" target="_blank" class="social-github" title="洛谷">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/social/luogu.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://github.com/ctz45562" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/github.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="mailto:cctz45562@163.com" target="_blank" class="social-github" title="e-mail">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/mail.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://space.bilibili.com/229790690" target="_blank" class="social-github" title="bilibili">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/bilibili.jpg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <!-- <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+ -->
+      <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.0/tocbot.css">
+<div class="pattern-center-blank"></div>
+<div class="gather">
+
+  <div class="pattern-center-sakura single-center">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.1/oizmd.jpg);" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.1/oizmd.jpg">
+    </div>
+    <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
+      <h1 class="entry-title">
+      OI走马灯</h1>
+      <p class="entry-census">
+	    <span><a href="https://ctz45562.github.io"><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg" style="margin-right:4px">ctz</a>
+        </span>
+		<span class="bull"></span>
+		&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp
+        2020-6-15
+    <span class="bull"></span>
+    
+      <span><i class="fa fa-archive"></i> 分类于  
+        <span class="article-category"><a href="/categories/%E6%B8%B8%E8%AE%B0/" > 游记</a></span>
+      
+    </span>
+    
+    <span class="bull"></span>
+		<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id='/2020/06/15/OI走马灯/' class="leancloud-visitors" data-flag-title="OI走马灯">
+        <a class="leancloud-visitors-count text-cursor">loading...</a>
+        <a class="post-meta-item-text text-cursor"> 次阅读</a>
+        </span>
+      </p>
+	  
+      
+    <div>
+		  <ul class="spfk-ul">
+		    &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<li class="spfk-li"><span class="triangle"></span><a href="/tags/OI/" class="butterfly-tags">OI</a></li>
+          </ul>
+		</div>
+		<script>
+			function colorInit(c,num){for(var i=1;i<=num;++i)c.push(i+'');}
+			function paintTags(){
+				var colorNumber=8,tagColors=[],tags=document.getElementsByClassName('spfk-li');
+				for(var i = 0 ; i < tags.length ; ++i){
+					if(!tagColors.length)colorInit(tagColors,colorNumber);
+					var j=Math.floor(Math.random()*tagColors.length);
+					tags[i].classList.add("spfk-color"+tagColors[j]);
+					tagColors.splice(j,1);
+        }
+			}
+			paintTags()
+		</script>
+    
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="gather toc" style="width:230px"></div>
+        
+        <div class="entry-content">
+          <p>这是某个不知名的OIer的回忆录。</p>
+<p>有一种说法，人死前会将一生的经历在脑中快速回放一遍，称之为「人生的走马灯」</p>
+<p>那这就是「OI的走马灯」了。</p>
+<a id="more"></a>
+<p>尽管这个OIer还没有退役，但是他的心态相比去年的这个时候，发生了一点微妙的变化，促使他2月开始就动笔了。</p>
+<p>不，可能不仅仅是一点微妙的变化吧。</p>
+<hr>
+<h2 id="Ⅰ"><a href="#Ⅰ" class="headerlink" title="Ⅰ"></a>Ⅰ</h2><p>我第一次对OI产生兴趣，是八年级的暑假。</p>
+<p>确切来说，我那时候并不了解OI，所以应该是对信息行业产生兴趣。</p>
+<p>我的入宅番「小林家的龙女仆」，带我了解了程序猿的生活。（或者说是一般白领的生活）</p>
+<p>早出晚归，周末休息，薪水尚可。</p>
+<p>我发现这就是我向往的生活，默默无闻、一成不变的日常。没有人会注意到我，我能享受独来独往的快乐。</p>
+<p>于是我梦想着当一名程序猿，而且不是引人注目的管理者，一定是底层的码农。与之萌生的想法就是高中加入信息竞赛了。</p>
+<hr>
+<h2 id="Ⅱ"><a href="#Ⅱ" class="headerlink" title="Ⅱ"></a>Ⅱ</h2><p>中考结束，迎来了期待已久的暑假。</p>
+<p>我从来都不是个勤奋的人——这话说的可能有点轻了，从初三开始，我的心思从来就不在学习上。</p>
+<p>这个时候我对OI还完全不了解，无论是学习内容，还是时间的安排。所以我已经做好了享受假期的准备。</p>
+<p>颓了半个月后去高中报道。填了一张表，有一栏问我有没有意愿参加竞赛。我果断填了信息。</p>
+<p>之后开了个大会，loli也去发言了，就是那种给信息小组招生的发言。尽管现在会认为这就是忽悠，但是对当时的我起了很大的鼓舞作用。<del>是的，我被八皇后问题骗走了。</del></p>
+<p>loli接着说出了报名的三个条件，数学成绩、物理成绩、数理化成绩。我中考总分不低，全校前50，然而各科成绩都很平均，一个都不满足。</p>
+<p>算了，也算是保全了暑假。大学再学也不迟。</p>
+<p>报道后很快竞赛学习开始了。到了第三天，loli突然给我家长打电话，问我有没有意愿参加。</p>
+<p>我妈说可能是看我在报道的表上填了信息，中考总分也不低，所以想让你试一试。（我很久之后才得知是我妈看我想学主动找loli说的）</p>
+<p>当时我正在补番，相比惊讶，我更多的是犹豫。如果去了，假期就没了。</p>
+<p>我问每天的学习时间，得到了一个最差的回答：早上7点到晚上10点。</p>
+<p>我沉默了。</p>
+<p>又补了一个小时的番，我咬了咬牙，“去。”</p>
+<hr>
+<h2 id="Ⅲ"><a href="#Ⅲ" class="headerlink" title="Ⅲ"></a>Ⅲ</h2><p>我们这一届信息组是按档次来分的。自主招生一档优惠4月来，二档优惠中考完来。而我们这些7月来的被称为三档。</p>
+<p>平时在使用的机房有两个。我们机房里大部分都是三档的，当时人还挺多的，学长和一、二档的都在隔壁机房。</p>
+<p>刚一来被分到了zhuoer旁边，和其他的三档里的都挺远的。</p>
+<p>zhuoer也是个宅，我俩渐渐熟了起来。</p>
+<p>7月基本上都是在OpenJudge上做题，8月开始入驻洛谷。</p>
+<p>当然我的颓废之心还未消退，所以挤出所有空闲时间颓废。包括中午不休息，晚上12点睡。多出来的时间我能补至少6集番。</p>
+<p>熬了一个月撑不住了，偶然在超市里发现了咖啡，养成了喝咖啡的习惯。</p>
+<p>当时的我并不知道11月就要比赛了，所以整个暑假过得比较休闲吧，甚至写过2个游戏。</p>
+<p>loli组织过几次测试，无非搜索模拟专场。<strong>像这种套路化的、具体的、简单易懂的算法，我能比别人更快地掌握</strong>。所以在测试中成绩还是不错的，大概是有吸引到loli注意的，而我也是有点飘，觉得自己或许很有天赋。</p>
+<p>转眼间暑假就这么过去了。开学后的生活我没有适应，学习OI的时间大幅减少，只有音乐、信息课和晚自习的一些时间能来机房，而文化课我还是和初中一样有所抵触。</p>
+<p>我依然不午休，晚上12点睡，有时候甚至熬夜到1、2点。</p>
+<p>当时喝咖啡一事我印象是很深的。是那种雀巢的纯咖啡，18块9一盒，一盒20包，每包3g左右，配料只有速溶咖啡和咖啡豆提取物。用少量开水泡开，一口闷，早上一包，下午一包。有时候甚至生吃咖啡，把咖啡到嘴里用水冲下去。虽然精神上还是浑浑噩噩的，但起码不会上课打瞌睡了。（我还是劝告一句，这样喝纯属作死，但我当时只是为了能颓废而不择手段罢了）</p>
+<p>9月就这么过去了，无论是精神还是肉体我都不好受，又怀念起无忧无虑、拥有朋友的初中生活了。。。</p>
+<hr>
+<h2 id="Ⅳ"><a href="#Ⅳ" class="headerlink" title="Ⅳ"></a>Ⅳ</h2><p>国庆信息组只放了一天假，不过对当时的我来说，只要是在机房里学OI，不放假也行。</p>
+<p>马上开学的时候，loli突然说要停课。我第一次知道为了竞赛甚至可以停掉文化课，也意识到了临近比赛的危机感。</p>
+<p>一开始先停政史地，后来全停。以前学搜索的时候总是说数据范围再大点DP能解决，于是停课期间开刷DP。当时我做题没啥章法，随便从洛谷上捡题做。</p>
+<p>快比赛的时候学了线段树，埋下伏笔。</p>
+<p>（包括后面的比赛）比赛过程不详细说了，游记里有。</p>
+<p>我是三档里唯一一个拿省一的，我更是沾沾自喜。虽然现在想想，<strong>我不过是运气好，碰巧做过原题、碰巧数据水没卡掉暴力而已</strong>。</p>
+<p>回来后补课，去不了机房，我怀着极大的自满之情顺着线段树继续把数据结构攻读完了，从此开了个大坑。</p>
+<p>很快来到了月考，尽管政史地我压根没学，数理化也一般般，但是凭借着初中的底子拿了英语年级第六，再加上我们班实在太差，倒数的那种，所以班主任和英语老师对我大加赞赏。甚至英语老师说她做梦梦到我了。</p>
+<p>那会儿算是我的第一个辉煌时刻了吧。本以为我会退役，现在都可以参加省选了。</p>
+<hr>
+<h2 id="Ⅴ"><a href="#Ⅴ" class="headerlink" title="Ⅴ"></a>Ⅴ</h2><p>寒假去郑州培训，也是我第一次出去培训。每天和Ciyang、zhuoer、阿潮取乐，颓到一两点。而且以我当时的水平课也不太能听懂。</p>
+<p>寒假期间我们集体搬到了隔壁机房，左指挥右稳稳。受到这俩人的影响，再加上那时候做的题有点难度了，我开始写题解了。</p>
+<p>很快我不满足于洛谷博客，于是开了我OI生涯最大的坑：搭建hexo博客。这东西太合我口味了，<strong>我是个注重于维护形象的人，不一定是什么好形象，但是对特定的人我就一定要表现出我想表现的、一成不变的形象</strong>。</p>
+<p>高一下学期分班，我顺理成章进入了竞赛班，半天学文化课，半天学OI，我对此很满意。</p>
+<p>一直到省选，我基本上都是在做数据结构，然而做的题都是偏模板，思维方面依然没有长进。同时写写题解，搭搭blog。</p>
+<p>我的水平太低，一轮省选的结果并不理想，然而还是在D2力挽狂澜擦边进了二轮省选。</p>
+<p>我深知二轮省选不可能翻盘，于是学了SA和SAM。那时候为了保证精力，除了中午趁吃饭补一集点兔我在家不再颓废。这确实很有成效，SA和SAM学习进展得都十分顺畅，也不像数据结构那样只会打板子，习题基本都能独立思考出来。</p>
+<p>二轮省选的结果出乎意料。直接爬了三十多名，我也再次被loli大奶。然而我知道，<strong>我靠的还是运气，不过是签到成功加上未能卡掉的爆搜罢了</strong>。</p>
+<p>我成为了loli的重点关注对象，这也是我的第二个辉煌时刻。</p>
+<p><strong>我必须有成就感的刺激才能学下去，失败只会让我停滞不前</strong>。因此这两次比赛给了我极大的动力学OI。</p>
+<p>之后我开始中午留在机房，那时候我的博客开始使用sakura主题，所以中午的时间基本上都是在美化blog。</p>
+<hr>
+<h2 id="Ⅵ"><a href="#Ⅵ" class="headerlink" title="Ⅵ"></a>Ⅵ</h2><p>合格考之前高考要开始了。我们学校作为考场之一，高考这么正规严肃的事情，怎么可能不放假？然而loli做出了一个到现在我都认为不恰当的决定：高考期间不放假，偷偷溜进来学竞赛。</p>
+<p>由于临近合格考，我对历史地理越来越担忧——从入学到现在我几乎就没上过。我确实是想放假颓废，但是我也想着手准备合格考，于是我们机房联合起来搞事，在放假当天下午，一个个地偷着跑路了（除了主席）。</p>
+<p>loli难得生气一次，晚上就把他最看好的几个——鳖、慎老师和我（当时魏老师和块儿在省队集训）——叫回来，声称不回来就踢出信息组。</p>
+<p>当晚下着大雨，鳖来之前还在和同学玩。他表示非常愤怒，让我一会不要说话，他要与loli理论一番。</p>
+<p>结果他争论了一会，被loli说服了。我突然站了出来，和loli舌战，反复表达临近合格考，我要学文化课的意愿。总之就是死皮赖脸，loli不放假我就一直说。</p>
+<p>结果最后也放假了，只不过要求我们既然对合格考这么担心，那么到合格考之前都不能再开电脑。</p>
+<p>我并没有啥意见，正好我能静下心来准备合格考了。</p>
+<p>这是我第一次反抗loli，凭着我的地位与自大，因此也是最后一次成功反抗loli。</p>
+<p>合格考有惊无险，我回归了正常的竞赛学习生活。以前我总是执着于专精某种算法，现在会的东西太少了，所以开始拓宽算法知识面。</p>
+<p>暑假还是留校学竞赛。然而我每天都会颓到很晚，我们宿舍甚至还比谁睡得晚，大部分时间都是我冠军，而且中午也不睡觉继续颓，所以白天都没有精神，难题做不动，经常颓废，越来越懒散——又是一个伏笔。</p>
+<p>暑假末Tian-Xing找我问关于blog的事，成为了我俩交往的契机。</p>
+<hr>
+<h2 id="Ⅶ"><a href="#Ⅶ" class="headerlink" title="Ⅶ"></a>Ⅶ</h2><p>转眼间来到高二。我中午不待在机房了，开始了半走读的生活。</p>
+<p>CSP即将到来，我不再学习新算法，还是继续老本行——刷DP。</p>
+<p>暑假懒散的习惯延续了下来，我刷题干劲不足，颓废时间越来越长，至少晚上的时间一定是用来颓废的。</p>
+<p>其中还有一个更重要的原因：我从二轮省选之后渐渐发现了我真实的学习能力。</p>
+<p>我曾在洛谷日报上看到过一种算法：B*搜索。这简直太像我的学习能力了。</p>
+<p><strong>我能通过短时间的学习取得一个较好的成果，但是这就是极限了，继续学习成效是微乎其微的。或者说，我的下限很高，上限也很低</strong>。</p>
+<p>更要命的是，<strong>我发现只擅长模仿，只会搬套路。我缺少OI最需要的创造性思维</strong>。</p>
+<p>我在刷DP的时候尤其能体会到，难题做多了，我依然只会做同类型的难题。因为我是需要成就感的人，所以刷题也陷入死循环：难题不会做，而且由于学习能力的缺陷，看了题解既没成就感，我也还是做不出难题；简单题做出来没成就感，还是没干劲。</p>
+<p>我越来越迷茫。</p>
+<p>我可能不适合继续学下去了，我看不到希望；但我当时还是不想这么快投入文化课。</p>
+<p>CSP的结果也进一步打击到了我。没有做出的D1T2，再次提醒了我智商不够；中规中矩的成绩，往前走前途渺茫，往后退又不甘心。</p>
+<p>我最终还是留了下来。但CSP之后，我再无信心可言。</p>
+<p>机房走了一大批人，高二剩下的只有我、asuldb、zhuoer、主席、魏老师、慎老师和不太常见的块儿和成爷。</p>
+<p>补了一段时间的课后，因为冬令营再次停课。我这个成绩擦边进了WC，THUWC、PKUWC当然是去不了。</p>
+<p>我开始照着任务单填坑，更广泛地学习算法。我没有能力深究算法，只有尽可能多学算法才能看见一丝希望。</p>
+<p>然而一个没有干劲的人又能学进去多少呢？学一种算法，不过是敲了板子，做几道例题罢了。每天在学习与颓废之间游离。后台模拟器挂着七都，水blog，水知乎，水群，水图片。</p>
+<p>一水水到了寒假，只有七天假期，然而Covid-19和强基计划来了。</p>
+<hr>
+<h2 id="Ⅷ"><a href="#Ⅷ" class="headerlink" title="Ⅷ"></a>Ⅷ</h2><p>疫情爆发，开始了家里蹲的生活。</p>
+<p>由于WC还没举行，所以我们还是处于停课状态。</p>
+<p>然而跟大部分OIer一样，一放假在家就毫无干劲，根本学不下去，况且本来我就缺乏干劲，所以从二月到四月，除了颓还是颓。</p>
+<p>每天上午网上四处瞎逛，偶尔有兴致做一道题（一共做题量不到20道，而且几乎都是水题），下午打lol，晚上逛b站、看lol直播。后来上午都没事干了，开始搜刮单机游戏，日系rpg、95版pvz、王国保卫战、奥里与黑暗森林、Undertale。期间参加过两次培训和一些比赛，我也没有认真对待。</p>
+<p>随着时间推移，我逐渐感到了恐慌。还有一年就高考了，我文化课还水当尿裤的。而压垮骆驼的最后一棵稻草——强基计划——随着病毒席卷而来。</p>
+<p>从我学OI开始，jyb就一直在打压竞赛，降分政策越来越差。我对强基计划了解不多，但也明白这几乎是抹除OI了。</p>
+<p>于是，与去年的相比，我的态度发生了完全的转变。现在的我只想补文化课，不想学OI了。哪怕给我一个省队名额，我也不愿去NOI了。</p>
+<p>所以，我其实从1月开始就退役了。</p>
+<p>我一直关注着其他人的学习情况，高二除了主席做题都不多，应该是在家的缘故。学弟们都很勤奋，我能看到Tian-Xing的做题量甚至比我在学校里的都多，就好像看到了曾经的自己。</p>
+<p>Tian-Xing有时候会问我题，尽管很多时候我都答不上来吧。他后来知道我在家几乎不做题、也不打算争省队的事，还一直劝导我，认为我很有希望。</p>
+<p>我很感谢Tian-Xing，还能对我抱有希望。但是很抱歉，我已经认清了自己的水平，我再也无法成为那个「渴望在OI方面寻找自我的人」了。</p>
+<p>好在文化课已经在来的路上了，先是上早读，然后下午开始补课。虽说在家学习状态确实远不如学校，但开始补课后，我至少有在学习，不像之前那样不学无术了。然而，在此之后，除了打了场NOI-ONLINE，我几乎再没碰过OI。</p>
+<p>五月初（那时高三已经开学了），loli想让我们回机房。asuldb、主席、ZUTTER_回去了。一方面是为了颓，另一方面是怕回去后在loli的管理下学不了文化课，我拒绝了。</p>
+<p>更重要的是，几个月的时间里，我对OI的兴致达到了最低点。</p>
+<p>五月中旬，开学了。</p>
+<p>我怀着一种退役选手的心态返校，我的计划只有学文化课和消磨在机房的时间。</p>
+<p>然而一颓就停不下来了，文化课也没怎么学，就这么混了一段时间。</p>
+<hr>
+<h2 id="Ⅸ"><a href="#Ⅸ" class="headerlink" title="Ⅸ"></a>Ⅸ</h2><p>五月底的时候突然就下了通知6月20号省选，只有3个星期了啊。</p>
+<p>也许是最后一次停课了吧。和之前一样，我一直在颓废。</p>
+<p>写人物列传，写日记，水贴吧水知乎，玩游戏，日子就这么过去了。</p>
+<p>放了一个大周，还有12天省选了。</p>
+<p>我清楚地记着回来的那天晚上，Tian-Xing突然很激动，整个晚上极力劝说我不要退役。</p>
+<p>他否认我的自卑，说我的智商很高</p>
+<p>他甚至认为我比杜爷和烜强。</p>
+<p>他觉得我人很好，尤其是去年国庆培训和他住一块的时候</p>
+<p>他说如果我退役他会非常难受。</p>
+<p>我一直注重自己的形象，没想到会能有这么重视我的人。</p>
+<p>我一直都很随心所欲，不愿接受别人的劝谏。但是因为这番话，我早读的时候向自己发问：我真的是我认为的那样智商不够吗？</p>
+<p>如果只是我太消极了，那我尚有余力可以一搏；如果确实是这样，我以往的比赛和模拟赛，不说优秀，总体上也是高于普通水平的。</p>
+<p>我又想起来银牌扩增的事，而国赛也不会推迟很久，并不会耽误很多文化课。</p>
+<p>也许我可以选择不放弃。</p>
+<p>尽管我的水平大不如从前，最后我还是决定了，把已经遗忘的板子打一打，一切听天由命，省队能进就进，进不了就滚回去学文化课。但至少，如果给我一个省队名额，我现在已经能接受了。</p>
+<hr>
+<h2 id="Ⅹ"><a href="#Ⅹ" class="headerlink" title="Ⅹ"></a>Ⅹ</h2><p>世上本没有奇迹。</p>
+<p>省选前一天晚上翻阅自己的博客，才发现我的水平退化得有多厉害。</p>
+<p>省选既没有超常发挥，也没有丢分，最后还是和烜苟了个D。没敢放下文化课，而且D类一直没有消息。补完课以后，和以前一样，还是下午去机房学竞赛。</p>
+<p>用了大概一星期的时间学了min_25筛，某个下午我写完了最后一道min_25筛的题解，loli突然对我们说，SD的D类可能没有了，让我们先回去学文化课，有消息了再去找我们。</p>
+<p>于是又滚回去学文化课了。</p>
+<hr>
+<h2 id="Ⅺ"><a href="#Ⅺ" class="headerlink" title="Ⅺ"></a>Ⅺ</h2><p>最后的最后，我们也还是没有见到loli。文化课紧张的安排也逼迫我看淡了一切，去了还会耽误补课，挺好的。</p>
+<hr>
+<h2 id="Ⅻ"><a href="#Ⅻ" class="headerlink" title="Ⅻ"></a>Ⅻ</h2><p>我的OI生涯到底是什么时候算作结束了呢？</p>
+<p>也许是那天下午，loli告诉我们没有D类名额的那一刻</p>
+<p>也许是SDOI2020走出考场的那一刻</p>
+<p>也许是CSP2019走上大巴车的那一刻</p>
+<p>又或许，我的OI生涯还未开始就已结束了</p>
+<p>两年究竟有多长，究竟有多短</p>
+<p>我趴在机房的桌子上、戴着耳机、披着校服睡过的一整个夏天的午觉</p>
+<p>TIM上群里无数条聊天信息，无数次截图作表情包</p>
+<p>第一篇NOIP2018游记到最后的SDOI2020退役游记</p>
+<p>最初的洛谷博客到现在倾注大量心血的hexo-sakura博客，从第一篇动态逆序对的题解到现在已经过百的文章</p>
+<p>一切的一切，都随着时间消逝在记忆中。</p>
+<p>结束了？开始了？</p>
+<p>结束了。结束了。</p>
+
+            
+        </div>
+      </article>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/06/21/SDOI2020%E9%80%80%E5%BD%B9%E6%B8%B8%E8%AE%B0/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.2/sdoi2020tyyj.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.2/sdoi2020tyyj.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                SDOI2020退役游记</h3>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2020/06/12/LOJ-6517-%E3%80%8C%E9%9B%85%E7%A4%BC%E9%9B%86%E8%AE%AD-2018-Day11%E3%80%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.0/zfc.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.0/zfc.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                LOJ#6517 「雅礼集训 2018 Day11」字符串</h3>
+              </div> 
+            </a>
+			</div>
+        
+      </section> 
+    </main>
+</div>
+</div>
+</div>
+<div class="gather">
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz",
+        appKey: "jqULEjwlbvOCM08eEOpTIGOI",
+        path: window.location.pathname,
+		visitor: true,
+        placeholder: "日々私たちが过ごしている日常は、実は奇迹の连続なのかもしれない。"
+      })
+  }
+</script>
+
+</div>
+
+
+
+
+<script>
+function imgInit(){
+	var imgs=document.getElementsByClassName('entry-content').item(0).getElementsByTagName('img');
+	for(var i=0;i<imgs.length;++i){
+		var element = document.createElement("a"),record=imgs[i],dsrc=record.getAttribute("data-src");
+		element.setAttribute("data-fancybox","gallery");
+    element.setAttribute("href",dsrc||imgs[i].src);
+		element.setAttribute("id","escape-link");
+		imgs[i].parentNode.appendChild(element);
+		imgs[i].parentNode.removeChild(imgs[i]);
+		element.appendChild(record);
+	}
+}
+var spoiler=document.getElementsByClassName('spoiler');
+for(var i=0;i<spoiler.length;++i)
+spoiler[i].onclick=function(){this.classList.toggle("revealed");};
+imgInit();
+</script>
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.6.7/articleload.gif">
+      </div>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Github Pages</a>
+        </span>
+		<!-- <span style="color: #b9b9b9;display:block">图片外链由<a href="https://img.fghrsh.net/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">FGHRSH图床</a>提供 -->
+        <!-- </span> -->
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.4/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.2/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<!-- <script src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/valine.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.1.4/js/volantis.min.js"></script>
+<script type="text/javascript">
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { 
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;ww">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">NOIP2018 游记 | ctz&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/googlefont.css" media="all">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_ndnjfmz11y9.css">
+  <style>
+  .emoji-coda {
+      display: inline-block !important;
+      position: relative;
+      width: 47px;
+      top: 2px;
+      margin: -3px 3px !important;
+      padding: 0;
+  }
+  </style>
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "ctz's blog";
+  mashiro_option.author_name = "ctz's blog";
+  mashiro_option.site_url = "https://ctz45562.github.io";
+  mashiro_option.v_appId = "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz";
+  mashiro_option.v_appKey = "jqULEjwlbvOCM08eEOpTIGOI";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index1.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index2.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index3.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index4.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index5.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index6.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index7.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.4/index8.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.9/index9.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
+    @import url("/code.css");
+  </style>
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed;bottom:64px;left:28px;"> 
+  <div class="theme-controls row-container"> 
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> background <i style="color:grey" class="fa fa-chevron-right"></i></p>
+    <ul class="menu-list"> 
+	  <li id="white-bg"> 
+	    <i class="fa fa-television">
+		</i>
+	  </li> 
+	<li id="sakura-bg"> 
+      <i class="iconfont icon-sakura">
+	  </i>
+	</li> 
+    <li id="gribs-bg"> 
+      <i class="fa fa-slack">
+	  </i>
+    </li> 
+    <li id="KAdots-bg"> 
+      <i class="iconfont icon-dots">
+      </i>
+    </li> 
+    <li id="totem-bg"> 
+      <i class="fa fa-optin-monster">
+      </i>
+    </li> 
+    <li id="pixiv-bg"> 
+      <i class="fa fa-star">
+	  </i>
+      </li> 
+    <li id="bing-bg"> 
+      <i class="fa fa-picture-o">
+	  </i>
+    </li> 
+    <li id="dark-bg"> 
+      <i class="fa fa-moon-o">
+      </i>
+    </li> 
+  </ul> 
+  </div > 
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> font <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="font-family-controls row-container">
+    <button type="button" class="control-btn-serif " data-mode="serif" onclick="mashiro_global.font_control.change_font()">Serif</button>
+    <button type="button" class="control-btn-sans-serif" data-mode="sans-serif" onclick="mashiro_global.font_control.change_font()">Sans Serif</button>
+  </div>
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> script <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="theme-controls row-container">
+  <ul class="menu-list">
+  <style>li>.ctz{font-size: 21px;}</style>
+	<li id="empty-effect">
+	  <i class="ctz ctz-jinzhi">
+	  </i>
+	</li>
+	<li id="sakura-rain-effect">
+	  <i class="ctz ctz-huaxiang">
+	  </i>
+	</li>
+	<li id="snowy-effect">
+	  <i class="ctz ctz-snow">
+	  </i>
+	</li>
+	<li id="lines-effect">
+	  <i class="ctz ctz-xianlu">
+	  </i>
+	</li>
+	<li id="colorful-belts-effect">
+	  <i class="ctz ctz-caidai"></i>
+	  </i>
+	</li>
+	<li id="words-rain-effect">
+	  <i class="ctz ctz-zimuletters2"></i>
+	</li>
+	<li id="point-rain-effect">
+	  <i class="ctz ctz-diandiandian" style="font-size:19px"></i>
+	</li>
+	<li id="rain-drop-effect">
+	  <i class="ctz ctz-yu"></i>
+	</li>
+  </ul>
+  </div>
+<canvas id="night-mode-cover">
+</canvas>
+</div> 
+  <div class="changeSkin-gear no-select" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; visibility: visible; bottom: 0px;"> 
+  <div class="keys" id="setbtn"> 
+    <button id="open-skinMenu">
+		<style>
+		button#open-skinMenu{
+			transition: all 0.2s linear 0s;
+			outline:none;
+			position:fixed;
+			bottom:12px;
+			left:13px;
+			font-size:16px;
+			background-color: rgba(255,255,255,.95);
+			border-radius: 20px;
+			box-shadow: 0 3px 8px 0 rgba(0,0,0,0.1), 0 3px 8px 0 rgba(0,0,0,0.1);
+		}
+		button#open-skinMenu:hover{
+			transition: all 0.2s linear 0s;
+			background-color: #2f98fc;
+			color: rgba(255,255,255);
+		}
+		</style>
+		<i class="iconfont icon-gear inline-block rotating">
+	  </i> 
+		SCHEME TOOL | 主题工具 
+	</button>
+  </div> 
+</div>
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dim">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://ctz45562.github.io">
+          <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Re&amp;Re</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://www.luogu.com.cn/user/111762" target="_blank" class="social-github" title="洛谷">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/social/luogu.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://github.com/ctz45562" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/github.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="mailto:cctz45562@163.com" target="_blank" class="social-github" title="e-mail">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/mail.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://space.bilibili.com/229790690" target="_blank" class="social-github" title="bilibili">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/bilibili.jpg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <!-- <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+ -->
+      <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.0/tocbot.css">
+<div class="pattern-center-blank"></div>
+<div class="gather">
+
+  <div class="pattern-center-sakura single-center">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/noip2018yj.jpg);" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/noip2018yj.jpg">
+    </div>
+    <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
+      <h1 class="entry-title">
+      NOIP2018 游记</h1>
+      <p class="entry-census">
+	    <span><a href="https://ctz45562.github.io"><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg" style="margin-right:4px">ctz</a>
+        </span>
+		<span class="bull"></span>
+		&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp
+        2019-1-31
+    <span class="bull"></span>
+    
+      <span><i class="fa fa-archive"></i> 分类于  
+        <span class="article-category"><a href="/categories/%E6%B8%B8%E8%AE%B0/" > 游记</a></span>
+      
+    </span>
+    
+    <span class="bull"></span>
+		<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id='/2019/01/31/noip2018游记/' class="leancloud-visitors" data-flag-title="NOIP2018 游记">
+        <a class="leancloud-visitors-count text-cursor">loading...</a>
+        <a class="post-meta-item-text text-cursor"> 次阅读</a>
+        </span>
+      </p>
+	  
+      
+    <div>
+		  <ul class="spfk-ul">
+		    &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<li class="spfk-li"><span class="triangle"></span><a href="/tags/OI/" class="butterfly-tags">OI</a></li>
+          </ul>
+		</div>
+		<script>
+			function colorInit(c,num){for(var i=1;i<=num;++i)c.push(i+'');}
+			function paintTags(){
+				var colorNumber=8,tagColors=[],tags=document.getElementsByClassName('spfk-li');
+				for(var i = 0 ; i < tags.length ; ++i){
+					if(!tagColors.length)colorInit(tagColors,colorNumber);
+					var j=Math.floor(Math.random()*tagColors.length);
+					tags[i].classList.add("spfk-color"+tagColors[j]);
+					tagColors.splice(j,1);
+        }
+			}
+			paintTags()
+		</script>
+    
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="gather toc" style="width:230px"></div>
+        
+        <div class="entry-content">
+          <p>在郑州颓废的成果。。。</p>
+<a id="more"></a>
+<hr>
+<h1 id="Day-45"><a href="#Day-45" class="headerlink" title="Day -45"></a>Day -45</h1><p>从学OI开始，我就愉悦地颓废了3个月，刚写成自己的第3个游戏感觉非常良好（？）</p>
+<p>哦学姐来讲课了，还考了个试，然后表示四道题四脸懵逼。（T2就是个逆序对T4就是个动态逆序对现在想想当时还是太年轻）</p>
+<p>哦$NOIP$还有一个半月了时间过的好快啊</p>
+<p>woc我好像啥都没学啊？？</p>
+<p>掐指一算，除了搜索我好像啥都不会。</p>
+<p>表面慌得一批实则心里更慌</p>
+<hr>
+<h1 id="Day-42"><a href="#Day-42" class="headerlink" title="Day -42"></a>Day -42</h1><p>国庆放完了。（不想开学啊啊啊啊啊啊）</p>
+<p>$loli$说快要$NOIP$了，文化课先放一放。于是感觉氛围突然紧张了起来。但就一个半月了我补啥呢？</p>
+<p>这时，脑中突然闪现出一个大胆的想法！</p>
+<p><strong>学好DP走遍天下！</strong></p>
+<p>（当时真的太年轻了）</p>
+<p>于是愉快(?)地从零开始练DP</p>
+<hr>
+<h1 id="Day-rand-41"><a href="#Day-rand-41" class="headerlink" title="Day -rand()%41"></a>Day -rand()%41</h1><p>爆刷DP ing…</p>
+<p>试着写了写去年的$NOIP$题，二百多分的样子（当时感觉还算满足），然而奶酪直接爆零感觉很方</p>
+<hr>
+<h1 id="Day-10"><a href="#Day-10" class="headerlink" title="Day -10"></a>Day -10</h1><p>(写DP写的肾疼后)感觉好心累，学点新东西吧</p>
+<p>诶线段树好像很好玩的样子我来看一看</p>
+<hr>
+<h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day -1"></a>Day -1</h1><p>清点一下我会啥：</p>
+<p><del>会写头文件、std、main函数</del></p>
+<p>DP：蓝题止步，学到状压和单调队列，不会斜率优化</p>
+<p>只会勉强打一下板子的线段树和LCA</p>
+<p>数论：打表</p>
+<p>图论：最短路和最小生成树板子</p>
+<p>其他：暴力</p>
+<p>没了？</p>
+<p>没了。。。</p>
+<hr>
+<h1 id="Day-0"><a href="#Day-0" class="headerlink" title="Day 0"></a>Day 0</h1><p>上午在机房颓，本来想把跳房子套上二分切了（之前不会写二分），然后看到了生火间。</p>
+<p>愉悦地颓了一上午。。。</p>
+<p>下午坐车去潍坊。</p>
+<p>$loli$：在车上别光玩手机、电脑的，这种时候再看看书，交流交流题目。。。</p>
+<p>坐在我旁边的两位大佬（玩植物大战僵尸ing）：<br>woc这僵尸越过我南瓜把向日葵吃了？？</p>
+<p>被$loli$的话振奋的我拿出手机默默补起了番</p>
+<p>到了潍坊去抽签。好像几年来积攒着的从未显现过得欧气爆发了出来（事实证明耗这一次就一点不剩），抽到在本校考</p>
+<p>跟HN哥和众多学长住一间宿舍，<del>看到了学长一起犯SAO</del>。但是实在没啥经验，原来宿舍不给电啊。。。</p>
+<p>好在睿智的学长拿出了插座：你看这空调接着电。。。<br>（试图把插座插上去）</p>
+<p>恰好宿管老大爷经过。</p>
+<p>老大爷：你们干啥呢？。。。这个功率很大的，你插上去整栋楼都着了。。。不怕一万，就怕万一。。。不要存在侥幸心理。。。（请任取方言套上去体会一下）</p>
+<p>最终还是没有插上电。</p>
+<p>八点半去试机，还是没啥经验，敲了个A+B，瞎调试了一下，又敲了个LCA</p>
+<p>我还会啥？</p>
+<p>哦我会打线段树！</p>
+<p>不过因为太蒻了没打完就到点了。</p>
+<p>回到宿舍，玩了会手机，随便翻了翻书就睡了。</p>
+<hr>
+<h1 id="Day-1-1"><a href="#Day-1-1" class="headerlink" title="Day 1"></a>Day 1</h1><p>去考场之前心中默念：考一道好找规律的数论。。。（因为小凯的疑惑一打表规律就出来了。。。）</p>
+<p>进考场时扫描，扫到我口袋时哔哔地响。一掏口袋，不小心带来的饭卡。。。还有一副耳机？</p>
+<p>woc耳机？</p>
+<p>监考老师：耳机是最容易怀疑的东西。。。</p>
+<p>当时我眼前就浮现出CCF将我禁赛三年的场景。。。</p>
+<p>然后我把耳机和饭卡放到外面就没事了（?）</p>
+<p>给了密码“飞雪连天”，额。。。感觉很新潮啊</p>
+<p>先看T1</p>
+<p>这不是积木大赛吗？</p>
+<p>脑中又浮现出三个月前的一个场景。。。</p>
+<hr>
+<h2 id="Day-inf"><a href="#Day-inf" class="headerlink" title="Day -inf"></a>Day -inf</h2><p>（刚讲完递推）我（一脸懵逼）：递推是啥？算了找些题练练吧</p>
+<p>随手点开一道积木大赛。</p>
+<p>根本不会做啊。。。</p>
+<p>于是开始愉快地画图模拟。恰好$loli$经过看到我在画图。</p>
+<p>$loli$：这是什么题啊？</p>
+<p>我（不知道为啥很慌）：啊啊啊。。。是这个积木大赛，那个。。递推感觉学的不大好我随便找的练练。</p>
+<p>$loli$听完又走了。</p>
+<p>又画了几分钟，心态十分爆炸。这题怎么这么难？</p>
+<p>去翻了翻题解，然后切掉了。</p>
+<p>递推好难，心好累，不练了不练了</p>
+<hr>
+<p>主要是$loli$问了我，我对这题印象很深。</p>
+<p>诶这题忘了咋做了。。。</p>
+<p>好像是个递推吗？</p>
+<p>想了大概十分钟，好像是比前一项大的积木就加上它们的差值？</p>
+<p>写完过了大样例。但是强迫症不允许我就这么跳过。</p>
+<p>开始打暴力对拍，但是好像不会打暴力，连小样例都跑不动（不是跑错了，是T了。。。）</p>
+<p>最终手造了几组数据好像没啥问题。</p>
+<p>测一下效率吧。（心里清楚是$O(n)$的但是很不放心）开着最大数据的对拍就过了</p>
+<p>此时过了不到一小时，开始看T2。</p>
+<p>这是个数论？手推了一会，好像答案是原集合的子集?</p>
+<p>又想了大概10分钟，好像这个子集要去掉能由集合中其他数组合出来的数？</p>
+<p>试试暴力筛？</p>
+<p>20分钟打了暴力过了大样例，但是复杂度过于玄学：</p>
+<p>$O(n^2 (\sum_{i=1}^{i&lt;=n}m/a[i])/k)\text{(k=玄学})$</p>
+<p>(谁能告诉我这怎么算啊。。。)</p>
+<p>一般来说跑不满，但感觉好像构造一下我就死了啊。。。</p>
+<p>造了些最大数据跑了跑：</p>
+<p>800 ms （还行还行）</p>
+<p>1000+ ms （。。。可能是巧合的数据）</p>
+<p>2000+ ms （woc什么鬼!!!∑(ﾟДﾟノ)ノ）</p>
+<p>之后一直稳定在1000~2000ms</p>
+<p>先放一放吧，能拿大部分分也行。</p>
+<p>看一看T3。</p>
+<p>读完题后：我觉得T2还能抢救一下（真香）。</p>
+<p>试着找一找哪里拖累了效率，输出调试了一些地方。</p>
+<p>诶这里怎么重复计算了这么多次？？</p>
+<p>改了一下又测了测,400~800 ms</p>
+<p>应该能过吧。。。</p>
+<p>还有一个小时多点，不太放心又搞数据测了测T1、T2。看到我测试T1效率的程序还在运行，上面一行行的程序运行时间还在不断显示着。顺手点了关闭。</p>
+<p>woc关不掉！数字停了但是窗口还在！(以前做题也遇见过这种BUG，记得那个程序开了一个星期直到我重启电脑)任务管理器也关不掉！</p>
+<p>监考老师会帮我解决。。。吧？</p>
+<p>没办法了先不管了，T3暴力都还没去打。又细读了一遍题理解了题意，再看数据范围顿时倍感友好，原来部分分这么多啊。</p>
+<p>但是我把两个样例解释搞混了，题意理解：输出最短路径长度—&gt;输出所有选出的路径长度之和。</p>
+<p>打完各种特殊情况感觉极其良好，也快结束了，检查了一下文件名什么的，之后监考老师说：把所有其他程序关掉，仅留下文件夹打开。</p>
+<p>。。。。</p>
+<p>于是大胆地举起了手：老师，我这个程序。。。它。。。关不掉。。。</p>
+<p>老师看了看我的电脑，用了我试过的一切办法——同样没关掉。</p>
+<p>她又看了看我的对拍程序。当时我继承了之前对拍的写法，图个乐呵把输入文件起名为”shit.in”</p>
+<p>老师（好像看到了什么）：啊，你这个只要不影响评测就行。</p>
+<p>就走了。</p>
+<p>（后来我再也没有用过shit.in当文件名）</p>
+<p>出考场后交流了一番，知道T3读错了题，应该只有10分仅找一条路径的情况能过</p>
+<p>T1真的是原题<del>（我 抄 我 自 己）</del></p>
+<p>T2是个完全背包？DP白练了。。。</p>
+<p>预计得分：$100+100+10=210$（可能T2会被卡掉一些分）</p>
+<p>下午感觉很累，和神仙们去了趟超市买了零食，坐在小广场上看<del>大型up主集会</del>鸽子群，听到各种奶图论奶数论的</p>
+<p>晚上无心学习，凑到一起玩谁是卧底（结果成了算法版谁是卧底？）</p>
+<p>大概十一点睡下了。睡前听到学长野兽先辈论。。。</p>
+<hr>
+<h1 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h1><p>一起来就感觉没啥状态，有点昏昏沉沉的。</p>
+<p>上了考场，看到一个人提一大兜子零食饮料（不下五包薯片三瓶饮料）的进去了，还有一个从兜里被扫出 $3$ 瓶薄荷糖和口香糖的人</p>
+<p>额…</p>
+<p>密码是笑书神侠。真的是缅怀金庸先生的啊</p>
+<p>看T4。</p>
+<p>诶图论？不对好像是棵树，好像又有不是树的（当时不知道基环树）</p>
+<p>想到了贪心+搜索的思路，不过只能跑前60分，后面的真的不会处理。。。</p>
+<p>而且没想到邻接矩阵存图，傻傻的用了邻接表，每次都暴力查询编号最小的点。</p>
+<p>算了过了吧看T5</p>
+<p>好不容易读懂题，看到数据范围 $n&lt;=8$ ，状压DP？终于到了我DP大显神威了吗？</p>
+<p>结果推了<strong>2小时</strong>，一直以为这就是个DP，错了是我方程有问题。</p>
+<p>最后放弃了。而且不知为啥，我以为爆搜复杂度高到爆炸，连$2*2$都过不去,所以就没写,把样例什么的弄了上去就跳了.</p>
+<p>就剩一小时了，有点小崩。看T6，是个动态DP？那个板子都是黑题的动态DP？</p>
+<p>不多想直接去拿部分分，写了个记忆化搜索，应该能过前七个点。</p>
+<p>剩下的时间百无聊赖地检查一下程序，消磨着时光就过去了。</p>
+<p>预计得分：$60+10+28=98$</p>
+<p>总得分: $210+98=308$</p>
+<p>拿省一有戏?</p>
+<p>吃完午饭又颓着回了家。</p>
+<p>下午就在家休息，结果从下午$5$点睡到了第二天早上</p>
+<p>于是令人身(累)心(得)舒(半)畅(死)的$NOIP$二日游就结束了</p>
+<hr>
+<h1 id="Day-出成绩"><a href="#Day-出成绩" class="headerlink" title="Day 出成绩"></a>Day 出成绩</h1><p>每个题和预料的一分不差</p>
+<p>T1没啥说的，感觉是运气的事？</p>
+<p>T2虽然A了，但还是有点失落没能想到背包，DP真的白练了</p>
+<p>T3我视力差认了，而且即使读对了也拿不了很多分</p>
+<p>T4好在邻接表没过分拖延效率，60分拿全了</p>
+<p>T5，所有题耗时最长，思维量最大，然而是唯一一道输出样例、而且分数最低的题（真的很嘲讽啊）</p>
+<p>T6也很难受，旁边的图论大神周神也写的暴力DP</p>
+<p>他的DP:</p>
+<pre><code class="lang-cpp">void dp(){
+    ...
+}
+</code></pre>
+<p>拿了44分</p>
+<p>我的:</p>
+<pre><code class="lang-cpp">int dp(){
+    ...
+    return ...;
+}
+</code></pre>
+<p>常数贼大，就28分。</p>
+<blockquote>
+<p>$update$：后来想想发现其实是我$DP$写假了。。。复杂度是错的</p>
+</blockquote>
+<p>虽说对分数比较满意，但我苦练的DP不仅没大用上，甚至拖低了分数（真的没练到家啊），有点小小的难受。</p>
+<p>$NOIP$的感觉很快就淡了下来，又回归到了文化课与OI五五开的局面，但是同时也为了省选而把重心往OI上偏了偏（即使知道没啥希望）。</p>
+<hr>
+<h1 id="Day-inf-1"><a href="#Day-inf-1" class="headerlink" title="Day inf"></a>Day inf</h1><p>一直想写一篇$NOIP$游记，不过没有<del>大型颓废时间</del>过多精力去写。</p>
+<p>我再没有写过游戏之类的，虽然也常常颓废，但还是更多去专注OI了吧（好像我现在就在颓啊。。。）</p>
+<p>$NOIP$后三个多月了，寒假之际去郑州培训。第七天晚上，一种颓废之情油然而生。</p>
+<p>突然有了念头,就把$NOIP$游记写了吧，虽然有些晚了。</p>
+<p>于是就有了这篇<del>又臭又长啰里啰嗦的</del>游记</p>
+<p>于是我又颓了一晚上</p>
+<p>于是你就看完了这篇游记</p>
+<p><del>于是loli可能就在你身旁：又不专心了？看什么呢？</del></p>
+
+            
+        </div>
+      </article>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre full previous">
+          
+            <a href="/2019/02/01/%E9%9A%8F%E6%9C%BA%E5%9B%BE%E7%89%87url%E6%95%B4%E5%90%88/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/sjtpurlzh.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/sjtpurlzh.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                随机图片url整合</h3>
+              </div>
+            </a>
+          </div>
+        
+        
+      </section> 
+    </main>
+</div>
+</div>
+</div>
+<div class="gather">
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz",
+        appKey: "jqULEjwlbvOCM08eEOpTIGOI",
+        path: window.location.pathname,
+		visitor: true,
+        placeholder: "日々私たちが过ごしている日常は、実は奇迹の连続なのかもしれない。"
+      })
+  }
+</script>
+
+</div>
+
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+
+<script>
+function imgInit(){
+	var imgs=document.getElementsByClassName('entry-content').item(0).getElementsByTagName('img');
+	for(var i=0;i<imgs.length;++i){
+		var element = document.createElement("a"),record=imgs[i],dsrc=record.getAttribute("data-src");
+		element.setAttribute("data-fancybox","gallery");
+    element.setAttribute("href",dsrc||imgs[i].src);
+		element.setAttribute("id","escape-link");
+		imgs[i].parentNode.appendChild(element);
+		imgs[i].parentNode.removeChild(imgs[i]);
+		element.appendChild(record);
+	}
+}
+var spoiler=document.getElementsByClassName('spoiler');
+for(var i=0;i<spoiler.length;++i)
+spoiler[i].onclick=function(){this.classList.toggle("revealed");};
+imgInit();
+</script>
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.6.7/articleload.gif">
+      </div>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Github Pages</a>
+        </span>
+		<!-- <span style="color: #b9b9b9;display:block">图片外链由<a href="https://img.fghrsh.net/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">FGHRSH图床</a>提供 -->
+        <!-- </span> -->
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.4/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.2/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<!-- <script src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/valine.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.1.4/js/volantis.min.js"></script>
+<script type="text/javascript">
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { 
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;ww">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

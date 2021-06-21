@@ -1,0 +1,2639 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">blogの搭建之sakura | ctz&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/googlefont.css" media="all">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_ndnjfmz11y9.css">
+  <style>
+  .emoji-coda {
+      display: inline-block !important;
+      position: relative;
+      width: 47px;
+      top: 2px;
+      margin: -3px 3px !important;
+      padding: 0;
+  }
+  </style>
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "ctz's blog";
+  mashiro_option.author_name = "ctz's blog";
+  mashiro_option.site_url = "https://ctz45562.github.io";
+  mashiro_option.v_appId = "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz";
+  mashiro_option.v_appKey = "jqULEjwlbvOCM08eEOpTIGOI";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index1.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index2.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index3.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index4.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index5.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index6.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index7.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.4/index8.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.9/index9.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
+    @import url("/code.css");
+  </style>
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed;bottom:64px;left:28px;"> 
+  <div class="theme-controls row-container"> 
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> background <i style="color:grey" class="fa fa-chevron-right"></i></p>
+    <ul class="menu-list"> 
+	  <li id="white-bg"> 
+	    <i class="fa fa-television">
+		</i>
+	  </li> 
+	<li id="sakura-bg"> 
+      <i class="iconfont icon-sakura">
+	  </i>
+	</li> 
+    <li id="gribs-bg"> 
+      <i class="fa fa-slack">
+	  </i>
+    </li> 
+    <li id="KAdots-bg"> 
+      <i class="iconfont icon-dots">
+      </i>
+    </li> 
+    <li id="totem-bg"> 
+      <i class="fa fa-optin-monster">
+      </i>
+    </li> 
+    <li id="pixiv-bg"> 
+      <i class="fa fa-star">
+	  </i>
+      </li> 
+    <li id="bing-bg"> 
+      <i class="fa fa-picture-o">
+	  </i>
+    </li> 
+    <li id="dark-bg"> 
+      <i class="fa fa-moon-o">
+      </i>
+    </li> 
+  </ul> 
+  </div > 
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> font <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="font-family-controls row-container">
+    <button type="button" class="control-btn-serif " data-mode="serif" onclick="mashiro_global.font_control.change_font()">Serif</button>
+    <button type="button" class="control-btn-sans-serif" data-mode="sans-serif" onclick="mashiro_global.font_control.change_font()">Sans Serif</button>
+  </div>
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> script <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="theme-controls row-container">
+  <ul class="menu-list">
+  <style>li>.ctz{font-size: 21px;}</style>
+	<li id="empty-effect">
+	  <i class="ctz ctz-jinzhi">
+	  </i>
+	</li>
+	<li id="sakura-rain-effect">
+	  <i class="ctz ctz-huaxiang">
+	  </i>
+	</li>
+	<li id="snowy-effect">
+	  <i class="ctz ctz-snow">
+	  </i>
+	</li>
+	<li id="lines-effect">
+	  <i class="ctz ctz-xianlu">
+	  </i>
+	</li>
+	<li id="colorful-belts-effect">
+	  <i class="ctz ctz-caidai"></i>
+	  </i>
+	</li>
+	<li id="words-rain-effect">
+	  <i class="ctz ctz-zimuletters2"></i>
+	</li>
+	<li id="point-rain-effect">
+	  <i class="ctz ctz-diandiandian" style="font-size:19px"></i>
+	</li>
+	<li id="rain-drop-effect">
+	  <i class="ctz ctz-yu"></i>
+	</li>
+  </ul>
+  </div>
+<canvas id="night-mode-cover">
+</canvas>
+</div> 
+  <div class="changeSkin-gear no-select" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; visibility: visible; bottom: 0px;"> 
+  <div class="keys" id="setbtn"> 
+    <button id="open-skinMenu">
+		<style>
+		button#open-skinMenu{
+			transition: all 0.2s linear 0s;
+			outline:none;
+			position:fixed;
+			bottom:12px;
+			left:13px;
+			font-size:16px;
+			background-color: rgba(255,255,255,.95);
+			border-radius: 20px;
+			box-shadow: 0 3px 8px 0 rgba(0,0,0,0.1), 0 3px 8px 0 rgba(0,0,0,0.1);
+		}
+		button#open-skinMenu:hover{
+			transition: all 0.2s linear 0s;
+			background-color: #2f98fc;
+			color: rgba(255,255,255);
+		}
+		</style>
+		<i class="iconfont icon-gear inline-block rotating">
+	  </i> 
+		SCHEME TOOL | 主题工具 
+	</button>
+  </div> 
+</div>
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dim">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://ctz45562.github.io">
+          <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Re&amp;Re</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://www.luogu.com.cn/user/111762" target="_blank" class="social-github" title="洛谷">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/social/luogu.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://github.com/ctz45562" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/github.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="mailto:cctz45562@163.com" target="_blank" class="social-github" title="e-mail">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/mail.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://space.bilibili.com/229790690" target="_blank" class="social-github" title="bilibili">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/bilibili.jpg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <!-- <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+ -->
+      <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.0/tocbot.css">
+<div class="pattern-center-blank"></div>
+<div class="gather">
+
+  <div class="pattern-center-sakura single-center">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/blogddjzsakura.jpg);" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/blogddjzsakura.jpg">
+    </div>
+    <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
+      <h1 class="entry-title">
+      blogの搭建之sakura</h1>
+      <p class="entry-census">
+	    <span><a href="https://ctz45562.github.io"><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg" style="margin-right:4px">ctz</a>
+        </span>
+		<span class="bull"></span>
+		&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp
+        2019-6-4
+    <span class="bull"></span>
+    
+      <span><i class="fa fa-archive"></i> 分类于  
+        <span class="article-category"><a href="/categories/%E9%A2%93/" > 颓</a></span>
+      
+    </span>
+    
+    <span class="bull"></span>
+		<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id='/2019/06/04/blogの搭建之sakura/' class="leancloud-visitors" data-flag-title="blogの搭建之sakura">
+        <a class="leancloud-visitors-count text-cursor">loading...</a>
+        <a class="post-meta-item-text text-cursor"> 次阅读</a>
+        </span>
+      </p>
+	  
+      
+    <div>
+		  <ul class="spfk-ul">
+		    &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<li class="spfk-li"><span class="triangle"></span><a href="/tags/blog/" class="butterfly-tags">blog</a></li>
+          </ul>
+		</div>
+		<script>
+			function colorInit(c,num){for(var i=1;i<=num;++i)c.push(i+'');}
+			function paintTags(){
+				var colorNumber=8,tagColors=[],tags=document.getElementsByClassName('spfk-li');
+				for(var i = 0 ; i < tags.length ; ++i){
+					if(!tagColors.length)colorInit(tagColors,colorNumber);
+					var j=Math.floor(Math.random()*tagColors.length);
+					tags[i].classList.add("spfk-color"+tagColors[j]);
+					tagColors.splice(j,1);
+        }
+			}
+			paintTags()
+		</script>
+    
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="gather toc" style="width:230px"></div>
+        
+        <div class="entry-content">
+          <p>索引：<a href="/2019/03/21/blogの搭建/">blogの搭建之next</a></p>
+<p>不知不觉已经有两千多行了啊。。。<del>虽然大部分是代码</del></p>
+<p>甚至还有很多小地方我没写进去。如果当初搞一个更新日志的话，现在至少得有一百多条了吧。</p>
+<a id="more"></a>
+<hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>很久以前在一个<code>wordpress</code>博客上看到了$sakura$主题，很对我口味。</p>
+<p>然而我是<code>hexo</code>博客，不想转到<code>wordpress</code>上<del>我现在也没钱买服务器</del>，于是默默收藏了起来，要是以后我用<code>wordpress</code>就用这个主题。</p>
+<p>前几天没事翻了翻<code>hexo</code>的主题，居然发现有人把$sakura$搬到了<code>hexo</code>上。</p>
+<p>于是果断抛弃$next$立刻用了四天时间转到$sakura$主题并大量魔改，追求足够美观而尽量精简。</p>
+<p>$sakura$很多配置当然比不上懒人必备的$next$，存在着很多能魔改的地方<del>给了我颓废的契机</del>，但教程实在是少。</p>
+<p>只能凭借少量的教程、自己的$YY$和半吊子现学现卖的<code>html,css,js</code>来搞。<del>（以及抄袭+搬代码）</del></p>
+<p>本文记录我修改$sakura$主题的过程（也算是个教程），<strong>其中部分内容同样适用于其他<code>hexo</code>主题</strong>。同时声明一点：我会写在这里面的都是<strong>网上没有教程或难以找到的东西，常见的问题还是请找万能百度或更万能的谷歌</strong>。</p>
+<p>在我退役前会不定期更新。</p>
+<p>感谢以下教程对我的帮助：</p>
+<blockquote>
+<p><a href="https://github.com/honjun/hexo-theme-sakura/blob/master/README-zh_cn.md" target="_blank" rel="noopener">https://github.com/honjun/hexo-theme-sakura/blob/master/README-zh_cn.md</a></p>
+<p><a href="https://yremp.club/2019/05/26/teach/" target="_blank" rel="noopener">https://yremp.club/2019/05/26/teach/</a></p>
+<p><a href="https://blog.csdn.net/u014630987/article/details/78670258" target="_blank" rel="noopener">https://blog.csdn.net/u014630987/article/details/78670258</a></p>
+<p><a href="http://moxfive.xyz/2015/10/25/hexo-tag-cloud/" target="_blank" rel="noopener">http://moxfive.xyz/2015/10/25/hexo-tag-cloud/</a></p>
+<p><a href="https://github.com/wizardforcel/hexo-theme-landfarz/blob/master/layout/_partial/post/tag.ejs" target="_blank" rel="noopener">https://github.com/wizardforcel/hexo-theme-landfarz/blob/master/layout/_partial/post/tag.ejs</a></p>
+<p><a href="https://yremp.live/sakura-js/" target="_blank" rel="noopener">https://yremp.live/sakura-js/</a></p>
+<p><a href="https://www.tomori.xyz/2019/06/15/emojis-plug-in-unit-for-bilibili/" target="_blank" rel="noopener">https://www.tomori.xyz/2019/06/15/emojis-plug-in-unit-for-bilibili/</a></p>
+<p><a href="https://zxsama.top/7990d08f" target="_blank" rel="noopener">https://zxsama.top/7990d08f</a></p>
+</blockquote>
+<p>也感谢<code>wordpress</code>作者<a href="https://2heng.xin/" target="_blank" rel="noopener">mashiro</a>和<code>hexo</code>作者<a href="https://www.hojun.cn/" target="_blank" rel="noopener">hojun</a>创造出$sakura$这一主题以及<a href="https://tian-xing.github.io" target="_blank" rel="noopener">Tian-Xing</a>对本文的纠错。</p>
+<p><img src="\images\blogの搭建之sakura-1.png" alt=""></p>
+<hr>
+<h1 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h1><h2 id="Mathjax"><a href="#Mathjax" class="headerlink" title="Mathjax"></a>Mathjax</h2><h3 id="纠错"><a href="#纠错" class="headerlink" title="纠错"></a>纠错</h3><p><code>markdown</code>与$\LaTeX$冲突会导致公式渲染出错，尤其是两个下划线会被转移成斜体。</p>
+<p>之前用$next$的时候是通过修改<code>kramed</code>源文件解决的，于是还是选择把<code>hexo-renderer-marked</code>换成<code>hexo-renderer-kramed</code>，请自行用<code>npm</code>安装。</p>
+<p>在<code>\node_modules\kramed\lib\rules\inline.js</code> 中，第$11$行：</p>
+<pre><code class="lang-diff">-  escape: /^\\([\\`*{}\[\]()#$+\-.!_&gt;])/,
++  escape: /^\\([`*\[\]()#$+\-.!_&gt;])/,
+</code></pre>
+<p>第$20$行：</p>
+<pre><code class="lang-diff">-  em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
++  em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
+</code></pre>
+<h3 id="加速"><a href="#加速" class="headerlink" title="加速"></a>加速</h3><p>一般$mathjax$源都是$cloudflare$，然而是国外的，速度怎么样我放张图自己体会：</p>
+<p><img src="\images\blogの搭建之sakura-4.png" alt=""></p>
+<p>（<a href="https://ping.chinaz.com/" target="_blank" rel="noopener">测速工具</a>）</p>
+<p>于是我把源换成了国内的$bootcdn$：</p>
+<p>在<code>\themes\sakura\layout\_widget\common-article.ejs</code>中，修改：</p>
+<pre><code class="lang-diff">-  &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML&quot;&gt;&lt;/script&gt;
++   &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.bootcss.com/mathjax/2.7.6/latest.js?config=TeX-MML-AM_CHTML&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>在<code>\themes\sakura\source\js\sakura-app.js</code>中，修改：</p>
+<pre><code class="lang-diff">-         $.getScript(&#39;//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML&#39;, function () {
++         $.getScript(&#39;https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML&#39;, function () {
+</code></pre>
+<p>再 放 送：</p>
+<p><img src="\images\blogの搭建之sakura-5.png" alt=""></p>
+<h2 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h2><p>刚用的时候代码框十分诡异而且压根就没有高亮。找了几种方法并不可行。</p>
+<p>最后发现应该是$hexo$自带的高亮冲突了，只要把站点配置文件中：</p>
+<pre><code>highlight:
+  enable: true
+</code></pre><p>$true$改为$false$就行了。</p>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>搜索一直不能用啊。。。</p>
+<p>经过一晚上的配置毫无进展，最后在$hexo$博客群里问了下$dalao$，就是少了个插件。</p>
+<p><code>git bash</code>中执行：</p>
+<pre><code class="lang-bash">npm install hexo-generator-json-content --save
+</code></pre>
+<h2 id="Fancybox"><a href="#Fancybox" class="headerlink" title="Fancybox"></a>Fancybox</h2><blockquote>
+<p>update on 2020.1.12：</p>
+<p>去$sakura$的<code>github</code>页面发现其实已经配置好$Fancybox$了。。。只需要以<code>｛% fb_img src caption %｝</code>的格式引用即可。其中<code>src</code>为地址，<code>caption</code>为描述（可以不加）。</p>
+<p>不过这样是没法通过内嵌<code>html</code>自定义图片样式的，还是需要自己配置。</p>
+</blockquote>
+<p>$Fancybox$就是那个点击图片进行幻灯片放映所有图片的东西。</p>
+<p>$sakura$其实已经引入了$Fancybox$的<code>js</code>和<code>css</code>了，但是图片没有处理成对应的格式。</p>
+<p>在<code>\themes\sakura\layout\_widget\common-article.ejs</code>中添加：</p>
+<pre><code class="lang-html">&lt;script&gt;
+function imgInit(){
+    var imgs=document.getElementsByClassName(&#39;entry-content&#39;).item(0).getElementsByTagName(&#39;img&#39;),dsrc=record.getAttribute(&quot;data-src&quot;);
+    for(var i=0;i&lt;imgs.length;++i){
+        var element = document.createElement(&quot;a&quot;),record=imgs[i];
+        element.setAttribute(&quot;data-fancybox&quot;,&quot;gallery&quot;);
+        element.setAttribute(&quot;href&quot;,dsrc||imgs[i].src);
+        imgs[i].parentNode.appendChild(element);
+        imgs[i].parentNode.removeChild(imgs[i]);
+        element.appendChild(record);
+    }
+}
+imgInit();
+&lt;/script&gt;
+</code></pre>
+<h2 id="添加-lt-more-gt-支持"><a href="#添加-lt-more-gt-支持" class="headerlink" title="添加&lt;!--more--&gt;支持"></a>添加<code>&lt;!--more--&gt;</code>支持</h2><p>作为$next$前用户，我很喜欢<code>&lt;!--more--&gt;</code>的便捷性。</p>
+<p>简单来说，<code>&lt;!--more--&gt;</code>截取了文章开头，以其原本的亚子显示。</p>
+<p>然而$sakura$是不支持的，只能用<code>description</code>属性，不支持<code>markdown</code>和$\LaTeX$。</p>
+<p>经过我的<del>瞎改</del>努力钻研，终于搞出来了。</p>
+<h3 id="主页"><a href="#主页" class="headerlink" title="主页"></a>主页</h3><h4 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h4><p>在<code>\themes\sakura\layout\_widget\index-items.ejs</code>中找到：</p>
+<pre><code class="lang-html">      &lt;div class=&quot;float-content&quot;&gt;
+</code></pre>
+<p>删除下面的：</p>
+<pre><code class="lang-html">        &lt;p style=&quot;text-align:left&quot;&gt;&lt;%= post.description %&gt;&lt;/p&gt;
+        &lt;div class=&quot;post-bottom&quot;&gt;
+          &lt;a href=&quot;&lt;%- url_for(post.path) %&gt;&quot; class=&quot;button-normal&quot;&gt;
+            &lt;i class=&quot;iconfont icon-caidan&quot;&gt;&lt;/i&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+</code></pre>
+<p>在上面添加：</p>
+<pre><code class="lang-html">          &lt;% if(post.excerpt) { %&gt;
+        &lt;div class=&quot;readmore&quot;&gt;
+          &lt;%- post.excerpt %&gt;
+         &lt;/div&gt;
+        &lt;% } else { %&gt;
+        &lt;p style=&quot;text-align:left&quot;&gt;&lt;%= post.description %&gt;&lt;/p&gt;
+        &lt;% } %&gt;
+</code></pre>
+<h4 id="配置样式"><a href="#配置样式" class="headerlink" title="配置样式"></a>配置样式</h4><p>在<code>\themes\sakura\sourcr\css\style.css</code>中，添加：</p>
+<pre><code class="lang-css">.readmore{
+    text-align:left;
+    position:relative;
+    margin-top:10px;
+}
+.readmore a {
+    color:#08f;
+    text-decoration:underline dotted rgba(0,0,0,.1)
+}
+.readmore a:hover {
+    color:#05f !important;
+    text-decoration:underline #05f
+}
+.readmore p {
+    color:#5c5c5c;
+    line-height:27px;
+    margin: 0;
+}
+.readmore hr {
+    margin-top:40px;
+    margin-bottom:40px;
+    display:block;
+    border:0;
+    text-align:center;
+    background:none
+}
+.readmore hr:before {
+    display:inline-block;
+    margin-left:.6em;
+    color:rgba(0,0,0,.8);
+    position:relative;
+    top:-30px;
+    font-size:28px;
+    letter-spacing:.6em
+}
+.readmore img{transform:none!important;}
+.readmore blockquote {
+    margin-bottom: 10px;
+    padding:10px 15px;
+    border-radius: 1.3rem;
+}
+.readmore blockquote:before {
+    font-size:1.2rem;
+    top:-5px;
+    left:-2px;
+}
+.readmore blockquote:after {
+    font-size:1.2rem;
+    bottom:-15px;
+    right:0px;
+}
+</code></pre>
+<p>这里我只添加了<code>&lt;a&gt;,&lt;p&gt;,&lt;hr&gt;,&lt;blockquote&gt;</code>的样式和对<code>&lt;img&gt;</code>$BUG$的修复，其他有需要的得把<code>.entry-content</code>的搬过来。</p>
+<p>这样有<code>&lt;!--more--&gt;</code>标签的会优先显示，否则显示<code>description</code>。</p>
+<h4 id="js支持"><a href="#js支持" class="headerlink" title="js支持"></a>js支持</h4><p>一些仅用于文章里的<code>js</code>例如$\LaTeX$也要作用于<code>&lt;!--more--&gt;</code>。</p>
+<p>以$\LaTeX$为例：</p>
+<p>添加到<code>\themes\sakura\layout\index.ejs</code>中。</p>
+<pre><code class="lang-html">  &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/x-mathjax-config&quot;&gt;
+    MathJax.Hub.Config({tex2jax: {inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]]}});
+  &lt;/script&gt;
+</code></pre>
+<p>其他的例如$Fancybox$和下文的模糊字体请自行添加。</p>
+<h4 id="解决「显示更多」js不加载问题"><a href="#解决「显示更多」js不加载问题" class="headerlink" title="解决「显示更多」js不加载问题"></a>解决「显示更多」js不加载问题</h4><p>这里用了个非常丑陋的方法：暴力设定时器。也懒得改了。</p>
+<p>在<code>\themes\sakura\source\sakura-app.js</code>中找到函数：</p>
+<pre><code class="lang-javascript">mashiro_global.post_list_show_animation = new function () {
+</code></pre>
+<p>整个修改为：</p>
+<pre><code class="lang-javascript">var previousFlag=false;
+mashiro_global.post_list_show_animation = new function () {
+  this.ini = function (ajax) {
+    $(&#39;article.post-list-thumb&#39;).each(function (i) {
+      if (ajax) {
+        var window_height = $(window).height()
+      } else {
+        if ($(&#39;.headertop&#39;).hasClass(&#39;headertop-bar&#39;)) {
+          var window_height = 0
+        } else {
+          var window_height = $(window).height() - 300
+        }
+      }
+      if (!mashiro_global.landing_at_home) {
+        window_height += 300
+      }
+      var article_height = $(&#39;article.post-list-thumb&#39;).eq(i).offset().top
+      if ($(window).height() + $(window).scrollTop() &gt;= article_height) {
+        $(&#39;article.post-list-thumb&#39;).eq(i).addClass(&#39;post-list-show&#39;)
+        previousFlag=true;
+      }
+      $(window).scroll(function () {
+        var scrolltop = $(window).scrollTop()
+        if (scrolltop + window_height &gt;= article_height &amp;&amp; scrolltop) {
+          $(&#39;article.post-list-thumb&#39;).eq(i).addClass(&#39;post-list-show&#39;)        
+          previousFlag=true;
+        }
+      })
+    })
+  }
+}()
+setInterval(function(){
+if(previousFlag &amp;&amp; MathJax){
+    previousFlag=false;
+    if(MathJax)MathJax.Hub.Queue([&quot;Typeset&quot;, MathJax.Hub]);
+}
+},1000);
+</code></pre>
+<p>其他的请自行添加到定时器<code>setInterval</code>里。</p>
+<h3 id="文章列表"><a href="#文章列表" class="headerlink" title="文章列表"></a>文章列表</h3><p>文章列表用<code>&lt;!--more--&gt;</code>截断会比较丑陋，空白区域太小了还不支持换行。</p>
+<p>一开始我保留了<code>desciription</code>，但因为两者差距太大了，主页和文章列表无法统一。我强迫症犯了，直接暴力解决：删掉文章描述！</p>
+<p>光删掉之后太空荡了，于是用文章信息如日期、分类、标签代替了，右上角的日期就去掉了。</p>
+<p>在<code>\themes\sakura\layout\_widget\category-items.ejs</code>中，找到：</p>
+<pre><code class="lang-html">  &lt;div class=&quot;p-time&quot;&gt;
+      &lt;i class=&quot;iconfont icon-time&quot;&gt;
+      &lt;/i&gt;
+    &lt;%= date(post.date, &#39;YYYY-M-D&#39;) %&gt;&lt;/div&gt;
+</code></pre>
+<p>替换为：</p>
+<pre><code class="lang-html">&lt;div class=&quot;category-meta&quot; style=&quot;margin:8px 0 0 17.4%&quot;&gt;
+        &lt;span&gt;&lt;i class=&quot;fa fa-calendar&quot;&gt;&lt;/i&gt;&amp;nbsp;
+          &lt;%= date(post.date, &#39;YYYY-M-D&#39;) %&gt;&lt;/span&gt;&lt;em&gt;·&lt;/em&gt;
+        &lt;span&gt;
+        &lt;i class=&quot;fa fa-archive&quot;&gt;&lt;/i&gt;&amp;nbsp;
+        &lt;% post.categories.each((category)=&gt;{ %&gt;
+          &lt;a href=&quot;&lt;%- url_for(category.path) %&gt;&quot; class=&quot;set-color&quot;&gt;&lt;%= category.name %&gt;&lt;em&gt;·&lt;/em&gt;&lt;/a&gt;
+        &lt;% }) %&gt;
+        &lt;/span&gt;
+        &lt;span&gt;&lt;i class=&quot;fa fa-tags&quot;&gt;&lt;/i&gt;
+        &lt;% post.tags.each((tag)=&gt;{ %&gt;
+            &lt;a href=&quot;&lt;%- url_for(tag.path) %&gt;&quot; class=&quot;set-color&quot;&gt;&lt;%= tag.name %&gt;&lt;em&gt;·&lt;/em&gt;&lt;/a&gt;
+          &lt;% }) %&gt;
+        &lt;/span&gt;
+        &lt;style&gt;
+        .set-color:hover{color: #3ca0ff;}
+        &lt;/style&gt;
+      &lt;/div&gt;
+</code></pre>
+<p>其中<code>&lt;style&gt;</code>里面规定了链接颜色，我用的自己的主题色，需要自行修改（默认为<code>orange</code>）。</p>
+<p>在<code>\themes\sakura\source\css\style.css</code>中，添加：</p>
+<pre><code class="lang-css">.category-meta,.category-meta a {
+    color:#888;
+    font-size:13px
+}
+.category-meta em {
+    margin: 0 5px;
+    color: #666;
+}
+</code></pre>
+<hr>
+<h1 id="大清洗"><a href="#大清洗" class="headerlink" title="大清洗"></a>大清洗</h1><p>为了追求简洁，去掉了不少东西。</p>
+<h2 id="网易云播放器"><a href="#网易云播放器" class="headerlink" title="网易云播放器"></a>网易云播放器</h2><p>目前我并不想把音乐放到$blog$上，留着影响加载速度。</p>
+<p>在<code>\themes\sakura\layout\layout.ejs</code>里注释掉下面这两行：</p>
+<pre><code class="lang-html">  &lt;%- partial(&#39;_partial/mheader&#39;, null, {cache: !config.relative_link}) %&gt;
+  &lt;%- partial(&#39;_partial/aplayer&#39;, null, {cache: !config.relative_link}) %&gt;
+</code></pre>
+<p>这样就可以了。如果想再精简的话可以在<code>\themes\sakura\source\css\style.css</code>里注释掉有关<code>aplayer</code>的部分。</p>
+<h2 id="主页的视频功能"><a href="#主页的视频功能" class="headerlink" title="主页的视频功能"></a>主页的视频功能</h2><p>主页右下角有一个播放键，可以放上视频播放的。</p>
+<p>显然我用不着。。。</p>
+<p>在<code>\themes\sakura\layout\_partial\headertop.ejs</code>中<strong>只</strong>注释掉下面这两行：</p>
+<pre><code class="lang-html">    &lt;div id=&quot;video-btn&quot; class=&quot;loadvideo videolive&quot;&gt;
+    &lt;/div&gt;
+</code></pre>
+<p>不知道为啥注释掉其他有关<code>video</code>的部分会出现一些神奇的$bug$</p>
+<h2 id="打赏和转载"><a href="#打赏和转载" class="headerlink" title="打赏和转载"></a>打赏和转载</h2><p>在<code>\themes\sakura\layout\_widget\common-articles.ejs</code>中注释掉以下部分：</p>
+<pre><code class="lang-html">&lt;div class=&quot;single-reward&quot;&gt;
+  &lt;div class=&quot;reward-open&quot;&gt;赏&lt;div class=&quot;reward-main&quot;&gt;
+    &lt;ul class=&quot;reward-row&quot;&gt;
+      &lt;li class=&quot;alipay-code&quot;&gt;&lt;img src=&quot;&lt;%- (theme.cdn || &#39;&#39;) + theme.donate.alipay%&gt;&quot;&gt;&lt;/li&gt;
+      &lt;li class=&quot;wechat-code&quot;&gt;&lt;img src=&quot;&lt;%- (theme.cdn || &#39;&#39;) + theme.donate.wechat%&gt;&quot;&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;text-align:center; width: 100%&quot; class=&quot;social-share share-mobile&quot; data-disabled=&quot;diandian, tencent&quot;&gt;&lt;/div&gt;
+&lt;footer class=&quot;post-footer&quot;&gt;
+  &lt;div class=&quot;post-lincenses&quot;&gt;&lt;a href=&quot;https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;&lt;i class=&quot;fa fa-creative-commons&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议&lt;/a&gt;&lt;/div&gt;
+  &lt;div class=&quot;post-tags&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;post-share&quot;&gt;
+  &lt;div class=&quot;social-share sharehidden share-component&quot;&gt;&lt;/div&gt;
+  &lt;i class=&quot;iconfont show-share icon-forward&quot;&gt;&lt;/i&gt;
+&lt;/div&gt;
+&lt;/footer&gt;&lt;!-- .entry-footer --&gt;
+</code></pre>
+<h2 id="复制附加版权信息"><a href="#复制附加版权信息" class="headerlink" title="复制附加版权信息"></a>复制附加版权信息</h2><p>复制的时候会额外加上一段“著作权归作者所有。。。”，很不方便。</p>
+<p>在<code>\themes\sakura\source\js\sakura-app.js</code>中找到：</p>
+<pre><code class="lang-javascript">    var htmlData = &#39;&#39; + &#39;著作权归作者所有。&lt;br&gt;&#39; + &#39;商业转载请联系作者获得授权，非商业转载请注明出处。&lt;br&gt;&#39; + &#39;作者：&#39; + mashiro_option.author_name + &#39;&lt;br&gt;&#39; + &#39;链接：&#39; + window.location.href + &#39;&lt;br&gt;&#39; + &#39;来源：&#39; + mashiro_option.site_name + &#39;&lt;br&gt;&lt;br&gt;&#39; + window.getSelection().toString().replace(/\r\n/g, &#39;&lt;br&gt;&#39;)
+    var textData = &#39;&#39; + &#39;著作权归作者所有。\n&#39; + &#39;商业转载请联系作者获得授权，非商业转载请注明出处。\n&#39; + &#39;&#39; + mashiro_option.author_name + &#39;\n&#39; + &#39;链接：&#39; + window.location.href + &#39;\n&#39; + &#39;来源：&#39; + mashiro_option.site_name + &#39;\n\n&#39; + window.getSelection().toString().replace(/\r\n/g, &#39;\n&#39;)
+</code></pre>
+<p>改为：</p>
+<pre><code class="lang-javascript">    var htmlData = window.getSelection()
+    var textData = window.getSelection()
+</code></pre>
+<p>如果要去掉复制成功的信息的话删去：</p>
+<pre><code class="lang-javascript">      addComment.createButterbar(&#39;复制成功！&lt;br&gt;Copied to clipboard successfully!&#39;, 1000)
+</code></pre>
+<h2 id="页面底部版权信息和转发功能"><a href="#页面底部版权信息和转发功能" class="headerlink" title="页面底部版权信息和转发功能"></a>页面底部版权信息和转发功能</h2><p>在<code>\themes\sakura\layout\_partial\footer.ejs</code>中，注释掉：</p>
+<pre><code class="lang-html">  &lt;p style=&quot;color: #666666;&quot;&gt;&amp;copy 2018&lt;/p&gt;
+</code></pre>
+<p>在<code>\themes\sakura\layout\_widget\common-page.ejs</code>中，删除：</p>
+<pre><code class="lang-html">      &lt;footer class=&quot;post-footer&quot;&gt;
+        &lt;div class=&quot;post-lincenses&quot;&gt;&lt;a href=&quot;https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;&lt;i class=&quot;fa fa-creative-commons&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议&lt;/a&gt;&lt;/div&gt;
+        &lt;div class=&quot;post-tags&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;post-share&quot;&gt;
+          &lt;div class=&quot;social-share sharehidden share-component&quot;&gt;&lt;/div&gt;
+          &lt;i class=&quot;iconfont show-share icon-forward&quot;&gt;&lt;/i&gt;
+        &lt;/div&gt;
+      &lt;/footer&gt;&lt;!-- .entry-footer --&gt;
+    &lt;/article&gt;
+      &lt;!-- #post-## --&gt;
+      &lt;section class=&quot;author-profile&quot;&gt;
+        &lt;div class=&quot;info&quot; itemprop=&quot;author&quot; itemscope=&quot;&quot; itemtype=&quot;http://schema.org/Person&quot;&gt;
+          &lt;a href=&quot;/about/&quot; class=&quot;profile gravatar&quot;&gt;&lt;img src=&quot;&lt;%- (theme.cdn || &#39;&#39;) + theme.avatar%&gt;&quot; itemprop=&quot;image&quot; alt=&quot;&lt;%- theme.siteName %&gt;&quot; height=&quot;70&quot; width=&quot;70&quot;&gt;&lt;/a&gt;
+          &lt;div class=&quot;meta&quot;&gt;
+            &lt;span class=&quot;title&quot;&gt;Author&lt;/span&gt;
+            &lt;h3 itemprop=&quot;name&quot;&gt;
+            &lt;a href=&quot;&lt;%- theme.url%&gt;&quot; itemprop=&quot;url&quot; rel=&quot;author&quot;&gt;&lt;%- theme.siteName %&gt;&lt;/a&gt;
+            &lt;/h3&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;hr&gt;
+        &lt;p&gt;&lt;i class=&quot;iconfont icon-write&quot;&gt;&lt;/i&gt;&lt;%- theme.description%&gt;&lt;/p&gt;
+      &lt;/section&gt;
+</code></pre>
+<h2 id="代码框打开功能"><a href="#代码框打开功能" class="headerlink" title="代码框打开功能"></a>代码框打开功能</h2><p>点击代码框的标题会全屏显示代码，感觉很影响阅读体验。</p>
+<p>在<code>\themes\sakura\source\js\sakura-app.js</code>中，注释掉：</p>
+<pre><code class="lang-javascript">  $(&#39;pre&#39;).on(&#39;click&#39;, function (e) {
+    if (e.target !== this) return
+    $(this).toggleClass(&#39;code-block-fullscreen&#39;)
+    $(&#39;html&#39;).toggleClass(&#39;code-block-fullscreen-html-scroll&#39;)
+  })
+</code></pre>
+<hr>
+<h1 id="外观美化"><a href="#外观美化" class="headerlink" title="外观美化"></a>外观美化</h1><h2 id="个性化css"><a href="#个性化css" class="headerlink" title="个性化css"></a>个性化css</h2><p>$next$有一个<code>custom.styl</code>文件可以自己写$css$，于是给$sakura$搞了一个。</p>
+<p>其实很简单，在<code>\themes\sakura\source</code>下新建一个<code>code.css</code>的文件，在<code>\themes\sakura\layout\layout.ejs</code>中第二行<code>&lt;body class=&quot;...&quot;&gt;</code>下面添加：</p>
+<pre><code class="lang-html">  &lt;style type=&quot;text/css&quot;&gt;
+    @import url(&quot;/code.css&quot;);
+  &lt;/style&gt;
+</code></pre>
+<p>就可以在<code>code.css</code>里编辑$css$啦。比如改鼠标样式、字体都可以在里面搞。</p>
+<h2 id="主题工具"><a href="#主题工具" class="headerlink" title="主题工具"></a>主题工具</h2><p>就是左下角那个。</p>
+<p>这玩意我研究了很长时间。也非常实用，在保留简洁性的前提下给访客高度的个性化能力。</p>
+<h3 id="添加-1"><a href="#添加-1" class="headerlink" title="添加"></a>添加</h3><p>在<code>themes\sakura\layout\layout.ejs</code>中：</p>
+<pre><code class="lang-html">  &lt;div class=&quot;scrollbar&quot; id=&quot;bar&quot;&gt;
+  &lt;/div&gt;
+</code></pre>
+<p>前面添加：</p>
+<pre><code class="lang-html"> &lt;%- partial(&#39;_partial/setdisplay&#39;) %&gt; 
+ &lt;%- partial(&#39;_partial/set&#39;, null, {cache: !config.relative_link}) %&gt;
+</code></pre>
+<p>原版是在<code>&lt;%- partial(&#39;_partial/mheader&#39;, null, {cache: !config.relative_link}) %&gt;</code>前添加的，但要这样字体切换会出$bug$。</p>
+<p>在<code>\themes\sakura\layout\_partial</code>中新建<code>set.ejs</code>，内容：</p>
+<pre><code class="lang-html">&lt;div class=&quot;changeSkin-gear no-select&quot;&gt; 
+    &lt;div class=&quot;keys&quot; id=&quot;setbtn&quot;&gt; 
+        &lt;span id=&quot;open-skinMenu&quot;&gt; 
+            SCHEME TOOL | 主题工具 &amp;nbsp;
+            &lt;i class=&quot;iconfont icon-gear inline-block rotating&quot;&gt;
+            &lt;/i&gt; 
+        &lt;/span&gt;
+    &lt;/div&gt; 
+&lt;/div&gt;
+</code></pre>
+<p>新建<code>setdisplay.ejs</code>，内容：</p>
+<pre><code class="lang-html">&lt;div class=&quot;skin-menu no-select&quot; id=&quot;mainskin&quot; style=&quot;position: fixed&quot;&gt; 
+    &lt;div class=&quot;theme-controls row-container&quot;&gt;
+          &lt;p style=&quot;text-align:center;font-family:&#39;Monaco&#39;;font-weight:bold;color:#444&quot;&gt;&lt;i style=&quot;color:grey&quot; class=&quot;fa fa-chevron-left&quot;&gt;&lt;/i&gt; background &lt;i style=&quot;color:grey&quot; class=&quot;fa fa-chevron-right&quot;&gt;&lt;/i&gt;&lt;/p&gt;
+        &lt;ul class=&quot;menu-list&quot;&gt; &lt;li id=&quot;white-bg&quot;&gt; 
+            &lt;i class=&quot;fa fa-television&quot; aria-hidden=&quot;true&quot;&gt;
+            &lt;/i&gt;
+            &lt;/li&gt; 
+            &lt;li id=&quot;sakura-bg&quot;&gt; 
+                &lt;i class=&quot;iconfont icon-sakura&quot;&gt;
+                &lt;/i&gt;
+            &lt;/li&gt;
+            &lt;li id=&quot;gribs-bg&quot;&gt;
+                &lt;i class=&quot;fa fa-slack&quot; aria-hidden=&quot;true&quot;&gt;
+                &lt;/i&gt;
+            &lt;/li&gt;
+            &lt;li id=&quot;KAdots-bg&quot;&gt;
+                &lt;i class=&quot;iconfont icon-dots&quot;&gt;
+                &lt;/i&gt;
+            &lt;/li&gt;
+            &lt;li id=&quot;totem-bg&quot;&gt;
+                &lt;i class=&quot;fa fa-optin-monster&quot; aria-hidden=&quot;true&quot;&gt;
+                &lt;/i&gt;
+            &lt;/li&gt;
+            &lt;li id=&quot;pixiv-bg&quot;&gt;
+                &lt;i class=&quot;iconfont icon-pixiv&quot;&gt;
+                &lt;/i&gt;
+            &lt;/li&gt;
+            &lt;li id=&quot;bing-bg&quot;&gt;
+                &lt;i class=&quot;iconfont icon-bing&quot;&gt;
+                &lt;/i&gt;
+            &lt;/li&gt;
+            &lt;li id=&quot;dark-bg&quot;&gt;
+                &lt;i class=&quot;fa fa-moon-o&quot; aria-hidden=&quot;true&quot;&gt;
+                &lt;/i&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;canvas id=&quot;night-mode-cover&quot;&gt;
+    &lt;/canvas&gt;
+&lt;/div&gt;
+</code></pre>
+<p>还要修点$bug$：</p>
+<p>在<code>\themes\sakura\source\js\sakura-app.js</code>中，找到函数<code>$(&#39;.skin-menu #dark-bg&#39;).click(function ()</code>，函数最底下添加：</p>
+<pre><code class="lang-javascript">setCookie(&#39;bgImgSetting&#39;,&#39;https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/starry_sky.png&#39;,30)
+</code></pre>
+<p>把所有形如：</p>
+<pre><code class="lang-javascript">$(&#39;.changeSkin-gear, .toc&#39;).css(&#39;background&#39;, &#39;none&#39;)
+或
+$(&#39;.changeSkin-gear, .toc&#39;).css(&#39;background&#39;, &#39;rgba(255,255,255,0.8)&#39;)
+</code></pre>
+<p>里的<code>.changeSkin-gear,</code>删掉。</p>
+<p>这只是初始版，后面还有更高级的。</p>
+<h3 id="更换图片"><a href="#更换图片" class="headerlink" title="更换图片"></a>更换图片</h3><p>$bing$主题是从$bing$随机图片<code>api</code>获取一张图片做背景，可以更换。</p>
+<p>在<code>\themes\sakura\source\js\sakura-app.js</code>中，下面两句：</p>
+<pre><code class="lang-javascript"> changeBGnoTrans(&#39;#bing-bg&#39;, &#39;https://api.shino.cc/bing/&#39;)
+</code></pre>
+<pre><code class="lang-javascript">else if (bgurl == &#39;https://api.shino.cc/bing/&#39;)
+</code></pre>
+<p>其中的网址换成其他<code>url</code>。</p>
+<p><a href="/2019/02/01/随机图片url整合/">随机图片url可以点这里哦</a></p>
+<p>其他主题类似，找到<code>url</code>位置修改。</p>
+<h3 id="位置和外观"><a href="#位置和外观" class="headerlink" title="位置和外观"></a>位置和外观</h3><p>在<code>set.ejs</code>里直接用<code>css</code>美化，可能还要修正<code>setdisplay.ejs</code>。</p>
+<p>参考配置：</p>
+<p><code>set.ejs</code>：</p>
+<pre><code class="lang-html">&lt;div class=&quot;changeSkin-gear no-select&quot; style=&quot;background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; visibility: visible; bottom: 0px;&quot;&gt; 
+  &lt;div class=&quot;keys&quot; id=&quot;setbtn&quot;&gt; 
+    &lt;button id=&quot;open-skinMenu&quot;&gt;
+        &lt;style&gt;
+        button#open-skinMenu{
+            transition: all 0.2s linear 0s;
+            outline:none;
+            position:fixed;
+            bottom:13px;
+            left:15px;
+            font-size:16px;
+            background-color: rgba(255,255,255,.95);
+            border-radius: 20px;
+            box-shadow: 0 3px 8px 0 rgba(0,0,0,0.1), 0 3px 8px 0 rgba(0,0,0,0.1);
+        }
+        button#open-skinMenu:hover{
+            transition: all 0.2s linear 0s;
+            background-color: rgb(255, 165, 0);
+            color: rgba(255,255,255);
+        }
+        &lt;/style&gt;
+        &lt;i class=&quot;iconfont icon-gear inline-block rotating&quot;&gt;
+      &lt;/i&gt; 
+        SCHEME TOOL | 主题工具 
+    &lt;/button&gt;
+  &lt;/div&gt; 
+&lt;/div&gt;
+</code></pre>
+<p>其中：</p>
+<pre><code class="lang-css">            position:fixed;
+            bottom:13px;
+            left:15px;
+</code></pre>
+<p>用于把位置移到左边去，不需要可以删掉；如果需要，还要更改<code>setdisplay.ejs</code>（第一行）：</p>
+<pre><code class="lang-html">&lt;div class=&quot;skin-menu no-select&quot; id=&quot;mainskin&quot; style=&quot;position: fixed;bottom:65px;left:31px;&quot;&gt;
+</code></pre>
+<h3 id="字体切换"><a href="#字体切换" class="headerlink" title="字体切换"></a>字体切换</h3><p><code>wordpress</code>上有字体切换功能。</p>
+<p>翻了翻<code>sakura-app.js</code>，发现字体切换功能函数已经写好了，直接用就行。</p>
+<p><code>setdisplay.ejs</code>中，在<code>&lt;canvas id=&quot;night-mode-cover&quot;&gt;</code>前添加：</p>
+<pre><code class="lang-html">  &lt;hr&gt;
+  &lt;p style=&quot;text-align:center;font-family:&#39;Monaco&#39;;font-weight:bold;color:#444&quot;&gt;&lt;i style=&quot;color:grey&quot; class=&quot;fa fa-chevron-left&quot;&gt;&lt;/i&gt; font &lt;i style=&quot;color:grey&quot; class=&quot;fa fa-chevron-right&quot;&gt;&lt;/i&gt;&lt;/p&gt;
+  &lt;div class=&quot;font-family-controls row-container&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;control-btn-serif &quot; data-mode=&quot;serif&quot; onclick=&quot;mashiro_global.font_control.change_font()&quot;&gt;Serif&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;control-btn-sans-serif&quot; data-mode=&quot;sans-serif&quot; onclick=&quot;mashiro_global.font_control.change_font()&quot;&gt;Sans Serif&lt;/button&gt;
+  &lt;/div&gt;
+</code></pre>
+<p>在<code>sakura-app.js</code>中，找到：</p>
+<pre><code class="lang-javascript">  this.ini = function () {
+    if (document.body.clientWidth &gt; 860) {
+      if (!getCookie(&#39;font_family&#39;) || getCookie(&#39;font_family&#39;) == &#39;serif&#39;) { $(&#39;body&#39;).addClass(&#39;serif&#39;) }
+    }
+    if (getCookie(&#39;font_family&#39;) == &#39;sans-serif&#39;) {
+      $(&#39;body&#39;).removeClass(&#39;sans-serif&#39;)
+      $(&#39;.control-btn-serif&#39;).removeClass(&#39;selected&#39;)
+      $(&#39;.control-btn-sans-serif&#39;).addClass(&#39;selected&#39;)
+    }
+  }
+</code></pre>
+<p>改为：</p>
+<pre><code class="lang-javascript">  this.ini = function () {
+    var font = getCookie(&#39;font_family&#39;)
+    if (document.body.clientWidth &gt; 860) {
+      if (! font || font == &#39;serif&#39;) { 
+        $(&#39;body&#39;).addClass(&#39;serif&#39;) 
+        $(&#39;.control-btn-serif&#39;).addClass(&#39;selected&#39;)
+      }
+    }
+    if (font == &#39;sans-serif&#39;) {
+      $(&#39;body&#39;).addClass(&#39;sans-serif&#39;).removeClass(&#39;serif&#39;)
+      $(&#39;.control-btn-sans-serif&#39;).addClass(&#39;selected&#39;)
+    }
+  }
+</code></pre>
+<p>在<code>\themes\sakura\source\css\style.css</code>中，找到<code>.font-family-controls button {</code>，下面添加：</p>
+<pre><code class="lang-css">    outline: none;
+</code></pre>
+<p>找到：</p>
+<pre><code class="lang-css">.serif {
+    font-family:&#39;Source Han Serif SC&#39;,&#39;Source Han Serif&#39;,&#39;source-han-serif-sc&#39;,&#39;PT Serif&#39;,&#39;SongTi SC&#39;,&#39;MicroSoft Yahei&#39;,Georgia,serif
+}
+</code></pre>
+<p>改为：</p>
+<pre><code class="lang-css">.serif {
+    font-family:&#39;Noto Serif SC&#39;, &#39;Source Han Serif SC&#39;, &#39;Source Han Serif&#39;, source-han-serif-sc, &#39;PT Serif&#39;, &#39;SongTi SC&#39;, &#39;MicroSoft Yahei&#39;, Georgia, serif
+}
+</code></pre>
+<p>换字体后主页的<code>startdash</code>可能会被挤变形，需要在<code>style.css</code>中找到：</p>
+<pre><code class="lang-css">.top-feature-row {
+    width:100%;
+    height:auto;
+    margin-top:55px
+}
+</code></pre>
+<p>把<code>width</code>改大点就行。</p>
+<h3 id="加特技"><a href="#加特技" class="headerlink" title="加特技"></a>加特技</h3><p>本人的创新，添加背景特效及开关。</p>
+<p>樱花雨特效来自<a href="https://yremp.live" target="_blank" rel="noopener">yremp.live</a>。彩带特效来自主题<a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener">butterfly</a>。</p>
+<p>（顺便吐槽一下彩带特效：彩带只会在较靠上的区域生成。当文章较长时，翻到下面彩带就出不来了。<del>咱也看不懂js源码也不会改</del>）</p>
+<p><code>setdisplay.ejs</code>中，在<code>&lt;canvas id=&quot;night-mode-cover&quot;&gt;</code>前添加：</p>
+<pre><code class="lang-html">  &lt;hr&gt;
+  &lt;p style=&quot;text-align:center;font-family:&#39;Monaco&#39;;font-weight:bold;color:#444&quot;&gt;&lt;i style=&quot;color:grey&quot; class=&quot;fa fa-chevron-left&quot;&gt;&lt;/i&gt; script &lt;i style=&quot;color:grey&quot; class=&quot;fa fa-chevron-right&quot;&gt;&lt;/i&gt;&lt;/p&gt;
+  &lt;div class=&quot;theme-controls row-container&quot;&gt;
+  &lt;ul class=&quot;menu-list&quot;&gt;
+    &lt;li id=&quot;empty-effect&quot;&gt;
+      &lt;i class=&quot;fa fa-ban&quot;&gt;
+      &lt;/i&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;sakura-rain-effect&quot;&gt;
+      &lt;i class=&quot;iconfont icon-sakura&quot;&gt;
+      &lt;/i&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;snowy-effect&quot;&gt;
+      &lt;i class=&quot;fa fa-snowflake-o&quot;&gt;
+      &lt;/i&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;lines-effect&quot;&gt;
+      &lt;i class=&quot;fa fa-chevron-left&quot;&gt;
+      &lt;/i&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;colorful-belts-effect&quot;&gt;
+      &lt;i class=&quot;fa fa-map&quot;&gt;&lt;/i&gt;
+      &lt;/i&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;words-rain-effect&quot;&gt;
+      &lt;i class=&quot;fa fa-font&quot;&gt;&lt;/i&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;point-rain-effect&quot;&gt;
+      &lt;i class=&quot;iconfont icon-dots&quot;&gt;&lt;/i&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;rain-drop-effect&quot;&gt;
+      &lt;i class=&quot;fa fa-tint&quot;&gt;&lt;/i&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;/div&gt;
+</code></pre>
+<p>在<code>\themes\sakura\source\js\sakura-app.js</code>中，找到：</p>
+<pre><code class="lang-javascript">  function closeSkinMenu () {
+</code></pre>
+<p>前面添加：</p>
+<pre><code class="lang-javascript">  $(&#39;.skin-menu #empty-effect&#39;).click(function(){
+    sakuraEffectClear()
+    snowEffectClear()
+    lineEffectClear()    
+    beltEffectClear()
+    wordEffectClear()    
+    pointEffectClear()
+    rainEffectClear()
+    closeSkinMenu()
+  })
+
+  $(&#39;.skin-menu #sakura-rain-effect&#39;).click(function(){
+    var effect = sakuraEffectClear()
+    if(!effect) {
+        effect = document.createElement(&quot;script&quot;)
+        effect.setAttribute(&quot;src&quot;,&quot;https://cdn.jsdelivr.net/gh/yremp/yremp-js@1.5/sakura.js&quot;)
+        effect.setAttribute(&quot;id&quot;,&quot;sakura-effect&quot;)
+        document.getElementsByTagName(&quot;body&quot;).item(0).appendChild(effect)
+        setCookie(&#39;sakuraEffectCookie&#39;,&#39;use&#39;,30)
+    }
+    closeSkinMenu()
+  })
+  $(&#39;.skin-menu #snowy-effect&#39;).click(function(){
+    var effect = snowEffectClear()
+    if(!effect){
+        effect = document.createElement(&quot;script&quot;)        
+        effect.setAttribute(&quot;src&quot;,&quot;https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.3.3/js/snow.js&quot;)
+        effect.setAttribute(&quot;id&quot;,&quot;snow-effect&quot;)
+        document.getElementsByTagName(&quot;body&quot;).item(0).appendChild(effect)
+        setCookie(&#39;snowyEffectCookie&#39;,&#39;use&#39;,30)
+    }
+    closeSkinMenu()
+  })
+  $(&#39;.skin-menu #lines-effect&#39;).click(function(){
+    var effect = lineEffectClear()
+    if(!effect){
+        effect = document.createElement(&quot;script&quot;)        
+        effect.setAttribute(&quot;src&quot;,&quot;https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.3.3/js/line.js&quot;)
+        effect.setAttribute(&quot;id&quot;,&quot;line-effect&quot;)
+        document.getElementsByTagName(&quot;body&quot;).item(0).appendChild(effect)
+        setCookie(&#39;linesEffectCookie&#39;,&#39;use&#39;,30)
+    }    
+    closeSkinMenu()
+  })
+  $(&#39;.skin-menu #colorful-belts-effect&#39;).click(function(){
+    var effect = beltEffectClear()
+    if(!effect){
+        effect = document.createElement(&quot;script&quot;)        
+        effect.setAttribute(&quot;src&quot;,&quot;https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.0/js/piao.js&quot;)
+        effect.setAttribute(&quot;id&quot;,&quot;belt-effect&quot;)
+        document.getElementsByTagName(&quot;body&quot;).item(0).appendChild(effect)
+        setCookie(&#39;beltsEffectCookie&#39;,&#39;use&#39;,30)
+    }
+    closeSkinMenu()
+  })
+  $(&#39;.skin-menu #words-rain-effect&#39;).click(function(){
+    var effect = wordEffectClear()
+    if(!effect){
+        effect = document.createElement(&quot;script&quot;)        
+        effect.setAttribute(&quot;src&quot;,&quot;https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.0/js/coderain.js&quot;)
+        effect.setAttribute(&quot;id&quot;,&quot;words-effect&quot;)
+        document.getElementsByTagName(&quot;body&quot;).item(0).appendChild(effect)
+        setCookie(&#39;wordsEffectCookie&#39;,&#39;use&#39;,30)
+    }
+    closeSkinMenu()
+  })
+  $(&#39;.skin-menu #point-rain-effect&#39;).click(function(){
+      var effect = pointEffectClear()
+      if(!effect){        
+        effect = document.createElement(&quot;script&quot;)        
+        effect.setAttribute(&quot;src&quot;,&quot;https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/js/pointrain.js&quot;)
+        effect.setAttribute(&quot;id&quot;,&quot;point-effect&quot;)
+        document.getElementsByTagName(&quot;body&quot;).item(0).appendChild(effect)
+        setCookie(&#39;pointEffectCookie&#39;,&#39;use&#39;,30)
+      }
+      closeSkinMenu()
+  })
+  $(&#39;.skin-menu #rain-drop-effect&#39;).click(function(){
+      var effect = rainEffectClear()
+      if(!effect){        
+        effect = document.createElement(&quot;script&quot;)
+        effect.setAttribute(&quot;src&quot;,&quot;https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.5/js/raindrop.js&quot;)
+        effect.setAttribute(&quot;id&quot;,&quot;raindrop-effect&quot;)
+        document.getElementsByTagName(&quot;body&quot;).item(0).appendChild(effect)
+        setCookie(&#39;rainEffectCookie&#39;,&#39;use&#39;,30)
+      }
+      closeSkinMenu()
+  })
+  function sakuraEffectClear(){
+    var effect = document.getElementById(&quot;sakura-effect&quot;)
+    if(effect){
+        effect.parentNode.removeChild(effect)
+        effect = document.getElementById(&quot;canvas_sakura&quot;)
+        effect.parentNode.removeChild(effect)
+        setCookie(&#39;sakuraEffectCookie&#39;,&#39;&#39;,30)
+    }
+    return effect;
+  }
+  function snowEffectClear(){
+      var effect = document.getElementById(&quot;snow-effect&quot;)
+      if(effect){
+        effect.parentNode.removeChild(effect)
+        clearInterval(CIYANG)
+        var snow = document.getElementById(&quot;snowbox&quot;)
+        while(snow){
+            snow.parentNode.removeChild(snow)
+            snow = document.getElementById(&quot;snowbox&quot;)
+        }
+        setCookie(&#39;snowyEffectCookie&#39;,&#39;&#39;,30)
+      }
+      return effect
+  }
+  function lineEffectClear(){
+      var effect = document.getElementById(&quot;line-effect&quot;)
+      if(effect){
+          effect.parentNode.removeChild(effect)
+          var lines = document.getElementById(&quot;lines&quot;)
+          lines.parentNode.removeChild(lines)
+          setCookie(&#39;linesEffectCookie&#39;,&#39;&#39;,30)
+      }
+      return effect
+  }
+  function beltEffectClear(){
+      var effect = document.getElementById(&quot;belt-effect&quot;)
+      if(effect){
+          effect.parentNode.removeChild(effect)
+          effect = document.getElementById(&quot;belts1&quot;)
+          effect.parentNode.removeChild(effect)
+          setCookie(&#39;beltsEffectCookie&#39;,&#39;&#39;,30)
+      }
+      return effect
+  }
+  function wordEffectClear(){
+      var effect = document.getElementById(&quot;words-effect&quot;)
+      if(effect){
+          effect.parentNode.removeChild(effect)
+          effect = document.getElementById(&quot;coderain&quot;)
+          effect.parentNode.removeChild(effect)
+          setCookie(&#39;wordsEffectCookie&#39;,&#39;&#39;,30)
+      }
+      return effect
+  }
+  function pointEffectClear(){
+      var effect = document.getElementById(&quot;point-effect&quot;)
+      if(effect){
+          effect.parentNode.removeChild(effect)
+          effect = document.getElementById(&quot;point&quot;)
+          effect.parentNode.removeChild(effect)
+          setCookie(&#39;pointEffectCookie&#39;,&#39;&#39;,30)
+      }
+      return effect
+  }
+  function rainEffectClear(){
+      var effect = document.getElementById(&quot;raindrop-effect&quot;)
+      if(effect){
+          effect.parentNode.removeChild(effect)
+          document.body.removeChild(document.getElementById(&#39;rain&#39;))
+          setCookie(&#39;rainEffectCookie&#39;,&#39;&#39;,30)
+      }
+      return effect
+  }
+</code></pre>
+<p>找到：</p>
+<pre><code class="lang-javascript">if (document.body.clientWidth &gt; 860) {
+  checkBgImgCookie()
+}
+</code></pre>
+<p>改为：</p>
+<pre><code class="lang-javascript">function checkEffectsCookie() {
+  var efurl = getCookie(&#39;sakuraEffectCookie&#39;)
+  if(efurl) {
+    var effect = document.createElement(&quot;script&quot;)
+    effect.setAttribute(&quot;src&quot;,&quot;https://cdn.jsdelivr.net/gh/yremp/yremp-js@1.5/sakura.js&quot;)
+    effect.setAttribute(&quot;id&quot;,&quot;sakura-effect&quot;)
+    document.getElementsByTagName(&quot;body&quot;).item(0).appendChild(effect)
+  }
+  efurl = getCookie(&#39;snowyEffectCookie&#39;)
+  if(efurl) {
+    var effect = document.createElement(&quot;script&quot;)        
+    effect.setAttribute(&quot;src&quot;,&quot;https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.3.3/js/snow.js&quot;)
+    effect.setAttribute(&quot;id&quot;,&quot;snow-effect&quot;)
+    document.getElementsByTagName(&quot;body&quot;).item(0).appendChild(effect)
+  }
+  efurl = getCookie(&#39;linesEffectCookie&#39;)
+  if(efurl) {
+    var effect = document.createElement(&quot;script&quot;)        
+    effect.setAttribute(&quot;src&quot;,&quot;https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.3.3/js/line.js&quot;)
+    effect.setAttribute(&quot;id&quot;,&quot;line-effect&quot;)
+    document.getElementsByTagName(&quot;body&quot;).item(0).appendChild(effect)
+  }
+  efurl = getCookie(&#39;beltsEffectCookie&#39;)
+  if(efurl){
+    var effect = document.createElement(&quot;script&quot;)        
+    effect.setAttribute(&quot;src&quot;,&quot;https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.0/js/piao.js&quot;)
+    effect.setAttribute(&quot;id&quot;,&quot;belt-effect&quot;)
+    document.getElementsByTagName(&quot;body&quot;).item(0).appendChild(effect)
+  }
+  efurl = getCookie(&#39;wordsEffectCookie&#39;)
+  if(efurl){
+    var effect = document.createElement(&quot;script&quot;)        
+    effect.setAttribute(&quot;src&quot;,&quot;https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.0/js/coderain.js&quot;)
+    effect.setAttribute(&quot;id&quot;,&quot;words-effect&quot;)
+    document.getElementsByTagName(&quot;body&quot;).item(0).appendChild(effect)
+  }  
+  efurl = getCookie(&#39;pointEffectCookie&#39;)
+  if(efurl){
+    var effect = document.createElement(&quot;script&quot;)        
+    effect.setAttribute(&quot;src&quot;,&quot;https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/js/pointrain.js&quot;)
+    effect.setAttribute(&quot;id&quot;,&quot;point-effect&quot;)
+    document.getElementsByTagName(&quot;body&quot;).item(0).appendChild(effect)
+  }
+  efurl = getCookie(&#39;rainEffectCookie&#39;)
+  if(efurl){
+    var effect = document.createElement(&quot;script&quot;)
+    effect.setAttribute(&quot;src&quot;,&quot;https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.5/js/raindrop.js&quot;)
+    effect.setAttribute(&quot;id&quot;,&quot;raindrop-effect&quot;)
+    document.getElementsByTagName(&quot;body&quot;).item(0).appendChild(effect)
+  }
+}
+if (document.body.clientWidth &gt; 860) {
+  checkBgImgCookie()
+  checkEffectsCookie()
+}
+</code></pre>
+<p>注：我使用了<code>iconfont</code>图标，若按上文教程食用与我博客上的会不一样，需要的请自行更改。</p>
+<hr>
+<h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><p>在原始主题中，文章顶端的图片很扁（比例大概是$4:1$？），个人觉得不美观，就改成其他主题的排版（比例$2:1$）：</p>
+<p>说实话自己也没弄明白怎么搞的，可能会出$BUG$，怕误人子弟就不写了。</p>
+<p>有兴趣的可以找我私聊。</p>
+<h2 id="更换时间和阅读数的图标"><a href="#更换时间和阅读数的图标" class="headerlink" title="更换时间和阅读数的图标"></a>更换时间和阅读数的图标</h2><p>就是文章顶部的日历和眼睛图标。</p>
+<p>在<code>\themes\sakura\layout\_widget\common-article.ejs</code>中：</p>
+<pre><code class="lang-html">        ·&lt;/span&gt;
+        &lt;%= date(post.date, &#39;YYYY-M-D&#39;) %&gt;&lt;span class=&quot;bull&quot;&gt;
+</code></pre>
+<p><code>&lt;/span&gt;</code>前的<code>·</code>换成<code>&lt;i class=&quot;fa fa-calendar&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;</code></p>
+<pre><code class="lang-html">        ·&lt;/span&gt;
+      &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;次阅读&lt;/p&gt;
+</code></pre>
+<p><code>&lt;/span&gt;</code>前的<code>·</code>换成<code>&lt;i class=&quot;fa fa-eye&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;</code></p>
+<h2 id="首页文章描述左对齐"><a href="#首页文章描述左对齐" class="headerlink" title="首页文章描述左对齐"></a>首页文章描述左对齐</h2><p>$update$：现在已经加上了<code>&lt;!--more--&gt;</code>支持，其中所有的文字为显示正常均调成左对齐。</p>
+<p>吐槽：<code>sakura</code>是不支持<code>&lt;!--more--&gt;</code>阅读全文的，只能用文章的<code>description</code>元素设置。这样就不支持<code>markdown</code>和$\LaTeX$了。。。</p>
+<p>首页中，图片靠左的文章描述（<code>description</code>）是右对齐的，看着很别扭。</p>
+<p>在<code>\themes\sakura\layout\_widget\index-items.ejs</code>中，找到：</p>
+<pre><code class="lang-html">&lt;p&gt;&lt;%= post.description %&gt;&lt;/p&gt;
+</code></pre>
+<p>修改为：</p>
+<pre><code class="lang-html">&lt;p style=&quot;text-align:left&quot;&gt;&lt;%= post.description %&gt;&lt;/p&gt;
+</code></pre>
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>为啥原版的<code>&lt;hr&gt;</code>都是三个点啊。。。</p>
+<p>感谢<a href="https://tian-xing.github.io" target="_blank" rel="noopener">Tian-Xing</a>找到了<code>&lt;hr&gt;</code>样式的地方。</p>
+<p>本以为是通过很深层的<code>html</code>改的，没想到是<code>css</code>。。。</p>
+<p>在<code>\themes\sakura\source\css\style.css</code>删除：</p>
+<pre><code class="lang-css">hr { 
+    box-sizing:content-box;
+    height:0
+}
+</code></pre>
+<pre><code class="lang-css">hr {
+    background-color:#ccc;
+    border:0;
+    height:1px;
+    margin-bottom:1.5em
+}
+</code></pre>
+<p><code>.entry-content hr:before</code>里的：</p>
+<pre><code class="lang-css">    content:&#39;...&#39;;
+</code></pre>
+<p>最底下添加：</p>
+<pre><code class="lang-css">hr {
+    height: 3px !important;
+    border: none !important;
+    background-color: #bfbfbf !important;
+    background-image: repeating-linear-gradient(-45deg, #fff, #fff 4px, transparent 4px, transparent 8px) !important;
+}
+</code></pre>
+<p><del>（搬的next的样式）</del></p>
+<p>这还没完，因为除归档外所有列出文章的地方都用<code>&lt;hr&gt;</code>分割了，<code>css</code>同样会起作用。</p>
+<p>那就把<code>&lt;hr&gt;</code>改成<code>&lt;br&gt;</code>呗：</p>
+<p>在<code>\themes\sakura\layout\_widget\category-items.ejs</code>中，将倒数第二行的<code>&lt;hr&gt;</code>改为<code>&lt;br&gt;</code>。</p>
+<p>还有<code>NEXT POST</code>和<code>PREVIOUS POST</code>按钮也要改。直接删除<code>\themes\sakura\layout\_widget\common-article.ejs</code>中，<code>&lt;%= post.prev.title%&gt;&lt;/h3&gt;</code>和<code>&lt;%= post.next.title%&gt;&lt;/h3&gt;</code>下面的<code>&lt;hr&gt;</code>。</p>
+<h2 id="代码行高亮"><a href="#代码行高亮" class="headerlink" title="代码行高亮"></a>代码行高亮</h2><p><code>wordpress</code>上的$sakura$里，鼠标放到代码上，对应行会高亮。</p>
+<p>$F12$查看元素属性就会发现只是一个简单的<code>css</code>实现。</p>
+<p>在<code>\themes\sakura\source\css\style.css</code>（如果您配置了个性化<code>css</code>的话也可以在<code>code.css</code>里）中添加：</p>
+<pre><code class="lang-css">.hljs-ln-line:hover {
+    background-color: rgba(255, 255, 255, .1);
+}
+.hljs-ln-line.hljs-ln-n:hover{
+    background-color: rgba(0,0,0,0) !important;
+}
+</code></pre>
+<p>如果没有下面那条，鼠标放在行号上行号会高亮。。。</p>
+<h2 id="表情"><a href="#表情" class="headerlink" title="表情"></a>表情</h2><p>来自<a href="https://www.tomori.xyz/2019/06/15/emojis-plug-in-unit-for-bilibili/" target="_blank" rel="noopener">https://www.tomori.xyz/2019/06/15/emojis-plug-in-unit-for-bilibili/</a> </p>
+<p>博客源文件夹下安装：</p>
+<pre><code>npm i hexo-tag-emojis-bycoda --save
+</code></pre><p>这个版本有点低，到<a href="https://github.com/TomoriCoda/hexo-tag-emojis-bycoda" target="_blank" rel="noopener">github</a>下载压缩包，将里面的文件覆盖掉<code>\node_modules\hexo-tag-emojis-bycoda</code>的内容。</p>
+<p>在<code>\themes\sakura\layout\_partial\head.ejs</code>中，<code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/zoom.css&quot; media=&quot;all&quot;&gt;</code>下添加：</p>
+<pre><code class="lang-html">  &lt;style&gt;
+  .emoji-coda {
+      display: inline-block !important;
+      position: relative;
+      width: 45px;
+      top: 2px;
+      margin: -3px 3px !important;
+      padding: 0;
+  }
+  &lt;/style&gt;
+</code></pre>
+<p>修改<code>width</code>一栏可以调整表情大小。</p>
+<p>使用方式：</p>
+<p>在<code>\node_modules\hexo-tag-emojis-bycoda\emojis</code>找到想用的表情，格式：</p>
+<pre><code class="lang-markdown">{% emoji_coda 文件夹/表情名%}
+</code></pre>
+<p>示例：</p>
+<pre><code class="lang-markdown">表情示例（喝水）{% emoji_coda 2233/heshui %}
+</code></pre>
+<p>表情示例（喝水）<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/2233/heshui.png"></p>
+<p>虽然可以直接引用图片实现，但这样表情可以和文字位于一行，而且大小已经预设好了，使用方便。</p>
+<h2 id="更改主题颜色"><a href="#更改主题颜色" class="headerlink" title="更改主题颜色"></a>更改主题颜色</h2><p>心血来潮把颜色翻新了一遍。</p>
+<h3 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h3><p>$sakura$颜色以橙色为主，将所有文件（应该只有<code>style.css</code>、<code>sakura-app.js</code>、<code>head.ejs</code>）里<code>orange</code>和<code>#FE9600</code>替换为想要的颜色。</p>
+<p>最好是了解十六进制颜色码或<code>rgb/rgba</code>来选择颜色。</p>
+<p>主题工具和归档页面的按钮颜色要手动改。</p>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>在<code>\themes\sakura\source\css\style.css</code>里找到<code>.entry-content a</code>修改<code>color</code>。</p>
+<p>若要修改鼠标放上去的颜色，修改下面的<code>.entry-content a:hover</code>的<code>color</code>即可。</p>
+<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>在<code>style.css</code>里找到<code>.entry-content code</code>修改<code>color</code>和<code>background</code>。</p>
+<h3 id="搜索框"><a href="#搜索框" class="headerlink" title="搜索框"></a>搜索框</h3><p>修改鼠标放到搜索结果上时背景的颜色。</p>
+<p>在<code>\themes\sakura\source\css\insight.styl</code>中，修改第六行的<code>ins-background-orange</code>。</p>
+<h2 id="文章信息文字阴影加深"><a href="#文章信息文字阴影加深" class="headerlink" title="文章信息文字阴影加深"></a>文章信息文字阴影加深</h2><p>我写文章都会配二次元图，有很多浅色图片，导致文章的标题、时间、阅读量等信息与背景融为一体：</p>
+<p><img src="\images\blogの搭建之sakura-2.png" alt=""></p>
+<p>于是加深了一下阴影。在<code>\themes\sakura\layout\_widget\common-article.ejs</code>中，修改：</p>
+<pre><code class="lang-diff">- &lt;header class=&quot;pattern-header single-header&quot;&gt;
++ &lt;header class=&quot;pattern-header single-header&quot; style=&quot;text-shadow: 0 0 7px #000,0 0 7px #000&quot;&gt;
+</code></pre>
+<p>效果还是很明显的：</p>
+<p><img src="\images\blogの搭建之sakura-3.png" alt=""></p>
+<h2 id="修改文章配图height"><a href="#修改文章配图height" class="headerlink" title="修改文章配图height"></a>修改文章配图height</h2><p>在<code>\themes\sakura\source\css\style.css</code>中，找到：</p>
+<pre><code class="lang-css">.pattern-attachment-img {
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center center;
+    background-origin:border-box;
+    width :100%;
+    height:400px
+}
+</code></pre>
+<p>你会找到两个。。。估计是作者的$BUG$，删掉其中一个，修改另一个的<code>height</code>即可。</p>
+<h2 id="文章列表图片拉伸问题の解决"><a href="#文章列表图片拉伸问题の解决" class="headerlink" title="文章列表图片拉伸问题の解决"></a>文章列表图片拉伸问题の解决</h2><p>其实一直想修。。。</p>
+<p>浏览某个分类或标签下的文章下时，配图是被<strong>压缩</strong>成正方形的：</p>
+<p><img src="\images\blogの搭建之sakura-6.png" alt=""></p>
+<p>度娘发现了一个神奇的<code>css</code>属性：<code>object-fit</code>。</p>
+<p>在<code>\themes\sakura\source\css\style.css</code>中，找到<code>.feature img</code>，内部添加：</p>
+<pre><code class="lang-css">    object-fit: cover;
+</code></pre>
+<p><img src="\images\blogの搭建之sakura-7.png" alt=""></p>
+<h2 id="引用样式修改"><a href="#引用样式修改" class="headerlink" title="引用样式修改"></a>引用样式修改</h2><p>对引用内容的样式进行了一定的修改。</p>
+<p>修改内容包括：</p>
+<ul>
+<li>引号大小缩小</li>
+<li>增添浅灰色背景色</li>
+<li>边框与引号的位置自适应文本</li>
+</ul>
+<p>在<code>\themes\sakura\source\css\style.css</code>中，把<code>blockquote</code>、<code>blockquote:before</code>、<code>blockquote:after</code>三项的内容替换为：</p>
+<pre><code class="lang-css">blockquote {
+    width:fit-content;
+    width:-webkit-fit-content;
+    width:-moz-fit-content;
+    width:-ms-fit-content;
+    width:-o-fit-content;
+    margin:0;
+    margin-bottom: 20px;
+    padding:12px 45px;
+    position:relative;
+    border-radius: 1.5rem;
+    background: rgba(225, 225, 225, .43);
+}
+blockquote:before {
+    content:&quot;\f10d&quot; !important;
+    font-size:2rem;
+    position:absolute;
+    top:-25px;
+    left:2px;
+    color:#50bdff;
+    font-family:FontAwesome
+}
+blockquote:after {
+    content:&#39;\f10e&#39; !important;
+    font-size:2rem;
+    position:absolute;
+    bottom:-25px;
+    right:0px;
+    color:#50bdff;
+    font-family:FontAwesome
+}
+</code></pre>
+<p>主要还是为了我自己看着顺眼。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/xiaodianshi/xiao.png"></p>
+<h2 id="主页startdash美（丑）化"><a href="#主页startdash美（丑）化" class="headerlink" title="主页startdash美（丑）化"></a>主页startdash美（丑）化</h2><p>为了实用性舍弃美观性。</p>
+<p>$sakura$主页的<code>startdash</code>一栏我都是用来当置顶文章的。但是通过观看了他人访问我的blog的过程和我亲自体验，发现这玩意太不明显了。</p>
+<p>上面写着一个颜色很浅难以察觉的<code>top</code>，下面几张图片，怎么看都像是图片展览，除非把鼠标放上去才会发现是文章链接。</p>
+<p>于是我直接把标题改到外面去了，同时对其样式进行了调整：</p>
+<p>在<code>\themes\sakura\source\css\style.css</code>中：</p>
+<p>将<code>.the-feature.from_left_and_right .info</code>里的内容替换为：</p>
+<pre><code class="lang-css">    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    text-align:center;
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+    background:transparent;
+    -webkit-transition:all .35s ease-in-out;
+    -moz-transition:all .35s ease-in-out;
+    transition:all .35s ease-in-out
+</code></pre>
+<p>将<code>.the-feature.from_left_and_right .info h3</code>里的内容替换为：</p>
+<pre><code class="lang-css">    text-transform:uppercase;
+    color:rgba(255, 255, 255);
+    text-align:center;
+    font-size:22px;
+    letter-spacing:1px;
+    text-shadow: 0 0 8px #000,0 0 8px #000;
+    font-weight:bold;
+    padding:10px;
+    margin:30px 0 0 0;
+    background:transparent;
+    -webkit-transition:all .35s ease-in-out;
+    -moz-transition:all .35s ease-in-out;
+    transition:all .35s ease-in-out;
+    -webkit-transform:translateY(50%);
+    -moz-transform:translateY(50%);
+    -ms-transform:translateY(50%);
+    -o-transform:translateY(50%);
+    transform:translateY(50%)
+</code></pre>
+<p>在下面添加：</p>
+<pre><code class="lang-css">.the-feature.from_left_and_right .info:hover h3{
+    background:rgba(22, 22, 22, 0.85);
+    letter-spacing: 0;
+    text-shadow: none;
+    font-size:17px;
+}
+</code></pre>
+<p>在<code>.the-feature.from_left_and_right a:hover .info</code>里添加：</p>
+<pre><code class="lang-css">    background: rgba(0,0,0,0.6);
+</code></pre>
+<h2 id="通告栏美化"><a href="#通告栏美化" class="headerlink" title="通告栏美化"></a>通告栏美化</h2><p>和<code>startdash</code>一个问题，不够明显。</p>
+<p>在上面添加了图标和<code>Notice</code>文字，稍稍加深了边框和文字颜色，微调位置。</p>
+<p>在<code>\themes\sakura\source\css\style.css</code>中，找到<code>.notice</code>，修改以下属性：</p>
+<pre><code class="lang-css">    padding:17px;
+    border:1px dashed #cacacaed;
+    color:#707070;
+    margin:-10px 0 -25px 0;
+</code></pre>
+<p>在<code>\themes\sakura\layout\index.ejs</code>中，将：</p>
+<pre><code class="lang-html">  &lt;% if (theme.notice) { %&gt;
+  &lt;div class=&quot;notice&quot; style=&quot;margin-top:60px&quot;&gt;
+    &lt;i class=&quot;iconfont icon-notification&quot;&gt;
+    &lt;/i&gt;
+    &lt;div class=&quot;notice-content&quot;&gt;&lt;%= theme.notice%&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;% } %&gt;
+</code></pre>
+<p>替换为：</p>
+<pre><code class="lang-html">  &lt;% if (theme.notice) { %&gt;
+  &lt;h1 class=&quot;main-title&quot; style=&quot;font-family:&#39;Ubuntu&#39;,sans-serif;margin-top:60px&quot;&gt; &lt;i class=&quot;fa fa-commenting&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Notice&lt;/h1&gt;
+  &lt;div class=&quot;notice&quot;&gt;
+    &lt;i class=&quot;iconfont icon-notification&quot;&gt;&lt;/i&gt;
+    &lt;div class=&quot;notice-content&quot;&gt;&lt;%= theme.notice%&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;% } %&gt;
+</code></pre>
+<h2 id="菜单图标美化"><a href="#菜单图标美化" class="headerlink" title="菜单图标美化"></a>菜单图标美化</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><p>推荐先了解一下FontAwesome是什么。</p>
+<p>在<a href="http://www.fontawesome.com.cn/faicons/" target="_blank" rel="noopener">FontAwesome</a>里找到想要的图标，点进去，复制<code>fa-*</code>一项。</p>
+<p>在主题配置文件中，找到<code>menu</code>。</p>
+<p>每一栏有<code>path</code>和<code>fa</code>（有的有子菜单<code>submenus</code>），而<code>fa</code>就是对图标样式的控制。把刚才的<code>fa-*</code>替换掉里面的<code>fa-*</code>。</p>
+<h3 id="支持iconfont"><a href="#支持iconfont" class="headerlink" title="支持iconfont"></a>支持iconfont</h3><p><a href="/2019/09/18/iconfont/">索引：iconfont是什么？怎么添加</a></p>
+<p><del>众所周知</del>$sakura$主题配置文件的菜单图标只支持FontAwesome，由于种类太少需要添加<code>iconfont</code>支持。</p>
+<p>其实就是很基础的<code>html</code>知识：</p>
+<p>在<code>\themes\sakura\layout\_partial\header.ejs</code>中修改：</p>
+<pre><code class="lang-diff">- &lt;i class=&quot;fa  &lt;%= theme.menus[menu].fa %&gt;&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
++ &lt;i class=&quot;&lt;%= theme.menus[menu].fa %&gt;&quot;&gt;&lt;/i&gt;
+- &lt;i class=&quot;fa &lt;%= theme.menus[menu].submenus[submenu].fa %&gt;&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
++ &lt;i class=&quot;&lt;%= theme.menus[menu].submenus[submenu].fa %&gt;&quot;&gt;&lt;/i&gt;
+</code></pre>
+<p>要注意的是原来用FontAwesome的图标要加上<code>fa</code>。</p>
+<h3 id="动态图标"><a href="#动态图标" class="headerlink" title="动态图标"></a>动态图标</h3><p>鼠标放到菜单上的时候图标会有动画效果。实际上这是来自于<a href="https://github.com/l-lin/font-awesome-animation" target="_blank" rel="noopener">这个仓库</a>的特效。被放在了<code>\themes\sakura\source\css\lib.min.css</code>。</p>
+<p>食用方法：</p>
+<p>首先在<a href="https://l-lin.github.io/font-awesome-animation/" target="_blank" rel="noopener">这里</a>可以看到预览，找到需要的，把后面的<code>faa-*</code>粘到（原来有的话就替换）主题配置文件里<code>menu</code>-&gt;<code>fa</code>。</p>
+<p>如果要改速度的话就再加上<code>faa-fast</code>/<code>faa-slow</code>。</p>
+<p>这是你会发现<code>iconfont</code>并不支持动画。</p>
+<p>解决方案非常简单，在<code>\thems\sakura\source\css\style.css</code>中添加：</p>
+<pre><code class="lang-css">.ctz{display: inline-block;}
+</code></pre>
+<p>（把<code>ctz</code>替换成你的<code>FontClass/Symbol前缀</code>）</p>
+<p>最后我强迫症，修一个小问题：</p>
+<p>有的时候把鼠标放到菜单某一栏上，下面的条已经出来了，但是图标并没有动。</p>
+<p>在<code>\themes\sakura\layout\_partial\header.ejs</code>中，删除<code>&lt;span class=&quot;faa-parent animated-hover&quot;&gt;</code>和其对应的<code>&lt;/span&gt;</code>，在它上面的<code>&lt;a href=&quot;&lt;%- url_for(theme.menus[menu].path) %&gt;&quot;&gt;</code>内部添加<code>class=&quot;faa-parent animated-hover&quot;</code>。</p>
+<h2 id="板块化"><a href="#板块化" class="headerlink" title="板块化"></a>板块化</h2><p>这是目前对$sakura$效果最大的一次改动，直接改变了主题风格。</p>
+<p>本来$sakura$在白色背景下文本都是和背景融为一体的，这次将文本主题、目录和评论区都加上了板块并添加了阴影。<del>其实我本来只是想优化valine外观来着</del></p>
+<p>emm…具体过程没法语言描述，只能靠f12研究了。</p>
+<p>可能用得到的核心css：</p>
+<pre><code class="lang-css">.gather{
+    width:830px;
+    margin:0  auto;
+    margin-bottom: 25px;
+    box-shadow: 0px 0px 30px rgba(0,0,0,0.6);
+    background:rgba(255,255,255,0.8) !important;
+    border-radius:15px;
+}
+#vcomments{
+    width:800px;
+    padding:2.3% 1% 2% 1%;
+    margin:0 auto;
+}
+</code></pre>
+<p>$2020.10.2update$：</p>
+<p>有人好像对这个板块化感兴趣，但是退役后很少打理博客了所以不知道。。。</p>
+<p>板块化不算是个简单的改动，需要一定的html基础和魔改主题的经验，我也不好给出一个很标准的模板。大致的思路就是在文章和评论对应的<code>div</code>外再套一个<code>div</code>，我给的<code>css</code>中<code>.gather</code>就是修饰这个<code>div</code>的。还有一些细节比如图片和文章的合并和阴影问题，<del>我现在已经忘得差不多了</del>可以用f12对着我的网页改。希望这些能帮到你。</p>
+<hr>
+<h1 id="杂七杂八"><a href="#杂七杂八" class="headerlink" title="杂七杂八"></a>杂七杂八</h1><h2 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h2><h3 id="Valine输入框内容更改"><a href="#Valine输入框内容更改" class="headerlink" title="Valine输入框内容更改"></a>Valine输入框内容更改</h3><p>在<code>\themes\sakura\layout\_partial\comment.ejs</code>中，修改<code>placeholder</code>一栏即可。</p>
+<p>不过我在<code>\themes\sakura\source\js\sakura-app.js</code>中也找到了$Valine$的设置，不放心也改了。</p>
+<p>找到以下内容：</p>
+<pre><code class="lang-javascript">    VA: function () {
+      if (!valine) {
+        var valine = new Valine()
+        valine.init({
+          el: &#39;#vcomments&#39;,
+          appId: mashiro_option.v_appId,
+          appKey: mashiro_option.v_appKey,
+          path: window.location.pathname,
+          placeholder: &#39;你是我一生只会遇见一次的惊喜 ...&#39;
+        })
+      }
+    },
+</code></pre>
+<p>同样修改<code>placeholder</code>。</p>
+<h3 id="Valine外观美化"><a href="#Valine外观美化" class="headerlink" title="Valine外观美化"></a>Valine外观美化</h3><p>评论框的背景：在<code>\themes\sakura\source\css\style.css</code>中，修改<code>#veditor</code>中的<code>background-image</code>。</p>
+<p>其他：</p>
+<pre><code class="lang-css">/* 输入昵称、邮箱下方虚线的颜色 */
+.vinput:focus{border-bottom-color: #3ca0ff !important;}
+/* 评论者的昵称颜色 */
+.vnick:not(.vinput){color:#006eff!important;}
+/* 鼠标悬浮时，评论者的昵称颜色 */
+.vnick:not(.vinput):hover{color:#04f!important;}
+/* 回复按钮的颜色*/
+.vat{
+    color:#3ca0ff !important;
+    margin-right:3px;
+    border:1px solid #3ca0ff;
+    border-radius:4px;
+    padding:0 0.5% 0 0.5%;
+}
+/* 评论框的边框 */
+.vwrap{
+    border:none !important;
+    border-radius:12px !important;
+    background:rgba(255, 255, 255, 0.3);
+    box-shadow:0px 0px 18px #bbb;
+    padding:14px;
+    margin-top:10px;
+}
+</code></pre>
+<h3 id="Valine炸了"><a href="#Valine炸了" class="headerlink" title="Valine炸了"></a>Valine炸了</h3><p>最近$leancloud$爆炸了，导致$Valine$无法正常使用。然而我发现原来$next$评论是正常的，于是查阅了一下$next$的$Valine$配置，有了解决方案：</p>
+<p>在<code>\themes\sakura\layout\_partial\footer.ejs</code>中，把：</p>
+<pre><code class="lang-html">&lt;script src=&#39;//unpkg.com/valine@1.3.4/dist/Valine.min.js&#39;&gt;&lt;/script&gt;
+</code></pre>
+<p>替换为：</p>
+<pre><code class="lang-html">&lt;script src=&#39;//unpkg.com/valine/dist/Valine.min.js&#39;&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="我不用Valine啦！（雾）"><a href="#我不用Valine啦！（雾）" class="headerlink" title="我不用Valine啦！（雾）"></a>我不用Valine啦！（雾）</h3><p>个人是很喜欢$Valine$的，不过现在$Valine$要实名认证很麻烦。</p>
+<p>虽然最后我还是实名了，还是提供一个<a href="https://yremp.live/hexo-sakura-install-gitalk/" target="_blank" rel="noopener">sakura安装gitalk的教程</a>给弃了$Valine$的同志。</p>
+<h3 id="Valine超进化——Volantis！"><a href="#Valine超进化——Volantis！" class="headerlink" title="Valine超进化——Volantis！"></a>Valine超进化——Volantis！</h3><p>Volantis是基于Valine的升级版。</p>
+<p>进化效果：</p>
+<ul>
+<li>评论必须填写昵称和邮箱</li>
+<li>可以自定义js（虽然valine也可以）</li>
+<li>表情大翻新，甚至可以个性化表情</li>
+</ul>
+<p>但是作者说即将关闭volantis的仓库，以后可能没有原版volantis的源码，所以这里直接提供我的<code>js</code>代码。</p>
+<h3 id="添加-2"><a href="#添加-2" class="headerlink" title="添加"></a>添加</h3><p>如果你想直接照搬我的：</p>
+<p>在<code>/themes/sakura/layout/_partial/footer.ejs</code>中，找到关于<code>Valine</code>的引用，长这个样子：</p>
+<pre><code class="lang-html">&lt;script src=&quot;...valine...&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>替换为：</p>
+<pre><code class="lang-html">&lt;script src=&quot;https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.1.4/js/volantis.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>如果你想DIY，下载 <a href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.1.4/js/volantis.min.js" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.1.4/js/volantis.min.js</a> 并引用。</p>
+<p>在<code>/themes/sakura/source/css/style.css</code>中，添加：</p>
+<pre><code class="lang-css">#v-qq{height:30px;}
+#v-tieba{height:35px;}
+#v-menhera:not(.v-avoid){max-width: 6.5%;}
+#v-chino:not(.v-avoid){max-width: 8%;}
+</code></pre>
+<h4 id="表情强化"><a href="#表情强化" class="headerlink" title="表情强化"></a>表情强化</h4><p>需要<code>js</code>基础。</p>
+<p>因为<code>volantis.min.js</code>已经经过混淆处理，需要先用一些工具美化回去。</p>
+<p>在2300多行，<code>e.exports</code>后面，格式：<code>表情名: 表情路径</code>。</p>
+<p>你可以看到里面已经通过上面的函数添加了一些表情，照葫芦画瓢可以添加，比如<code>aru1: b(1),</code>。</p>
+<p>如果想要更多表情（我添加了menhera酱和智乃酱的），需要自己写函数或直接用路径添加。</p>
+<h4 id="VolantisのDIY"><a href="#VolantisのDIY" class="headerlink" title="VolantisのDIY"></a>VolantisのDIY</h4><p>会<code>js</code>的话直接改文件就好了。</p>
+<p>比如我把昵称、邮箱、网站的框的内容修改了。</p>
+<hr>
+<h2 id="添加标签"><a href="#添加标签" class="headerlink" title="添加标签"></a>添加标签</h2><h3 id="标签页"><a href="#标签页" class="headerlink" title="标签页"></a><a href="/tags">标签页</a></h3><p>在<code>\themes\sakura\layout\_widget\common-page.ejs</code>中找到：</p>
+<pre><code class="lang-html">  &lt;% if (post.photos &amp;&amp; post.photos.length){ %&gt;
+    &lt;div class=&quot;pattern-center &quot;&gt;
+      &lt;div class=&quot;pattern-attachment-img&quot;&gt;
+        &lt;img src=&quot;&lt;%- theme.lazyloadImg%&gt;&quot; data-src=&quot;&lt;%= post.photos %&gt;&quot; class=&quot;lazyload&quot; onerror=&quot;imgError(this,3)&quot; style=&quot;width: 100%; height: 100%; object-fit: cover; pointer-events: none;&quot;&gt;
+      &lt;/div&gt;
+      &lt;header class=&quot;pattern-header &quot;&gt;
+        &lt;h1 class=&quot;entry-title&quot;&gt;
+        &lt;%= post.keywords %&gt;&lt;/h1&gt;
+      &lt;/header&gt;
+    &lt;/div&gt;
+  &lt;% } %&gt;
+</code></pre>
+<p>在下面添加：</p>
+<pre><code class="lang-html">  &lt;% if (page.path === &quot;tags/index.html&quot;){ %&gt;
+&lt;div class=&quot;site-content&quot;&gt;
+    &lt;br&gt;&lt;br&gt;
+    &lt;div class=&quot;tag-cloud-title&quot; style=&quot;text-align:center&quot;&gt;
+      目前共计 &lt;%=site.tags.length%&gt; 个标签
+    &lt;/div&gt;
+    &lt;p&gt;&lt;/p&gt;
+    &lt;div class=&quot;tags&quot; style=&quot;text-align:center&quot;&gt;
+        &lt;%- tagcloud({
+            min_font: 14, 
+            max_font: 35, 
+            amount: 999, 
+            color: true, 
+            start_color: &#39;gray&#39;, 
+            end_color: &#39;black&#39;,
+        }) %&gt;
+    &lt;/div&gt;
+    &lt;style&gt;
+        .article-entry ul li:before{
+            display: none;
+        }
+        .article-inner  {
+            text-align: center;
+        }
+        .tags {
+            max-width: 40em;
+            margin: 2em auto;
+            margin-top: 0em;
+        }
+        .tags a {
+            margin-right: 1em;
+            border-bottom: 1px solid gray;
+            line-height: 65px;
+            white-space: nowrap;
+        }
+        .tags a:hover {
+            transition: all 0.15s linear 0s;
+            border-bottom-color: #07f !important;
+            color: #07f !important;
+        }
+    &lt;/style&gt;
+    &lt;/div&gt;
+&lt;% } %&gt;
+</code></pre>
+<h3 id="文章标签"><a href="#文章标签" class="headerlink" title="文章标签"></a>文章标签</h3><p>注：文章标签有多个版本，且除非有特殊说明，每个版本的添加方式都是独立的，请先阅读完或直接跳到最后一项再添加。</p>
+<h4 id="v1-0：landfarzの朴素文字"><a href="#v1-0：landfarzの朴素文字" class="headerlink" title="v1.0：landfarzの朴素文字"></a>v1.0：landfarzの朴素文字</h4><p>$sakura$在文章界面是不显示标签的。</p>
+<p>在<code>\themes\sakura\layout\_widget\common-article.ejs</code>中可以找到</p>
+<pre><code class="lang-html">&lt;div class=&quot;post-tags&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>显然里面啥都没有。。。</p>
+<p>如果去掉了页面底部版权信息，这句也被删掉了。没去掉的话就先删掉。</p>
+<p>至于怎么添加，我直接十分暴力地魔改了<a href="https://github.com/wizardforcel/hexo-theme-landfarz" target="_blank" rel="noopener">landfarz</a>的代码过来。</p>
+<p>在<code>common-article.ejs</code>中找到以下代码：</p>
+<pre><code class="lang-html"> &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;次阅读&lt;/p&gt;
+</code></pre>
+<p>下面添加：</p>
+<pre><code class="lang-html">&lt;% if (post.tags &amp;&amp; post.tags.length){ %&gt;
+      &lt;%  var tags = [];  post.tags.forEach(function(tag){tags.push(&#39;&lt;a href=&quot;&#39; + config.root + tag.path + &#39;&quot;&gt;&#39; + tag.name + &#39;&lt;/a&gt;&#39;);});%&gt;
+        &lt;div class=&quot;tags&quot;&gt;
+          &lt;style scoped&gt;
+            a{color: #fff;}
+          &lt;/style&gt;
+          &amp;nbsp&lt;i class=&quot;fa fa-tag&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&amp;nbsp
+          &lt;%- tags.join(&#39;&amp;nbsp &amp;nbsp&#39;) %&gt;
+        &lt;/div&gt;
+&lt;% } %&gt;
+</code></pre>
+<p>就可以了。</p>
+<p>这是添加到顶部，放到下面的话就加进<code>&lt;footer&gt;</code>元素里。若删掉了<code>&lt;footer&gt;</code>再加回去就好了。</p>
+<h4 id="v2-0：来自butterflyの支持"><a href="#v2-0：来自butterflyの支持" class="headerlink" title="v2.0：来自butterflyの支持"></a>v2.0：来自butterflyの支持</h4><p>看久了感觉只有文字的标签好$low$啊。。。</p>
+<p>标签得有标签的亚子，怎么也得带个框啊。</p>
+<p>尝试把<a href="https://dftyem.github.io/" target="_blank" rel="noopener">SPFK</a>的标签样式抄过来。。。</p>
+<p>抄不动抄不动<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/2233/yumen.png"></p>
+<p>于是把<a href="https://stevebraveman.github.io/blog/" target="_blank" rel="noopener">butterfly</a>抄了过来：</p>
+<p>在<code>\themes\sakura\source\css\style.css</code>中，添加：</p>
+<pre><code class="lang-css">.butterfly-tags{
+    display: inline-block;
+    width: fit-content;
+    margin: 0.4rem 0.4rem 0.4rem 0;
+    padding: 0rem 0.5rem;
+    border: 1px solid #3187ff;
+    border-radius: 1rem;
+    background: #fff;
+    color: #3187ff;
+    text-decoration: none;
+    font-size: 14px;
+    text-shadow: none;
+    transition: all 0.1s linear;
+}
+.butterfly-tags:hover{
+    transition: all 0.1s linear;
+    color: #fff;
+    background: #3187ff;
+}
+</code></pre>
+<p>按<code>v1.0</code>添加<code>html</code>代码，其中第二行<code>&gt;</code>前添加<code>class=&quot;butterfly-tags&quot;</code>，删除倒数第三行的<code>&amp;nbsp &amp;nbsp</code>。</p>
+<h4 id="v3-0：强♂迫SPFK支持"><a href="#v3-0：强♂迫SPFK支持" class="headerlink" title="v3.0：强♂迫SPFK支持"></a>v3.0：强♂迫SPFK支持</h4><p>$butterfly$的样式我还是不满意，肝了一上午的尝试有了最终方案：</p>
+<p>在<code>common-article.ejs</code>中找到以下代码：</p>
+<pre><code class="lang-html"> &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;次阅读&lt;/p&gt;
+</code></pre>
+<p>下面添加：</p>
+<pre><code class="lang-html">      &lt;% if (post.tags &amp;&amp; post.tags.length){ %&gt;
+      &lt;%  var tags = [];  post.tags.forEach(function(tag){tags.push(&#39;&lt;li class=&quot;spfk-li&quot;&gt;&lt;a href=&quot;&#39; + config.root + tag.path + &#39;&quot; class=&quot;butterfly-tags&quot;&gt;&#39; + tag.name + &#39;&lt;/a&gt;&lt;/li&gt;&#39;);});%&gt;
+        &lt;div&gt;
+          &lt;ul class=&quot;spfk-ul&quot;&gt;
+            &amp;nbsp&lt;i class=&quot;fa fa-tag&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp
+            &lt;%- tags.join(&#39;&#39;) %&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;script&gt;
+            function colorInit(c,num){for(var i=1;i&lt;=num;++i)c.push(i+&#39;&#39;);}
+            function paintTags(){
+                var colorNumber=8,tagColors=[],tags=document.getElementsByClassName(&#39;butterfly-tags&#39;);
+                for(var i = 0 ; i &lt; tags.length ; ++i){
+                    if(!tagColors.length)colorInit(tagColors,colorNumber);
+                    var j=Math.floor(Math.random()*tagColors.length);
+                    tags[i].classList.add(&quot;spfk-color&quot;+tagColors[j]);
+                    tagColors.splice(j,1);
+                }
+            }
+            paintTags()
+        &lt;/script&gt;
+    &lt;% } %&gt;
+</code></pre>
+<p>在<code>\themes\sakura\source\css\style.css</code>中，（如果有的话）删除<code>.butterfly-tags</code>的样式，添加：</p>
+<pre><code class="lang-css">.butterfly-tags{
+    display: inline-block;
+    margin: 0.4rem 1rem 0.4rem 0;
+    padding: 0rem 0.45rem;
+    border: 1px solid transparent;
+    border-radius: 1px 6px 6px 1px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    text-shadow: none;
+    position: relative;
+    transition: all 0.1s linear;
+}
+.butterfly-tags:hover{
+    transition: all 0.1s linear;
+    opacity: 0.85;
+    color: inherit;
+}
+.butterfly-tags:focus{color: #fff;}
+.butterfly-tags:before{
+    content: &quot; &quot;;
+    position: absolute;
+    border: 11px solid transparent;
+    left: -23px;
+    top: -1px;
+}
+.butterfly-tags:after{
+    content: &quot; &quot;;
+    width: 4px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3);
+    position: absolute;
+    left: -2px;
+    top: 8px;
+}
+.spfk-ul{
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+.spfk-li{display: inline-block;}
+.spfk-color1{
+    background: #39b3d7;
+    border-color: #39b3d7;
+}
+.spfk-color1:before{border-right-color: #39b3d7;}
+.spfk-color2{
+    background: #4cae4c;
+    border-color: #4cae4c;
+}
+.spfk-color2:before{border-right-color: #4cae4c;}
+.spfk-color3{
+    background: #f4a83c;
+    border-color: #f4a83c;
+}
+.spfk-color3:before{border-right-color: #f4a83c;}
+.spfk-color4{
+    background: #ee6252;
+    border-color: #ee6252;
+}
+.spfk-color4:before{border-right-color: #ee6252;}
+.spfk-color5{
+    background: #e23794;
+    border-color: #e23794;
+}
+.spfk-color5:before{border-right-color: #e23794;}
+.spfk-color6{
+    background: #9537ff;
+    border-color: #9537ff;
+}
+.spfk-color6:before{border-right-color: #9537ff;}
+.spfk-color7{
+    background: #0a5dff;
+    border-color: #0a5dff;
+}
+.spfk-color7:before{border-right-color: #0a5dff;}
+.spfk-color8{
+    background: #cb3800;
+    border-color: #cb3800;
+}
+.spfk-color8:before{border-right-color: #cb3800;}
+</code></pre>
+<p><del>可把我累坏了</del><img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/2233/tuhun.png"></p>
+<p>同时发现了$SPFK$的$BUG$：</p>
+<p>$SPFK$的三角形标签样式是通过伪元素<code>:before</code>实现的，而其位置的控制是通过<code>position:absolute</code>及<code>left</code>和<code>top</code>属性，这样在缩放页面时，三角形会脱离标签。更要命的是，在和我机房电脑屏幕比例不一样的电脑上，不需要缩放三角形就会自动脱离标签。</p>
+<p><img src="/images/blogの搭建之sakura-8.png" alt=""></p>
+<h4 id="v4-0：缩放BUG？不存在的！"><a href="#v4-0：缩放BUG？不存在的！" class="headerlink" title="v4.0：缩放BUG？不存在的！"></a>v4.0：缩放BUG？不存在的！</h4><p>肝了半个上午和半个下午把缩放$BUG$解决了。</p>
+<p>在<code>common-article.ejs</code>中<code>&lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;次阅读&lt;/p&gt;</code>下面添加：</p>
+<pre><code class="lang-html">      &lt;% if (post.tags &amp;&amp; post.tags.length){ %&gt;
+      &lt;%  var tags = [];  post.tags.forEach(function(tag){tags.push(&#39;&lt;li class=&quot;spfk-li&quot;&gt;&lt;span class=&quot;triangle&quot;&gt;&lt;/span&gt;&lt;a href=&quot;&#39; + config.root + tag.path + &#39;&quot; class=&quot;butterfly-tags&quot;&gt;&#39; + tag.name + &#39;&lt;/a&gt;&lt;/li&gt;&#39;);});%&gt;
+    &lt;div&gt;
+          &lt;ul class=&quot;spfk-ul&quot;&gt;
+            &amp;nbsp&lt;i class=&quot;fa fa-tag&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&amp;nbsp;&lt;%- tags.join(&#39;&#39;) %&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;script&gt;
+            function colorInit(c,num){for(var i=1;i&lt;=num;++i)c.push(i+&#39;&#39;);}
+            function paintTags(){
+                var colorNumber=8,tagColors=[],tags=document.getElementsByClassName(&#39;spfk-li&#39;);
+                for(var i = 0 ; i &lt; tags.length ; ++i){
+                    if(!tagColors.length)colorInit(tagColors,colorNumber);
+                    var j=Math.floor(Math.random()*tagColors.length);
+                    tags[i].classList.add(&quot;spfk-color&quot;+tagColors[j]);
+                    tagColors.splice(j,1);
+        }
+            }
+            paintTags()
+        &lt;/script&gt;
+    &lt;% } %&gt;
+</code></pre>
+<p>在<code>style.css</code>里，添加：</p>
+<pre><code class="lang-css">.butterfly-tags{
+    display: inline-block;
+    margin: 0.4rem 1rem 0.4rem 0;
+    padding: 0rem 0.45rem;
+    border: 1px solid transparent;
+    border-radius: 1px 6px 6px 1px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    text-shadow: none;
+    position: relative;
+    transition: all 0.1s linear;
+    height:22px;
+}
+.spfk-li:hover{
+    transition: all 0.1s linear;
+    opacity: 0.85;
+    color: inherit;
+}
+.butterfly-tags:hover{color: inherit;}
+.butterfly-tags:focus{color: #fff;}
+.butterfly-tags:after{
+    content: &quot; &quot;;
+    width: 4px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3);
+    position: absolute;
+    left: -2px;
+    top: 8px;
+}
+.spfk-ul{
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+.triangle{
+    border:11px solid transparent;
+    display:inline-block;
+    position:relative;
+    top:6px;
+}
+.spfk-li{
+    display: inline-block;
+    margin-right:-17px;
+    margin-left:-2px;
+}
+.spfk-color1 a{
+    background: #39b3d7;
+    border-color: #39b3d7;
+}
+.spfk-color1 span{border-right-color: #39b3d7;}
+.spfk-color2 a{
+    background: #4cae4c;
+    border-color: #4cae4c;
+}
+.spfk-color2 span{border-right-color: #4cae4c;}
+.spfk-color3 a{
+    background: #f4a83c;
+    border-color: #f4a83c;
+}
+.spfk-color3 span{border-right-color: #f4a83c;}
+.spfk-color4 a{
+    background: #ee6252;
+    border-color: #ee6252;
+}
+.spfk-color4 span{border-right-color: #ee6252;}
+.spfk-color5 a{
+    background: #e23794;
+    border-color: #e23794;
+}
+.spfk-color5 span{border-right-color: #e23794;}
+.spfk-color6 a{
+    background: #9537ff;
+    border-color: #9537ff;
+}
+.spfk-color6 span{border-right-color: #9537ff;}
+.spfk-color7 a{
+    background: #0a5dff;
+    border-color: #0a5dff;
+}
+.spfk-color7 span{border-right-color: #0a5dff;}
+.spfk-color8 a{
+    background: #cb3800;
+    border-color: #cb3800;
+}
+.spfk-color8 span{border-right-color: #cb3800;}
+</code></pre>
+<p>这样三角形就不会脱离了。但是还是有一个小$BUG$：缩放时三角形的高度与方框不一致，导致轻微的上下错位。不过放大基本是看不出来的，至少得240%才会触发；而缩小虽然明显能观察到，但是$sakura$本身字体已经够小了，我想一般也很少有人会往小了缩吧。</p>
+<hr>
+<h2 id="归档页面优化"><a href="#归档页面优化" class="headerlink" title="归档页面优化"></a>归档页面优化</h2><h3 id="「全部展开-收缩」按钮优化"><a href="#「全部展开-收缩」按钮优化" class="headerlink" title="「全部展开/收缩」按钮优化"></a>「全部展开/收缩」按钮优化</h3><p>在<code>\themes\sakura\layout\archive.ejs</code>中，找到：</p>
+<pre><code class="lang-html">&lt;p style=&quot;text-align:right;&quot;&gt;
+  [&lt;span id=&quot;al_expand_collapse&quot; style=&quot;cursor: s-resize;&quot;&gt;全部展开/收缩&lt;/span&gt;]&lt;/p&gt;
+</code></pre>
+<p>修改为：</p>
+<pre><code class="lang-html">&lt;p style=&quot;text-align:left;&quot;&gt;
+  &lt;button id=&quot;al_expand_collapse&quot;&gt;
+    &lt;style&gt;
+    button#al_expand_collapse {
+        color: white;
+        border-radius: 16px;
+        font-weight: bold;
+        font-size: 15px;
+        background-color: #ff9100;
+        transition-duration: 0.3s;
+        box-shadow: 0 3px 8px 0 rgba(0,0,0,0.11), 0 3px 8px 0 rgba(0,0,0,0.11);
+        outline: none;
+    }
+    button#al_expand_collapse:hover {
+        transition: all 0.2s linear 0s;
+        background-color: #ff5900; 
+    }
+    &lt;/style&gt;
+    &lt;i class=&quot;fa fa-bars&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 全部展开/收缩
+&lt;/button&gt;
+&lt;/p&gt;
+</code></pre>
+<h3 id="页首优化"><a href="#页首优化" class="headerlink" title="页首优化"></a>页首优化</h3><p>浏览各个主页面的时候总觉得怪怪的，发现原来是归档页面没有配图。</p>
+<p>然而归档是一个特殊页面，没有<code>md</code>文件也没法配图。</p>
+<p>于是暴力修改<code>ejs</code>文件，顺便使其样式与其它页面相同：</p>
+<p>在<code>\themes\sakura\layout\archive.ejs</code>中，在第一行：</p>
+<pre><code class="lang-html">&lt;div class=&quot;blank&quot; style=&quot;padding-top: 75px;&quot;&gt;
+&lt;/div&gt;
+</code></pre>
+<p>修改为</p>
+<pre><code class="lang-html">&lt;div class=&quot;pattern-center-blank&quot; style=&quot;padding-top: 75px;&quot;&gt;
+&lt;/div&gt;
+&lt;% if ( theme.archivesimg &amp;&amp; theme.archivesimg.length ){ %&gt;
+    &lt;div class=&quot;pattern-center-sakura&quot;&gt;
+      &lt;div class=&quot;pattern-attachment-img&quot;&gt;
+        &lt;img src=&quot;&lt;%- theme.lazyloadImg%&gt;&quot; data-src=&quot;&lt;%= theme.archivesimg %&gt;&quot; class=&quot;lazyload&quot; onerror=&quot;imgError(this,3)&quot; style=&quot;width: 100%; height: 100%; object-fit: cover; pointer-events: none;&quot;&gt;
+      &lt;/div&gt;
+      &lt;header class=&quot;pattern-header &quot;&gt;
+        &lt;h1 class=&quot;entry-title&quot;&gt;
+        归档&lt;/h1&gt;
+      &lt;/header&gt;
+    &lt;/div&gt;
+  &lt;% } %&gt;
+</code></pre>
+<p>删除：</p>
+<pre><code class="lang-html">    &lt;header class=&quot;page-header&quot;&gt;
+      &lt;h1 class=&quot;cat-title&quot;&gt;
+      归档&lt;/h1&gt;
+      &lt;span class=&quot;cat-des&quot;&gt;
+        &lt;p&gt;
+        Archives&lt;/p&gt;
+      &lt;/span&gt;
+    &lt;/header&gt;
+</code></pre>
+<p>在主题配置文件中添加：</p>
+<pre><code>archivesimg:
+</code></pre><p>后面填上图片路径，注意加空格。</p>
+<h3 id="标题修改"><a href="#标题修改" class="headerlink" title="标题修改"></a>标题修改</h3><p>归档页面的标题一直叫<code>archive_a</code>，肥肠神奇。</p>
+<p>在<code>\themes\sakura\languages\zh-cn.yml</code>开头添加：</p>
+<pre><code>archive_a: 归档
+</code></pre><h2 id="我不用不蒜子啦！"><a href="#我不用不蒜子啦！" class="headerlink" title="我不用不蒜子啦！"></a>我不用不蒜子啦！</h2><p>一直对不蒜子阅读量统计不满意，加载速度慢，经常卡住。</p>
+<p>$Valine$同样有阅读量统计，而且$leancloud$的速度我是很信任的。</p>
+<p>在<code>\themes\sakura\source\js\sakura-app.js</code>中，找到函数<code>valine.init</code>，在<code>appKey</code>一行下面添加：</p>
+<pre><code class="lang-diff">+ visitor: true,
+</code></pre>
+<p>在<code>\themes\sakura\layout\_partial\comment.ejs</code>中进行同样的修改。</p>
+<p>删除：</p>
+<pre><code class="lang-diff">- $.getScript(&#39;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&#39;);
+</code></pre>
+<p>在<code>\themes\sakura\layout\_widget\common-article.ejs</code>中，替换（有两处）：</p>
+<pre><code class="lang-diff">- &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;次阅读
++ &lt;span id=&#39;/&lt;%= page.path %&gt;&#39; class=&quot;leancloud-visitors&quot; data-flag-title=&quot;&lt;%= page.title %&gt;&quot;&gt;&lt;a class=&quot;leancloud-visitors-count&quot;&gt;1000000&lt;/a&gt;&lt;a class=&quot;post-meta-item-text&quot;&gt; 次阅读&lt;/a&gt;&lt;/span&gt;
+</code></pre>
+<p>在<code>\themes\sakura\layout\_partial\footer.ejs</code>中删除：</p>
+<pre><code class="lang-diff">- &lt;script src=&quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>原来的阅读量丢失了？$Valine$阅读量统计以及评论有一个非常大的特点，就是随意更改。</p>
+<p>到$leancloud$你创建的应用里，存储→Counter就是阅读量统计了。不过没啥好办法，只能一个一个改。</p>
+<h2 id="我不用Hexo啦！（雾）"><a href="#我不用Hexo啦！（雾）" class="headerlink" title="我不用Hexo啦！（雾）"></a>我不用Hexo啦！（雾）</h2><p><a href="https://www.cnblogs.com/zouwangblog/p/11541835.html" target="_blank" rel="noopener">神秘の传送门</a></p>
+<p>偶然间发现的，魔改博客园为$sakura$样式！而且还原度极高！</p>
+<p>试了试水，<a href="https://www.cnblogs.com/ctz45562/" target="_blank" rel="noopener">效果</a>很惊艳。</p>
+<p>当然我没有想法转到博客园上，链接挂在这给需要的同志，并膜拜+资瓷作者。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/2233/diyi.png"></p>
+<h2 id="加个游戏"><a href="#加个游戏" class="headerlink" title="加个游戏"></a>加个游戏</h2><blockquote>
+<p>我们不生产游戏，我们只是代码的搬运工。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/quyin/witty.png"></p>
+</blockquote>
+<p>步骤都是一样的（<code>name</code>代指游戏名）：</p>
+<p>1.在<code>\source</code>中新建<code>name.html</code>，把链接里的内容粘进去。</p>
+<p>注：我为了缩小<code>html</code>体积使用了<a href="https://tool.lu/html/" target="_blank" rel="noopener">html美化工具</a>压缩，如果想魔改需要美化回去。</p>
+<p>2.在站点配置文件中，<code>skip_render</code>一栏添加：<code>name.html</code>。如果有多项按如下格式添加：</p>
+<pre><code>skip_render:
+  - ...
+  - ...
+  - name.html
+</code></pre><p>3.访问<code>博客地址/name.html</code>开始游戏（去掉<code>.html</code>后缀也行）</p>
+<blockquote>
+<p>闲扯：本来是想直接挂一个下载链接的，但是不知道为啥我的blog的<code>&lt;a&gt;</code>标签无法用<code>download</code>属性转成下载链接，只好挂<code>github</code>链接。。。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/2233/wuyan.png"></p>
+</blockquote>
+<h3 id="2048"><a href="#2048" class="headerlink" title="2048"></a>2048</h3><p>来源： 直接从<a href="https://stevenmhy.tk" target="_blank" rel="noopener">这位dalaoのblog</a>里搬来的。 </p>
+<p>链接：<a href="https://github.com/ctz45562/blog-games/blob/master/2048.html" target="_blank" rel="noopener">2048</a></p>
+<p>说明：</p>
+<p>原博客采用的$K-ON$风格，我魔改成了点兔的，同时也对<code>html</code>结构进行了少量修改。</p>
+<p>若想修改图片（需要一些<code>html</code>、<code>css</code>的基础知识）在引入的<code>main.css</code>中能找到，懂的自然懂~<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/xiaodianshi/xiao.png"></p>
+<h3 id="flappy-bird"><a href="#flappy-bird" class="headerlink" title="flappy bird"></a>flappy bird</h3><p>来源：<a href="https://github.com/sharpwind612/My-flappy-bird" target="_blank" rel="noopener">https://github.com/sharpwind612/My-flappy-bird</a></p>
+<p>链接：<a href="https://github.com/ctz45562/blog-games/blob/master/flappybird.html" target="_blank" rel="noopener">flappy bird</a></p>
+<h3 id="五子棋"><a href="#五子棋" class="headerlink" title="五子棋"></a>五子棋</h3><p>来源：<a href="http://kai.xlightgod.cf/" target="_blank" rel="noopener">http://kai.xlightgod.cf/</a></p>
+<p>链接：<a href="https://github.com/ctz45562/blog-games/blob/master/gobang.html" target="_blank" rel="noopener">gobang</a></p>
+<h3 id="生火间"><a href="#生火间" class="headerlink" title="生火间"></a>生火间</h3><p>来源：<a href="https://github.com/doublespeakgames/adarkroom" target="_blank" rel="noopener">https://github.com/doublespeakgames/adarkroom</a></p>
+<p>链接：<a href="https://github.com/ctz45562/blog-games/blob/master/adarkroom.html" target="_blank" rel="noopener">a dark room</a></p>
+<p>说明：</p>
+<p>由于我剽的时候疏忽了，没有改<code>js</code>里的路径，恰好我的<code>git</code>无法<code>push</code>，更新不了<code>html</code>文件。生火间需要额外在<code>\themes\sakura\source\css</code>里新建<code>dark.css</code>，<a href="https://github.com/ctz45562/cdn/blob/master/adarkroom/css/dark.css" target="_blank" rel="noopener">内容戳这儿</a>。</p>
+<h3 id="水果忍者"><a href="#水果忍者" class="headerlink" title="水果忍者"></a>水果忍者</h3><p>来源：<a href="https://blog.csdn.net/aaa333qwe/article/details/72879188" target="_blank" rel="noopener">https://blog.csdn.net/aaa333qwe/article/details/72879188</a></p>
+<p>链接：<a href="https://github.com/ctz45562/blog-games/blob/master/fruit-ninja.html" target="_blank" rel="noopener">fruit ninja</a></p>
+<h2 id="模糊字体"><a href="#模糊字体" class="headerlink" title="模糊字体"></a>模糊字体</h2><p>从<a href="https://movetoex.github.io/" target="_blank" rel="noopener">这个博客</a>发现的。</p>
+<p>就像这样：</p>
+<p>戳这儿→ <span class="spoiler">被你发现了</span></p>
+<p>在<code>\themes\sakura\source\css\style.css</code>中，添加：</p>
+<pre><code class="lang-css">span.spoiler:hover {text-shadow: grey 0px 0px 4px;}
+span.spoiler {
+    color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    text-shadow: grey 0px 0px 8px;
+    cursor: pointer;
+    -webkit-transition: text-shadow .5s ease;
+    -moz-transition: text-shadow .5s ease;
+    transition: text-shadow .5s ease;
+}
+span.spoiler.revealed {text-shadow: grey 0px 0px 0px;}
+</code></pre>
+<p>在<code>\themes\sakura\layout\_widget\common-article.js</code>中，添加：</p>
+<pre><code class="lang-html">&lt;script&gt;
+var spoiler=document.getElementsByClassName(&#39;spoiler&#39;);
+for(var i=0;i&lt;spoiler.length;++i)
+spoiler[i].onclick=function(){this.classList.toggle(&quot;revealed&quot;);};
+&lt;/script&gt;
+</code></pre>
+<p>按如下格式食用：</p>
+<pre><code class="lang-markdown">&lt;span class=&quot;spoiler&quot;&gt;文本&lt;/span&gt;
+</code></pre>
+<h2 id="文章信息添加「分类于」"><a href="#文章信息添加「分类于」" class="headerlink" title="文章信息添加「分类于」"></a>文章信息添加「分类于」</h2><p>在<code>\themes\sakura\layout\_widget\common-article.ejs</code>中，<code>&lt;%= date(post.date, &#39;YYYY-M-D&#39;) %&gt;</code>下面添加：</p>
+<pre><code class="lang-html">    &lt;span class=&quot;bull&quot;&gt;&lt;/span&gt;
+    &lt;% if(post.categories &amp;&amp; post.categories.length){ %&gt;
+      &lt;span&gt;&lt;i class=&quot;fa fa-archive&quot;&gt;&lt;/i&gt; 分类于  
+        &lt;% post.categories.each((category)=&gt;{ %&gt;&lt;span class=&quot;article-category&quot;&gt;&lt;a href=&quot;&lt;%- url_for(category.path) %&gt;&quot; &gt; &lt;%= category.name %&gt;&lt;/a&gt;&lt;/span&gt;
+      &lt;% }) %&gt;
+    &lt;/span&gt;
+    &lt;% } %&gt;
+</code></pre>
+<p>在<code>\themes\sakura\source\css\style.css</code>中，添加：</p>
+<pre><code class="lang-css">.article-category{
+    display: inline-block;
+    line-height: 0 !important;
+    margin: 0;
+    padding: 0.55rem 0.2rem;
+    border: 1px solid #0a87ff;
+    background: rgba(255, 255, 255, 0.93);
+    color: #0a87ff !important;
+    text-decoration: none;
+    font-size: 13px;
+    text-shadow: none;
+    box-shadow: 0 0 6px #111;
+    transition: all 0.1s linear;
+    border-radius:10%;
+}
+.article-category:hover{
+    transition: all 0.1s linear;
+    color: #fff !important;
+    background: #0a89ffec;
+}
+.article-category a{color:inherit !important;}
+</code></pre>
+<h2 id="施工中…"><a href="#施工中…" class="headerlink" title="施工中…"></a>施工中…</h2><p><del>闲的蛋疼加了这么一个功能</del></p>
+<p>如果某篇文章没有完成<del>不传上去不就行了</del>，在<code>front-matter</code>里加上一句<code>incomplete: true</code>，文章底部就会酱紫：</p>
+<blockquote><center><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.3/emojis/gif/23.gif"></center><p style="font-size:32px;text-align:center;margin-top:-2px">施工中...</p></blockquote>
+
+<p><span class="spoiler">不要问我为什么是哔咔娘</span></p>
+<p>在<code>\themes\sakura\layout\_widget\common-article.ejs</code>中，<code>&lt;%- post.content %&gt;</code>下面添加：</p>
+<pre><code class="lang-html">&lt;% if(post.incomplete&amp;&amp;post.incomplete==true) {%&gt;
+&lt;hr&gt;
+&lt;center&gt;&lt;img class=&quot;lazyload&quot; onerror=&quot;imgError(this,3)&quot; src=&quot;https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif&quot; data-src=&quot;https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.3/emojis/gif/23.gif&quot;&gt;&lt;/center&gt;
+&lt;p style=&quot;font-size:32px;text-align:center;margin-top:-2px&quot;&gt;施工中...&lt;/p&gt;
+&lt;% } %&gt;
+</code></pre>
+<hr>
+<h1 id="瞎搞"><a href="#瞎搞" class="headerlink" title="瞎搞"></a>瞎搞</h1><p>记录一下瞎删掉的东西，要是有了$BUG$还原一下。</p>
+<p>1.在<code>\themes\sakura\source\js\sakura-app.js</code>中，<code>$.getScript(&#39;//cdn.jsdelivr.net/vue/latest/vue.min.js&#39;, function () {</code>一行下面，删除了：</p>
+<pre><code class="lang-javascript">    $.getScript(&#39;//unpkg.com/botui/build/botui.min.js&#39;, function () {
+        bot_ui_ini()
+    })
+</code></pre>
+<p>2.在<code>\themes\sakura\layout\_widget\common-article.ejs</code>中删除了：</p>
+<pre><code class="lang-html">&lt;div class=&quot;toc&quot; style=&quot;background: none;&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>3.在<code>\themes\sakura\source\css\style.css</code>中，删除了：</p>
+<pre><code class="lang-css">button:hover,input[type=&quot;button&quot;]:hover,input[type=&quot;reset&quot;]:hover,input[type=&quot;submit&quot;]:hover {
+    /*border-color:#ccc #bbb #aaa;*/
+    /*box-shadow:inset 0 1px 0 rgba(255,255,255,.8),inset 0 15px 17px rgba(255,255,255,.8),inset 0 -5px 12px rgba(0,0,0,.02)*/
+}
+button:focus,input[type=&quot;button&quot;]:focus,input[type=&quot;reset&quot;]:focus,input[type=&quot;submit&quot;]:focus,button:active,input[type=&quot;button&quot;]:active,input[type=&quot;reset&quot;]:active,input[type=&quot;submit&quot;]:active {
+    /*border-color:#aaa #bbb #bbb;*/
+    /*box-shadow:inset 0 -1px 0 rgba(255,255,255,.5),inset 0 2px 5px rgba(0,0,0,.15)*/
+}
+</code></pre>
+<pre><code class="lang-css">#bgvideo {
+    position:absolute;
+    top:0;
+    left:0;
+    margin:0;
+    padding:0;
+    min-width:99.999%;
+    min-height:550px;
+    z-index:0
+}
+#video-btn,#video-add {
+    position:absolute;
+    bottom:3px;
+    right:5px;
+    width:32px;
+    height:32px;
+    z-index:7;
+    background-position:center;
+    background-size:cover;
+    cursor:pointer;
+    opacity:.8;
+    -moz-animation:poi-face 10s linear infinite alternate;
+    -webkit-animation:poi-face 10s linear infinite alternate;
+    -o-animation:poi-face 10s linear infinite alternate;
+    animation:poi-face 10s linear infinite alternate
+}
+#video-btn:hover,#video-add:hover {
+    opacity:1
+}
+.video-play,.loadvideo {
+    background-image:url(&#39;https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/play@32x32.png&#39;)
+}
+.video-pause {
+    background-image:url(&#39;https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/pause@32x32.png&#39;)
+}
+#video-add {
+    background-image:url(&#39;https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/add@32x32.png&#39;);
+    bottom:45px;
+    display:none
+}
+.video-stu {
+    position:absolute;
+    bottom:-100px;
+    left:0;
+    right:0;
+    margin:auto;
+    padding:6px 15px;
+    text-align:center;
+    color:#fff;
+    width:100%;
+    background-color:rgba(0,0,0,.8);
+    border-radius:0;
+    font-size:18px;
+    -webkit-transition:.4s ease all;
+    -moz-transition:.4s ease all;
+    -o-transition:.4s ease all;
+    transition:.4s ease all
+}
+</code></pre>
+<pre><code class="lang-css">  cursor:url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cursor/No_Disponible.cur),auto;
+</code></pre>
+<pre><code class="lang-css">  cursor:url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cursor/normal.cur),auto
+</code></pre>
+<pre><code class="lang-css">  cursor:url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cursor/texto.cur),auto
+</code></pre>
+<p>4.<code>\themes\sakura\source\css\style.css</code>：</p>
+<pre><code class="lang-diff">- .logolink a:hover .sakurasono {
+-     background-color:orange;
+-     color:#fff
+- }
+</code></pre>
+<p><code>.logolink .sakurasono</code>：</p>
+<pre><code class="lang-diff">- background-color:rgba(255,255,255,.5);
+</code></pre>
+<p>在<code>.logolink a:hover .shironeko,.logolink a:hover rt</code>前添加了：<code>.logolink a:hover .sakurasono,</code></p>
+<p>5.<code>\themes\sakura\layout\_partial\head.ejs</code>：</p>
+<pre><code class="lang-diff">- &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/sharejs.css&quot;&gt;
+- &lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC&quot; media=&quot;all&quot;&gt;
+- &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/lib.min.css&quot; media=&quot;all&quot;&gt;\
++ &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/googlefont.css&quot; media=&quot;all&quot;&gt;
++ &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/lib.min.css&quot; media=&quot;all&quot;&gt;
+</code></pre>
+<p>6.<code>\themes\sakura\layout\_partial\footer.ejs</code>：</p>
+<pre><code class="lang-diff">- &lt;script src=&quot;https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js&quot;&gt;&lt;/script&gt;
++ &lt;script src=&quot;https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.2/js/clipboard.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>7.在<code>\themes\sakura\source\js\sakura-app.js</code>中，修改了：</p>
+<pre><code class="lang-diff">- $.getScript(&#39;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&#39;);
++ $.getScript(&#39;//cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.0/js/busuanzi.pure.mini.js&#39;);
+</code></pre>
+<p>8.在<code>\themes\sakura\layout\_widget\common-page.ejs</code>倒数第二行：</p>
+<pre><code class="lang-diff">- &lt;/div&gt;
++ &lt;/article&gt;
+</code></pre>
+<p>9.在<code>style.css</code>中：</p>
+<pre><code class="lang-diff">#page {
+-    min-height: calc(100vh - 150px);
++    min-height: calc(100vh - 45562px); 
+}
+</code></pre>
+<p>10.在<code>common-article</code>中：</p>
+<pre><code class="lang-diff">- &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/sharejs.css&quot;&gt;
+- &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css&quot;&gt;
++ &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.bootcss.com/tocbot/4.8.0/tocbot.css&quot;&gt;
+</code></pre>
+<p>11.在<code>\_partial\footer.ejs</code>中：</p>
+<pre><code class="lang-diff">- &lt;img src=&quot;https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg&quot;&gt;
+</code></pre>
+<p>12.在<code>\layout\_widget\index-items.ejs</code>中：</p>
+<pre><code class="lang-diff">- &lt;div class=&quot;float-content&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>13.在<code>\source\css\style.css</code>中：</p>
+<pre><code class="lang-diff">@media(max-width:800px) {
+    .changeSkin-gear span::before {
+    content:&quot;&quot;
+}
+.changeSkin i {font-size:20px}
+.changeSkin-gear i {font-size:20px}
+}
+- position:relative;
+-    z-index:99;
+-    cursor:pointer
+- }
+</code></pre>
+<p>14.删除了关于主题配置文件中的<code>prefixName</code>。</p>
+<p>在<code>\layout\_partial\header.ejs</code>中：</p>
+<pre><code class="lang-diff">-            &lt;span class=&quot;sakurasono&quot;&gt;&lt;%= theme.prefixName %&gt;&lt;/span&gt;
+-            &lt;span class=&quot;shironeko&quot;&gt;&lt;%= theme.siteName %&gt;&lt;/span&gt;
++            &lt;span class=&quot;sakurasono&quot;&gt;&lt;%= theme.siteName %&gt;&lt;/span&gt;
+</code></pre>
+<p>在<code>\source\css\style.css</code>中，删除了所有<code>.shironeko</code>。``</p>
+<hr>
+<center><div style="font-size:45px; color:#08f">To be continued...</div></center>
+
+            
+        </div>
+      </article>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2019/06/20/%E6%B4%9B%E8%B0%B7-P3255-JLOI2013-%E5%9C%B0%E5%BD%A2%E7%94%9F%E6%88%90/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/dxsc.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/dxsc.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                洛谷 P3255 [JLOI2013]地形生成</h3>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2019/06/03/bzoj-2839-%E9%9B%86%E5%90%88%E8%AE%A1%E6%95%B0/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/jhjs.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/jhjs.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                bzoj 2839 集合计数</h3>
+              </div> 
+            </a>
+			</div>
+        
+      </section> 
+    </main>
+</div>
+</div>
+</div>
+<div class="gather">
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz",
+        appKey: "jqULEjwlbvOCM08eEOpTIGOI",
+        path: window.location.pathname,
+		visitor: true,
+        placeholder: "日々私たちが过ごしている日常は、実は奇迹の连続なのかもしれない。"
+      })
+  }
+</script>
+
+</div>
+
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+
+<script>
+function imgInit(){
+	var imgs=document.getElementsByClassName('entry-content').item(0).getElementsByTagName('img');
+	for(var i=0;i<imgs.length;++i){
+		var element = document.createElement("a"),record=imgs[i],dsrc=record.getAttribute("data-src");
+		element.setAttribute("data-fancybox","gallery");
+    element.setAttribute("href",dsrc||imgs[i].src);
+		element.setAttribute("id","escape-link");
+		imgs[i].parentNode.appendChild(element);
+		imgs[i].parentNode.removeChild(imgs[i]);
+		element.appendChild(record);
+	}
+}
+var spoiler=document.getElementsByClassName('spoiler');
+for(var i=0;i<spoiler.length;++i)
+spoiler[i].onclick=function(){this.classList.toggle("revealed");};
+imgInit();
+</script>
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.6.7/articleload.gif">
+      </div>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Github Pages</a>
+        </span>
+		<!-- <span style="color: #b9b9b9;display:block">图片外链由<a href="https://img.fghrsh.net/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">FGHRSH图床</a>提供 -->
+        <!-- </span> -->
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.4/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.2/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<!-- <script src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/valine.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.1.4/js/volantis.min.js"></script>
+<script type="text/javascript">
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { 
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;ww">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

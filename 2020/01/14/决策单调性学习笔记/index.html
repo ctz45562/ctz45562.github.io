@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">决策单调性学习笔记 | ctz&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/googlefont.css" media="all">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_ndnjfmz11y9.css">
+  <style>
+  .emoji-coda {
+      display: inline-block !important;
+      position: relative;
+      width: 47px;
+      top: 2px;
+      margin: -3px 3px !important;
+      padding: 0;
+  }
+  </style>
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "ctz's blog";
+  mashiro_option.author_name = "ctz's blog";
+  mashiro_option.site_url = "https://ctz45562.github.io";
+  mashiro_option.v_appId = "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz";
+  mashiro_option.v_appKey = "jqULEjwlbvOCM08eEOpTIGOI";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index1.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index2.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index3.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index4.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index5.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index6.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index7.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.4/index8.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.9/index9.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
+    @import url("/code.css");
+  </style>
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed;bottom:64px;left:28px;"> 
+  <div class="theme-controls row-container"> 
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> background <i style="color:grey" class="fa fa-chevron-right"></i></p>
+    <ul class="menu-list"> 
+	  <li id="white-bg"> 
+	    <i class="fa fa-television">
+		</i>
+	  </li> 
+	<li id="sakura-bg"> 
+      <i class="iconfont icon-sakura">
+	  </i>
+	</li> 
+    <li id="gribs-bg"> 
+      <i class="fa fa-slack">
+	  </i>
+    </li> 
+    <li id="KAdots-bg"> 
+      <i class="iconfont icon-dots">
+      </i>
+    </li> 
+    <li id="totem-bg"> 
+      <i class="fa fa-optin-monster">
+      </i>
+    </li> 
+    <li id="pixiv-bg"> 
+      <i class="fa fa-star">
+	  </i>
+      </li> 
+    <li id="bing-bg"> 
+      <i class="fa fa-picture-o">
+	  </i>
+    </li> 
+    <li id="dark-bg"> 
+      <i class="fa fa-moon-o">
+      </i>
+    </li> 
+  </ul> 
+  </div > 
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> font <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="font-family-controls row-container">
+    <button type="button" class="control-btn-serif " data-mode="serif" onclick="mashiro_global.font_control.change_font()">Serif</button>
+    <button type="button" class="control-btn-sans-serif" data-mode="sans-serif" onclick="mashiro_global.font_control.change_font()">Sans Serif</button>
+  </div>
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> script <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="theme-controls row-container">
+  <ul class="menu-list">
+  <style>li>.ctz{font-size: 21px;}</style>
+	<li id="empty-effect">
+	  <i class="ctz ctz-jinzhi">
+	  </i>
+	</li>
+	<li id="sakura-rain-effect">
+	  <i class="ctz ctz-huaxiang">
+	  </i>
+	</li>
+	<li id="snowy-effect">
+	  <i class="ctz ctz-snow">
+	  </i>
+	</li>
+	<li id="lines-effect">
+	  <i class="ctz ctz-xianlu">
+	  </i>
+	</li>
+	<li id="colorful-belts-effect">
+	  <i class="ctz ctz-caidai"></i>
+	  </i>
+	</li>
+	<li id="words-rain-effect">
+	  <i class="ctz ctz-zimuletters2"></i>
+	</li>
+	<li id="point-rain-effect">
+	  <i class="ctz ctz-diandiandian" style="font-size:19px"></i>
+	</li>
+	<li id="rain-drop-effect">
+	  <i class="ctz ctz-yu"></i>
+	</li>
+  </ul>
+  </div>
+<canvas id="night-mode-cover">
+</canvas>
+</div> 
+  <div class="changeSkin-gear no-select" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; visibility: visible; bottom: 0px;"> 
+  <div class="keys" id="setbtn"> 
+    <button id="open-skinMenu">
+		<style>
+		button#open-skinMenu{
+			transition: all 0.2s linear 0s;
+			outline:none;
+			position:fixed;
+			bottom:12px;
+			left:13px;
+			font-size:16px;
+			background-color: rgba(255,255,255,.95);
+			border-radius: 20px;
+			box-shadow: 0 3px 8px 0 rgba(0,0,0,0.1), 0 3px 8px 0 rgba(0,0,0,0.1);
+		}
+		button#open-skinMenu:hover{
+			transition: all 0.2s linear 0s;
+			background-color: #2f98fc;
+			color: rgba(255,255,255);
+		}
+		</style>
+		<i class="iconfont icon-gear inline-block rotating">
+	  </i> 
+		SCHEME TOOL | 主题工具 
+	</button>
+  </div> 
+</div>
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dim">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://ctz45562.github.io">
+          <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Re&amp;Re</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://www.luogu.com.cn/user/111762" target="_blank" class="social-github" title="洛谷">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/social/luogu.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://github.com/ctz45562" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/github.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="mailto:cctz45562@163.com" target="_blank" class="social-github" title="e-mail">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/mail.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://space.bilibili.com/229790690" target="_blank" class="social-github" title="bilibili">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/bilibili.jpg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <!-- <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+ -->
+      <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%B8%B8%E8%AE%B0/">
+                          <i class="ctz ctz-lvyou"></i>
+                          游记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%93/">
+                          <i class="ctz ctz-playstation"></i>
+                          颓
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.0/tocbot.css">
+<div class="pattern-center-blank"></div>
+<div class="gather">
+
+  <div class="pattern-center-sakura single-center">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.2/jcddxxxbj.jpg);" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.2/jcddxxxbj.jpg">
+    </div>
+    <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
+      <h1 class="entry-title">
+      决策单调性学习笔记</h1>
+      <p class="entry-census">
+	    <span><a href="https://ctz45562.github.io"><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg" style="margin-right:4px">ctz</a>
+        </span>
+		<span class="bull"></span>
+		&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp
+        2020-1-14
+    <span class="bull"></span>
+    
+      <span><i class="fa fa-archive"></i> 分类于  
+        <span class="article-category"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" > 学习笔记</a></span>
+      
+    </span>
+    
+    <span class="bull"></span>
+		<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id='/2020/01/14/决策单调性学习笔记/' class="leancloud-visitors" data-flag-title="决策单调性学习笔记">
+        <a class="leancloud-visitors-count text-cursor">loading...</a>
+        <a class="post-meta-item-text text-cursor"> 次阅读</a>
+        </span>
+      </p>
+	  
+      
+    <div>
+		  <ul class="spfk-ul">
+		    &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<li class="spfk-li"><span class="triangle"></span><a href="/tags/动态规划/" class="butterfly-tags">动态规划</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/决策单调性/" class="butterfly-tags">决策单调性</a></li>
+          </ul>
+		</div>
+		<script>
+			function colorInit(c,num){for(var i=1;i<=num;++i)c.push(i+'');}
+			function paintTags(){
+				var colorNumber=8,tagColors=[],tags=document.getElementsByClassName('spfk-li');
+				for(var i = 0 ; i < tags.length ; ++i){
+					if(!tagColors.length)colorInit(tagColors,colorNumber);
+					var j=Math.floor(Math.random()*tagColors.length);
+					tags[i].classList.add("spfk-color"+tagColors[j]);
+					tagColors.splice(j,1);
+        }
+			}
+			paintTags()
+		</script>
+    
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="gather toc" style="width:230px"></div>
+        
+        <div class="entry-content">
+          <blockquote>
+<p>neb e denoe rsdi gWeiFielb?in</p>
+</blockquote>
+<p><span class="spoiler">世界上最无聊的事之一——造一个连自己也不会破译的密码。</span></p>
+<a id="more"></a>
+<hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><del>真的，不要尝试破译上面那个密码，你会爆炸的</del></p>
+<p>决策单调性是一类优化动态规划的算法。</p>
+<p>我也没想到生成函数这么快就结束了，干脆垫上一些小算法后开计算几何吧。</p>
+<hr>
+<h1 id="抄袭来源"><a href="#抄袭来源" class="headerlink" title="抄袭来源"></a>抄袭来源</h1><blockquote>
+<p><a href="https://www.luogu.com.cn/blog/83547/zong-dong-tai-gui-hua-di-ben-zhi-kan-si-bian-xing-fou-deng-shi-you-hua" target="_blank" rel="noopener">https://www.luogu.com.cn/blog/83547/zong-dong-tai-gui-hua-di-ben-zhi-kan-si-bian-xing-fou-deng-shi-you-hua</a></p>
+<p><a href="https://www.luogu.com.cn/problemnew/solution/P1912" target="_blank" rel="noopener">https://www.luogu.com.cn/problemnew/solution/P1912</a></p>
+<p>某网课</p>
+</blockquote>
+<hr>
+<h1 id="决策单调性"><a href="#决策单调性" class="headerlink" title="决策单调性"></a>决策单调性</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>如果我们有一个$DP$的式子：$f(i)=\min\limits_{j&lt;i}\{f(j)+w(j,i)\}$</p>
+<p>其中$w(j,i)$是一个与$i,j$有关的二元函数。而且这个$w(j,i)$搞不了单调队列或斜率优化。</p>
+<p>但是，如果我们通过打表或证明发现决策点是单调不降的（$f$值不一定单调），这个$DP$就满足决策单调性。</p>
+<p>形式化地说，记$p_i$为$f(i)$的决策点（即$p_i$是使$f(j)+w(j,i)$最小的那个$j$），则$\forall i&gt;j,p_i\ge p_j$。</p>
+<p>这样我们就可以根据决策单调性优化$DP$。</p>
+<h2 id="如何证明"><a href="#如何证明" class="headerlink" title="如何证明"></a>如何证明</h2><p>怎么优化下面讲。先说一下如何证明。（以上面的$\min$方程为例，$\max$倒过来就好啦）</p>
+<p>直接输出决策点打表是一个好办法，然后再写一个决策单调性优化$DP$和暴力拍。</p>
+<p>而严谨的证明可以用四边形不等式。（以下只给出结论，结论和四边形不等式性质的证明我太菜了不会，还请自行搜索）</p>
+<p>四边形不等式：<strong>如果$\forall a&lt;b&lt;c&lt;d,w(a,c)+w(b,d)\le w(a,d)+w(b,c)$（相交优于包含）且$w(a,d)\ge w(b,c)$（大区间比其子区间权值大），称为四边形不等式，此时满足决策单调性。</strong></p>
+<p>这个式子看起来不太好用来证明，还有一个性质：</p>
+<p><strong>如果$\forall a&lt;b,w(a,b)+w(a+1,b+1)\le w(a,b+1)+w(a+1,b)$，则满足四边形不等式。</strong></p>
+<p>其实还是“相交优于包含”，只是把区间放缩了一下，更容易证明了。</p>
+<p>还有一种更直观更好用的证明方法：</p>
+<p>考虑决策单调性的实质：为什么会出现决策单调性？</p>
+<p>决策点单调不降，换句话说，如果$i$有两个决策点$j,k(k&lt;j)$，只要$j$优于$k$，那么在之后$i+1,i+2\dots$的决策中，$k$就再也没有反超的机会了。</p>
+<p>$k$怎么着就反超不了$j$了？<strong>随着$i$的增加，$w(k,i)$的增长速度比$w(j,i)$快。</strong></p>
+<p>所以只要证明自变量为$i$的函数$w(j,i)$满足任意$k&lt;j$，$w(k,i)$增长速度比$w(j,i)$快即可。</p>
+<p>你会发现这实质上就是四边形不等式，但从决策单调性的角度上理解更直观了。</p>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>一般有两种优化方式——二分和分治。</p>
+<h3 id="二分"><a href="#二分" class="headerlink" title="二分"></a>二分</h3><h4 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h4><p><a href="https://www.luogu.com.cn/problem/P1912" target="_blank" rel="noopener">例题-诗人小G</a></p>
+<p>设$f(i)$为前$i$句话的最小代价，$sum_i$为$\sum\limits_{j\le i}len(s_j)+1$。</p>
+<p>$DP$方程显然：$f(i)=\min\limits_{j&lt;i}\{f(j)+|sum_i-sum_j-L-1|^P\}$。</p>
+<p>打表可以发现决策单调性，尝试证明一下：</p>
+<p>$w(j,i)$就是$|sum_i-sum_j-L-1|^P$。</p>
+<p>假设有$k&lt;j$，现在要证明$w(k,i)$增长速度比$w(j,i)$快，即$|sum_i-sum_k-L-1|^P$增长速度比$|sum_i-sum_j-L-1|^P$快。</p>
+<p>令$p=-sum_k-L-1,q=-sum_j-L-1$，显然$p&gt;q$。</p>
+<p>尝试画出$w(k,i)$和$w(j,i)$的图象：</p>
+<p><img src="/images/决策单调性学习笔记-1.png" alt=""></p>
+<p>这里只画了$P=2$的情况。但只要$P&gt;1$，$|x+c|^p$的图象就有这些性质：</p>
+<ul>
+<li>关于$x=-c$对称</li>
+<li>在对称轴左侧单调递减，右侧单调递增</li>
+<li>离对称轴越远，下降/增长速率越快</li>
+</ul>
+<p>分类讨论：</p>
+<ul>
+<li>当$sum_i$在$A$左侧的时候，$w(k,i)$和$w(j,i)$都在下降，而$sum_i$离$x=-q$更远，$w(j,i)$下降更快（增长速度小）</li>
+<li>当$sum_i$在$A,B$之间时，$w(k,i)$在上升，$w(j,i)$在下降</li>
+<li>当$sum_i$在$B$右侧时，$w(k,i)$和$w(j,i)$都在上升，而$sum_i$离$x=-q$更近，$w(j,i)$增长更慢</li>
+</ul>
+<p>综上，$w(k,i)$增长速度比$w(j,i)$快，满足决策单调性。</p>
+<p>考虑如何优化。既然有决策单调性了，决策点与位置会有这样的关系：</p>
+<p><img src="/images/决策单调性学习笔记-2.png" alt=""></p>
+<p><strong>每个决策点控制了一段连续的区间。</strong></p>
+<p>于是可以维护一个决策点的单调队列，其中存有若干三元组$(p_i,l_i,r_i)$表示决策点$p_i$当前控制区间$[l_i,r_i]$的转移，队尾三元组一定满足$r_{tail}=n$。</p>
+<p>转移时，弹出队头直到$i\in[l,r]$，然后直接转移。</p>
+<p>之后我们得到了一个新的决策点$i$，分步进行：</p>
+<ul>
+<li>判断$n$以$i$为决策点是否不如$p_{tail}$优，如果在位置$n$都干不过队尾的话就可以当场去世了。</li>
+<li>否则，不断判断$l_{tail}$以$i$为决策点转移是否比$p_{tail}$更优。如果$i$在$l_{tail}$都比$p_{tail}$优的话，后面的位置就更不用说了，把队尾踢掉好了。</li>
+<li>最后，显然控制区间是有单调性的。根据$[l_{tail},r_{tail}]$二分出左端点（右端点为$n$），更新队尾的$r_{tail}$并把$i$压入队尾。</li>
+</ul>
+<p>复杂度$O(n\log n)$。</p>
+<p>要判断答案是否超过$10^{18}$，直接<code>long long</code>的话会爆炸，用<code>long double</code>存储。</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><pre><code class="lang-cpp">long double f[maxn];
+int sum[maxn],pos[maxn],ll[maxn],rr[maxn],w[maxn],l,p;
+char s[maxn][31];
+inline long double quickpow(long double x,int y){
+    long double ans=1.0;
+    while(y){
+        if(y&amp;1)ans*=x;
+        x*=x,y&gt;&gt;=1;
+    }
+    return ans;
+}
+void print(int p){
+    if(!p)return;
+    print(pos[p]);
+    for(register int i=pos[p]+1;i&lt;p;++i)printf(&quot;%s &quot;,s[i]);
+    printf(&quot;%s\n&quot;,s[p]);
+}
+inline long double calc(int j,int i){return f[j]+quickpow(abs(sum[i]-sum[j]-l-1),p);}
+inline int getpos(int l,int r,int p,int q){
+    while(l&lt;r){
+        int mid=l+r&gt;&gt;1;
+        if(calc(p,mid)&lt;calc(q,mid))r=mid;
+        else l=mid+1;
+    }
+    return l;
+}
+int main(){
+    int t=read();
+    while(t--){
+        int n=read(),h=1,t=0;
+        l=read(),p=read();
+        for(register int i=1;i&lt;=n;++i)scanf(&quot;%s&quot;,s[i]),sum[i]=sum[i-1]+strlen(s[i])+1;
+        ll[++t]=1,rr[t]=n,w[t]=0;
+        for(register int i=1;i&lt;=n;++i){
+            while(h&lt;=t&amp;&amp;rr[h]&lt;i)++h;
+            f[i]=calc(pos[i]=w[h],i);
+            if(calc(i,n)&gt;=calc(w[t],n))continue;
+            while(h&lt;=t&amp;&amp;calc(i,ll[t])&lt;calc(w[t],ll[t]))--t;
+            rr[t]=getpos(ll[t],rr[t]+1,i,w[t])-1,++t,ll[t]=rr[t-1]+1,rr[t]=n,w[t]=i;
+        }
+        if(f[n]&gt;1e18)puts(&quot;Too hard to arrange&quot;);
+        else {
+            printf(&quot;%lld\n&quot;,(long long)(f[n]+0.5));
+            print(n);
+        }
+        puts(&quot;--------------------&quot;);
+    }
+}
+</code></pre>
+<h4 id="利弊"><a href="#利弊" class="headerlink" title="利弊"></a>利弊</h4><p>二分的好处是能动态加入决策点，方程中未计算出的$f$不影响维护决策单调性（这一点在分治中能体现出来）。</p>
+<p>而缺点是必须能快速计算$w(j,i)$。</p>
+<h3 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h3><h4 id="普通分治"><a href="#普通分治" class="headerlink" title="普通分治"></a>普通分治</h4><p><a href="https://www.luogu.com.cn/problem/P3515" target="_blank" rel="noopener">例题</a></p>
+<p><del>其实算不上DP，只是用决策单调性优化而已</del></p>
+<p>移个项：$a_j+\sqrt{|i-j|}-a_i\le p$</p>
+<p>则$ans_i=\max\{a_j+\sqrt{|i-j|}\}-a_i$。</p>
+<p>分类去掉绝对值：$ans_i=\max\{\max\limits_{j&lt; i}\{a_j+\sqrt{i-j}\},\max\limits_{j&gt;i}\{a_j+\sqrt{j-i}\}\}-a_i$</p>
+<p>因为前一半翻转过来再求一遍就是后一半，所以只考虑$\max\limits_{j&lt;i}\{a_j+\sqrt{i-j}\}$。</p>
+<p>同样通过打表，可以发现满足决策单调性。</p>
+<p>严格证明也好说，显然函数$f(x)=x^{\frac{1}{2}}$的增长速度是越来越慢的，就能证出来，不再赘述。</p>
+<p>分治的基础是根据决策单调性，如果已知$i$的决策点$p_i$，则$\forall j&lt; i,p_j\le p_i$；$\forall j&gt;i,p_j\ge p_i$。</p>
+<p>维护一个位置区间$[l,r]$和决策点区间$[L,R]$，表示$\forall i\in[l,r],p_i\in[L,R]$。初始都是$[1,n]$。</p>
+<p>分治时，取$[l,r]$的中点$mid$，暴力遍历$[L,R]$得到$p_{mid}$，然后继续分治$([l,mid-1],[L,p_{mid}])$和$([mid+1,r],[p_{mid},R])$。</p>
+<p>复杂度还是容易算的：一共递归$O(\log n)$层，每层遍历的$[L,R]$之和是$O(n)$的，总复杂度为$O(n\log n)$。</p>
+<h4 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h4><pre><code class="lang-cpp">double f[maxn],ans[maxn];
+int a[maxn];
+void solve(int l,int r,int L,int R){
+    if(l&gt;r)return;
+    int mid=l+r&gt;&gt;1,p;
+    for(register int i=min(mid,R);i&gt;=L;--i)if(f[mid]&lt;a[i]+sqrt(mid-i))f[mid]=a[i]+sqrt(mid-i),p=i;
+    solve(l,mid-1,L,p);
+    solve(mid+1,r,p,R);
+}
+int main(){
+    int n=read();
+    for(register int i=1;i&lt;=n;++i)a[i]=read();
+    solve(1,n,1,n);
+    for(register int i=1;i&lt;=n;++i)ans[i]=f[i],f[i]=0.0;
+    reverse(a+1,a+1+n);
+    solve(1,n,1,n);
+    for(register int i=1;i&lt;=n;++i)ans[i]=max(ans[i],f[n-i+1]);
+    reverse(a+1,a+1+n);
+    for(register int i=1;i&lt;=n;++i)printf(&quot;%d\n&quot;,(int)ceil(ans[i])-a[i]);
+}
+</code></pre>
+<h4 id="分治-莫队"><a href="#分治-莫队" class="headerlink" title="分治+莫队"></a>分治+莫队</h4><p><a href="https://www.luogu.com.cn/problem/CF868F" target="_blank" rel="noopener">例题</a></p>
+<p>本题中$w(j,i)$就是区间$[j,i]$的相同元素对数。</p>
+<p>暴力很简单，设$f(i,j)$为前$j$个数分了$i$段的最小代价。</p>
+<p>$f(i,j)=\min\limits_{k&lt;j}\{f(i-1,k)+w(k+1,j)\}$</p>
+<p>决策单调性的证明也很简单，把元素$a_{i+1}$分别添加到$[j,i]$和$[k,i]$（$k&lt;j$）中，一定有$\sum\limits_{x\in[j,i]}[a_x=a_{i+1}]&lt;\sum\limits_{x\in[k,i]}[a_x=a_{i+1}]$，$w(j,i)$的增长速度比$w(k,i)$慢，满足决策单调性。</p>
+<p>而现在最大的问题在于无法快速计算$w(j,i)$。</p>
+<p>如果仅仅是多次询问$w(l,r)$且可以离线，第一想法肯定是莫队。</p>
+<p>是不是可以把莫队的思想用到分治里呢？</p>
+<p>维护两个指针，计算$w(j,i)$时就暴力把指针移动过去。但是分治就相当于强制在线了，不能对询问排序，只能按分治的顺序移动指针。</p>
+<p>可以证明<del>（懒）</del>，<strong>这样指针的移动次数是$O(n\log n)$的。</strong></p>
+<p>最终复杂度$O(nk\log n)$。</p>
+<h4 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h4><pre><code class="lang-cpp">long long f[2][maxn],ans;
+int tax[maxn],a[maxn],pl,pr;
+inline void add(int x){ans+=tax[x],++tax[x];}
+inline void del(int x){--tax[x],ans-=tax[x];}
+inline void move(int j,int i){
+    while(pl&lt;j)del(a[pl++]);
+    while(pl&gt;j)add(a[--pl]);
+    while(pr&gt;i)del(a[pr--]);
+    while(pr&lt;i)add(a[++pr]);
+}
+void solve(int l,int r,int L,int R,bool o){
+    if(l&gt;r)return;
+    int mid=l+r&gt;&gt;1,p;
+    for(register int i=min(mid-1,R);i&gt;=L;--i){
+        move(i+1,mid);
+        if(f[o^1][i]+ans&lt;f[o][mid])f[o][mid]=f[o^1][i]+ans,p=i;
+    }
+    solve(l,mid-1,L,p,o);
+    solve(mid+1,r,p,R,o);
+}
+int main(){
+    int n=read(),k=read();
+    for(register int i=1;i&lt;=n;++i)a[i]=read();
+    memset(f[0],0x3f,sizeof f[0]),f[0][0]=0;
+    for(register int i=1;i&lt;=k;++i){
+        memset(tax,0,sizeof tax),ans=0,pl=1,pr=0;
+        memset(f[i&amp;1],0x3f,sizeof f[i&amp;1]);
+        solve(i,n,0,n,i&amp;1);
+    }
+    printf(&quot;%lld\n&quot;,f[k&amp;1][n]);
+}
+</code></pre>
+<h4 id="利弊-1"><a href="#利弊-1" class="headerlink" title="利弊"></a>利弊</h4><p>最大的优点就是通过莫队的思想可以解决一些$w(j,i)$无法快速计算的问题。再一个分治更好理解，代码好写。</p>
+<p>所以请读者尝试写一下「诗人小G」的分治做法。</p>
+<p><img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.2/emojis/gif/19.gif"></p>
+<p>是不是发现问题了？</p>
+<p>在「诗人小G」中，$f$数组是由自身转移过来的。而在后两道题中，$f$是由无关的数组转移的。</p>
+<p>而分治的过程中取了$[l,r]$中点计算，没有按顺序转移。其局限性就在于不能处理自身的转移。</p>
+<hr>
+<h1 id="水题"><a href="#水题" class="headerlink" title="水题"></a>水题</h1><p>注：毕竟这是篇决策单调性学习笔记，下面的题肯定都满足决策单调性。。。而实际应用中这玩意还是要想到并且打表证明出来的。所以所有题均不予证明决策单调性，留给读者自证。</p>
+<h2 id="邮局"><a href="#邮局" class="headerlink" title="邮局"></a><a href="https://www.luogu.com.cn/problem/P4767" target="_blank" rel="noopener">邮局</a></h2><p>$w(j,i)$为在村儿$[j,i]$中建一个邮局最小的距离和。</p>
+<p>显然建在中点是最优的。维护个坐标前缀和就可以$O(1)$算了。</p>
+<p>设$f(i,j)$为在前$j$个村儿里造$i$个邮局的最小代价。</p>
+<p>枚举第$i$个邮局的控制范围转移：$f(i,j)=\min\limits_{k&lt;j}\{f(i-1,k)+w(k+1,j)\}$</p>
+<p>看起来这个方程有点别扭，可能$[k+1,j]$里有的村儿最近的邮局不是$i$啊。但这样的话这个转移一定不优，会有一个更大的$k$让这些村儿往最近的邮局跑。</p>
+<h2 id="任务分配问题"><a href="#任务分配问题" class="headerlink" title="任务分配问题"></a><a href="https://www.luogu.com.cn/problem/P5574" target="_blank" rel="noopener">任务分配问题</a></h2><p>简单地说就是把序列分成$k$段，段内顺序对之和最小。</p>
+<p>设$f(i,j)$为前$j$个数分了$i$段的最小顺序对，$w(j,i)$为区间$[j,i]$的顺序对数。</p>
+<p>$f(i,j)=\min\limits_{k&lt;j}\{f(i-1,k)+w(k+1,j)\}$</p>
+<p>分治+莫队套个树状数组即可，$O(nk\log^2n)$的。</p>
+<h2 id="柠檬"><a href="#柠檬" class="headerlink" title="柠檬"></a><a href="https://www.luogu.com.cn/problem/P5504" target="_blank" rel="noopener">柠檬</a></h2><p>决策单调性请右转题解区吧，因为我写的斜率优化。。。</p>
+<p><a href="/2020/01/15/洛谷-P5504-JSOI2011-柠檬">斜率优化の题解</a></p>
+
+            
+        </div>
+      </article>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/01/15/%E6%B4%9B%E8%B0%B7-P5504-JSOI2011-%E6%9F%A0%E6%AA%AC/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.3/nm.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.3/nm.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                洛谷 P5504 [JSOI2011]柠檬</h3>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2020/01/13/%E6%B4%9B%E8%B0%B7-P5219-%E6%97%A0%E8%81%8A%E7%9A%84%E6%B0%B4%E9%A2%98-I/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.1/wldst1.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.1/wldst1.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                洛谷 P5219 无聊的水题 I</h3>
+              </div> 
+            </a>
+			</div>
+        
+      </section> 
+    </main>
+</div>
+</div>
+</div>
+<div class="gather">
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz",
+        appKey: "jqULEjwlbvOCM08eEOpTIGOI",
+        path: window.location.pathname,
+		visitor: true,
+        placeholder: "日々私たちが过ごしている日常は、実は奇迹の连続なのかもしれない。"
+      })
+  }
+</script>
+
+</div>
+
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+
+<script>
+function imgInit(){
+	var imgs=document.getElementsByClassName('entry-content').item(0).getElementsByTagName('img');
+	for(var i=0;i<imgs.length;++i){
+		var element = document.createElement("a"),record=imgs[i],dsrc=record.getAttribute("data-src");
+		element.setAttribute("data-fancybox","gallery");
+    element.setAttribute("href",dsrc||imgs[i].src);
+		element.setAttribute("id","escape-link");
+		imgs[i].parentNode.appendChild(element);
+		imgs[i].parentNode.removeChild(imgs[i]);
+		element.appendChild(record);
+	}
+}
+var spoiler=document.getElementsByClassName('spoiler');
+for(var i=0;i<spoiler.length;++i)
+spoiler[i].onclick=function(){this.classList.toggle("revealed");};
+imgInit();
+</script>
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.6.7/articleload.gif">
+      </div>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Github Pages</a>
+        </span>
+		<!-- <span style="color: #b9b9b9;display:block">图片外链由<a href="https://img.fghrsh.net/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">FGHRSH图床</a>提供 -->
+        <!-- </span> -->
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.4/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.2/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<!-- <script src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/valine.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.1.4/js/volantis.min.js"></script>
+<script type="text/javascript">
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { 
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;ww">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
