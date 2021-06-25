@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="/css/zoom.css" media="all">
   <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_ndnjfmz11y9.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css"> -->
   <style>
   .emoji-coda {
       display: inline-block !important;
@@ -827,23 +827,21 @@
 <div class="gather">
 
 
-
-
-  <script src="https://cdn.jsdelivr.net/gh/yremp/yremp-js@1.1/gitalk.js"></script>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css">
-<div id="gitalk-container"></div>
-<script type="text/javascript">
-  var gitalk = new Gitalk({
-    clientID: '750412acfc7f269cc137',
-    clientSecret: 'a64eec2c089274ed4c9b5e4184ecb4f7fdf0f2bf',
-    id: window.location.pathname,
-    repo: 'ctz45562.github.io',
-    owner: 'ctz45562',
-    admin: 'ctz45562'
-  })
-  gitalk.render('gitalk-container')
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz",
+        appKey: "jqULEjwlbvOCM08eEOpTIGOI",
+        path: window.location.pathname,
+		visitor: true,
+        placeholder: "日々私たちが过ごしている日常は、実は奇迹の连続なのかもしれない。"
+      })
+  }
 </script>
+
 
 </div>
 
@@ -901,7 +899,7 @@ imgInit();
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
-    <div id="gitalk-container"></div>
+    <!-- <div id="gitalk-container"></div> -->
 <footer id="colophon" class="site-footer" role="contentinfo">
   <div class="site-info">
     <div class="footertext">
