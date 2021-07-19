@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">洛谷 P2791 幼儿园篮球题 | ctz&#39;s blog</title>
+  <title itemprop="name">Re:高三回忆录 | ctz&#39;s blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -556,51 +556,31 @@
 <div class="gather">
 
   <div class="pattern-center-sakura single-center">
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.0/yeylqt.jpg);" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.0/yeylqt.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.4/regshyl.jpg);" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.4/regshyl.jpg">
     </div>
     <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
       <h1 class="entry-title">
-      洛谷 P2791 幼儿园篮球题</h1>
+      Re:高三回忆录</h1>
       <p class="entry-census">
 	    <span><a href="https://ctz45562.github.io"><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg" style="margin-right:4px">ctz</a>
         </span>
 		<span class="bull"></span>
 		&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp
-        2020-1-12
+        2021-7-12
     <span class="bull"></span>
     
       <span><i class="fa fa-archive"></i> 分类于  
-        <span class="article-category"><a href="/categories/%E9%A2%98%E8%A7%A3/" > 题解</a></span>
+        <span class="article-category"><a href="/categories/%E6%97%A5%E5%B8%B8/" > 日常</a></span>
       
     </span>
     
     <span class="bull"></span>
-		<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id='/2020/01/12/洛谷-P2791-幼儿园篮球题/' class="leancloud-visitors" data-flag-title="洛谷 P2791 幼儿园篮球题">
+		<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id='/2021/07/12/高三走马灯/' class="leancloud-visitors" data-flag-title="Re:高三回忆录">
         <a class="leancloud-visitors-count text-cursor">loading...</a>
         <a class="post-meta-item-text text-cursor"> 次阅读</a>
         </span>
       </p>
 	  
-      
-    <div>
-		  <ul class="spfk-ul">
-		    &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<li class="spfk-li"><span class="triangle"></span><a href="/tags/数论/" class="butterfly-tags">数论</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/组合数学/" class="butterfly-tags">组合数学</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/斯特林数/" class="butterfly-tags">斯特林数</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/FFT-NTT/" class="butterfly-tags">FFT/NTT</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/多项式/" class="butterfly-tags">多项式</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/概率期望/" class="butterfly-tags">概率期望</a></li>
-          </ul>
-		</div>
-		<script>
-			function colorInit(c,num){for(var i=1;i<=num;++i)c.push(i+'');}
-			function paintTags(){
-				var colorNumber=8,tagColors=[],tags=document.getElementsByClassName('spfk-li');
-				for(var i = 0 ; i < tags.length ; ++i){
-					if(!tagColors.length)colorInit(tagColors,colorNumber);
-					var j=Math.floor(Math.random()*tagColors.length);
-					tags[i].classList.add("spfk-color"+tagColors[j]);
-					tagColors.splice(j,1);
-        }
-			}
-			paintTags()
-		</script>
-    
     </header>
   </div>
 
@@ -611,126 +591,246 @@
         <div class="gather toc" style="width:230px;max-height:372px;"></div>
         
         <div class="entry-content">
-          <p><a href="https://www.luogu.com.cn/problem/P2791" target="_blank" rel="noopener">传送门</a></p>
-<p>把<strong>有气</strong>和<strong>没气</strong>看反结果推了一下午，<del>果然是我对cxk的爱还不够深沉吗</del></p>
+          <p>幸好，在我没有遗忘前，我有勇气写出这篇回忆录。</p>
+<p>我想通过日记的形式，反映我高三各个阶段的状态。</p>
 <a id="more"></a>
-<p>枚举投中了球，易知答案为$\dfrac{\sum\limits_{i=0}^kC_m^iC_{n-m}^{k-i}i^L}{C_n^k}$</p>
-<p>大力搞分子。考虑到$L$相对较小，用第二类斯特林数展开$L$次方：</p>
-<p>$\sum\limits_{j=0}^L\begin{Bmatrix}L\\j\end{Bmatrix}j!\sum\limits_{i=0}^kC_i^jC_m^iC_{n-m}^{k-i}$</p>
-<p>这里出现了一个经典的等式：$C_i^jC_m^i=C_m^jC_{m-j}^{i-j}$：</p>
-<p>$=\sum\limits_{j=0}^L\begin{Bmatrix}L\\j\end{Bmatrix}C_m^jj!\sum\limits_{i=0}^kC_{m-j}^{i-j}C_{n-m}^{k-i}$</p>
-<p>感觉后面长得很范德蒙，又由于$i\in[0,j-1]$的时候$C_{m-j}^{i-j}$都没有意义，统一把$i$换成$i+j$：</p>
-<p>$=\sum\limits_{j=0}^L\begin{Bmatrix}L\\j\end{Bmatrix}C_m^jj!\sum\limits_{i=0}^{k-j}C_{m-j}^iC_{n-m}^{k-j-i}$</p>
-<p>大名鼎鼎的范德蒙恒等式就出来了：$\sum\limits_{i=0}^{k-j}C_{m-j}^iC_{n-m}^{k-j-i}=C_{n-j}^{k-j}$。</p>
-<p>于是答案就是$\dfrac{\sum\limits_{j=0}^L\begin{Bmatrix}L\\j\end{Bmatrix}C_m^jC_{n-j}^{k-j}j!}{C_n^k}$。</p>
-<p>$NTT$预处理一行第二类斯特林数，每次询问暴力$O(L)$回答，复杂度$O(N+L\log L+SL)$。</p>
-<p>听说有点卡常，把组合数拆开约分一下就好了。<del>不知道为啥吸氧比不吸氧<strong>慢了一倍</strong>。</del></p>
-<p>代码：</p>
-<pre><code class="lang-cpp">#include &lt;iostream&gt;
-#include &lt;cstdio&gt;
-#include &lt;algorithm&gt;
-#include &lt;cmath&gt;
-#include &lt;cstring&gt;
-
-#define maxn 20000005    
-#define inf 0x3f3f3f3f
-
-const int mod = 998244353;
-const int g = 3;
-
-using namespace std;
-
-inline int read(){
-    int x=0,y=0;
-    char ch=getchar();
-    while(ch&lt;&#39;0&#39;||ch&gt;&#39;9&#39;){if(ch==&#39;-&#39;)y=1;ch=getchar();}
-    while(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;)x=(x&lt;&lt;1)+(x&lt;&lt;3)+(ch^48),ch=getchar();
-    return y?-x:x;
-}
-inline int quickpow(int x,int y=mod-2){
-    int ans=1;
-    while(y){
-        if(y&amp;1)ans=1ll*ans*x%mod;
-        x=1ll*x*x%mod,y&gt;&gt;=1;
-    }
-    return ans;
-}
-const int ig = quickpow(g);
-int tr[1000005];
-inline int qm(int x){return x&gt;=mod?x-mod:x;}
-void NTT(int *f,int n,bool t){
-    for(register int i=0;i&lt;n;++i)if(i&lt;tr[i])swap(f[i],f[tr[i]]);
-    for(register int p=2;p&lt;=n;p&lt;&lt;=1){
-        int len=p&gt;&gt;1,o=quickpow(t?ig:g,(mod-1)/p);
-        for(register int i=0;i&lt;n;i+=p){
-            int gen=1,cop;
-            for(register int j=i;j&lt;i+len;++j){
-                cop=1ll*f[j+len]*gen%mod,gen=1ll*gen*o%mod;
-                f[j+len]=qm(f[j]+mod-cop),f[j]=qm(f[j]+cop);
-            }
-        }
-    }
-    if(t){
-        int inv=quickpow(n);
-        for(register int i=0;i&lt;n;++i)f[i]=1ll*f[i]*inv%mod;
-    }
-}
-int fac[maxn]={1},inv[maxn]={1},F[1000005],G[1000005];
-int main(){
-    int n=read(),m=read(),s=read(),l=read(),k=max(max(n,m),l);
-    for(register int i=1;i&lt;=k;++i)fac[i]=1ll*fac[i-1]*i%mod;
-    inv[k]=quickpow(fac[k]);
-    for(register int i=k-1;~i;--i)inv[i]=1ll*inv[i+1]*(i+1)%mod;
-    for(register int i=0;i&lt;=l;++i)F[i]=i&amp;1?mod-inv[i]:inv[i],G[i]=1ll*quickpow(i,l)*inv[i]%mod;
-    k=1;
-    while(k&lt;=l&lt;&lt;1)k&lt;&lt;=1;
-    for(register int i=0;i&lt;k;++i)tr[i]=(tr[i&gt;&gt;1]&gt;&gt;1)|(i&amp;1?k&gt;&gt;1:0);
-    NTT(F,k,0),NTT(G,k,0);
-    for(register int i=0;i&lt;k;++i)F[i]=1ll*F[i]*G[i]%mod;
-    NTT(F,k,1);
-    while(s--){
-        int ans=0;
-        n=read(),m=read(),k=read();
-        for(register int i=min(min(m,k),l);~i;--i)ans=qm(ans+1ll*F[i]*fac[n-i]%mod*inv[m-i]%mod*inv[k-i]%mod);
-        printf(&quot;%d\n&quot;,1ll*ans*fac[k]%mod*fac[m]%mod*inv[n]%mod);
-    }
-}
-</code></pre>
-
+<hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li>以下内容充满了负能量</li>
+<li>我的高三生活没有任何参考价值</li>
+<li>日期可能不准确</li>
+</ul>
+<hr>
+<h2 id="July-21st-2020"><a href="#July-21st-2020" class="headerlink" title="July 21st,2020"></a>July 21st,2020</h2><p>我A掉一道min_25筛的题，写了题解，上传到博客。我从未想到这是我最后一道OI题和题解。</p>
+<p>loli说今年SD的D类可能没有了，让我和烜先回去学文化课，等他的消息。</p>
+<hr>
+<h2 id="August-6th-2020"><a href="#August-6th-2020" class="headerlink" title="August 6th,2020"></a>August 6th,2020</h2><p>暑假在学校补课什么的，作为竞赛生大概早就习惯了。</p>
+<p>假期在学校上课其实还是比较轻松的。退役什么的，也没那么可怕。</p>
+<p>昨晚又是背了一个多小时单词，啥时候能来一次听写满分啊。</p>
+<p>今天上课继续偷着写一点“蛤富翁”，吃完饭找人玩一玩。偶尔也会想着，一年后高考结束，我们会不会一块玩“蛤富翁”呢。啊，高考还是太远了。</p>
+<p>大课间是例行的观赏螳螂和蛐蛐。我又跑到绿化带里抓了几只蛐蛐，螳螂还是太少见了。</p>
+<p>宿舍里几个人一块偷着颓手机还是很有氛围的。清日常，逛b站。起身上厕所，透过窗户看不到天空的尽头。</p>
+<hr>
+<h2 id="September-13th-2020"><a href="#September-13th-2020" class="headerlink" title="September 13th,2020"></a>September 13th,2020</h2><p>开学后，时间突然被大量占用。每天辛苦奔波装出一个正常，或者说上进学生的样子。</p>
+<p>过完一个大周，我突然很厌恶这种生活，很痛恨这样的自己，积累的负面情绪爆发了出来。</p>
+<p>一整天我都在这种情绪下度过。我暗暗下定了决心。</p>
+<p>晚上我告诉我妈我所有的想法，我想在家自学。她并不是很能理解，给我请了假。</p>
+<hr>
+<h2 id="October-1st-2020"><a href="#October-1st-2020" class="headerlink" title="October 1st,2020"></a>October 1st,2020</h2><p>国庆节+中秋，难得的假期，我回了趟老家。</p>
+<p>坐在大爷家院子里补『进击的巨人』，也是种享受。</p>
+<p>乡下，湛蓝天空，明媚阳光。</p>
+<p>我坐在屋檐下，看不到，感受不到。</p>
+<hr>
+<h2 id="October-19th-2020"><a href="#October-19th-2020" class="headerlink" title="October 19th,2020"></a>October 19th,2020</h2><p>和往常一样，昨晚买好面包，中午在宿舍里边吃边颓手机。</p>
+<p>但我没想到mars会在这个点来，因为我们宿舍太乱了。</p>
+<p>我承认我慌了，因此也导致了最坏的结果。中午没睡着。</p>
+<p>下午和晚上装成无所谓的样子。</p>
+<hr>
+<h2 id="November-22nd-2020"><a href="#November-22nd-2020" class="headerlink" title="November 22nd,2020"></a>November 22nd,2020</h2><p>作业越来越多了，早读提前了十五分钟。不过还好，手机回来了。</p>
+<p>我才刚刚适应。</p>
+<p>mars说因为校门口堵车太严重，要分批放学。高一高二十点，高三普通班十点五分，重点班十点二十。</p>
+<p>这一听就是学校为了延长在校时间编出来的说辞。还好我坐校车，不用跟着这个时间走。</p>
+<hr>
+<h2 id="November-23rd-2020"><a href="#November-23rd-2020" class="headerlink" title="November 23rd,2020"></a>November 23rd,2020</h2><p>给坐校车的学生家长一个个打电话我是没想到的。</p>
+<p>“克服一下。”</p>
+<p>结果是重点班所有人都十点二十放学了。</p>
+<p>我本来白天就严重睡眠不足，现在更是雪上加霜。</p>
+<p>我从来不是顺从的人。我从来不会听从我认为不合理的规定。更何况，学校是用巧妙的说辞推迟放学，我很不满。</p>
+<p>slyz想让我多学点，那我就故意少学点。</p>
+<p>我对自己说，放学后，我绝对不会做与学习有关的事。</p>
+<p>我突然想起来初中夭折的日语学习。</p>
+<hr>
+<h2 id="December-4th-2020"><a href="#December-4th-2020" class="headerlink" title="December 4th,2020"></a>December 4th,2020</h2><p>早读后例行和Bj2002统计数学作业。</p>
+<p>“今天几号来着？”</p>
+<p>“我看看……4号。你看秀的日历，上面……”</p>
+<p>12月4日。这段时间过得浑浑噩噩，整个人都麻木了。</p>
+<p>买来『标准日本语初级』已经有段时间了，我早就预料到会发展成上课不务正业。先是对着假名歌词记忆五十音图，后来就正式学习了。</p>
+<p>今天终于可以稍微放放日语学习了，我得写一篇博客。</p>
+<p>晚上更完博客已经十二点半了，还好，平时就是十二点睡的，习惯了。</p>
+<hr>
+<h2 id="December-10th-2020"><a href="#December-10th-2020" class="headerlink" title="December 10th,2020"></a>December 10th,2020</h2><p>slyz专门为重点班盖了一栋楼，名为“英才楼”。我们搬了过去。</p>
+<p>厕所是新的，终于有单间了。教室是新的，终于有塑料桌椅了。</p>
+<p>除此之外没有优点了。更难见到普通班的朋友。最难受的是我们离食堂更远了。本来为了赶着上晚读就只有二十分钟时间吃饭。</p>
+<hr>
+<h2 id="December-18th-2020"><a href="#December-18th-2020" class="headerlink" title="December 18th,2020"></a>December 18th,2020</h2><p>slyz向来是两周休一天的。听莹莹说以前还会额外休一个下午，不过现在高考卷的厉害，也成过去式了。</p>
+<p>其实这样大部分学生根本休不够的，所以对我们来说在家的时间都是务必宝贵的颓废时间。网课期间颓废现象严重，大周作业基本都是水掉的，这都与这个安排有密不可分的联系。</p>
+<p>算了，尽管有不满，都上了两年多了，习惯了。</p>
+<p>只是我没想到，这一天时间居然还要减半，理由是这届学生学得不如往届好。</p>
+<p>在校时间长就意味着成绩好吗？</p>
+<p>我身边不少人都不乐意。我再次选择了反抗。</p>
+<p>我一直有一项消遣，每个大周过完了，撕下一张纸条，对折。正面写备忘录，一半写学习的，一半写颓废的；背面写大周计划，让我更充分利用大周的时间。</p>
+<p>我记得前两天我刚写上“合理睡眠，调整生物钟”。</p>
+<p>我把这句话用红笔划掉，写上了通宵。</p>
+<p>我把“大周计划”里的“大周”划掉。</p>
+<p>我和一些同学约好了这个大周（已经称不上是大周了）今晚通宵，凌晨互发消息问问还醒着吗。</p>
+<p>然而凌晨四点，只有我醒着。</p>
+<hr>
+<h2 id="January-29th-2021"><a href="#January-29th-2021" class="headerlink" title="January 29th,2021"></a>January 29th,2021</h2><p>两个星期前mars就说因为疫情很大概率寒假不能在校补课，只能上网课。我期待着很久了，打算在家正好调整一下情绪，下学期好好学。</p>
+<p>普通班也一直闹，不让重点班回学校补课，扬言要举报。这事也挺严肃的，毕竟涉及疫情的事。看来上网课基本上是定了。</p>
+<p>zxf上午兴高采烈地跟我们说，她问了twj上网课的事，twj回答已经定下了。她说今天不论发生什么事都影响不了她的好心情。我也受她影响高兴了起来。</p>
+<p>但她说错了。放假前mars突然说网课这事有变动，只要没人举报，我们就偷偷回来补课。他又一再强调不要把这事说出去。</p>
+<p>他随即笑了，“虽然这么说，不过我还是相信你们的。”</p>
+<p>回家路上烜看起来有点失落。我想起来前两天我妈说的话。</p>
+<p>“网课这事你就别操心了。普通班闹成这样，自然会有人举报的。”</p>
+<p>所以我其实没那么难受，还是充满了希望的。我跟烜说，“这事必有变数。”</p>
+<hr>
+<h2 id="January-30th-2021"><a href="#January-30th-2021" class="headerlink" title="January 30th,2021"></a>January 30th,2021</h2><p>晚上八点重点班被偷着召回。</p>
+<p>□□□□□□□□</p>
+<p>我病了，请了假。</p>
+<hr>
+<h2 id="February-9th-2021"><a href="#February-9th-2021" class="headerlink" title="February 9th,2021"></a>February 9th,2021</h2><p>在表哥家吃了顿饭。</p>
+<p>回家的路上我对我妈说，我想转到普通班去。</p>
+<p>Bj2002已经转到了普通班，听说之后他的成绩一路飞升。</p>
+<hr>
+<h2 id="February-11th-2021"><a href="#February-11th-2021" class="headerlink" title="February 11th,2021"></a>February 11th,2021</h2><p>自从看了可莉的官方视频就一直静不下来。</p>
+<p>等复刻不知道猴年马月了。突然我想起来有个东西叫初始号。</p>
+<p>未成年还不能买初始号，最后我找了憨憨帮我买的。</p>
+<p>因为疫情过年没回老家。或者，我也不愿回去了。</p>
+<p>我逐渐变得孤僻。</p>
+<hr>
+<h2 id="February-19th-2021"><a href="#February-19th-2021" class="headerlink" title="February 19th,2021"></a>February 19th,2021</h2><p>早上六点二十起，对着摄像头水一水早读。</p>
+<p>上课也是划水，作业也是乱水。</p>
+<p>这样的生活还是因为我在实名调查问卷「是否愿意在校补课」上勇敢的写了否。大部分人不敢拒绝，比如临走前懊恼不已的zhuoer。</p>
+<p>学校额外加了录屏和话筒，这样我们写“否”的几个人相当于在家上网课了。</p>
+<p>网课群里，zxf说今天上课时印度人说“他们（上网课的）回来后要是考的比你们（在校补课的）好，你们得多难受”。zxf很气愤，觉得我们被印度人蔑视了。我可能是语文课水得太厉害了，没印象。而且我本来就是基本放弃了语文的，没放在心上。后来大家一块在群里控诉slyz不合理的管理。</p>
+<hr>
+<h2 id="February-26th-2021"><a href="#February-26th-2021" class="headerlink" title="February 26th,2021"></a>February 26th,2021</h2><p>百日誓师本来算是比较庄重的，但是这次闹了不少幺蛾子，不知道往届怎么样。</p>
+<p>我其实根本没想真心喊出来的，不过还是被这气氛感染了点，扯着嗓子喊了出来。</p>
+<p>但我很清楚，我确实容易被这种宣誓或演讲感动，不过最多五分钟就忘了。果然。</p>
+<p>不过还是很有感触的。</p>
+<p>回来的路上看到路边的树已经长出了一点绿芽。</p>
+<p>英才楼的高考倒计时翻到了100天。</p>
+<hr>
+<h2 id="March-2rd-2021"><a href="#March-2rd-2021" class="headerlink" title="March 2rd,2021"></a>March 2rd,2021</h2><p>心态慢慢平和了。</p>
+<p>不，并没有。我只是寒假后，太累了而已。</p>
+<p>作业已经多到写不完的程度。但是放学后不学习，我还在坚守。</p>
+<p>下了早读就往鹅的办公室跑——要作业。</p>
+<p>上午的课还算ok，有数学物理，都是好偷着写作业的课。一上午写完了英语作业，预处理了一部分化学作业。天胡开局啊。</p>
+<p>中午去于哥家的小饭桌。我妈居然来了，庆祝我18岁的生日，尽管我说了很多遍不愿意过生日。但是还是挺惊喜的。</p>
+<p>于妈还买了个本子让每个人签了名送给我。</p>
+<p>晚上难得写完作业还剩了点时间。但我脑子越来越迟钝了，早已没有兴致学日语或写一些乱七八糟的东西了。</p>
+<hr>
+<h2 id="March-26th-2021"><a href="#March-26th-2021" class="headerlink" title="March 26th,2021"></a>March 26th,2021</h2><p>大周来了。时针指向五点——通知的放学时间，twj准时下了课。但是学生都没动。</p>
+<p>mars已在门外等候多时了。他走进教室，对着twj礼貌地笑了笑，从电脑上调出一份成绩表。</p>
+<p>讲台上是他严肃沉稳的讲话声，其中大部分都是无用的毒奶或鸡汤；讲台下是中性笔与纸张摩擦的声音，夹杂着书包拉链被拉上的声音。</p>
+<p>mars应该是知道，每次放假前他占用假期时间的班会，从来没有人在听。甚至学生连头也不抬。但他还在讲着。</p>
+<p>“这次大休作业，回来后会严查。大休作业必须重视，如果不认真做，回来那天讲作业就听不了，相当于浪费了两天时间……”</p>
+<p>这段话，他几乎每个大周都会复读。</p>
+<p>时针指向六点。mars话音未落，就有学生冲出了教室。</p>
+<p>校园空荡荡的，校门外还有一些家长已等候了很久。</p>
+<p>晚上，我匹配上lol。趁着匹配的时间，我拿出作业，打开了作业帮。</p>
+<hr>
+<h2 id="April-14th-2021"><a href="#April-14th-2021" class="headerlink" title="April 14th,2021"></a>April 14th,2021</h2><p>又是英语早读。我强撑着精神，机械地背着5页维克多，半小时后应付过听写。</p>
+<p>然后再读着各种材料，最后用5分钟背一篇作文。等下课铃一响，我立马从座位上弹出去，抢先给鹅背完作文。</p>
+<p>随后到教室外面翻了翻数学作业，带来两份和烜一块剽小题。把六科作业分好交齐后，拿上卫生纸上厕所，今天数学课代表的任务依旧是咕了。</p>
+<p>隔着墙和cyf、mwh、Gary等“厕友”闲扯。</p>
+<p>“咋办啊，鹅又要听写单词……”</p>
+<p>“啥？不是刚听写了维克多吗？”</p>
+<p>“没关系，我现在正背着呢。”</p>
+<p>“Gary你不会又把书放到脚底下背的吧……”</p>
+<p>“当然……woc谁把我书从门缝底下抽走了——”</p>
+<p>回去就是英语连堂。从开学到现在，鹅上连堂从来没下过课，每个周一和周三都从早上六点站到九点。</p>
+<p>英语课是我唯一认真听的课了，或者说英语是我唯一认真学的科目了。我喜欢学我擅长的科目，我英语底子也好，所以英语成为了我高三唯一的寄托。</p>
+<p>跑完操精神了一点。下一门是物理。所以我赶紧去办公室要来了英语作业。物理是第二好写作业的课，不能浪费了。</p>
+<p>虽然是班主任的课，但我只关注是否容易被抓。mars不经常往下走，板书也很多，自然好写作业。</p>
+<p>写两道就抬头看看mars。完形填空的题目和文章不在一面上，不要紧，我拿了两张卷子，一张看文章一张做题。最后写了一大半英语作业。真是越来越熟练了啊。</p>
+<p>然后是化学生物，写完了英语，顺便写了点化学作业。烜则是干掉了一道导数大题和有机。</p>
+<p>中午又失眠了。习惯了，寒假后我变得非常敏感，午觉越来越难睡着了，有一点声音或光线都不行。我两个耳朵戴着耳塞，床头用外套遮蔽阳光，却还是因为厨房里短暂细微的流水声一中午没睡。</p>
+<p>下午有例行的数学周测。我其实不反感，每次数学考试我都觉得时间流逝很快，也许这样就能离高考更近一点。</p>
+<p>这次题有点难，做到圆锥曲线也没多少时间了，又一次只写了圆锥和导数的第一问。</p>
+<p>打铃收卷。大家凑一块改改答案，主要是那种错了会被秀去世的题。然后跑去食堂吃饭。</p>
+<p>我买了一个6块钱的汉堡，和稳稳、zhuoer、烜等人对几何答案。我的数和稳稳一样，稳了，烜的几何则是连着好几次挂了。</p>
+<p>zhuoer看了眼表，说没多少时间了，尽管我们还没吃几分钟。匆匆忙忙扒拉完饭赶紧走，吃的最慢的zhuoer一边端着碗吃一边走向剩饭桶。</p>
+<p>出了食堂就撞上了大波往来的学生，我指着一个妹子问稳稳，“你看这石雕怎么样？”“这也能算石雕？”</p>
+<p>远远就看见智慧哥和潮走在前面。zhuoer再次催我们说时间不多了，我们都加快了脚步。</p>
+<p>我又开始咳嗽干呕了，小学落下的病，吃完饭就干呕，吃的太快或者运动干呕得更厉害，但我只能逼着自己走快点。</p>
+<p>厕所里智慧哥的戏剧『xz登机』又开始了。这大概是在学校里唯一快乐的事了吧。</p>
+<p>我笑得受不了，一进教室，看到印度人已经摆着不耐烦的表情等我们上晚读了。</p>
+<p>我把生物选择摆在桌子上，捧着晚读材料读了起来。过了一会在第一道题上画了个D，瞟了一眼发现烜选的C。我又检查了一遍，发现是我sb了。</p>
+<p>今晚没有晚自习时间，但是鹅依然布置了英语作业。下午秀又强调了数学作为150分的主科，晚上放学后的时间应该给数学。那么如果我没有提前写作业，英语作业该如何完成呢？</p>
+<p>先拿来了cyf的英语作业对答案，sb错误我自己改掉了，圈出来不一样的还给他。他告诉我都不太确定，那就不管了。随后我把我的和cyf的英语给了烜，他缝合了一下用2分钟解决了英语作业。</p>
+<p>物理作业还是老规矩，先从大题开起。一边做一遍看烜的。我少分析了重力，改了一片；烜读数挂了，我告诉了他，不然明天会被干。</p>
+<p>就这么互帮互助写完了实验题和大题，写了几道选择感觉时间不太够了，回头看两眼cyf，写完了。</p>
+<p>生物胡编乱造一通，语文也是编一堆瞎话，实在编不出来了就对着烜和cyf的编。然后是五分钟的休息时间。上个厕所让脑子清醒了点。</p>
+<p>数学第一道导数题挺水的，第二道思索了一会（大约半小时）突然灵光乍现，整了个巧妙的做法，感觉明天数学课我会大nb。剩下一堆小题，还是明天早上剽吧。</p>
+<p>终于到英语练字时间了。先前鹅听从lbh的建议，让我们在练字时原创一些句子。我干脆写起了小说，题材类似于『魔女之旅』。不知道为啥第一章莫名其妙就开始暗讽slyz了，虽然本意不是这样。</p>
+<p>虽然练字只要求三行，我还是对着草稿认真写了一页小说，期间来回翻牛津大词典修改，就这么用了一小时，放学了。</p>
+<p>车上拿手机清pcr日常，回家又是刷火本，没出货。又是零提升的一天。</p>
+<p>躺下很快就睡着了。</p>
+<p>这样的日常，已经重复了多少次呢？</p>
+<hr>
+<h2 id="May-24th-2021"><a href="#May-24th-2021" class="headerlink" title="May 24th,2021"></a>May 24th,2021</h2><p>早读又晚了十分钟。挺好。现在早读能比较清醒了。</p>
+<p>上半场化学早读，尽量读了读课本，尽管我知道我过目就忘；下半场语文早读，解决历史遗留问题，背过了《阿房宫赋》。</p>
+<p>我没有去要英语作业，因为楠楠已经抱过来了一摞卷子。数学课上基本做完了。</p>
+<p>离高考只有十几天了。不过我们班丝毫没有紧张的氛围，依然嘻嘻哈哈的。</p>
+<p>折腾这么久，有点累了吧。以前上课时的娱乐活动也很久没进行了，现在要么是认真听，要么神游，想象着高考后的生活。</p>
+<p>突然想起来，我一年多没去游泳了。我抽出笔袋里暑期计划写上了游泳。</p>
+<p>笔袋里还有另一张纸，对折了两次，写着「STRUGGLE」。高三以来我做题时常常对一些基础知识、题型和奇怪的地方不明白，以前没在意，打算最后一块解决。于是我整了这么一张纸记录问题。</p>
+<p>晚自习都是限时练，到时间就收，不留额外的作业。各科老师都按照这个时间来布置，除了英语。所以我现在白天也只会写完部分英语作业。</p>
+<p>最后剩了半小时自由复习时间。连着很多次英语续写都因为情节不合理爆炸了（虽然我怀疑是鹅批的太严了），我又翻出一张报纸，限时写完了上面的续写。</p>
+<p>回家是长草的pcr和原神。</p>
+<hr>
+<h2 id="June-2nd-2021"><a href="#June-2nd-2021" class="headerlink" title="June 2nd,2021"></a>June 2nd,2021</h2><p>往年slyz的高考前一周应该是学生自主复习时间，主要任务是看课本。我也打算在这段时间解决完所有「STRUGGLE」上的问题，背完所有我没背过的文言文知识。</p>
+<p>我不知道为啥就变成了6天考完两次周测。</p>
+<p>上午是化学生物试卷讲评和语文考试。语文依然是没有长进呢，还是在往答题卡上随机输出字符。下午考物理。</p>
+<p>晚上安排没变，还是限时练。只好用多出来的半小时解决问题，继续做化学的凤凰台。</p>
+<hr>
+<h2 id="June-3rd-2021"><a href="#June-3rd-2021" class="headerlink" title="June 3rd,2021"></a>June 3rd,2021</h2><p>最后一次数学考试。秀说这次考试很有纪念意义。</p>
+<p>我跟她开玩笑，“那我干脆考零分庆祝一下。”</p>
+<p>这次题目出奇的简单，我甚至所有题都做完了还剩了十分钟。</p>
+<p>晚上对了对答案，说不定能满分。那这还是挺有纪念意义的。</p>
+<p>最后还是因为数列题有一步不严谨扣了一分。</p>
+<hr>
+<h2 id="June-5th-2021"><a href="#June-5th-2021" class="headerlink" title="June 5th,2021"></a>June 5th,2021</h2><p>给了我们一天的自由复习时间。但我别无选择，只能干语文。</p>
+<p>从早到晚，我先背完了二十多张知识小卷上的文言文字词，然后又背了我没背过的文言文。脑子差点宕机。</p>
+<p>随机挑了几道文言文题做，我背的字词一个没用上哈哈哈。</p>
+<p>明天就高考了，但我心情没有丝毫的波澜。</p>
+<p>前几天感冒了，嗓子痒。今天晚上突然加重了，痒的睡不着。咳不出来，吃药也没用。折腾到凌晨三点才睡着。</p>
+<hr>
+<h2 id="June-9th-2021"><a href="#June-9th-2021" class="headerlink" title="June 9th,2021"></a>June 9th,2021</h2><p>还有一分钟。遗传大题没有搞出来，我随便编了几个数蒙了上去。</p>
+<p>我的手在颤抖。</p>
+<p>我一年前幻想着的。</p>
+<p>我三年前梦想着的。</p>
+<p>我入学来每时每刻都在想着的。</p>
+<hr>
+<h2 id="June-25th-2021"><a href="#June-25th-2021" class="headerlink" title="June 25th,2021"></a>June 25th,2021</h2><p>我没有从劳累中恢复过来。</p>
+<p>我没有过上我曾梦想着的生活。</p>
+<p>好像今天能查高考成绩的。但是一直以来我对成绩都不关心，高考也是。网上的答案我甚至从来没碰过。</p>
+<p>下午五点我刚打完一把lol，看到群里正在讨论成绩。楠楠好像在做什么统计，给了我查成绩的网站。</p>
+<p>反正也没事干，我把成绩查完了发给他，聊了两句，接着打lol。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.4/Re/Re-1.jpg" alt=""></p>
+<hr>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>也许高三应当是一段拼搏与奋斗的时光。</p>
+<p>也许高三应当是充满欢笑与情谊的路途。</p>
+<p>但这都不是我的高三。</p>
+<p>高考完的一段时间，我甚至不敢去回忆。</p>
+<p>我痛恨着衡水模式。</p>
+<p>我厌恶那个虚伪的我。</p>
+<p>如果再给我一次机会，我还是会选择放弃。但人生不能重来。</p>
+<p><em>Remember&amp;Restart</em></p>
+<p><em>以上</em></p>
+<hr>
+<p>附：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.4/Re/Re-2.jpg" alt=""></p>
+<center><p class="img-desc">一些纪念品</p></center>
             
         </div>
       </article>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2020/01/13/%E6%B4%9B%E8%B0%B7-P5219-%E6%97%A0%E8%81%8A%E7%9A%84%E6%B0%B4%E9%A2%98-I/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.1/wldst1.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.1/wldst1.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                洛谷 P5219 无聊的水题 I</h3>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2020/01/11/%E6%B4%9B%E8%B0%B7-P3978-TJOI2015-%E6%A6%82%E7%8E%87%E8%AE%BA/" rel="next">
+            <a href="/2021/06/17/%E9%9B%B6%C2%B7%E6%97%A5%E8%AE%B0/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.8/gll.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.8/gll.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.9/index9.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.9/index9.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                洛谷 P3978 [TJOI2015]概率论</h3>
+                零·日记</h3>
               </div> 
             </a>
 			</div>
@@ -761,11 +861,6 @@ int main(){
 
 </div>
 
-
-  <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js?config=TeX-MML-AM_CHTML"></script>
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-  </script>
 
 
 
