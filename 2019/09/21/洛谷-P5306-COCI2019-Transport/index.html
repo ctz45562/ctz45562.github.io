@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/css/insight.css" media="all">
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="/css/zoom.css" media="all">
-  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_k282qfb60ve.css">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_0q2nihn6w0a.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css"> -->
   <style>
   .emoji-coda {
@@ -69,7 +69,8 @@
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
 
-<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="ctz's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
@@ -393,6 +394,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -530,6 +539,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -605,7 +622,7 @@
 <p>使点$i$能到达根，就要满足$\forall j$位于路径$i\rightarrow root$，$sum_i-dis_i-sum_j+dis_j\ge 0$。</p>
 <p>$dfs$时维护最小的$dis_j-sum_j$判断即可。</p>
 <p>再$dfs$一遍树，以每个点作为终点，判断是否存在一条路径和自己拼起来合法。</p>
-<p>同理，维护一个最大的$dis_j-sum_{fa_j}$即可，注意是$fa_j$的$sum$。平衡树里查一下大于等于该值减去$a_{root}$的数作为贡献。减去$a_{root}$是因为这两次统计时都没有算上$root$的点权。还要减去同一子树的点的贡献。</p>
+<p>同理，维护一个最大的$dis<em>j-sum</em>{fa<em>j}$即可，注意是$fa_j$的$sum$。平衡树里查一下大于等于该值减去$a</em>{root}$的数作为贡献。减去$a_{root}$是因为这两次统计时都没有算上$root$的点权。还要减去同一子树的点的贡献。</p>
 <p>复杂度是$O(n\log^2 n)$的。</p>
 <p>一开始想把剩余油量存数组里排个序<code>build</code>一棵平衡树。甚至可以把序列去重，不涉及插入删除直接搞一个$BST$出来。</p>
 <p><code>build</code>是$O(n)$的，于是总复杂度就成$O(n\log n)$了，然后发现排序还是带个$\log$.</p>

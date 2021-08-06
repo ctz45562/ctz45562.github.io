@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/css/insight.css" media="all">
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="/css/zoom.css" media="all">
-  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_k282qfb60ve.css">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_0q2nihn6w0a.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css"> -->
   <style>
   .emoji-coda {
@@ -69,7 +69,8 @@
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
 
-<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="ctz's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
@@ -393,6 +394,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -530,6 +539,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -605,8 +622,8 @@
 <p>显然给出的点对其中一个必定是$n$，否则就假了。</p>
 <p>按另一个点排序，钦定$n$为根节点（构造完再加进去），尝试在一条链上构造答案。以下记$a_i$为点对中不是$n$的那个点。</p>
 <ul>
-<li>若$a_i\neq a_{i-1}$，直接把链顶父亲设为$a_i$，这样对所有存在的点都没有影响。</li>
-<li>若$a_i=a_{i-1}$，需要再来一条边割掉后一边最大值为$a_i$。钦定一个不在链里的点$x$，链顶父亲设为$x$。如果找不到就$gg$了。</li>
+<li>若$a<em>i\neq a</em>{i-1}$，直接把链顶父亲设为$a_i$，这样对所有存在的点都没有影响。</li>
+<li>若$a<em>i=a</em>{i-1}$，需要再来一条边割掉后一边最大值为$a_i$。钦定一个不在链里的点$x$，链顶父亲设为$x$。如果找不到就$gg$了。</li>
 </ul>
 <p>最后把链顶的父亲设为$n$。</p>
 <p>数据范围还挺友善的，$O(n^2)$暴力枚举就能过。写个链表的话就$O(n)$了。</p>
@@ -773,7 +790,7 @@ int main(){
 <hr>
 <p><strong>正迟但到：</strong></p>
 <p>设$f(i)$为点$i$的子树所有点的$siz$中，$\left\lfloor\dfrac{n}{2}\right\rfloor+1$的前驱。</p>
-<p>转移：$f(i)=\begin{cases}siz_i&amp;siz_i\le \left\lfloor\dfrac{n}{2}\right\rfloor\\\max\limits_{j\in son(i)}\{f(j)\}&amp;otherwise\end{cases}$</p>
+<p>转移：$f(i)=\begin{cases}siz<em>i&amp;siz_i\le \left\lfloor\dfrac{n}{2}\right\rfloor\\max\limits</em>{j\in son(i)}{f(j)}&amp;otherwise\end{cases}$</p>
 <p>考虑换根$DP$。</p>
 <p>假设我们已经得到了$x$为根时的$f(fa_x)$记为$F$，把根从$x$移动到儿子$y$，需要知道以$y$为根时的$f(x)$：</p>
 <ul>
@@ -783,7 +800,7 @@ int main(){
 <p>维护每个点儿子中$f$的最大值$m1$和次大值$m2$。</p>
 <ul>
 <li>如果$n-siz_y\le \left\lfloor\dfrac{n}{2}\right\rfloor$，$f(x)=n-siz_y$</li>
-<li>否则，$\begin{cases}f(x)=\max\{F,m2\}&amp;f(y)=m1\\f(x)=\max\{F,m1\}&amp;otherwise\end{cases}$</li>
+<li>否则，$\begin{cases}f(x)=\max{F,m2}&amp;f(y)=m1\f(x)=\max{F,m1}&amp;otherwise\end{cases}$</li>
 </ul>
 <p>代码：</p>
 <pre><code class="lang-cpp">#include &lt;iostream&gt;

@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/css/insight.css" media="all">
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="/css/zoom.css" media="all">
-  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_k282qfb60ve.css">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_0q2nihn6w0a.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css"> -->
   <style>
   .emoji-coda {
@@ -69,7 +69,8 @@
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
 
-<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="ctz's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
@@ -393,6 +394,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -530,6 +539,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -634,7 +651,7 @@
 <p>$L(x)$：节点$x$代表的$endpos$等价类中的最长串</p>
 <hr>
 <h1 id="endpos"><a href="#endpos" class="headerlink" title="endpos"></a>endpos</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>对于字符串$S$任意一个子串$A$，$A$可能在$S$中出现多次，它的$endpos$为其所有结束位置的集合，记为$endpos(A)$。</p>
-<p>举个栗子：在串<code>aaabaabab</code>中，$endpos(“aab”)=\{4,7\}$，$endpos(“ab”)=\{4,7,9\}$</p>
+<p>举个栗子：在串<code>aaabaabab</code>中，$endpos(“aab”)={4,7}$，$endpos(“ab”)={4,7,9}$</p>
 <p>若$endpos(A)=endpos(B)$，称$A$与$B$属于同一个<strong>$endpos$等价类</strong>。</p>
 <p>对于一个串，就能把它划分成若干个$endpos$等价类。</p>
 <h2 id="并不想证明的引理"><a href="#并不想证明的引理" class="headerlink" title="并不想证明的引理"></a><del>并不想证明的</del>引理</h2><p><strong>1.当且仅当串$B$以串$A$一个后缀的形式出现在$S$中时，则$endpos(A)=endpos(B)$</strong></p>
@@ -650,10 +667,10 @@
 <p><strong>4.$endpos$等价类的个数级别为$O(n)$（重点）</strong></p>
 <p>这是证明后缀自动机复杂度的重要引理。</p>
 <p>对于一个$endpos$等价类$E$，在其中最长的串前添加一个字符，根据引理$2$，得到的串所属的$endpos$等价类一定是$E$的一个真子集，并且添加不同的字符得到的$endpos$等价类互不相交。所以在最长串前添加字符（保证新串还是母串子串），相当于将$E$分割成若干个不相交的子集，子集的个数不超过$E$的大小。</p>
-<p>那么一切$endpos$等价类都是由$\{1,2,3…n\}$不断分割而来的，类比于线段树，总大小不超过$O(n)$</p>
+<p>那么一切$endpos$等价类都是由${1,2,3…n}$不断分割而来的，类比于线段树，总大小不超过$O(n)$</p>
 <hr>
-<h1 id="后缀链接"><a href="#后缀链接" class="headerlink" title="后缀链接"></a>后缀链接</h1><h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p>对于一个$endpos$等价类$E$，记其中长度最大的串为$A_{max}$，最小的为$A_{min}$，由上面引理$3$可知其余所有串为$A_{max}$的后缀，且长度连续。取串$A’$为$A_{max}$<strong>最长且不属于$E$</strong>的后缀，把$A_{min}$链接上$A’$，就是后缀链接。</p>
-<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><p><strong>1.$length(A_{min})=length(A’)+1$，$endpos(A_{min})\subseteq endpos(A’)$</strong></p>
+<h1 id="后缀链接"><a href="#后缀链接" class="headerlink" title="后缀链接"></a>后缀链接</h1><h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p>对于一个$endpos$等价类$E$，记其中长度最大的串为$A<em>{max}$，最小的为$A</em>{min}$，由上面引理$3$可知其余所有串为$A<em>{max}$的后缀，且长度连续。取串$A’$为$A</em>{max}$<strong>最长且不属于$E$</strong>的后缀，把$A_{min}$链接上$A’$，就是后缀链接。</p>
+<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><p><strong>1.$length(A<em>{min})=length(A’)+1$，$endpos(A</em>{min})\subseteq endpos(A’)$</strong></p>
 <p><strong>2.所有的后缀链接构成一棵以$T(0)$为根的树</strong></p>
 <p>从任意一个$endpos$等价类出发，沿后缀链接走长度是严格递减的，最后一定走到$T(0)$</p>
 <p><strong>3.以$endpos$等价类建树，由一个类的子集向自己连边，得到的树和后缀链接树结构相同。每个节点是包含某一前缀若干长度单调递减的后缀，并由后缀链接成长度从1到前缀长度的后缀的并集。</strong></p>
@@ -781,9 +798,9 @@ int main(){
 <h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><p>以下用$edge(i,j)$表示$fa[j]=i$</p>
 <h2 id="求出每个点的siz​"><a href="#求出每个点的siz​" class="headerlink" title="求出每个点的siz​"></a>求出每个点的siz​</h2><p>$endpos$集合大小就相当于子串出现次数，求出这个就能<del>乱搞</del>干很多事情了。</p>
 <p>$DP$求解。$fa$建出$parent\ tree$，按拓扑序或$dfsDP$。</p>
-<p>方程：若点$i$不包含原串前缀，$siz[i]=\sum\limits_{edge(i,j)}siz[j]$；否则$siz[i]=1+\sum\limits_{edge(i,j)}siz[j]$</p>
+<p>方程：若点$i$不包含原串前缀，$siz[i]=\sum\limits<em>{edge(i,j)}siz[j]$；否则$siz[i]=1+\sum\limits</em>{edge(i,j)}siz[j]$</p>
 <p> 什么意思呢？首先对于不包含前缀的点我们分割它的$endpos$集合有了$parent\ tree$，它的儿子的并集就是它自己。</p>
-<p>看到$parent\ tree$，可以发现集合$\{1,2,4,6\}$分割成了$\{2\}$和$\{4,6\}$，$\{1\}$去哪儿了？</p>
+<p>看到$parent\ tree$，可以发现集合${1,2,4,6}$分割成了${2}$和${4,6}$，${1}$去哪儿了？</p>
 <p>分割集合相当于给集合里的每个串前添加字符得到新子串，产生了新的$endpos$等价类，分割下去。但是前缀不能在前面添加字符（它已经到头了），就不会分割出新的$endpos$等价类。显然一个类中最多只有一个前缀，就有上面的方程。</p>
 <p>实现：只需要在$insert$函数第二行加一句：<code>siz[ne]=1</code>，建好$SAM$，$DP$就行啦。</p>
 <p>关于拓扑序有个有点意思的求法：</p>
@@ -811,21 +828,21 @@ int main(){
 <p><del>当然用SA啊</del></p>
 <p>对第一个串造$SAM$，用第二个串在$SAM$上跑，维护一下当前长度。依次匹配每一个字符，能走就走，长度++；不能走就不断向上跳$fa$，直到有边能走，长度置为该节点的$len$。中间过程所有到达的长度最大值为答案。</p>
 <p>扩展到多个串上：</p>
-<p>对第一个串造$SAM$，每个节点维护<strong>已匹配过的串走到该节点的最小长度$mi$</strong>和<strong>当前串走到该节点最大匹配长度$ma$</strong>。让每个串往上面跑并记录匹配长度，每次走到某个节点都把$ma$对匹配长度取$\max$，跑完更新每个节点，根据定义，$mi_i=\min\{mi_i,ma_i\}$，而如果存在$ma_i$，$fa[i]$必定能完全匹配，则$mi_{fa[i]}=len[fa[i]]$。答案为$\max\{mi_i\}$。</p>
+<p>对第一个串造$SAM$，每个节点维护<strong>已匹配过的串走到该节点的最小长度$mi$</strong>和<strong>当前串走到该节点最大匹配长度$ma$</strong>。让每个串往上面跑并记录匹配长度，每次走到某个节点都把$ma$对匹配长度取$\max$，跑完更新每个节点，根据定义，$mi<em>i=\min{mi_i,ma_i}$，而如果存在$ma_i$，$fa[i]$必定能完全匹配，则$mi</em>{fa[i]}=len[fa[i]]$。答案为$\max{mi_i}$。</p>
 <h2 id="最长公共后缀"><a href="#最长公共后缀" class="headerlink" title="最长公共后缀"></a>最长公共后缀</h2><p>给定母串，求两个前缀的最长公共后缀。</p>
 <p>它们的$LCA$的$len$。</p>
 <p>至于为啥。。。刚从$R2$回来好累啊懒得想了。</p>
 <p>后缀的最长公共前缀倒过来就行了。</p>
 <h2 id="最小表示法"><a href="#最小表示法" class="headerlink" title="最小表示法"></a>最小表示法</h2><p>给定一个串，可以任意把最后面的字符移到开头，求能得到的字典序最小的串。</p>
 <p><del>这不最小表示法、后缀数组SB题吗</del></p>
-<p>把串复制一遍接在后边造$SAM$，就要找一条长度为$n$的字典序最小的路径。设$f(i)$为以节点$i$为起点，沿着$son$走能走的最长路的长度，$DP$求解，方程：$f(i)=\max\{f(son(i,j))+1\}$。</p>
+<p>把串复制一遍接在后边造$SAM$，就要找一条长度为$n$的字典序最小的路径。设$f(i)$为以节点$i$为起点，沿着$son$走能走的最长路的长度，$DP$求解，方程：$f(i)=\max{f(son(i,j))+1}$。</p>
 <p>从根节点开始$dfs$，记录当前剩余未填字符数为$m$，从小到大枚举字符，如果$f[son(i,j)]+1\ge m$就走，直到$m$为$0$。</p>
 <p>$A$了后看了看$asuldb$的题解发现我在瞎扯。。。</p>
 <p>因为我们是把串<strong>循环同构</strong>了，所以从根节点出发一定有长度为$n$的路径，其他点同样有满足条件的路径。所以没必要$DP$，贪心走最小的儿子走$n$遍就完了。</p>
 <hr>
 <h1 id="水题"><a href="#水题" class="headerlink" title="水题"></a>水题</h1><p>一些题在学后缀数组时已经做过啦，所以有的我是在口胡。。。</p>
 <p>好多题目都是从<a href="http://www.cnblogs.com/asuldb" target="_blank" rel="noopener">asuldb</a>那里偷过来的$QwQ$</p>
-<h2 id="【模板】后缀自动机"><a href="#【模板】后缀自动机" class="headerlink" title="【模板】后缀自动机"></a><a href="https://www.luogu.org/problemnew/show/P3804" target="_blank" rel="noopener">【模板】后缀自动机</a></h2><p>求出$endpos$集合大小，答案就是$max\{siz[i]len[i]\}(siz[i]&gt;1)$</p>
+<h2 id="【模板】后缀自动机"><a href="#【模板】后缀自动机" class="headerlink" title="【模板】后缀自动机"></a><a href="https://www.luogu.org/problemnew/show/P3804" target="_blank" rel="noopener">【模板】后缀自动机</a></h2><p>求出$endpos$集合大小，答案就是$max{siz[i]len[i]}(siz[i]&gt;1)$</p>
 <h2 id="玄武密码"><a href="#玄武密码" class="headerlink" title="玄武密码"></a><a href="https://www.luogu.org/problemnew/show/P5231" target="_blank" rel="noopener">玄武密码</a></h2><p>很裸的判断子串。。。</p>
 <p><del>（我把这个题放上来好像显得很low）</del></p>
 <h2 id="弦论"><a href="#弦论" class="headerlink" title="弦论"></a><a href="https://www.luogu.org/problemnew/show/P3975" target="_blank" rel="noopener">弦论</a></h2><p>填上我后缀数组的坑。<br>$t=0$，<del>后缀数组随便做</del>所有点的$siz$都是$1$，（同一个状态只出现一次），和上面应用一样跑就行啦。</p>

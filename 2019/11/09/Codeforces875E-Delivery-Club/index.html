@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/css/insight.css" media="all">
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="/css/zoom.css" media="all">
-  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_k282qfb60ve.css">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_0q2nihn6w0a.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css"> -->
   <style>
   .emoji-coda {
@@ -69,7 +69,8 @@
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
 
-<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="ctz's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
@@ -393,6 +394,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -530,6 +539,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -604,10 +621,10 @@
 <p>正着推好像只能$O(n^2)$的$DP$。考虑倒着做。</p>
 <p>假设当前二分值为$mid$。</p>
 <p>维护一个限制区间$L$，表示要满足后面已考虑的点都不超出$mid$的限制，当前点能选取的区间。</p>
-<p>一开始有一个快递员在$x_n$上，$L=[x_n-mid,x_n+mid]$，考虑钦定谁去点$x_{n-1}$。</p>
+<p>一开始有一个快递员在$x<em>n$上，$L=[x_n-mid,x_n+mid]$，考虑钦定谁去点$x</em>{n-1}$。</p>
 <ul>
-<li>若$x_{n-1}\in L$，可以钦定其中一个快递员到$x_{n-1}$，另一个快递员到$x_n$（不用考虑在$x_{n-1}$前是否可行，这是之后要考虑的）。此时$x_n$也不受$mid$的限制了，$L=[x_{n-1}-mid,x_{n-1}+mid]$。</li>
-<li>否则，必须钦定位于$x_n$的快递员去送$x_{n-1}$（若另一个快递员送的话$x_{n-1}$与$x_n$的距离会超过限制）。此时$x_n$和$x_{n-1}$的限制都需要考虑，$L=L\bigcap[x_{n-1}-mid,x_{n-1}+mid]$。</li>
+<li>若$x<em>{n-1}\in L$，可以钦定其中一个快递员到$x</em>{n-1}$，另一个快递员到$x<em>n$（不用考虑在$x</em>{n-1}$前是否可行，这是之后要考虑的）。此时$x<em>n$也不受$mid$的限制了，$L=[x</em>{n-1}-mid,x_{n-1}+mid]$。</li>
+<li>否则，必须钦定位于$x<em>n$的快递员去送$x</em>{n-1}$（若另一个快递员送的话$x<em>{n-1}$与$x_n$的距离会超过限制）。此时$x_n$和$x</em>{n-1}$的限制都需要考虑，$L=L\bigcap[x<em>{n-1}-mid,x</em>{n-1}+mid]$。</li>
 </ul>
 <p>这样的关系同样满足于前面所有$x_i$。递推到$x_1$时，只要判断$s_1,s_2$是否有一个属于$L$即可。递推过程中出现空集也不可行。不过若出现过空集，推到最后$L$也一定是空集，所以不用特判了。</p>
 <p>代码：</p>

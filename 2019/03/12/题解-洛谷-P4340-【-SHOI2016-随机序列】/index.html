@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/css/insight.css" media="all">
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="/css/zoom.css" media="all">
-  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_k282qfb60ve.css">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_0q2nihn6w0a.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css"> -->
   <style>
   .emoji-coda {
@@ -69,7 +69,8 @@
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
 
-<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="ctz's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
@@ -393,6 +394,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -530,6 +539,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -606,7 +623,7 @@
 <p>假设数列有$5$个数字，为$a,b,c,d,e$。$g(5)=a*b*c*d*e$。显然$g(5)$只会出现$1$次。</p>
 <p>把最后一个乘号替换为加号和减号，$a*b*c*d+e$和$a*b*c*d-e$就会相加相互抵消，得到$2$个$g(4)$。</p>
 <p>再把$g(5)$和$g(4)$的每种情况的倒数第二个乘号替换为加号和减号，相加后就会得到$6$个$g(3)$。以此类推，有$18$个$g(2)$，$54$个$g(1)$。这样规律就比较明显了：<strong>每个$g(i)$都珂以由$g(k)(i&lt;k\le n)$修改对应位置的乘号，得到$2$个$g(i)$。</strong></p>
-<p>定义函数$f(i)=\begin{cases}1&amp;i=1\\\\\sum\limits_{j=1}^{i-1}f(j)*2&amp;i&gt;1\end{cases}$</p>
+<p>定义函数$f(i)=\begin{cases}1&amp;i=1\\\sum\limits_{j=1}^{i-1}f(j)*2&amp;i&gt;1\end{cases}$</p>
 <p>答案就是 $ans=\sum\limits_{i=1}^{ n}g(i)*f(n-i+1)$</p>
 <p><del>（其实这个规律完全可以爆搜用瞪眼法得出来）</del></p>
 <p>$f(i)$和$g(i)$珂以直接预处理出来，然后直接上线段树维护，每个节点维护所代表区间的$\sum\limits_{i=l}^{r}g(i)*f(n-i+1)$。</p>

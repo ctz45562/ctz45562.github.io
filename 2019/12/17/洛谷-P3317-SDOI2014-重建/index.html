@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/css/insight.css" media="all">
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="/css/zoom.css" media="all">
-  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_k282qfb60ve.css">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_0q2nihn6w0a.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css"> -->
   <style>
   .emoji-coda {
@@ -69,7 +69,8 @@
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
 
-<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="ctz's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
@@ -393,6 +394,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -530,6 +539,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -600,8 +617,8 @@
           <p><a href="https://www.luogu.com.cn/problem/P3317" target="_blank" rel="noopener">传送门</a></p>
 <p>只有我是暴力缩点搞的吗。。。</p>
 <a id="more"></a>
-<p>令$E$为生成树边集，显然我们要求的就是$\sum\limits_E\left(\prod\limits_{e\in E}p_e\prod\limits_{e\notin E}(1-p_e)\right)$</p>
-<p>令$P=\prod(1-p_e)$，即原图所有边的$1-p_e$之积。上面的式子就成了$P\sum\limits_E\left(\prod\limits_{e\in E}\dfrac{p_e}{1-p_e}\right)$</p>
+<p>令$E$为生成树边集，显然我们要求的就是$\sum\limits<em>E\left(\prod\limits</em>{e\in E}p<em>e\prod\limits</em>{e\notin E}(1-p_e)\right)$</p>
+<p>令$P=\prod(1-p<em>e)$，即原图所有边的$1-p_e$之积。上面的式子就成了$P\sum\limits_E\left(\prod\limits</em>{e\in E}\dfrac{p_e}{1-p_e}\right)$</p>
 <p>直接变元矩阵树定理搞它就完事了。。。吗？</p>
 <p>若$p_e=1$，会出现分母为$0$的情况。其他题解里都是改为$1-eps$，精度误差可以接受。</p>
 <p>没想到于是暴力缩点。$p_e=1$说明生成树中一定有这条边，用并查集缩成一个点。</p>

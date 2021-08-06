@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/css/insight.css" media="all">
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="/css/zoom.css" media="all">
-  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_k282qfb60ve.css">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_0q2nihn6w0a.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css"> -->
   <style>
   .emoji-coda {
@@ -69,7 +69,8 @@
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
 
-<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="ctz's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
@@ -393,6 +394,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -530,6 +539,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -601,8 +618,8 @@
 <p>一边听主席的故事（本子）会一边调出来了。</p>
 <a id="more"></a>
 <p>题解里都是哈希，我这个大常数SAM+kmp就显得很另类（</p>
-<p>考虑点分治时如何把两条路径拼起来。用$[P_i]$表示前缀，$[S_i]$表示后缀，$a[S]$表示$a$个$S$相连（$a\in\mathbb{Z}$），一定是形如$a[S]+[P_i]$和$[S_{i+1}]+b[S]$的两条半路径拼成的路径符合要求：</p>
-<p>$T_x$表示分治中心到点$x$的路径形成的字符串。如果$T_x$形如$[S_{i+1}]+b[S]$，则用$sl_x$表示$S_{i+1}$的长度。</p>
+<p>考虑点分治时如何把两条路径拼起来。用$[P<em>i]$表示前缀，$[S_i]$表示后缀，$a[S]$表示$a$个$S$相连（$a\in\mathbb{Z}$），一定是形如$a[S]+[P_i]$和$[S</em>{i+1}]+b[S]$的两条半路径拼成的路径符合要求：</p>
+<p>$T<em>x$表示分治中心到点$x$的路径形成的字符串。如果$T_x$形如$[S</em>{i+1}]+b[S]$，则用$sl<em>x$表示$S</em>{i+1}$的长度。</p>
 <p>对$S$串建$SAM$，并把$S$代表的节点（最后插入的字符新建的节点）及其$parent\ tree$上的祖先都打上标记。如果把$T_x$在$SAM$上跑一遍走到了有标记的节点，则$T_x$为$S$的一个后缀，$sl_x=deep_x$。</p>
 <p>解决了后缀的问题，只要找出$[S]$即可。$kmp$匹配一下就行。如果$T_x$正好匹配$S$，则$sl_x=sl_y$（$y$为$x$的$m$级祖先）。</p>
 <p>而$a[S]+[P_i]$就把$S$反过来做一遍。开个$sl$的桶统计答案就做完了。</p>

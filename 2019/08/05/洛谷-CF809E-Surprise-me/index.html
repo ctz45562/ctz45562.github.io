@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/css/insight.css" media="all">
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="/css/zoom.css" media="all">
-  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_k282qfb60ve.css">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_0q2nihn6w0a.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css"> -->
   <style>
   .emoji-coda {
@@ -69,7 +69,8 @@
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
 
-<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="ctz's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
@@ -393,6 +394,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -530,6 +539,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -601,18 +618,18 @@
 <p>$\text{wdnmd}$这题做起来刺激<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/xiaodianshi/haixiu.png"></p>
 <a id="more"></a>
 <p>转换一下$a_i$的定义：权值为$i$的点的编号。</p>
-<p>这样求的答案就成了$\sum\limits_{i=1}^n\sum\limits_{j=1}^n\varphi(i\times j)dis(a_i,a_j)$</p>
+<p>这样求的答案就成了$\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^n\varphi(i\times j)dis(a_i,a_j)$</p>
 <p>反演还是很套路的：</p>
-<p>$=\sum\limits_{i=1}^n\sum\limits_{j=1}^n\dfrac{\varphi(i)\varphi(j)gcd(i,j)}{\varphi(gcd(i,j))}dis(a_i,a_j)$</p>
-<p>$=\sum\limits_{d=1}^n\dfrac{d}{\varphi(d)}\sum\limits_{i=1}^n\varphi(i)\sum\limits_{j=1}^n\varphi(j)[gcd(i,j)=d]dis(a_i,a_j)$</p>
-<p>$=\sum\limits_{d=1}^n\dfrac{d}{\varphi(d)}\sum\limits_{i=1}^{\lfloor\frac{n}{d}\rfloor}\varphi(id)\sum\limits_{j=1}^{\lfloor\frac{n}{d}\rfloor}\varphi(jd)dis(a_{id},a_{jd})\sum\limits_{a|gcd(i,j)}\mu(a)$</p>
-<p>$=\sum\limits_{d=1}^n\dfrac{d}{\varphi(d)}\sum\limits_{a=1}^{\lfloor\frac{n}{d}\rfloor}\mu(a)\sum\limits_{i=1}^{\lfloor\frac{n}{ad}\rfloor}\varphi(iad)\sum\limits_{j=1}^{\lfloor\frac{n}{ad}\rfloor}\varphi(jad)dis(a_{iad},a_{jad})$</p>
+<p>$=\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^n\dfrac{\varphi(i)\varphi(j)gcd(i,j)}{\varphi(gcd(i,j))}dis(a_i,a_j)$</p>
+<p>$=\sum\limits<em>{d=1}^n\dfrac{d}{\varphi(d)}\sum\limits</em>{i=1}^n\varphi(i)\sum\limits_{j=1}^n\varphi(j)[gcd(i,j)=d]dis(a_i,a_j)$</p>
+<p>$=\sum\limits<em>{d=1}^n\dfrac{d}{\varphi(d)}\sum\limits</em>{i=1}^{\lfloor\frac{n}{d}\rfloor}\varphi(id)\sum\limits<em>{j=1}^{\lfloor\frac{n}{d}\rfloor}\varphi(jd)dis(a</em>{id},a<em>{jd})\sum\limits</em>{a|gcd(i,j)}\mu(a)$</p>
+<p>$=\sum\limits<em>{d=1}^n\dfrac{d}{\varphi(d)}\sum\limits</em>{a=1}^{\lfloor\frac{n}{d}\rfloor}\mu(a)\sum\limits<em>{i=1}^{\lfloor\frac{n}{ad}\rfloor}\varphi(iad)\sum\limits</em>{j=1}^{\lfloor\frac{n}{ad}\rfloor}\varphi(jad)dis(a<em>{iad},a</em>{jad})$</p>
 <p>令$T=ad$，枚举$T$：</p>
-<p>$=\sum\limits_{d=1}^n\dfrac{d}{\varphi(d)}\sum\limits_{T=1}^n[d|T]\mu(\dfrac{T}{d})\sum\limits_{i=1}^{\lfloor\frac{n}{T}\rfloor}\varphi(iT)\sum\limits_{j=1}^{\lfloor\frac{n}{T}\rfloor}\varphi(jT)dis(a_{iT},a_{jT})$</p>
-<p>$=\sum\limits_{T=1}^n\sum\limits_{i=1}^{\lfloor\frac{n}{T}\rfloor}\varphi(iT)\sum\limits_{j=1}^{\lfloor\frac{n}{T}\rfloor}\varphi(jT)dis(a_{iT},a_{jT})\sum\limits_{d|T}\mu(\dfrac{T}{d})\dfrac{d}{\varphi(d)}$</p>
+<p>$=\sum\limits<em>{d=1}^n\dfrac{d}{\varphi(d)}\sum\limits</em>{T=1}^n[d|T]\mu(\dfrac{T}{d})\sum\limits<em>{i=1}^{\lfloor\frac{n}{T}\rfloor}\varphi(iT)\sum\limits</em>{j=1}^{\lfloor\frac{n}{T}\rfloor}\varphi(jT)dis(a<em>{iT},a</em>{jT})$</p>
+<p>$=\sum\limits<em>{T=1}^n\sum\limits</em>{i=1}^{\lfloor\frac{n}{T}\rfloor}\varphi(iT)\sum\limits<em>{j=1}^{\lfloor\frac{n}{T}\rfloor}\varphi(jT)dis(a</em>{iT},a<em>{jT})\sum\limits</em>{d|T}\mu(\dfrac{T}{d})\dfrac{d}{\varphi(d)}$</p>
 <p>最后面$\sum\limits_{d|T}$的一坨是个卷积形式，可以线筛，不过$O(n\log n)$枚举倍数预处理就够了。</p>
 <p>看中间那一坨，考虑它的含义，其实就是把编号为$a_{iT}$的点拿出来，点权为$\varphi(iT)$，求它们两两之间$value(i)\times value(j)\times dis(i,j)$之和。</p>
-<p>而这个式子是个调和级数，总点数是$O(n\log n)$的，大力对点集$\{a_{iT}|i\in \mathbb{Z}\}$上虚树。</p>
+<p>而这个式子是个调和级数，总点数是$O(n\log n)$的，大力对点集${a_{iT}|i\in \mathbb{Z}}$上虚树。</p>
 <p>记$siz(i)$为点$i$的子树权值和，考虑每条边$edge(i,j)$的贡献，为$length(edge(i,j))\times siz(j)\times(siz(root)-siz(j))$。</p>
 <p>于是就能$O(n\log^2n)$解决辣。</p>
 <p>代码：</p>

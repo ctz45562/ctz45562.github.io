@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/css/insight.css" media="all">
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="/css/zoom.css" media="all">
-  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_k282qfb60ve.css">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_0q2nihn6w0a.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css"> -->
   <style>
   .emoji-coda {
@@ -69,7 +69,8 @@
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
 
-<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="ctz's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
@@ -393,6 +394,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -526,6 +535,14 @@
                 <a href="/games/" class="faa-parent animated-hover">
                     <i class="ctz ctz-game faa-shake"></i>
                     游戏
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
                 </a>
                 
               </li>
@@ -715,24 +732,24 @@ signed main(){
 <p>套路反演：</p>
 <p>$=\sum\limits_{s,d,k}[d&lt;s&lt;2d][k|s][k|2d]\mu(k)\left\lfloor\dfrac{n}{2sd}\right\rfloor$</p>
 <p>分类$k$的奇偶：</p>
-<p>$=\sum\limits_{s,d,k}[d&lt;s&lt;2d][k|s][k|d][odd(k)]\mu(k)\left\lfloor\dfrac{n}{2sd}\right\rfloor+\sum\limits_{s,d,k}[d&lt;s&lt;2d][k|s][\frac{k}{2}|d][even(k)]\mu(k)\left\lfloor\dfrac{n}{2sd}\right\rfloor$</p>
+<p>$=\sum\limits<em>{s,d,k}[d&lt;s&lt;2d][k|s][k|d][odd(k)]\mu(k)\left\lfloor\dfrac{n}{2sd}\right\rfloor+\sum\limits</em>{s,d,k}[d&lt;s&lt;2d][k|s][\frac{k}{2}|d][even(k)]\mu(k)\left\lfloor\dfrac{n}{2sd}\right\rfloor$</p>
 <p>分开算，奇数部分：</p>
 <p>$\sum\limits_{s,d,k}[d&lt;s&lt;2d][k|s][k|d][odd(k)]\mu(k)\left\lfloor\dfrac{n}{2sd}\right\rfloor$</p>
 <p>$=\sum\limits_{s,d,k}[d&lt;s&lt;2d][k\ge 1][(2k-1)|s][(2k-1)|d]\mu(2k-1)\left\lfloor\dfrac{n}{2sd}\right\rfloor$</p>
 <p>$s,d$改为枚举$2k-1$的倍数：</p>
 <p>$=\sum\limits_{s,d,k}[d&lt;s&lt;2d][k\ge 1]\mu(2k-1)\left\lfloor\dfrac{n}{2sd(2k-1)^2}\right\rfloor$</p>
 <p>令$t=\left\lfloor\dfrac{n}{2(2k-1)^2}\right\rfloor$，给$s,d,k$实际的枚举范围：</p>
-<p>$=\sum\limits_{k=1}^{\sqrt{n}}\mu(2k-1)\sum\limits_{d=2}^{\sqrt{t}}\sum\limits_{s=d+1}^{\min\{2d-1,\lfloor\frac{t}{d}\rfloor\}}\left\lfloor\dfrac{t}{sd}\right\rfloor$</p>
-<p>设$g(n)=\sum\limits_{i=2}^{\sqrt{n}}\sum\limits_{j=i+1}^{\min\{2i-1,\frac{n}{i}\}}\left\lfloor\dfrac{n}{ij}\right\rfloor$</p>
+<p>$=\sum\limits<em>{k=1}^{\sqrt{n}}\mu(2k-1)\sum\limits</em>{d=2}^{\sqrt{t}}\sum\limits_{s=d+1}^{\min{2d-1,\lfloor\frac{t}{d}\rfloor}}\left\lfloor\dfrac{t}{sd}\right\rfloor$</p>
+<p>设$g(n)=\sum\limits<em>{i=2}^{\sqrt{n}}\sum\limits</em>{j=i+1}^{\min{2i-1,\frac{n}{i}}}\left\lfloor\dfrac{n}{ij}\right\rfloor$</p>
 <p>该部分即为$\sum\limits_{k=1}^{\sqrt{n}}\mu(2k-1)g(t)$</p>
 <p>再来看偶数部分：</p>
 <p>$\sum\limits_{s,d,k}[d&lt;s&lt;2d][k|s][\frac{k}{2}|d][even(k)]\mu(k)\left\lfloor\dfrac{n}{2sd}\right\rfloor$</p>
 <p>$=\sum\limits_{s,d,k}[d&lt;s&lt;2d][2k|s][k|d]\mu(2k)\left\lfloor\dfrac{n}{2sd}\right\rfloor$</p>
 <p>$=\sum\limits_{s,d,k}[\dfrac{d}{2}&lt;s&lt;d]\mu(2k)\left\lfloor\dfrac{n}{4sdk^2}\right\rfloor$</p>
 <p>令$t’=\left\lfloor\dfrac{n}{4k^2}\right\rfloor$</p>
-<p>$=\sum\limits_{k=1}^{\sqrt{n}}\mu(2k)\sum\limits_{d=2}^{\sqrt{2t’}}\sum\limits_{s=\frac{d}{2}+1}^{\min\{d-1,\lfloor\frac{t’}{d}\rfloor\}}\left\lfloor\dfrac{t’}{sd}\right\rfloor$</p>
-<p>设$h(n)=\sum\limits_{i=2}^{\sqrt{2n}}\sum\limits_{j=\frac{i}{2}+1}^{\min\{i-1,\lfloor\frac{n}{i}\rfloor\}}\left\lfloor\dfrac{n}{ij}\right\rfloor$</p>
-<p>总答案即为$\sum\limits_{k=1}^{\sqrt{n}}\mu(2k-1)g(\left\lfloor\dfrac{n}{2(2k-1)^2}\right\rfloor)+\sum\limits_{k=1}^{\sqrt{n}}\mu(2k)h(\left\lfloor\dfrac{n}{4k^2}\right\rfloor)$</p>
+<p>$=\sum\limits<em>{k=1}^{\sqrt{n}}\mu(2k)\sum\limits</em>{d=2}^{\sqrt{2t’}}\sum\limits_{s=\frac{d}{2}+1}^{\min{d-1,\lfloor\frac{t’}{d}\rfloor}}\left\lfloor\dfrac{t’}{sd}\right\rfloor$</p>
+<p>设$h(n)=\sum\limits<em>{i=2}^{\sqrt{2n}}\sum\limits</em>{j=\frac{i}{2}+1}^{\min{i-1,\lfloor\frac{n}{i}\rfloor}}\left\lfloor\dfrac{n}{ij}\right\rfloor$</p>
+<p>总答案即为$\sum\limits<em>{k=1}^{\sqrt{n}}\mu(2k-1)g(\left\lfloor\dfrac{n}{2(2k-1)^2}\right\rfloor)+\sum\limits</em>{k=1}^{\sqrt{n}}\mu(2k)h(\left\lfloor\dfrac{n}{4k^2}\right\rfloor)$</p>
 <p>关于$g$和$h$因为比较诡异只能外层暴力内层整除分块算，复杂度是$O(n^{\frac{3}{4}})$的。</p>
 <p>答案中$\sum\limits_{k=1}^{\sqrt{n}}$也是暴力算，杜爷用积分算出来复杂度还是$O(n^{\frac{3}{4}})$的。</p>
 <h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2><pre><code class="lang-cpp">#include &lt;iostream&gt;
@@ -825,13 +842,13 @@ int main(){
 <p>还是反演：</p>
 <p>$\sum\limits_{i=1}^n\varphi(ik)$</p>
 <p>$=\varphi(k)\sum\limits_{i=1}^n\dfrac{\varphi(i)gcd(i,k)}{\varphi(gcd(i,k))}$</p>
-<p>$=\varphi(k)\sum\limits_{i=1}^n\varphi(i)\sum\limits_{d=1}^n\dfrac{[gcd(i,k)=d]d}{\varphi(d)}$</p>
-<p>$=\varphi(k)\sum\limits_{d=1}^n\dfrac{d}{\varphi(d)}\sum\limits_{i=1}^{\lfloor\frac{n}{d}\rfloor}\varphi(id)\sum\limits_{a=1}^{\lfloor\frac{n}{d}\rfloor}[d|k][a|i][a|\frac{k}{d}]\mu(a)$</p>
-<p>$=\varphi(k)\sum\limits_{a|k}\mu(a)\sum\limits_{d|\frac{k}{a}}\dfrac{d}{\varphi(d)}\sum\limits_{i=1}^{\lfloor\frac{n}{ad}\rfloor}\varphi(iad)$</p>
+<p>$=\varphi(k)\sum\limits<em>{i=1}^n\varphi(i)\sum\limits</em>{d=1}^n\dfrac{[gcd(i,k)=d]d}{\varphi(d)}$</p>
+<p>$=\varphi(k)\sum\limits<em>{d=1}^n\dfrac{d}{\varphi(d)}\sum\limits</em>{i=1}^{\lfloor\frac{n}{d}\rfloor}\varphi(id)\sum\limits_{a=1}^{\lfloor\frac{n}{d}\rfloor}[d|k][a|i][a|\frac{k}{d}]\mu(a)$</p>
+<p>$=\varphi(k)\sum\limits<em>{a|k}\mu(a)\sum\limits</em>{d|\frac{k}{a}}\dfrac{d}{\varphi(d)}\sum\limits_{i=1}^{\lfloor\frac{n}{ad}\rfloor}\varphi(iad)$</p>
 <p>令$T=ad$</p>
-<p>$=\varphi(k)\sum\limits_{T|k}\sum\limits_{i=1}^{\lfloor\frac{n}{T}\rfloor}\varphi(iT)\sum\limits_{d|T}\mu(\dfrac{T}{d})\dfrac{d}{\varphi(d)}$</p>
-<p>设$f(T)=\sum\limits_{d|T}\mu(\dfrac{T}{d})\dfrac{d}{\varphi(d)},S(n,k)=\sum\limits_{i=1}^n\varphi(ik)$</p>
-<p>$S(n,k)=\varphi(k)\sum\limits_{T|k}S(\left\lfloor\dfrac{n}{T}\right\rfloor,T)f(T)=\varphi(k)\left(S(n,1)f(1)+\sum\limits_{T|k,T&gt;1}S(\left\lfloor\dfrac{n}{T}\right\rfloor,T)f(T)\right)$</p>
+<p>$=\varphi(k)\sum\limits<em>{T|k}\sum\limits</em>{i=1}^{\lfloor\frac{n}{T}\rfloor}\varphi(iT)\sum\limits_{d|T}\mu(\dfrac{T}{d})\dfrac{d}{\varphi(d)}$</p>
+<p>设$f(T)=\sum\limits<em>{d|T}\mu(\dfrac{T}{d})\dfrac{d}{\varphi(d)},S(n,k)=\sum\limits</em>{i=1}^n\varphi(ik)$</p>
+<p>$S(n,k)=\varphi(k)\sum\limits<em>{T|k}S(\left\lfloor\dfrac{n}{T}\right\rfloor,T)f(T)=\varphi(k)\left(S(n,1)f(1)+\sum\limits</em>{T|k,T&gt;1}S(\left\lfloor\dfrac{n}{T}\right\rfloor,T)f(T)\right)$</p>
 <p>显然$\dfrac{d}{\varphi(d)}$是积性函数，和$\mu$卷起来还是积性函数。</p>
 <p>对于质数$p$，$f(p)=\dfrac{1}{p-1},f(p^m)=\dfrac{p^m}{\varphi(p^m)}-\dfrac{p^{m-1}}{\varphi(p^{m-1})}=0$。</p>
 <p>于是可以质因数分解求$f(T)$。</p>

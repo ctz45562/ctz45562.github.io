@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/css/insight.css" media="all">
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="/css/zoom.css" media="all">
-  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_k282qfb60ve.css">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_0q2nihn6w0a.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css"> -->
   <style>
   .emoji-coda {
@@ -69,7 +69,8 @@
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
 
-<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="ctz's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
@@ -393,6 +394,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -530,6 +539,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -608,8 +625,8 @@
 <p>最大的问题在于：如果存在某种方案用集合$A$替换集合$B$是较优的，而对于$i\in A,j\in B$，仅用$i$替换$j$并不优，这个结论是否就不成立了呢。</p>
 <p>感性理解，如果对于所有$i\in A,j\in B$满足仅用$i$替换$j$并不优，好像这个$A$换$B$也不太可能成为较优解了。</p>
 <p><del>啰嗦化</del>形式化证明的话，这个条件可以这么表达：</p>
-<p>$\exists i,j\begin{cases}\dfrac{S-a_i+a_j}{T-b_i+b_j}&lt;\dfrac{S}{T}\\\dfrac{S-a_i-C+a_j+C’}{T-b_i-D+b_j+D’}&gt;\dfrac{S}{T}\end{cases}$</p>
-<p>其中，$C=\left(\sum\limits_{k\in B}a_k\right)-a_i,C’=\left(\sum\limits_{k\in A}a_k\right)-a_j,D=\left(\sum\limits_{k\in B}b_k\right)-b_i,D’=\left(\sum\limits_{k\in A}b_k\right)-b_j$</p>
+<p>$\exists i,j\begin{cases}\dfrac{S-a_i+a_j}{T-b_i+b_j}&lt;\dfrac{S}{T}\\dfrac{S-a_i-C+a_j+C’}{T-b_i-D+b_j+D’}&gt;\dfrac{S}{T}\end{cases}$</p>
+<p>其中，$C=\left(\sum\limits<em>{k\in B}a_k\right)-a_i,C’=\left(\sum\limits</em>{k\in A}a<em>k\right)-a_j,D=\left(\sum\limits</em>{k\in B}b<em>k\right)-b_i,D’=\left(\sum\limits</em>{k\in A}b_k\right)-b_j$</p>
 <p>化一下式子就能得到$\dfrac{S-C+C’}{T-D+D’}&gt;\dfrac{S}{T}$</p>
 <p>也就是说从$A,B$去掉$i,j$这对不优解，剩下的元素依然可以成为一个较优解。那么如果$A,B$中所有$i,j$都不优的话，就去掉一组得到新集合。直到存在$i,j$较优或者都只剩$1$个元素，结论就成立了。</p>
 </blockquote>

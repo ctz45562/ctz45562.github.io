@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/css/insight.css" media="all">
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="/css/zoom.css" media="all">
-  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_k282qfb60ve.css">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_0q2nihn6w0a.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css"> -->
   <style>
   .emoji-coda {
@@ -69,7 +69,8 @@
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
 
-<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="ctz's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
@@ -393,6 +394,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -530,6 +539,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -603,22 +620,22 @@
 <p>设$f(n)$为$n$个点的有标号无向连通图个数，$g(n)$为$n$个点的无向图个数。</p>
 <p>显然$g(n)=2^{\frac{n(n-1)}{2}}$。</p>
 <p>考虑容斥转移，用总的减去不合法的。</p>
-<p>$f(0)=0,f(n)=g(n)-\sum\limits_{i=1}^{n-1}C_{n-1}^{i-1}f(i)g(n-i)$</p>
+<p>$f(0)=0,f(n)=g(n)-\sum\limits<em>{i=1}^{n-1}C</em>{n-1}^{i-1}f(i)g(n-i)$</p>
 <p>啥意思呢？$g(n)$是总数，然后枚举$1$号点所在联通块的大小。$C_{n-1}^{i-1}$选出和$1$一个联通块的点，$f(i)$让它们联通，剩下$n-i$个点随便连$g(n-i)$。<strong>后面那一坨不是在容斥，它只是把所有不同类型的不合法情况枚举了一遍，所以不用乘容斥系数。</strong></p>
 <p>带组合数可以考虑$EGF$了，把组合数拆开：</p>
 <p>$f(n)=g(n)-\sum\limits_{i=1}^{n-1}\dfrac{(n-1)!}{(i-1)!(n-i)!}f(i)g(n-i)$</p>
 <p>$(n-1)!$除过去：</p>
 <p>$\dfrac{f(n)}{(n-1)!}=\dfrac{g(n)}{(n-1)!}-\sum\limits_{i=1}^{n-1}\dfrac{f(i)}{(i-1)!}\dfrac{g(n-i)}{(n-i)!}$</p>
 <p>这个式子涉及到三种形式：$\dfrac{f(n)}{(n-1)!},\dfrac{g(n)}{(n-1)!},\dfrac{g(n)}{n!}$</p>
-<p>令$\{f(n-1)\}$的$EGF$为$F(x)=\sum\limits_{n=1}^\infty \dfrac{f(n)}{(n-1)!}x^n$，$\{g(n-1)\}$的$EGF$为$G(x)=\sum\limits_{n=1}^\infty \dfrac{g(n)}{(n-1)!}x^n$，$\{g(n)\}$的$EGF$为$G’(x)=\sum\limits_{n=0}^\infty \dfrac{g(n)}{n!}x^n$。</p>
-<p>$F=\sum\limits_{n=1}^\infty x^n\left(\dfrac{g(n)}{(n-1)!}-\sum\limits_{i=1}^{n-1}\dfrac{f(i)}{(i-1)!}\dfrac{g(n-i)}{(n-i)!}\right)$</p>
+<p>令${f(n-1)}$的$EGF$为$F(x)=\sum\limits<em>{n=1}^\infty \dfrac{f(n)}{(n-1)!}x^n$，${g(n-1)}$的$EGF$为$G(x)=\sum\limits</em>{n=1}^\infty \dfrac{g(n)}{(n-1)!}x^n$，${g(n)}$的$EGF$为$G’(x)=\sum\limits_{n=0}^\infty \dfrac{g(n)}{n!}x^n$。</p>
+<p>$F=\sum\limits<em>{n=1}^\infty x^n\left(\dfrac{g(n)}{(n-1)!}-\sum\limits</em>{i=1}^{n-1}\dfrac{f(i)}{(i-1)!}\dfrac{g(n-i)}{(n-i)!}\right)$</p>
 <p>后面那一坨像卷积，但上界不对劲。单独处理一下$i=n$的情况，顺便把$G$提出来：</p>
-<p>$F=G-\sum\limits_{n=0}^\infty x^n\left(\sum\limits_{i=1}^{n}\dfrac{f(i)}{(i-1)!}\dfrac{g(n-i)}{(n-i)!}-\dfrac{f(n)}{(n-1)!}\right)$</p>
+<p>$F=G-\sum\limits<em>{n=0}^\infty x^n\left(\sum\limits</em>{i=1}^{n}\dfrac{f(i)}{(i-1)!}\dfrac{g(n-i)}{(n-i)!}-\dfrac{f(n)}{(n-1)!}\right)$</p>
 <p>$F=G-F\times G’+F$</p>
 <p>$F=G\times G’^{-1}$</p>
 <p>多项式求逆+乘法，最后答案要乘个$(n-1)!$。</p>
 <p>或者也可以不用容斥推，按$1$号点所在联通块大小把$g(n)$分类：</p>
-<p>$g(n)=\sum\limits_{i=1}^nC_{n-1}^{i-1}f(i)g(n-i)$</p>
+<p>$g(n)=\sum\limits<em>{i=1}^nC</em>{n-1}^{i-1}f(i)g(n-i)$</p>
 <p>结果是一样的。</p>
 <p>代码：</p>
 <pre><code class="lang-cpp">#include &lt;iostream&gt;

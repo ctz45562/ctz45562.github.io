@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/css/insight.css" media="all">
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="/css/zoom.css" media="all">
-  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_k282qfb60ve.css">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_0q2nihn6w0a.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css"> -->
   <style>
   .emoji-coda {
@@ -69,7 +69,8 @@
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
 
-<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="ctz's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
@@ -393,6 +394,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -530,6 +539,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -604,13 +621,13 @@
 <p>设$f(i,j)$为点$i$的子树内选了$j$个结束节点的最大答案，$s(i)$为点$i$子树内结束节点的个数。</p>
 <p>为了不让贡献重复计算只考虑$i$到其父亲的边的贡献。</p>
 <p>转移是个树形背包：</p>
-<p>$f(i,j)=\max\limits_{x\in son(i),k\le \min\{j,s(x)\}}\{f(x,k)+f(i,j-k)\}+\dfrac{j\times(j-1)}{2}(j\le s(i))$</p>
+<p>$f(i,j)=\max\limits_{x\in son(i),k\le \min{j,s(x)}}{f(x,k)+f(i,j-k)}+\dfrac{j\times(j-1)}{2}(j\le s(i))$</p>
 <p>复杂度最高有$O(n|a_i|k)$。</p>
 <p>我们发现有些没有分支和结束节点的链是多余的。</p>
 <p>具体地说，只有结束节点和它们两两之间的$lca$有用，直接造虚树。</p>
 <p>但是这里不用真的写虚树板子，我们只需$dfs$一遍把根节点、拥有至少$2$个儿子的节点和结束节点保留下来就行了。</p>
 <p>记$dep(i)$为点$i$在原$trie$树上的深度。虚树上的方程要稍加改动：</p>
-<p>$f(i,j)=\max\limits_{x\in son(i),k\le \min\{j,s(x)\}}\{f(x,k)+f(i,j-k)\}+\dfrac{j\times(j-1)}{2}\times(dep(i)-dep(fa_i))(j\le s(i))$</p>
+<p>$f(i,j)=\max\limits_{x\in son(i),k\le \min{j,s(x)}}{f(x,k)+f(i,j-k)}+\dfrac{j\times(j-1)}{2}\times(dep(i)-dep(fa_i))(j\le s(i))$</p>
 <p>复杂度是$O(nk)$的。</p>
 <p>代码：</p>
 <pre><code class="lang-cpp">#include &lt;iostream&gt;

@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/css/insight.css" media="all">
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="/css/zoom.css" media="all">
-  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_k282qfb60ve.css">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_0q2nihn6w0a.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css"> -->
   <style>
   .emoji-coda {
@@ -69,7 +69,8 @@
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
 
-<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="ctz's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
@@ -393,6 +394,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -526,6 +535,14 @@
                 <a href="/games/" class="faa-parent animated-hover">
                     <i class="ctz ctz-game faa-shake"></i>
                     游戏
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
                 </a>
                 
               </li>
@@ -770,7 +787,7 @@ int main(){
 <p>转移和统计答案显然：</p>
 <ul>
 <li>$f(i,0)=1,f(i,j)=\sum\limits_{fa(x)=i}f(x,j-1)$</li>
-<li>$g(i,0)=\sum\limits_{fa(x)=i}g(x,1),g(i,j)=\sum\limits_{fa(x)=i}g(x,j+1)+f(i,j)\times f(x,j-1)$</li>
+<li>$g(i,0)=\sum\limits<em>{fa(x)=i}g(x,1),g(i,j)=\sum\limits</em>{fa(x)=i}g(x,j+1)+f(i,j)\times f(x,j-1)$</li>
 <li>$ans+=g(i,0)+\sum\limits_{fa(x)=i}g(i,j)\times f(x,j-1)+g(x,j+1)\times f(i,j)$</li>
 </ul>
 <p>长剖优化即可。</p>
@@ -779,8 +796,8 @@ int main(){
 <p>然后就是找一条长度在$[L,R]$之间、权值和最大的路径。</p>
 <p><del>点分治+单调队列啊</del></p>
 <p>设$f(i,j)$为以点$i$为根的子树中，点$i$为一端长度为$j$的路径最大值。</p>
-<p>$f(i,j)=\max\limits_{fa(x)=i}\{f(x,j-1)\}$</p>
-<p>$ans=\max\limits_{k\in[L,R]}\{f(i,k)\}$</p>
+<p>$f(i,j)=\max\limits_{fa(x)=i}{f(x,j-1)}$</p>
+<p>$ans=\max\limits_{k\in[L,R]}{f(i,k)}$</p>
 <p>区间求$\max$需要套个线段树，指针就不管用了，要用编号来处理。</p>
 <p>长剖的时候求一下$dfs$序。和树剖一样先遍历长儿子。</p>
 <p>维护一颗蛇皮的全局线段树，位置$seg(i)+j$表示$f(i,j)$。这样就可以直接继承了。</p>

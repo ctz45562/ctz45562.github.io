@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/css/insight.css" media="all">
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="/css/zoom.css" media="all">
-  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_k282qfb60ve.css">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_0q2nihn6w0a.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css"> -->
   <style>
   .emoji-coda {
@@ -69,7 +69,8 @@
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
 
-<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="ctz's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
@@ -393,6 +394,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -526,6 +535,14 @@
                 <a href="/games/" class="faa-parent animated-hover">
                     <i class="ctz ctz-game faa-shake"></i>
                     游戏
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
                 </a>
                 
               </li>
@@ -681,10 +698,10 @@ void ins(point P){
 <p>$kdt$的查询方法是——<strong>在遍历整棵树为前提下，通过计算极端值剪枝来少遍历一些点。</strong></p>
 <h2 id="平面最近-远点对"><a href="#平面最近-远点对" class="headerlink" title="平面最近/远点对"></a>平面最近/远点对</h2><p>计算查询点到矩形域的最小/大距离，若最小/大值都大于/小于当前答案则返回。</p>
 <p>好像会被构造数据卡。</p>
-<h3 id="欧几里得距离"><a href="#欧几里得距离" class="headerlink" title="欧几里得距离"></a>欧几里得距离</h3><p>$dis_{\min}=sqr(\max\{\max\{xl[node]-x,x-xr[node]\},0\})+sqr(\max\{\max\{yl[node]-y,y-yr[node]\},0\})$</p>
-<p>$dis_{\max}=sqr(\max\{x-xl[node],xr[node]-x\})+sqr(\max\{y-yl[node],yr[node]-y\})$</p>
-<h3 id="曼哈顿距离"><a href="#曼哈顿距离" class="headerlink" title="曼哈顿距离"></a>曼哈顿距离</h3><p>$dis_{\min}=\max\{\min\{xl[node]-x,x-xr[node]\},0\}+\max\{\min\{yl[node]-y,y-yr[node]\},0\}$</p>
-<p>$dis_{\max}=\max\{xr[node]-x,x-xl[node]\}+\max\{yr[node]-y,y-yl[node]\}$</p>
+<h3 id="欧几里得距离"><a href="#欧几里得距离" class="headerlink" title="欧几里得距离"></a>欧几里得距离</h3><p>$dis_{\min}=sqr(\max{\max{xl[node]-x,x-xr[node]},0})+sqr(\max{\max{yl[node]-y,y-yr[node]},0})$</p>
+<p>$dis_{\max}=sqr(\max{x-xl[node],xr[node]-x})+sqr(\max{y-yl[node],yr[node]-y})$</p>
+<h3 id="曼哈顿距离"><a href="#曼哈顿距离" class="headerlink" title="曼哈顿距离"></a>曼哈顿距离</h3><p>$dis_{\min}=\max{\min{xl[node]-x,x-xr[node]},0}+\max{\min{yl[node]-y,y-yr[node]},0}$</p>
+<p>$dis_{\max}=\max{xr[node]-x,x-xl[node]}+\max{yr[node]-y,y-yl[node]}$</p>
 <h3 id="切比雪夫距离"><a href="#切比雪夫距离" class="headerlink" title="切比雪夫距离"></a>切比雪夫距离</h3><p>转成曼哈顿距离就好了。</p>
 <p>什么？不会转？<del>5分钟前我也不会</del></p>
 <ul>
@@ -735,7 +752,7 @@ int ask(int node){
 <p>直接暴力查，把$a,b$带进去计算极端值。最大值小于$c$返回矩形和，最小值大于等于$c$不递归。</p>
 <p>要注意的是$a,b,x,y$都可能是负数，不一定是左上角和右下角取到极端值，四个端点都可能取到。</p>
 <p><del>复杂度？kdt的题算什么复杂度</del></p>
-<h2 id="TATT"><a href="#TATT" class="headerlink" title="TATT"></a><a href="https://www.luogu.com.cn/problem/P3769" target="_blank" rel="noopener">TATT</a></h2><p>$DP$方程显然：$f(i)=\max\limits_{a_j\le a_i,b_j\le b_i,c_j\le c_i,d_j\le d_i}\{f(j)\}+1$</p>
+<h2 id="TATT"><a href="#TATT" class="headerlink" title="TATT"></a><a href="https://www.luogu.com.cn/problem/P3769" target="_blank" rel="noopener">TATT</a></h2><p>$DP$方程显然：$f(i)=\max\limits_{a_j\le a_i,b_j\le b_i,c_j\le c_i,d_j\le d_i}{f(j)}+1$</p>
 <p>第一维排序，$3$维$kdt$优化$DP$即可。</p>
 <p>不想写带插入$kdt$，提前建好树，记录下原序列中每个点在$kdt$中的节点编号以及父节点，更新时直接跳父节点就好。</p>
 <p>有个细节，第一维相同时要按其他维为第二关键字比较大小。</p>

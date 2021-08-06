@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/css/insight.css" media="all">
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="/css/zoom.css" media="all">
-  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_k282qfb60ve.css">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_0q2nihn6w0a.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css"> -->
   <style>
   .emoji-coda {
@@ -69,7 +69,8 @@
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
 
-<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="ctz's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
@@ -393,6 +394,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -530,6 +539,14 @@
                 
               </li>
             
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
           </ul>
         </nav>
       </div>
@@ -614,31 +631,31 @@
 </blockquote>
 <hr>
 <h1 id="组合数一些神奇的性质"><a href="#组合数一些神奇的性质" class="headerlink" title="组合数一些神奇的性质"></a>组合数一些神奇的性质</h1><p>大部分 是从抄袭来源第一篇里整理来的。</p>
-<p>1.$\sum\limits_{i=0}^mC_{n+i}^i=C_{m+n+1}^m$</p>
+<p>1.$\sum\limits<em>{i=0}^mC</em>{n+i}^i=C_{m+n+1}^m$</p>
 <p>证明：</p>
-<p>$\sum\limits_{i=0}^mC_{n+i}^i$</p>
-<p>$=C_n^0+C_{n+1}^1+C_{n+2}^2+…+C_{n+m}^{m}$</p>
-<p>$=C_{n+1}^0+C_{n+1}^1+C_{n+2}^2+…+C_{n+m}^m$</p>
-<p>$=C_{n+2}^1+C_{n+2}^2+…C_{n+m}^m$</p>
+<p>$\sum\limits<em>{i=0}^mC</em>{n+i}^i$</p>
+<p>$=C<em>n^0+C</em>{n+1}^1+C<em>{n+2}^2+…+C</em>{n+m}^{m}$</p>
+<p>$=C<em>{n+1}^0+C</em>{n+1}^1+C<em>{n+2}^2+…+C</em>{n+m}^m$</p>
+<p>$=C<em>{n+2}^1+C</em>{n+2}^2+…C_{n+m}^m$</p>
 <p>$=C_{n+m+1}^m$</p>
-<p>2.$C_m^nC_n^r=C_m^rC_{m-r}^{n-r}$</p>
+<p>2.$C<em>m^nC_n^r=C_m^rC</em>{m-r}^{n-r}$</p>
 <p>证明：</p>
 <p>$C_m^nC_n^r$</p>
 <p>$=\dfrac{m!}{n!(m-n)!}\dfrac{n!}{r!(n-r)!}$</p>
 <p>$=\dfrac{m!}{(m-n)!}\dfrac{1}{r!(n-r)!}$</p>
 <p>$=\dfrac{m!}{r!(m-r)!}\dfrac{(m-r)!}{(m-n)!(n-r)!}$</p>
-<p>$=C_m^rC_{m-r}^{n-r}$</p>
+<p>$=C<em>m^rC</em>{m-r}^{n-r}$</p>
 <p>也可以考虑它的组合含义：</p>
 <p>$C_m^nC_n^r$就是从大小为$m$的集合里选出大小为$n$的子集，再从这个子集选出大小为$r$的子集。</p>
-<p>倒过来算，先选大小为$r$的子集，再算出它被多少个大小为$n$的子集包含，即$C_m^rC_{m-r}^{n-r}$</p>
+<p>倒过来算，先选大小为$r$的子集，再算出它被多少个大小为$n$的子集包含，即$C<em>m^rC</em>{m-r}^{n-r}$</p>
 <p>3.$(x+1)^n=\sum\limits_{i=0}^nC_n^ix^i$</p>
 <p>根据二项式定理显然。</p>
 <p>4.$\sum\limits_{i=0}^n(-1)^iC_n^i=0$</p>
-<p>若$n$为奇数，根据$C_n^m=C_{n}^{n-m}$显然</p>
+<p>若$n$为奇数，根据$C<em>n^m=C</em>{n}^{n-m}$显然</p>
 <p>若$n$为偶数，用递推公式展开：</p>
 <p>$\sum\limits_{i=0}^n(-1)^iC_n^i$</p>
 <p>$=C_n^0-C_n^1+C_n^2-C_n^3+…+C_n^n$</p>
-<p>$=C_{n-1}^0-C_{n-1}^0-C_{n-1}^1+C_{n-1}^1+C_{n-1}^2-…+C_{n-1}^{n-1}$</p>
+<p>$=C<em>{n-1}^0-C</em>{n-1}^0-C<em>{n-1}^1+C</em>{n-1}^1+C<em>{n-1}^2-…+C</em>{n-1}^{n-1}$</p>
 <p>$=0$</p>
 <p>$update$：</p>
 <p>被抄袭来源误导了，直接用二项式定理就行：</p>
@@ -646,14 +663,14 @@
 <p>$=\sum\limits_{i=0}^nC_n^i(-1)^i1^{n-i}$</p>
 <p>$=(-1+1)^n$</p>
 <p>$=0$</p>
-<p>5.$C_{m+n}^r=\sum\limits_{i=0}^rC_m^iC_n^{r-i}$</p>
+<p>5.$C<em>{m+n}^r=\sum\limits</em>{i=0}^rC_m^iC_n^{r-i}$</p>
 <p>这玩意叫<strong>范德蒙恒等式</strong>。</p>
 <p>把$m+n$分成两组，分别有$m$个物品和$n$个物品，枚举在这两组中各取几个。</p>
 <p>特别的，当$r=n$时，根据$C_n^m=C_n^{n-m}$，有：</p>
-<p>$C_{m+n}^n=\sum\limits_{i=0}^nC_m^iC_n^i$</p>
+<p>$C<em>{m+n}^n=\sum\limits</em>{i=0}^nC_m^iC_n^i$</p>
 <p>更特别的，当$r=m=n$时，有：</p>
-<p>$C_{2n}^n=\sum\limits_{i=0}^nC_n^iC_n^{n-i}=\sum\limits_{i=0}^n(C_n^i)^2$</p>
-<p>6.$nC_m^n=mC_{m-1}^{n-1}$</p>
+<p>$C<em>{2n}^n=\sum\limits</em>{i=0}^nC<em>n^iC_n^{n-i}=\sum\limits</em>{i=0}^n(C_n^i)^2$</p>
+<p>6.$nC<em>m^n=mC</em>{m-1}^{n-1}$</p>
 <p>证明：</p>
 <p>$nC_m^n$</p>
 <p>$=n\dfrac{m!}{n!(m-n)!}$</p>
@@ -664,7 +681,7 @@
 <p>$\sum\limits_{i=1}^niC_n^i$</p>
 <p>$=\sum\limits_{i=1}^ni\dfrac{n!}{i!(n-i)!}$</p>
 <p>$=n\sum\limits_{i=1}^n\dfrac{(n-1)!}{(i-1)!(n-i)!}$</p>
-<p>$=n\sum\limits_{i=1}^nC_{n-1}^{i-1}$</p>
+<p>$=n\sum\limits<em>{i=1}^nC</em>{n-1}^{i-1}$</p>
 <p>$=n\sum\limits_{i=0}^{n-1}C_n^i$</p>
 <p>$=n2^{n-1}$</p>
 <p>8.$\sum\limits_{i=1}^ni^2C_n^i=n(n+1)2^{n-2}$</p>
@@ -673,17 +690,17 @@
 <p>$=\sum\limits_{i=1}^ni^2\dfrac{n!}{i!(n-i)!}$</p>
 <p>$=n\sum\limits_{i=1}^ni\dfrac{(n-1)!}{(i-1)!(n-i)!}$</p>
 <p>$=n\sum\limits_{i=0}^{n-1}(i+1)C_n^i$</p>
-<p>$=n\left(\sum\limits_{i=0}^{n-1}iC_n^i+\sum\limits_{i=0}^{n-1}C_n^i\right)$</p>
+<p>$=n\left(\sum\limits<em>{i=0}^{n-1}iC_n^i+\sum\limits</em>{i=0}^{n-1}C_n^i\right)$</p>
 <p>$=n\left((n-1)2^{n-2}+2^{n-1}\right)$</p>
 <p>$=n(n+1)2^{n-2}$</p>
-<p><strong>9.$\sum\limits_{i=0}^nC_i^m=C_{n+1}^{m+1}$</strong></p>
+<p><strong>9.$\sum\limits<em>{i=0}^nC_i^m=C</em>{n+1}^{m+1}$</strong></p>
 <p>考虑组合意义。从$n+1$个物品里选$m+1$个，枚举最后一个选的位置为$i+1$，在前$i$个里选$m$个，即$\sum\limits_{i=0}^nC_i^m$。</p>
-<p><strong>10.$\sum\limits_{i=0}^nC_n^i[2|i]=\sum\limits_{i=0}^nC_n^i[2\nmid i]=2^{n-1}$</strong></p>
+<p><strong>10.$\sum\limits<em>{i=0}^nC_n^i[2|i]=\sum\limits</em>{i=0}^nC_n^i[2\nmid i]=2^{n-1}$</strong></p>
 <p>考虑组合意义，在$n$个物品里选偶数个，先在前$n-1$个里任选，选了偶数个第$n$个就不选，选了奇数个就选第$n$个。</p>
 <hr>
 <h1 id="容斥"><a href="#容斥" class="headerlink" title="容斥"></a>容斥</h1><p>最近刷了刷容斥和二项式反演，感觉有点理解了，于是重写了一遍。</p>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>容斥就是一个式子：</p>
-<p>$|\bigcup\limits_{i=1}^nA_i|=\sum\limits_{1\le i\le n}|A_i|-\sum\limits_{1\le i&lt; j\le n}|A_i\bigcap A_j|+\sum\limits_{1\le i &lt; j &lt;k\le n}|A_i\bigcap A_j\bigcap A_k|-…+(-1)^{n-1}|A_1\bigcap A_2…\bigcap A_n|$</p>
+<p>$|\bigcup\limits<em>{i=1}^nA_i|=\sum\limits</em>{1\le i\le n}|A<em>i|-\sum\limits</em>{1\le i&lt; j\le n}|A<em>i\bigcap A_j|+\sum\limits</em>{1\le i &lt; j &lt;k\le n}|A_i\bigcap A_j\bigcap A_k|-…+(-1)^{n-1}|A_1\bigcap A_2…\bigcap A_n|$</p>
 <p>简单来说（请$yy$一个维恩图出来）：</p>
 <p>假设我们要求满足某几个条件的方案数。</p>
 <p>算出总方案数，减去不合法的。分别算出不满足条件$1$的方案数、不满足条件$2$的方案数。。。</p>
@@ -700,10 +717,10 @@
 <p>其他的容斥还有$\min-\max$容斥、子集容斥，甚至莫比乌斯反演也算是容斥。我太菜了就不说了。</p>
 <hr>
 <h1 id="二项式反演"><a href="#二项式反演" class="headerlink" title="二项式反演"></a>二项式反演</h1><p>就是几个式子：</p>
-<p>$f(n)=\sum\limits_{i=0}^n(-1)^iC_n^ig(i)\leftrightarrow g(n)=\sum\limits_{i=0}^n(-1)^iC_n^if(i)$</p>
-<p>$f(n)=\sum\limits_{i=0}^nC_n^ig(i)\leftrightarrow g(n)=\sum\limits_{i=0}^n(-1)^{n-i}C_n^if(i)$</p>
-<p>$f(i)=\sum\limits_{j=i}^n(-1)^jC_j^ig(j)\leftrightarrow g(i)=\sum\limits_{j=i}^n(-1)^jC_j^if(j)$</p>
-<p>$f(i)=\sum\limits_{j=i}^nC_j^ig(j)\leftrightarrow g(i)=\sum\limits_{j=i}^n(-1)^{j-i}C_j^if(j)$</p>
+<p>$f(n)=\sum\limits<em>{i=0}^n(-1)^iC_n^ig(i)\leftrightarrow g(n)=\sum\limits</em>{i=0}^n(-1)^iC_n^if(i)$</p>
+<p>$f(n)=\sum\limits<em>{i=0}^nC_n^ig(i)\leftrightarrow g(n)=\sum\limits</em>{i=0}^n(-1)^{n-i}C_n^if(i)$</p>
+<p>$f(i)=\sum\limits<em>{j=i}^n(-1)^jC_j^ig(j)\leftrightarrow g(i)=\sum\limits</em>{j=i}^n(-1)^jC_j^if(j)$</p>
+<p>$f(i)=\sum\limits<em>{j=i}^nC_j^ig(j)\leftrightarrow g(i)=\sum\limits</em>{j=i}^n(-1)^{j-i}C_j^if(j)$</p>
 <p>其中第二个和第四个用的最多。</p>
 <p>证明可能以后会搞。</p>
 <p>二项式反演本质就是容斥。但是有的时候用二项式反演更无脑，因为你只要设出两个函数，找到关系，反演过去就没了。</p>
@@ -717,7 +734,7 @@
 <p>套路大概是设$f(i)$为恰好，$g(n)$为$n$个东西的总方案数。列出$g(n)=\sum\limits_{i=0}^nC_n^if(i)$的式子反演过去。</p>
 <hr>
 <h1 id="卢卡斯定理"><a href="#卢卡斯定理" class="headerlink" title="卢卡斯定理"></a>卢卡斯定理</h1><p>当$C_n^m$的$n,m$太大时或者超过了模数，就得上卢卡斯：</p>
-<p>$C_n^m=C_{n/p}^{m/p}C_{n\%p}^{m\%p}(\bmod p)$</p>
+<p>$C<em>n^m=C</em>{n/p}^{m/p}C_{n\%p}^{m\%p}(\bmod p)$</p>
 <p>其中$p$为质数。</p>
 <p>然后递归计算$C_{n/p}^{m/p}$即可，复杂度$O(\log_pn)$</p>
 <p>代码：</p>
@@ -737,9 +754,9 @@ int C(int n,int m){
 <p> 我考一考你。卡特兰数的第$n$项，怎么算的？</p>
 <p> 卡特兰数有四种算法，你知道吗？</p>
 </blockquote>
-<p>1.$C_n=\dfrac{C_{2n}^n}{n+1}=C_{2n}^n-C_{2n}^{n-1}$</p>
-<p>2.$C_n=\dfrac{\sum\limits_{i=0}^n(C_n^i)^2}{n+1}$</p>
-<p>3.$C_{n+1}=\sum\limits_{i=0}^nC_iC_{n-i},C_0=1$</p>
+<p>1.$C<em>n=\dfrac{C</em>{2n}^n}{n+1}=C<em>{2n}^n-C</em>{2n}^{n-1}$</p>
+<p>2.$C<em>n=\dfrac{\sum\limits</em>{i=0}^n(C_n^i)^2}{n+1}$</p>
+<p>3.$C<em>{n+1}=\sum\limits</em>{i=0}^nC<em>iC</em>{n-i},C_0=1$</p>
 <p>4.$C_{n+1}=\dfrac{4n+2}{n+2}C_n,C_0=1$</p>
 <h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><h3 id="坐标系游走"><a href="#坐标系游走" class="headerlink" title="坐标系游走"></a>坐标系游走</h3><p>在一个坐标系中从原点出发，只能向右或向上走，有多少种走法不跨越直线$y=x$到达点$(n,n)$？</p>
 <p>如图（<a href="http://lanqi.org/skills/10939/" target="_blank" rel="noopener">图片来源</a>）</p>
@@ -751,7 +768,7 @@ int C(int n,int m){
 <p><img src="\images\组合数学食用笔记-4.png" alt=""></p>
 <p>（<a href="https://www.cnblogs.com/COLIN-LIGHTNING/p/8450053.html" target="_blank" rel="noopener">图片来源</a>）</p>
 <p>起点就变成了$(-1,1)$。则不合法的情况为从$(-1,1)$走到$(n,n)$的方案数，即$C_{2n}^{n-1}$。</p>
-<p>所以$C_n=C_{2n}^n-C_{2n}^{n-1}$</p>
+<p>所以$C<em>n=C</em>{2n}^n-C_{2n}^{n-1}$</p>
 <h3 id="合法出栈序列"><a href="#合法出栈序列" class="headerlink" title="合法出栈序列"></a>合法出栈序列</h3><p>一个足够大的栈的入栈序列为$1,2,3,…n$，求有多少种合法的出栈序列？（也可以是合法的括号序列数）</p>
 <p>设$f(n)$为答案。枚举最后一个出栈的是几号元素，设为$i$。</p>
 <p>那么在$i$入栈前，$1\sim i-1$都要先出栈，有$f(i-1)$种序列。</p>
@@ -771,8 +788,8 @@ int C(int n,int m){
 <p>（吐槽一句：题水就拿高精凑）</p>
 <h3 id="奥义·强化坐标系游走！"><a href="#奥义·强化坐标系游走！" class="headerlink" title="奥义·强化坐标系游走！"></a><a href="https://www.luogu.org/problemnew/show/P1641" target="_blank" rel="noopener">奥义·强化坐标系游走！</a></h3><p>如果<strong>坐标系游走</strong>终点为$(n,m)$，有多少种方案？</p>
 <p>属于卡特兰数的拓展。</p>
-<p>总方案数为$C_{n+m}^n$，和坐标系游走一样推导，易知不合法方案数为$C_{n+m}^{m-1}$</p>
-<p>所以答案为$C_{n+m}^n-C_{n+m}^{m-1}$</p>
+<p>总方案数为$C<em>{n+m}^n$，和坐标系游走一样推导，易知不合法方案数为$C</em>{n+m}^{m-1}$</p>
+<p>所以答案为$C<em>{n+m}^n-C</em>{n+m}^{m-1}$</p>
 <hr>
 <h1 id="Prufer序列"><a href="#Prufer序列" class="headerlink" title="Prufer序列"></a>Prufer序列</h1><p>一棵无根树可以唯一对应一个$prufer$序列。</p>
 <p>用来解决有关节点度数的无根树计数问题。</p>
@@ -780,7 +797,7 @@ int C(int n,int m){
 <p>也就是说$n$个节点的无根树$prufer$序列长度为$n-2$。</p>
 <p>比如这棵无根树：</p>
 <p><img src="\images\组合数学食用笔记-5.png" alt=""></p>
-<p>它的$prufer$序列为$\{2,7,2,1,1\}$</p>
+<p>它的$prufer$序列为${2,7,2,1,1}$</p>
 <p>容易发现$prufer$序列的一个重要性质：某个点在$prufer$序列中出现次数等于它的度数-1。</p>
 <h2 id="还原"><a href="#还原" class="headerlink" title="还原"></a>还原</h2><p>维护一个点集$P$，初始包含$n$个点。</p>
 <p>不断找到$P$中不在$prufer$序列中出现的编号最小的节点，把它与$prufer$序列中第一个点相连，在$P$中删除它并删去$prufer$序列的第一个点，直到$prufer$序列为空。最后把$P$中剩余的$2$个点相连。</p>
@@ -796,43 +813,43 @@ int C(int n,int m){
 <h3 id="有标号有根树计数"><a href="#有标号有根树计数" class="headerlink" title="有标号有根树计数"></a>有标号有根树计数</h3><p>给一棵无根树任意定根，有$n$种情况。</p>
 <p>即$n^{n-1}$。</p>
 <hr>
-<h1 id="斯特林数"><a href="#斯特林数" class="headerlink" title="斯特林数"></a>斯特林数</h1><h2 id="第二类斯特林数"><a href="#第二类斯特林数" class="headerlink" title="第二类斯特林数"></a>第二类斯特林数</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>用$\begin{Bmatrix}n\\m\end{Bmatrix}$表示把$n$个有标号元素划分成$m$个无标号集合（不允许有空集）的方案数。也可写作$S(n,m)$。</p>
+<h1 id="斯特林数"><a href="#斯特林数" class="headerlink" title="斯特林数"></a>斯特林数</h1><h2 id="第二类斯特林数"><a href="#第二类斯特林数" class="headerlink" title="第二类斯特林数"></a>第二类斯特林数</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>用$\begin{Bmatrix}n\m\end{Bmatrix}$表示把$n$个有标号元素划分成$m$个无标号集合（不允许有空集）的方案数。也可写作$S(n,m)$。</p>
 <h3 id="递推公式"><a href="#递推公式" class="headerlink" title="递推公式"></a>递推公式</h3><p>考虑第$n$个元素的去向。可以单独一个集合，也可以放到已经有的$m$个集合里。</p>
-<p>$\begin{Bmatrix}n\\m\end{Bmatrix}=\begin{Bmatrix}n-1\\m-1\end{Bmatrix}+m\times\begin{Bmatrix}n-1\\m\end{Bmatrix}$</p>
-<p>边界：$\begin{Bmatrix}0\\0\end{Bmatrix}=1,\begin{Bmatrix}n\\0\end{Bmatrix}=0(n&gt;0)$</p>
+<p>$\begin{Bmatrix}n\m\end{Bmatrix}=\begin{Bmatrix}n-1\m-1\end{Bmatrix}+m\times\begin{Bmatrix}n-1\m\end{Bmatrix}$</p>
+<p>边界：$\begin{Bmatrix}0\0\end{Bmatrix}=1,\begin{Bmatrix}n\0\end{Bmatrix}=0(n&gt;0)$</p>
 <h3 id="通项公式"><a href="#通项公式" class="headerlink" title="通项公式"></a>通项公式</h3><p>先计算集合有标号的方案数，用容斥。</p>
 <p>枚举至少有多少个集合是空的，$C_m^i$选出来，剩下$m-i$个集合放$n$个元素，转无标号除以$m!$：</p>
-<p>$\begin{Bmatrix}n\\m\end{Bmatrix}=\dfrac{1}{m!}\sum\limits_{i=0}^m(-1)^iC_m^i(m-i)^n$</p>
+<p>$\begin{Bmatrix}n\m\end{Bmatrix}=\dfrac{1}{m!}\sum\limits_{i=0}^m(-1)^iC_m^i(m-i)^n$</p>
 <p>把组合数拆开：$\sum\limits_{i=0}^m\dfrac{(-1)^i}{i!}\cdot\dfrac{(m-i)^n}{(m-i)!}$</p>
-<p><del>惊奇地</del>发现这是个卷积的形式。于是可以用$FFT/NTT$在$O(m\log n)$内算出$\begin{Bmatrix}n\\0\sim m\end{Bmatrix}$。（<a href="https://www.luogu.com.cn/problem/P5395" target="_blank" rel="noopener">板子</a>）</p>
+<p><del>惊奇地</del>发现这是个卷积的形式。于是可以用$FFT/NTT$在$O(m\log n)$内算出$\begin{Bmatrix}n\0\sim m\end{Bmatrix}$。（<a href="https://www.luogu.com.cn/problem/P5395" target="_blank" rel="noopener">板子</a>）</p>
 <h3 id="应用-2"><a href="#应用-2" class="headerlink" title="应用"></a>应用</h3><h4 id="自然数幂次方转下降幂"><a href="#自然数幂次方转下降幂" class="headerlink" title="自然数幂次方转下降幂"></a>自然数幂次方转下降幂</h4><p>简单说一下下降幂：$m^{\underline n}=m(m-1)(m-2)\cdots(m-n+1)=\dfrac{m!}{(m-n)!}=A_m^n$</p>
 <p>考虑$m^n$的含义：把$n$个有标号小球放进$m$个有标号盒子里（允许有空盒子）的方案数。这和第二类斯特林数有点像。</p>
 <p>以非空集的个数把$m^n$种方案分类：</p>
-<p>$m^n=\sum\limits_{i=1}^n\begin{Bmatrix}n\\i\end{Bmatrix}C_m^ii!=\sum\limits_{i=1}^n\begin{Bmatrix}n\\i\end{Bmatrix}m^{\underline i}$</p>
-<p>当然下标从$0$开始也可以，反正$\begin{Bmatrix}n\\0\end{Bmatrix}=0$。</p>
-<p>而$i$的上界其实是$\min\{n,m\}$，$i&gt;m$时$C_m^i=0$，$i&gt;n$时$\begin{Bmatrix}n\\i\end{Bmatrix}=0$。所以写$n,m$皆可。</p>
+<p>$m^n=\sum\limits<em>{i=1}^n\begin{Bmatrix}n\i\end{Bmatrix}C_m^ii!=\sum\limits</em>{i=1}^n\begin{Bmatrix}n\i\end{Bmatrix}m^{\underline i}$</p>
+<p>当然下标从$0$开始也可以，反正$\begin{Bmatrix}n\0\end{Bmatrix}=0$。</p>
+<p>而$i$的上界其实是$\min{n,m}$，$i&gt;m$时$C_m^i=0$，$i&gt;n$时$\begin{Bmatrix}n\i\end{Bmatrix}=0$。所以写$n,m$皆可。</p>
 <h4 id="自然数幂次方和"><a href="#自然数幂次方和" class="headerlink" title="自然数幂次方和"></a>自然数幂次方和</h4><p>用上面那个来推。</p>
 <p>$\sum\limits_{i=0}^ni^k$</p>
-<p>$=\sum\limits_{i=0}^n\sum\limits_{j=0}^k\begin{Bmatrix}k\\j\end{Bmatrix}C_i^jj!$</p>
-<p>$=\sum\limits_{j=0}^k\begin{Bmatrix}k\\j\end{Bmatrix}j!\sum\limits_{i=0}^nC_i^j$</p>
-<p>（上文提到过$\sum\limits_{i=0}^nC_i^m=C_{n+1}^{m+1}$）</p>
-<p>$=\sum\limits_{j=0}^k\begin{Bmatrix}k\\j\end{Bmatrix}j!C_{n+1}^{j+1}$</p>
-<p>$=\sum\limits_{j=0}^k\begin{Bmatrix}k\\j\end{Bmatrix}\dfrac{(n+1)^{\underline{j+1}}}{j+1}$</p>
+<p>$=\sum\limits<em>{i=0}^n\sum\limits</em>{j=0}^k\begin{Bmatrix}k\j\end{Bmatrix}C_i^jj!$</p>
+<p>$=\sum\limits<em>{j=0}^k\begin{Bmatrix}k\j\end{Bmatrix}j!\sum\limits</em>{i=0}^nC_i^j$</p>
+<p>（上文提到过$\sum\limits<em>{i=0}^nC_i^m=C</em>{n+1}^{m+1}$）</p>
+<p>$=\sum\limits<em>{j=0}^k\begin{Bmatrix}k\j\end{Bmatrix}j!C</em>{n+1}^{j+1}$</p>
+<p>$=\sum\limits_{j=0}^k\begin{Bmatrix}k\j\end{Bmatrix}\dfrac{(n+1)^{\underline{j+1}}}{j+1}$</p>
 <p>不考虑斯特林数的复杂度，如果预处理出阶乘和逆元可以做到$O(n)$预处理，$O(k)$回答；如果暴力算后面那一坨的话可以做到$O(k^2)$回答。</p>
 <p>朴素的算法是$O(n\log k)$的。通过斯特林数我们得到了去掉$\log$的算法和与$n$无关的算法，普天同庆皆大欢喜啊。</p>
-<h2 id="第一类斯特林数"><a href="#第一类斯特林数" class="headerlink" title="第一类斯特林数"></a>第一类斯特林数</h2><h3 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h3><p>用$\begin{bmatrix}n\\m\end{bmatrix}$表示把$n$个有标号元素形成$m$个环（圆排列）的方案数。也可写作$s(n,m)$。</p>
+<h2 id="第一类斯特林数"><a href="#第一类斯特林数" class="headerlink" title="第一类斯特林数"></a>第一类斯特林数</h2><h3 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h3><p>用$\begin{bmatrix}n\m\end{bmatrix}$表示把$n$个有标号元素形成$m$个环（圆排列）的方案数。也可写作$s(n,m)$。</p>
 <h3 id="递推公式-1"><a href="#递推公式-1" class="headerlink" title="递推公式"></a>递推公式</h3><p>还是考虑第$n$个元素的去向，单独成环，或者与放在前$n-1$个元素里任意一个元素前面。</p>
-<p>$\begin{bmatrix}n\\m\end{bmatrix}=\begin{bmatrix}n-1\\m-1\end{bmatrix}+(n-1)\begin{bmatrix}n-1\\m\end{bmatrix}$。</p>
-<p>边界：$\begin{bmatrix}0\\0\end{bmatrix}=1,\begin{bmatrix}n\\0\end{bmatrix}=\begin{bmatrix}0\\m\end{bmatrix}=0(n,m&gt;0)$</p>
+<p>$\begin{bmatrix}n\m\end{bmatrix}=\begin{bmatrix}n-1\m-1\end{bmatrix}+(n-1)\begin{bmatrix}n-1\m\end{bmatrix}$。</p>
+<p>边界：$\begin{bmatrix}0\0\end{bmatrix}=1,\begin{bmatrix}n\0\end{bmatrix}=\begin{bmatrix}0\m\end{bmatrix}=0(n,m&gt;0)$</p>
 <p>这个递推可以用生成函数搞一搞但我不会生成函数告辞。</p>
 <h3 id="应用-3"><a href="#应用-3" class="headerlink" title="应用"></a>应用</h3><p><del>证明什么的好麻烦啊自己搜去吧</del></p>
-<h4 id="阶乘相关"><a href="#阶乘相关" class="headerlink" title="阶乘相关"></a>阶乘相关</h4><p>$n!=\sum\limits_{i=0}^n\begin{bmatrix}n\\i\end{bmatrix}$</p>
-<h4 id="下降幂转幂次方"><a href="#下降幂转幂次方" class="headerlink" title="下降幂转幂次方"></a>下降幂转幂次方</h4><p>$x^{\underline n}=\sum\limits_{i=0}^n(-1)^{n-i}\begin{bmatrix}n\\i\end{bmatrix}x^i$</p>
+<h4 id="阶乘相关"><a href="#阶乘相关" class="headerlink" title="阶乘相关"></a>阶乘相关</h4><p>$n!=\sum\limits_{i=0}^n\begin{bmatrix}n\i\end{bmatrix}$</p>
+<h4 id="下降幂转幂次方"><a href="#下降幂转幂次方" class="headerlink" title="下降幂转幂次方"></a>下降幂转幂次方</h4><p>$x^{\underline n}=\sum\limits_{i=0}^n(-1)^{n-i}\begin{bmatrix}n\i\end{bmatrix}x^i$</p>
 <h2 id="斯特林反演"><a href="#斯特林反演" class="headerlink" title="斯特林反演"></a>斯特林反演</h2><h3 id="式子"><a href="#式子" class="headerlink" title="式子"></a>式子</h3><p>一个不会证的式子：</p>
-<p>$\sum\limits_{i=1}^n(-1)^{n-i}\begin{bmatrix}n\\i\end{bmatrix}\begin{Bmatrix}i\\m\end{Bmatrix}=\sum\limits_{i=1}^n(-1)^{n-i}\begin{Bmatrix}n\\i\end{Bmatrix}\begin{bmatrix}i\\m\end{bmatrix}=[n=m]$</p>
+<p>$\sum\limits<em>{i=1}^n(-1)^{n-i}\begin{bmatrix}n\i\end{bmatrix}\begin{Bmatrix}i\m\end{Bmatrix}=\sum\limits</em>{i=1}^n(-1)^{n-i}\begin{Bmatrix}n\i\end{Bmatrix}\begin{bmatrix}i\m\end{bmatrix}=[n=m]$</p>
 <p>由这个我们可以推出：</p>
-<p>$f(n)=\sum\limits_{i=0}^n\begin{Bmatrix}n\\i\end{Bmatrix}g(i)\leftrightarrow g(n)=\sum\limits_{i=0}^n(-1)^{n-i}\begin{bmatrix}n\\i\end{bmatrix}f(i)$</p>
-<p>$f(n)=\sum\limits_{i=0}^n\begin{bmatrix}n\\i\end{bmatrix}g(i)\leftrightarrow g(n)=\sum\limits_{i=0}^n(-1)^{n-i}\begin{Bmatrix}n\\i\end{Bmatrix}f(i)$</p>
+<p>$f(n)=\sum\limits<em>{i=0}^n\begin{Bmatrix}n\i\end{Bmatrix}g(i)\leftrightarrow g(n)=\sum\limits</em>{i=0}^n(-1)^{n-i}\begin{bmatrix}n\i\end{bmatrix}f(i)$</p>
+<p>$f(n)=\sum\limits<em>{i=0}^n\begin{bmatrix}n\i\end{bmatrix}g(i)\leftrightarrow g(n)=\sum\limits</em>{i=0}^n(-1)^{n-i}\begin{Bmatrix}n\i\end{Bmatrix}f(i)$</p>
 <h3 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h3><blockquote>
 <p>一个$n$行$m$列的矩阵，每个格子填入一个$[1,c]$的数。求任意两行、任意两列均不同的方案数。$n,m\le 5000$</p>
 </blockquote>
@@ -840,19 +857,19 @@ int C(int n,int m){
 <p>容易得到$g(i)=A_{c^i}^n$。</p>
 <p>设$f(i)$为$n$行$i$列的矩阵的答案。</p>
 <p>枚举$g(m)$有多少种不同的列把$g(m)$分类：</p>
-<p>$g(m)=\sum\limits_{i=0}^m\begin{Bmatrix}m\\i\end{Bmatrix}f(i)$</p>
-<p>解释一下：把$i$种不同列看作$i$个集合，把$m$列分配进$i$个集合里，即$\begin{Bmatrix}m\\i\end{Bmatrix}$。而对列去重之后就是一个$n$行$i$列的行列都不同的矩阵，即$f(i)$。</p>
-<p>反演得$f(m)=\sum\limits_{i=0}^m(-1)^{m-i}\begin{bmatrix}m\\i\end{bmatrix}g(i)$</p>
+<p>$g(m)=\sum\limits_{i=0}^m\begin{Bmatrix}m\i\end{Bmatrix}f(i)$</p>
+<p>解释一下：把$i$种不同列看作$i$个集合，把$m$列分配进$i$个集合里，即$\begin{Bmatrix}m\i\end{Bmatrix}$。而对列去重之后就是一个$n$行$i$列的行列都不同的矩阵，即$f(i)$。</p>
+<p>反演得$f(m)=\sum\limits_{i=0}^m(-1)^{m-i}\begin{bmatrix}m\i\end{bmatrix}g(i)$</p>
 <hr>
 <h1 id="矩阵树定理"><a href="#矩阵树定理" class="headerlink" title="矩阵树定理"></a>矩阵树定理</h1><p>绝大部分内容不予证明。</p>
 <h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h2><h3 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h3><p><strong>行列式是一个数。</strong></p>
 <p>记$\det(A)$或$|A|$为$n$阶矩阵$A$的行列式，$P$为$(p_1,p_2…p_n)$，即$1\sim n$的一个排列，$r(P)$为$P$的逆序对数。</p>
-<p>$\det(A)=\sum\limits_P(-1)^{r(P)}\prod\limits_{i=1}^na_{i,p_i}$</p>
+<p>$\det(A)=\sum\limits<em>P(-1)^{r(P)}\prod\limits</em>{i=1}^na_{i,p_i}$</p>
 <h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><p><strong>1.$\det(A)=\det(A^T)$</strong></p>
 <p><strong>2.将矩阵任意两行交换，行列式取相反数</strong></p>
 <p>交换两行可以看做交换排列中的两个数。</p>
 <p>假设交换$i,j$行，则会影响到的只有$i,j$之间的逆序对。</p>
-<p>记$k$为$i,j$之间任意一行。若$p_k&lt;\min\{p_i,p_j\}$或$p_k&gt;\max\{p_i,p_j\}$对逆序对数显然没有影响；若$p_i&lt;p_k&lt;p_j$，交换后就多了$2$个逆序对，反过来就是少了$2$个逆序对，也就是说$i,j$之间逆序对数变化一定是偶数。</p>
+<p>记$k$为$i,j$之间任意一行。若$p_k&lt;\min{p_i,p_j}$或$p_k&gt;\max{p_i,p_j}$对逆序对数显然没有影响；若$p_i&lt;p_k&lt;p_j$，交换后就多了$2$个逆序对，反过来就是少了$2$个逆序对，也就是说$i,j$之间逆序对数变化一定是偶数。</p>
 <p>最后$i,j$两者之间一定有$\pm1$的贡献，所以总逆序对数变化量为奇数。行列式取相反数。</p>
 <p><strong>推论：存在两行相同时，行列式的值为$0$</strong></p>
 <p><strong>3.任意一行乘$k$，行列式的值乘$k$</strong></p>
@@ -863,14 +880,14 @@ int C(int n,int m){
 <p>但是矩阵树定理一般会涉及到取模的问题，不能直接用两个浮点数做运算。</p>
 <p>考虑高斯消元的过程，我们只是想使对应位置消成$0$。</p>
 <p>使用辗转相除法。具体地说，如果矩阵有两行：</p>
-<p>$\begin{bmatrix}a_1\cdots\\a_2\cdots\end{bmatrix}$</p>
+<p>$\begin{bmatrix}a_1\cdots\a_2\cdots\end{bmatrix}$</p>
 <p>第$1$行减去第$2$行乘$\left\lfloor\frac{a_1}{a_2}\right\rfloor$，再交换两行（根据性质$2$答案要取相反数）得到新矩阵：</p>
-<p>$\begin{bmatrix}a_2\cdots\\a_1\bmod a_2\cdots\end{bmatrix}$</p>
+<p>$\begin{bmatrix}a_2\cdots\a_1\bmod a_2\cdots\end{bmatrix}$</p>
 <p>类似于求$\gcd$，不断辗转相除，最终使得第$2$行第$1$列为$0$，复杂度多一个$\log$，但保证了取模问题。</p>
 <p>代码见下文。</p>
 <h2 id="矩阵树定理-1"><a href="#矩阵树定理-1" class="headerlink" title="矩阵树定理"></a>矩阵树定理</h2><h3 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h3><p>矩阵树定理用于解决无向图生成树计数问题。</p>
 <p>记$n$阶矩阵$D$为度数矩阵，$A$为邻接矩阵。</p>
-<p>$D_{i,i}$为$i$的度数，$A_{i,j}$为$i,j$之间的边数。</p>
+<p>$D<em>{i,i}$为$i$的度数，$A</em>{i,j}$为$i,j$之间的边数。</p>
 <p>令基尔霍夫（Kirchhoff）矩阵$K=D-A$。</p>
 <p>对于任意$i$，去掉$K$的第$i$行和第$i$列，所得矩阵的行列式等于改无向图的生成树计数。</p>
 <p>实际使用中，对于一条边$(x,y)$，<code>++a[x][x],++a[y][y],--a[x][y],--a[y][x]</code>，对$a$的$2\sim n$或$1\sim n-1$行求行列式即可。</p>
@@ -893,7 +910,7 @@ int Gauss(){
     return (ans+mod)%mod;
 }
 </code></pre>
-<h3 id="变元矩阵树定理"><a href="#变元矩阵树定理" class="headerlink" title="变元矩阵树定理"></a>变元矩阵树定理</h3><p>把$D_{i,i}$的定义改为与$i$相连的边权之和，$A_{i,j}$改为$i,j$之间边权之和，就能求出所有生成树边权之积的和。</p>
+<h3 id="变元矩阵树定理"><a href="#变元矩阵树定理" class="headerlink" title="变元矩阵树定理"></a>变元矩阵树定理</h3><p>把$D<em>{i,i}$的定义改为与$i$相连的边权之和，$A</em>{i,j}$改为$i,j$之间边权之和，就能求出所有生成树边权之积的和。</p>
 <h3 id="水题"><a href="#水题" class="headerlink" title="水题"></a>水题</h3><p>详情请咨询<a href="/2019/12/11/没意思的算法の学习笔记/">没意思的算法の学习笔记</a></p>
 <hr>
 <h1 id="广义二项式定理"><a href="#广义二项式定理" class="headerlink" title="广义二项式定理"></a>广义二项式定理</h1><h2 id="推广组合数"><a href="#推广组合数" class="headerlink" title="推广组合数"></a>推广组合数</h2><p>首先推广组合数到实数域：$C_n^m=\dfrac{n^{\underline{m}}}{m!}$</p>
@@ -907,7 +924,7 @@ int Gauss(){
 <h2 id="推广二项式定理"><a href="#推广二项式定理" class="headerlink" title="推广二项式定理"></a>推广二项式定理</h2><p>把$(x+y)^k=\sum\limits_{n=0}^kC_k^nx^ny^{k-n}$推广到实数域。</p>
 <p>展开$(x+y)^\alpha,\alpha\in R$。</p>
 <p>这时我们不能确定$n$取到多少这个组合数为$0$，所以上界为$+\infty$</p>
-<p>$(x+y)^\alpha=\sum\limits_{n=0}^\infty C_\alpha^nx^ny^{\alpha-n}$</p>
+<p>$(x+y)^\alpha=\sum\limits<em>{n=0}^\infty C</em>\alpha^nx^ny^{\alpha-n}$</p>
 <p>这就是<strong>牛顿广义二项式定理</strong>。</p>
 
             
