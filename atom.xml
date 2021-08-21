@@ -6,7 +6,7 @@
   <link href="https://ctz45562.github.io/atom.xml" rel="self"/>
   
   <link href="https://ctz45562.github.io/"/>
-  <updated>2021-08-17T06:31:33.675Z</updated>
+  <updated>2021-08-21T03:30:16.105Z</updated>
   <id>https://ctz45562.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>8.19 Hello, World!</title>
+    <link href="https://ctz45562.github.io/2021/08/19/Hello-World/"/>
+    <id>https://ctz45562.github.io/2021/08/19/Hello-World/</id>
+    <published>2021-08-19T10:04:20.000Z</published>
+    <updated>2021-08-21T03:30:16.105Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;起得很早。&lt;/p&gt;
+&lt;p&gt;我盯着指向6与7中间的时针，突然想到，高三的我每天十二点多睡，不到六点醒，中午还睡不着。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="日常" scheme="https://ctz45562.github.io/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>2021年1月番剧简评</title>
@@ -62,7 +80,7 @@
     <link href="https://ctz45562.github.io/2021/06/17/%E9%9B%B6%C2%B7%E6%97%A5%E8%AE%B0/"/>
     <id>https://ctz45562.github.io/2021/06/17/%E9%9B%B6%C2%B7%E6%97%A5%E8%AE%B0/</id>
     <published>2021-06-16T16:10:11.000Z</published>
-    <updated>2021-08-16T02:55:22.109Z</updated>
+    <updated>2021-08-19T12:55:03.278Z</updated>
     
     
     <summary type="html">&lt;p&gt;高考后毫无意义的颓废生活？&lt;/p&gt;
@@ -422,27 +440,6 @@
     <category term="OI" scheme="https://ctz45562.github.io/tags/OI/"/>
     
     <category term="日记" scheme="https://ctz45562.github.io/tags/%E6%97%A5%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2020年1月番剧简评</title>
-    <link href="https://ctz45562.github.io/2020/04/01/2020%E5%B9%B41%E6%9C%88%E7%95%AA%E5%89%A7%E7%AE%80%E8%AF%84/"/>
-    <id>https://ctz45562.github.io/2020/04/01/2020%E5%B9%B41%E6%9C%88%E7%95%AA%E5%89%A7%E7%AE%80%E8%AF%84/</id>
-    <published>2020-04-01T01:26:59.000Z</published>
-    <updated>2021-07-01T04:39:59.599Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;一月番真的是神仙打架，专注于补旧番的我第一次在会员专享前把当季番看完。心血来潮写个简评。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="动漫" scheme="https://ctz45562.github.io/categories/%E5%8A%A8%E6%BC%AB/"/>
-    
-    
-    <category term="二次元" scheme="https://ctz45562.github.io/tags/%E4%BA%8C%E6%AC%A1%E5%85%83/"/>
-    
-    <category term="番剧" scheme="https://ctz45562.github.io/tags/%E7%95%AA%E5%89%A7/"/>
     
   </entry>
   
