@@ -619,16 +619,16 @@
 </blockquote>
 <p><a href="https://www.luogu.org/problemnew/show/P3704" target="_blank" rel="noopener">传送门</a></p>
 <a id="more"></a>
-<p>设$g(k)=\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^m[gcd(i,j)=k]$</p>
+<p>设$g(k)=\sum\limits_{i=1}^n\sum\limits_{j=1}^m[gcd(i,j)=k]$</p>
 <p>$g$的反演就很老套了，$g(k)=\sum\limits_{d=1}^{\lfloor\frac{n}{k}\rfloor}\mu(d)\left\lfloor\dfrac{n}{kd}\right\rfloor\left\lfloor\dfrac{m}{kd}\right\rfloor$</p>
 <p>直接枚举$gcd$：</p>
-<p>$\prod\limits<em>{i=1}^n\prod\limits</em>{j=1}^mf(gcd(i,j))$</p>
+<p>$\prod\limits_{i=1}^n\prod\limits_{j=1}^mf(gcd(i,j))$</p>
 <p>$=\prod\limits_{d=1}^nf(d)^{g(d)}$</p>
-<p>$=\prod\limits<em>{d=1}^nf(d)^{\sum\limits</em>{i=1}^{\lfloor\frac{n}{d}\rfloor}\mu(i)\lfloor\frac{n}{id}\rfloor\lfloor\frac{m}{id}\rfloor}$</p>
+<p>$=\prod\limits_{d=1}^nf(d)^{\sum\limits_{i=1}^{\lfloor\frac{n}{d}\rfloor}\mu(i)\lfloor\frac{n}{id}\rfloor\lfloor\frac{m}{id}\rfloor}$</p>
 <p>推到这里复杂度是$O(T(n^{\frac{3}{4}}+\sqrt{n}\log n))$的，然而常数太大过不去。</p>
 <p>设$T=id$，有$d|T$，枚举$T$：</p>
-<p>$=\prod\limits<em>{d=1}^nf(d)^{\sum\limits</em>{T=1}^n[d|T]\mu(\frac{T}{d})\lfloor\frac{n}{T}\rfloor\lfloor\frac{m}{T}\rfloor}$</p>
-<p>$=\prod\limits<em>{T=1}^n\left(\prod\limits</em>{d|T}f(d)^{\mu(\frac{T}{d})}\right)^{\lfloor\frac{n}{T}\rfloor\lfloor\frac{m}{T}\rfloor}$</p>
+<p>$=\prod\limits_{d=1}^nf(d)^{\sum\limits_{T=1}^n[d|T]\mu(\frac{T}{d})\lfloor\frac{n}{T}\rfloor\lfloor\frac{m}{T}\rfloor}$</p>
+<p>$=\prod\limits_{T=1}^n\left(\prod\limits_{d|T}f(d)^{\mu(\frac{T}{d})}\right)^{\lfloor\frac{n}{T}\rfloor\lfloor\frac{m}{T}\rfloor}$</p>
 <p>预处理出$f$的前缀积、前缀逆元和$\prod\limits_{d|T}f(d)\mu(\frac{T}{d})$就能$O(T\sqrt{n}\log n)$做了。</p>
 <p>代码：</p>
 <pre><code class="lang-cpp">#include &lt;iostream&gt;

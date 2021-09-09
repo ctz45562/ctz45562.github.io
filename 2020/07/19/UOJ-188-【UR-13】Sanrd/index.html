@@ -622,10 +622,10 @@
 <p>设$S(n,k)=\sum\limits_{i=1}^n[minp(i)&gt;P_k]f(i)$，答案就是$S(r,0)-S(l-1,0)$。</p>
 <p>因为质数和$1$的$f$都是$0$，所以只需要考虑合数的贡献，枚举最小质因子及其次数$P_i^j$。$P_i^j$有两种贡献：</p>
 <ul>
-<li>$P_i$就是次小质因子：此时因子中除了$P_i^j$，就只会有一个大于$P_i$的质数$P_x$且$P_i^jP_x\le n$，也就是$\max\left{g_0(\dfrac{n}{P_i^j},+\infty)-i,0\right}$。而如果$j&gt;1$，还要算上$P_i^j$自己。这部分贡献就是$P_i\times\left(\max\left{g_0(\dfrac{n}{P_i^j},+\infty)-i,0\right}+[j&gt;1]\right)$</li>
+<li>$P_i$就是次小质因子：此时因子中除了$P_i^j$，就只会有一个大于$P_i$的质数$P_x$且$P_i^jP_x\le n$，也就是$\max\left\{g_0(\dfrac{n}{P_i^j},+\infty)-i,0\right\}$。而如果$j&gt;1$，还要算上$P_i^j$自己。这部分贡献就是$P_i\times\left(\max\left\{g_0(\dfrac{n}{P_i^j},+\infty)-i,0\right\}+[j&gt;1]\right)$</li>
 <li>$P_i$不是次小质因子：这部分就和$P_i$没啥关系了，因为最小质因子为$P_i^j$，次小质因子一定在上面，贡献为$S(\dfrac{n}{P_i^j},i)$</li>
 </ul>
-<p>综上，$S(n,k)=\sum\limits_{i&gt;k,P_i^2\le n,P_i^j\le n}P_i\times\left(\max\left{g_0(\dfrac{n}{P_i^j},+\infty)-i,0\right}+[j&gt;1]\right)+S(\dfrac{n}{P_i^j},i)$</p>
+<p>综上，$S(n,k)=\sum\limits_{i&gt;k,P_i^2\le n,P_i^j\le n}P_i\times\left(\max\left\{g_0(\dfrac{n}{P_i^j},+\infty)-i,0\right\}+[j&gt;1]\right)+S(\dfrac{n}{P_i^j},i)$</p>
 <p>而且因为只需要考虑合数，当$P_k^2&gt;n$的时候就可以返回$0$了。</p>
 <p>代码：</p>
 <pre><code class="lang-cpp">#include &lt;iostream&gt;

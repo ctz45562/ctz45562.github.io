@@ -628,7 +628,7 @@
 <h1 id="虚树"><a href="#虚树" class="headerlink" title="虚树"></a>虚树</h1><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p><a href="https://www.luogu.org/problem/P2495" target="_blank" rel="noopener">经典栗子</a></p>
 <p>有一个$O(n)$的$DP$：</p>
 <p>设$f(i)$为阻断点$i$到其子树所有关键点最小代价。</p>
-<p>记$x$为$i$的某个儿子，若$x$为关键点，有$len(edge(i,x))$的贡献；否则有$\min{len(edge(i,x)),f(x)}$的贡献。答案为$f(1)$。</p>
+<p>记$x$为$i$的某个儿子，若$x$为关键点，有$len(edge(i,x))$的贡献；否则有$\min\{len(edge(i,x)),f(x)\}$的贡献。答案为$f(1)$。</p>
 <p>如果构造出虚树在虚树上$DP$，复杂度就是对的了。</p>
 <p>虚树保留了关键点和它们两两之间的$lca$，就是酱紫（红色的为关键点）：</p>
 <p><img src="/images/虚树学习笔记-1.png" alt=""></p>

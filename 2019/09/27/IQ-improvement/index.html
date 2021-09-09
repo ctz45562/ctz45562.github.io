@@ -621,7 +621,7 @@
 <p>至于后面没有出现的题，那就是刷不动了。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/quyin/watermaleon.png"></p>
 <p>$update$:一些我被降智的题也被收录了。 </p>
 <hr>
-<h1 id="DP的精髓——asuldb"><a href="#DP的精髓——asuldb" class="headerlink" title="DP的精髓——asuldb"></a>DP的精髓——asuldb</h1><h2 id="GDOI2014-拯救莫莉斯"><a href="#GDOI2014-拯救莫莉斯" class="headerlink" title="[GDOI2014]拯救莫莉斯"></a><a href="https://www.luogu.org/problem/P3888" target="_blank" rel="noopener">[GDOI2014]拯救莫莉斯</a></h2><p>$n\times m\le 50$，$\min{n,m}\le 7$，考虑状压。（以下$n&gt;m$）</p>
+<h1 id="DP的精髓——asuldb"><a href="#DP的精髓——asuldb" class="headerlink" title="DP的精髓——asuldb"></a>DP的精髓——asuldb</h1><h2 id="GDOI2014-拯救莫莉斯"><a href="#GDOI2014-拯救莫莉斯" class="headerlink" title="[GDOI2014]拯救莫莉斯"></a><a href="https://www.luogu.org/problem/P3888" target="_blank" rel="noopener">[GDOI2014]拯救莫莉斯</a></h2><p>$n\times m\le 50$，$\min\{n,m\}\le 7$，考虑状压。（以下$n&gt;m$）</p>
 <p>设$f(i,j,k)$为前$i$行，第$i-1$行状态为$j$，第$i$行状态为$k$的最小花费。</p>
 <p>先$O(m2^{3m})$处理出每个状态$j,k$能向那些状态转移，且$k$的油库满足。</p>
 <p>然后直接$O(n2^{3m})$转移即可，还要输出方案数随便搞一搞就行了。</p>
@@ -635,7 +635,7 @@
 <h2 id="NOI2009-管道取珠"><a href="#NOI2009-管道取珠" class="headerlink" title="[NOI2009]管道取珠"></a><a href="https://www.luogu.org/problem/P1758" target="_blank" rel="noopener">[NOI2009]管道取珠</a></h2><p>考虑$\sum a_i^2$的含义：有两套管道，两套管道取出的珠子序列相同的方案数。</p>
 <p>设$f(i,j,k,l)$为第一套上管道取了$i$个，下管道取了$j$个，第二套上管道取了$k$个，下管道取了$l$个，所得序列相同的方案数。</p>
 <p>$i+j=k+l$可以消掉一维。</p>
-<p>刷表转移：$f(i,j,k)\rightarrow \begin{cases}f(i+1,j,k+1)&amp;a<em>{i+1}=a</em>{k+1}\f(i+1,j,k)&amp;a<em>{i+1}=b</em>{i+j-k+1}\f(i,j+1,k+1)&amp;b<em>{j+1}=a</em>{k+1}\f(i,j+1,k)&amp;b<em>{j+1}=b</em>{i+j-k+1}\end{cases}$</p>
+<p>刷表转移：$f(i,j,k)\rightarrow \begin{cases}f(i+1,j,k+1)&amp;a_{i+1}=a_{k+1}\\f(i+1,j,k)&amp;a_{i+1}=b_{i+j-k+1}\\f(i,j+1,k+1)&amp;b_{j+1}=a_{k+1}\\f(i,j+1,k)&amp;b_{j+1}=b_{i+j-k+1}\end{cases}$</p>
 <h2 id="CQOI2018-解锁屏幕"><a href="#CQOI2018-解锁屏幕" class="headerlink" title="[CQOI2018]解锁屏幕"></a><a href="https://www.luogu.org/problem/P4460" target="_blank" rel="noopener">[CQOI2018]解锁屏幕</a></h2><p>$n\le 20$直接状压。</p>
 <p>搞个状态数组$s[i][j]$，将点$i,j$间连线，经过的点在$s[i][j]$对应位上是$1$。</p>
 <p>设$f(i,j)$表示状态为$j$（$1$表示已使用过），最后一个点为$i$的方案数，结合$s$数组随便转移即可。</p>
@@ -645,14 +645,14 @@
 <p>取答案时只取与当前枚举的状态符合的答案。复杂度$O(2^{10}n)$。</p>
 <h2 id="HAOI2015-树上染色"><a href="#HAOI2015-树上染色" class="headerlink" title="[HAOI2015]树上染色"></a><a href="https://www.luogu.org/problem/P3177" target="_blank" rel="noopener">[HAOI2015]树上染色</a></h2><p>考虑每条边的贡献。设$f(i,j)$为在子树$i$中钦定$j$个黑点，<strong>里面的边对整棵树的最大贡献</strong>。</p>
 <p>转移时考虑连向子节点的边的贡献，即两侧黑点数的乘积加上白点数的乘积。</p>
-<p>$f(i,j)=\max\limits_{x\in son(i)}{f(i,j-k)+f(x,k)+edge(i,x).l\times[k\times(K-k)+(size_x-k)\times(n-K-size_x+k)]}$</p>
+<p>$f(i,j)=\max\limits_{x\in son(i)}\{f(i,j-k)+f(x,k)+edge(i,x).l\times[k\times(K-k)+(size_x-k)\times(n-K-size_x+k)]\}$</p>
 <h2 id="SDOI2017-序列计数"><a href="#SDOI2017-序列计数" class="headerlink" title="[SDOI2017]序列计数"></a><a href="https://www.luogu.org/problem/P3702" target="_blank" rel="noopener">[SDOI2017]序列计数</a></h2><p>一开始我是想设$f(i,j,0/1)$表示前$i$个数、和模$p$等于$j$、是否出现过质数的方案数。</p>
 <p>后来发现都搞的容斥。。。</p>
 <p>设$f(i,j)$为前$i$个数、和模$p$等于$j$的方案数，枚举数字转移。两遍$DP$，第一遍没有限制，第二遍只枚举合数。用第一遍的减去第二遍的就是答案。</p>
 <p>再来个矩乘优化就行了。</p>
 <h2 id="SDOI2008-山贼集团"><a href="#SDOI2008-山贼集团" class="headerlink" title="[SDOI2008]山贼集团"></a><a href="https://www.luogu.org/problem/P2465" target="_blank" rel="noopener">[SDOI2008]山贼集团</a></h2><p>$p\le 12$显然状压。</p>
 <p>设$f(i,j)$表示子树$i$状态为$j$（$1$表示在<strong>子树</strong>$i$建立分部）的最大收益。</p>
-<p>转移类似树形背包：$f(i,j)=\max\limits_{x\in son(i),(k)_2\subseteq (j)_2}{f(x,k)+f(i,k\ xor\ j)}$</p>
+<p>转移类似树形背包：$f(i,j)=\max\limits_{x\in son(i),(k)_2\subseteq (j)_2}\{f(x,k)+f(i,k\ xor\ j)\}$</p>
 <p>其中$k\ xor\ j$相当于取补集。</p>
 <p>由于要枚举子集，复杂度是$O(n3^p)$的。</p>
 <h2 id="SDOI2009-Bill的挑战"><a href="#SDOI2009-Bill的挑战" class="headerlink" title="[SDOI2009]Bill的挑战"></a><a href="https://www.luogu.org/problem/P2167" target="_blank" rel="noopener">[SDOI2009]Bill的挑战</a></h2><p>状压。第一眼以为要上$AC$自动机，发现串长都相等直接暴力$DP$。</p>
@@ -662,8 +662,8 @@
 <p>复杂度$O(T26|S|2^n)$。</p>
 <h2 id="POI2015-WIL-Wilcze-doly"><a href="#POI2015-WIL-Wilcze-doly" class="headerlink" title="[POI2015]WIL-Wilcze doły"></a><a href="https://www.luogu.org/problem/P3594" target="_blank" rel="noopener">[POI2015]WIL-Wilcze doły</a></h2><p>这题和$DP$没啥关系。</p>
 <p>不过我还是十分睿智地写了个二分，$O(2000000\log 2000000)$才$4e7$不慌。</p>
-<p>记$sum$为前缀和，$ma<em>i$为$sum</em>{i+d}-sum_{i-1}$。</p>
-<p>某个区间的最小权值就是区间和减去长度为$d$的最大子段和，即$sum<em>r-sum</em>{l-1}-\max\limits_{i=l}^{r-d+1}{ma_i}$。</p>
+<p>记$sum$为前缀和，$ma_i$为$sum_{i+d}-sum_{i-1}$。</p>
+<p>某个区间的最小权值就是区间和减去长度为$d$的最大子段和，即$sum_r-sum_{l-1}-\max\limits_{i=l}^{r-d+1}\{ma_i\}$。</p>
 <p>然后尺取就好了啊，中间要维护一个左右端点单调不降的区间$\max$，上单调队列。</p>
 <p>当然如果和我一样$zz$非要写二分我也不拦你。</p>
 <h2 id="USACO09DEC-牛收费路径Cow-Toll-Paths"><a href="#USACO09DEC-牛收费路径Cow-Toll-Paths" class="headerlink" title="[USACO09DEC]牛收费路径Cow Toll Paths"></a><a href="https://www.luogu.org/problem/P2966" target="_blank" rel="noopener">[USACO09DEC]牛收费路径Cow Toll Paths</a></h2><p>非要说和$DP$有啥关系的话，大概是$floyd$吧。</p>
@@ -678,10 +678,10 @@
 <h2 id="SCOI2009-粉刷匠"><a href="#SCOI2009-粉刷匠" class="headerlink" title="[SCOI2009]粉刷匠"></a><a href="https://www.luogu.org/problem/P4158" target="_blank" rel="noopener">[SCOI2009]粉刷匠</a></h2><p>一开始以为可以随便刷，是个神仙题。</p>
 <p>后来发现只能横向刷，瞬间沦为$zz$题。</p>
 <p>对每行处理出一个$g(i,j)$，表示该行对前$i$个格子刷$j$次最多的正确格子数。</p>
-<p>转移就枚举上次刷的位置和刷的颜色：$g(i,j)=\max\limits_{k=0}^{i-1}{g(k,j-1)+\max{sum_i-sum_k,i-k-sum_i+sum_k}}$（$sum_i$为前$i$个格子中蓝色格子数）</p>
+<p>转移就枚举上次刷的位置和刷的颜色：$g(i,j)=\max\limits_{k=0}^{i-1}\{g(k,j-1)+\max\{sum_i-sum_k,i-k-sum_i+sum_k\}\}$（$sum_i$为前$i$个格子中蓝色格子数）</p>
 <p>把每行看作一组，枚举刷的次数，$g(m,i)$看作若干件物品，直接做个分组背包即可。</p>
 <h2 id="HAOI2008-木棍分割"><a href="#HAOI2008-木棍分割" class="headerlink" title="[HAOI2008]木棍分割"></a><a href="https://www.luogu.org/problem/P2511" target="_blank" rel="noopener">[HAOI2008]木棍分割</a></h2><p>就是跳石头统计方案数。</p>
-<p>$O(n\log n)$预处理出每个点最靠左的端点$le<em>i$满足$sum_i-sum</em>{le_i}\le ans$。</p>
+<p>$O(n\log n)$预处理出每个点最靠左的端点$le_i$满足$sum_i-sum_{le_i}\le ans$。</p>
 <p>设$f(i,j)$为跳了$j$步到点$i$的方案数。</p>
 <p>普及难度的转移：$f(i,j)=\sum\limits_{k=le_i}^{i-1}f(k,j-1)$</p>
 <p>$O(nm)$的空间开不下。然后思维僵化了，$i$的取值与前面的都有关系滚不动咋办啊。</p>
@@ -700,7 +700,7 @@
 <h2 id="SNOI2017-英雄联盟"><a href="#SNOI2017-英雄联盟" class="headerlink" title="[SNOI2017]英雄联盟"></a><a href="https://www.luogu.org/problem/P5365" target="_blank" rel="noopener">[SNOI2017]英雄联盟</a></h2><p>正当逐渐走向自闭时，眼前一晃而过一抹绿色。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/2233/chijing.png"></p>
 <p>设$f(i,j)$为前$i$个英雄，用$j\ QB$能买出的最大展示策略。</p>
 <p>这不就一分组背包吗。</p>
-<p>$f(i,j)=\max\limits_{k=1}^{K_i}{f(i-1,j-k\times C_i)\times k}$</p>
+<p>$f(i,j)=\max\limits_{k=1}^{K_i}\{f(i-1,j-k\times C_i)\times k\}$</p>
 <p>算一下$n$最大才$120$，背包容量也不超过$300000$。滚动数组优化一波就水过去了~</p>
 <h2 id="SDOI2016-储能表"><a href="#SDOI2016-储能表" class="headerlink" title="[SDOI2016]储能表"></a><a href="https://www.luogu.org/problem/P4067" target="_blank" rel="noopener">[SDOI2016]储能表</a></h2><p><a href="/2019/10/10/洛谷-P4067-SDOI2016-储能表/">题解</a></p>
 <h2 id="CTSC2017-吉夫特"><a href="#CTSC2017-吉夫特" class="headerlink" title="[CTSC2017]吉夫特"></a><a href="https://www.luogu.org/problem/P3773" target="_blank" rel="noopener">[CTSC2017]吉夫特</a></h2><p><a href="/2019/10/10/洛谷-P3773-CTSC2017-吉夫特/">题解</a></p>
@@ -711,21 +711,21 @@
 <p>初始$f(i,i)=1$。</p>
 <p>讨论转移：</p>
 <ul>
-<li>若$a_i=a_j$，可以涂$a_i$的时候一块把$a_j$涂了，或者反过来，即$f(i,j)=\min{f(i+1,j),f(i,j-1)}$</li>
-<li>若$a<em>i\neq a_j$，枚举断点合并，$f(i,j)=\min\limits</em>{k=i}^{j-1}{f(i,k)+f(k+1,j)}$</li>
+<li>若$a_i=a_j$，可以涂$a_i$的时候一块把$a_j$涂了，或者反过来，即$f(i,j)=\min\{f(i+1,j),f(i,j-1)\}$</li>
+<li>若$a_i\neq a_j$，枚举断点合并，$f(i,j)=\min\limits_{k=i}^{j-1}\{f(i,k)+f(k+1,j)\}$</li>
 </ul>
 <h2 id="Alice-in-linear-land"><a href="#Alice-in-linear-land" class="headerlink" title="Alice in linear land"></a><a href="https://www.luogu.org/problem/AT2401" target="_blank" rel="noopener">Alice in linear land</a></h2><p>神仙题。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/quyin/look.png"></p>
 <p>题意：</p>
 <blockquote>
-<p>数轴原点上有一个机器人，终点为$D$。有$n$条命令，每条命令为$d<em>i$，机器人会向终点移动$d_i$距离，若移动后距离变大则不移动。给定$m$次询问，允许改变$d</em>{q_i}$为任意整数，若存在方案使机器人不能走到终点输出$YES$，否则输出$NO$。</p>
+<p>数轴原点上有一个机器人，终点为$D$。有$n$条命令，每条命令为$d_i$，机器人会向终点移动$d_i$距离，若移动后距离变大则不移动。给定$m$次询问，允许改变$d_{q_i}$为任意整数，若存在方案使机器人不能走到终点输出$YES$，否则输出$NO$。</p>
 </blockquote>
 <p>先处理出$pos_i$，表示前$i$条命令后与终点的距离。</p>
 <p>考虑一个朴素的$DP$，设$g(i,j)$为当前与终点距离为$j$，仅后$i$条指令能否到达终点。</p>
-<p>转移：$g(i,j)=\begin{cases}g(i+1,j)&amp;d_i\ge 2j\g(i+1,d_i-j)&amp;j&lt;d_i&lt;2j\g(i+1,j-d_i)&amp;d_i\le j\end{cases}$</p>
-<p>修改$d<em>i$时，可视为改变到终点的距离，取值范围$[0,pos</em>{i-1}]$。若$g(i+1,[0,pos_{i-1}])$存在$0$的话，就把距离改过去，就不能走到终点了。</p>
+<p>转移：$g(i,j)=\begin{cases}g(i+1,j)&amp;d_i\ge 2j\\g(i+1,d_i-j)&amp;j&lt;d_i&lt;2j\\g(i+1,j-d_i)&amp;d_i\le j\end{cases}$</p>
+<p>修改$d_i$时，可视为改变到终点的距离，取值范围$[0,pos_{i-1}]$。若$g(i+1,[0,pos_{i-1}])$存在$0$的话，就把距离改过去，就不能走到终点了。</p>
 <p>发现我们只需求出满足$g(i,j)=0$的最小的$j$，设$f(i)$为该值。</p>
 <p>类比$g$转移：</p>
-<p>$f(i)=\min\begin{cases}f(i+1)&amp;d_i\ge2f(i+1)\d_i-f(i+1)&amp;d_i&gt;2f(i+1)\f(i+1)+d_i\end{cases}$</p>
+<p>$f(i)=\min\begin{cases}f(i+1)&amp;d_i\ge2f(i+1)\\d_i-f(i+1)&amp;d_i&gt;2f(i+1)\\f(i+1)+d_i\end{cases}$</p>
 <p>初值$f(n+1)=1$，因为任意$g(i,0)=1$。</p>
 <p>询问时判断$pos_{q_i-1}$与$f(q_i+1)$的大小即可。</p>
 <h2 id="JSOI2016-最佳团体"><a href="#JSOI2016-最佳团体" class="headerlink" title="[JSOI2016]最佳团体"></a><a href="https://www.luogu.org/problem/P4322" target="_blank" rel="noopener">[JSOI2016]最佳团体</a></h2><p>一看$\dfrac{\sum p_i}{\sum s_i}$这样的式子就跑不掉$01$分数规划。</p>
@@ -744,7 +744,7 @@
 <p>设$f(i,j)$为使区间$[i,j]$同色的最小次数。</p>
 <ul>
 <li>若$i,j$同色，可以把$[i+1,j-1]$涂好后再变成$i$的颜色：$f(i,j)=f(i+1,j-1)+1$</li>
-<li>若$i,j$不同色，就从$[i+1,j]$和$[i,j-1]$里选代价最小的转移：$f(i,j)=\min{f(i,j-1),f(i+1,j)}+1$</li>
+<li>若$i,j$不同色，就从$[i+1,j]$和$[i,j-1]$里选代价最小的转移：$f(i,j)=\min\{f(i,j-1),f(i+1,j)\}+1$</li>
 </ul>
 <h2 id="Codeforces922E-Birds"><a href="#Codeforces922E-Birds" class="headerlink" title="Codeforces922E Birds"></a><a href="https://www.luogu.org/problem/CF922E" target="_blank" rel="noopener">Codeforces922E Birds</a></h2><p>看数据范围状态显然与$n$和$\sum c_i$有关。</p>
 <p>设$f(i,j)$为到了第$i$棵树，有$j$只鸟的最大魔法值。</p>
@@ -762,7 +762,7 @@
 <p>观察得到转移：$f(i,j)=f(i-1,j)xorf(i-1.j+1)$</p>
 <p>再观察可知：$f(i,j)$表示了$j$为左端点，长度为$i$的区间权值。</p>
 <p>设$g(i,j)$为左端点大于等于$j$，长度不大于$i$的最大区间权值。</p>
-<p>$g(i,j)=\max{f(i,j),f(i-1,j+1),f(i-1,j)}$</p>
+<p>$g(i,j)=\max\{f(i,j),f(i-1,j+1),f(i-1,j)\}$</p>
 <h2 id="SHOI2008-循环的债务"><a href="#SHOI2008-循环的债务" class="headerlink" title="[SHOI2008]循环的债务"></a><a href="https://www.luogu.com.cn/problem/P4026" target="_blank" rel="noopener">[SHOI2008]循环的债务</a></h2><p>先搞个宏伟的$DP$数组：</p>
 <p>$f(i,j,k,a100,a50,a20,a10,a5,a1,b100,b50,b20,b10,b5,b1,c100,c50,c20,c10,c5,c1)$</p>
 <p>慢慢优化，优化不动，自闭了。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/quyin/fue.png"></p>
@@ -773,31 +773,31 @@
 <p>设$f(i,j,k)$为区间$[i,j]$修改$k$个字符的最大值。</p>
 <p>转移：</p>
 <ul>
-<li>啥都不干：$f(i,j,k)=\max{f(i+1,j,k),f(i,j-1,k)}$</li>
-<li>$s_i$与$s_j$相同，回文子序列延长：$f(i,j,k)=\max{f(i,j,k),f(i+1,j-1,k)+2}$</li>
-<li>$k&gt;0$，修改$s_i$或$s_j$：$f(i,j,k)=\max{f(i,j,k),f(i+1,j-1,k-1)+2}$</li>
+<li>啥都不干：$f(i,j,k)=\max\{f(i+1,j,k),f(i,j-1,k)\}$</li>
+<li>$s_i$与$s_j$相同，回文子序列延长：$f(i,j,k)=\max\{f(i,j,k),f(i+1,j-1,k)+2\}$</li>
+<li>$k&gt;0$，修改$s_i$或$s_j$：$f(i,j,k)=\max\{f(i,j,k),f(i+1,j-1,k-1)+2\}$</li>
 </ul>
 <h2 id="Codeforces946G-Almost-Increasing-Array"><a href="#Codeforces946G-Almost-Increasing-Array" class="headerlink" title="Codeforces946G Almost Increasing Array"></a><a href="https://www.luogu.org/problem/CF946G" target="_blank" rel="noopener">Codeforces946G Almost Increasing Array</a></h2><p>被同一场的<a href="https://www.luogu.org/problem/CF946F" target="_blank" rel="noopener">F题</a>吓到了，然而$G$比$F$简单？</p>
 <p>如果不带删除，其实是一个套路：</p>
-<p>还是求最长上升子序列，考虑最朴素的方程$f(i)=\max{f(j)}+1(j&lt;i,a_j&lt;a_i)$</p>
+<p>还是求最长上升子序列，考虑最朴素的方程$f(i)=\max\{f(j)\}+1(j&lt;i,a_j&lt;a_i)$</p>
 <p>现在可以任意修改，要满足区间$[j,i]$能修改成上升的，所以还有个条件$i-j\le a_i-a_j$。</p>
-<p>我们发现这三个大小关系可以合并成$j&lt;i,a_i-i\ge a_j-j$，令$a_i$减去$i$，求一遍最长不下降子序列，答案就是$n-\max{f(i)}$。</p>
+<p>我们发现这三个大小关系可以合并成$j&lt;i,a_i-i\ge a_j-j$，令$a_i$减去$i$，求一遍最长不下降子序列，答案就是$n-\max\{f(i)\}$。</p>
 <p>考虑加上删除，让$f$再加一维$0/1$表示是否用过删除。</p>
 <p>转移：</p>
 <ul>
-<li>$f(i,0)=\max{f(j,0)}+1(j&lt;i,a_j\le a_i)$</li>
-<li>在$j$之前用删除：$f(i,1)=\max{f(j,1)}+1(j&lt;i,a_j\le a_i)$</li>
-<li>在$[j+1,i-1]$之间用删除：$f(i,1)=\max{f(j,0)}+1(j&lt;i-1,a_j\le a_i+1)$</li>
+<li>$f(i,0)=\max\{f(j,0)\}+1(j&lt;i,a_j\le a_i)$</li>
+<li>在$j$之前用删除：$f(i,1)=\max\{f(j,1)\}+1(j&lt;i,a_j\le a_i)$</li>
+<li>在$[j+1,i-1]$之间用删除：$f(i,1)=\max\{f(j,0)\}+1(j&lt;i-1,a_j\le a_i+1)$</li>
 </ul>
-<p>由于在转移时没有考虑到被删的数不需要再修改了，所以答案为$\max{n-\max{f(i,0),f(i,1)}+1,0}$</p>
+<p>由于在转移时没有考虑到被删的数不需要再修改了，所以答案为$\max\{n-\max\{f(i,0),f(i,1)\}+1,0\}$</p>
 <p>离散化+树状数组就能优化到$O(n\log n)$。</p>
 <h2 id="Codeforces940E-Cashback"><a href="#Codeforces940E-Cashback" class="headerlink" title="Codeforces940E Cashback"></a><a href="https://www.luogu.org/problem/CF940E" target="_blank" rel="noopener">Codeforces940E Cashback</a></h2><p>按分段长度$len$分别考虑：</p>
 <ul>
 <li>$len&lt;c$，这时不会去掉任何数。无论$len$为多少代价都是这一段的和，把它看做$len$个长度为$1$的段处理。</li>
-<li>$len\ge c$。设它要去掉$k$个数。定义$kth(A,k)$为可重集$A$的前$k$小数的和。显然有$\sum\limits<em>{i=1}^kkth(A_i,1)\ge kth(\bigcup\limits</em>{i=1}^kA_i,k)$。所以当$len=c$时是最优的。</li>
+<li>$len\ge c$。设它要去掉$k$个数。定义$kth(A,k)$为可重集$A$的前$k$小数的和。显然有$\sum\limits_{i=1}^kkth(A_i,1)\ge kth(\bigcup\limits_{i=1}^kA_i,k)$。所以当$len=c$时是最优的。</li>
 </ul>
 <p>设$f(i)$为分完前$i$个数的最小代价。</p>
-<p>根据上面两条，$f(i)=\min{f(i-1)+a_i,f(i-k)+\min{a_j}}(j\in[i-k+1,i])$。</p>
+<p>根据上面两条，$f(i)=\min\{f(i-1)+a_i,f(i-k)+\min\{a_j\}\}(j\in[i-k+1,i])$。</p>
 <p>要维护一个滑动窗口的$\min$，单调队列即可。</p>
 <h2 id="Codeforces505C-Mr-Kitayuta-the-Treasure-Hunter"><a href="#Codeforces505C-Mr-Kitayuta-the-Treasure-Hunter" class="headerlink" title="Codeforces505C Mr. Kitayuta, the Treasure Hunter"></a><a href="https://www.luogu.org/problem/CF505C" target="_blank" rel="noopener">Codeforces505C Mr. Kitayuta, the Treasure Hunter</a></h2><p>大概是观摩一个沙雕网友过多了，从昨天下午起全机房都石乐志。我的智力水平再次刷新下限，已经切不动绿题了。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/luotianyi/吃药.png"></p>
 <p>很自然能想到设$f(i,j)$为跳到位置$i$，上一步跳了$j$步的最大宝藏数。</p>
@@ -811,14 +811,14 @@
 <p>设$f(i)$为跑了$i$个人剩下人的最大高度，搞个背包。</p>
 <h2 id="ZJOI2006-超级麻将"><a href="#ZJOI2006-超级麻将" class="headerlink" title="[ZJOI2006]超级麻将"></a><a href="https://www.luogu.org/problem/P2593" target="_blank" rel="noopener">[ZJOI2006]超级麻将</a></h2><p>设$f(i,j,k,0/1)$为考虑到第$i$张牌，第$i-1$张牌剩余$j$张，第$i-2$张牌剩余$k$张，是否打出过对子，前$i-3$张牌都已打完是否可行。</p>
 <p>先在内部把打$2,3,4$张的情况考虑完：</p>
-<p>$f(i,j,k,0/1)\rightarrow \begin{cases}f(i,j-3,k,0/1)\f(i,j-4,k,0/1)\f(i,j,k-3,0/1)\f(i,j,k-4,0/1)\end{cases}$</p>
-<p>$f(i,j,k,0)\rightarrow\begin{cases}f(i,j-2,k,1)\f(i,j,k-2,1)\end{cases}$</p>
+<p>$f(i,j,k,0/1)\rightarrow \begin{cases}f(i,j-3,k,0/1)\\f(i,j-4,k,0/1)\\f(i,j,k-3,0/1)\\f(i,j,k-4,0/1)\end{cases}$</p>
+<p>$f(i,j,k,0)\rightarrow\begin{cases}f(i,j-2,k,1)\\f(i,j,k-2,1)\end{cases}$</p>
 <p>最后考虑顺子，因为要保证前$i-3$张都打完，$k$是多少就要打多少个顺子：</p>
 <p>$f(i,j,k,0/1)\rightarrow f(i+1,a_i-k,j-k,0/1)$</p>
 <p>需要$DP$到$f(102,j,k,0/1)$，$f(103,0,0,1)$即为答案。</p>
 <h2 id="Codeforces846E-Chemistry-in-Berland"><a href="#Codeforces846E-Chemistry-in-Berland" class="headerlink" title="Codeforces846E Chemistry in Berland"></a><a href="https://www.luogu.org/problem/CF846E" target="_blank" rel="noopener">Codeforces846E Chemistry in Berland</a></h2><p>显然连上边是棵树。$DP$没啥难的，设$f(i)$为点$i$的需求量，$f(i)$为负表示有剩余。</p>
 <p>贪心转移，如果儿子有剩余就全转过来，否则$i$需要给儿子转化。</p>
-<p>$f(i)=a<em>i-b_i+\sum\limits</em>{j\in son(i)}f(j)\times [f(j)<0]+k_j\times f(j)\times[f(j)>0]$</p>
+<p>$f(i)=a_i-b_i+\sum\limits_{j\in son(i)}f(j)\times [f(j)<0]+k_j\times f(j)\times[f(j)>0]$</p>
 <p>判一下$f(1)$是否小于等于$0$就行。</p>
 <p>然而这题很坑的地方是$f$的最大值$n\times a\times k$会爆$long\ long$。</p>
 <p>可以高精，本来$DP$是$O(n)$的压压位没问题。</p>
@@ -829,7 +829,7 @@
 <p>最后把堆里的元素取出来做个前缀和，对每个询问二分出$b_i$最大能抵消到哪儿。为了照顾$DP$所以$n\le 750$，直接$O(nm)$枚举都行。</p>
 <p>比贪心难想还不如贪心优的$DP$做法：</p>
 <p>设$f(i,j)$为$i\sim n$删掉$j$道题最小需要的心情。</p>
-<p>枚举$i$删或不删：$f(i,j)=\min{f(i+1,j-1),\max{f(i+1,j)-a_i,0}}$</p>
+<p>枚举$i$删或不删：$f(i,j)=\min\{f(i+1,j-1),\max\{f(i+1,j)-a_i,0\}\}$</p>
 <p>最后在$f(1,i)$上二分或枚举。</p>
 
             

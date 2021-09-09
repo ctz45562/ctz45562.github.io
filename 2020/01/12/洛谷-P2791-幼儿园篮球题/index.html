@@ -617,15 +617,15 @@
           <p><a href="https://www.luogu.com.cn/problem/P2791" target="_blank" rel="noopener">传送门</a></p>
 <p>把<strong>有气</strong>和<strong>没气</strong>看反结果推了一下午，<del>果然是我对cxk的爱还不够深沉吗</del></p>
 <a id="more"></a>
-<p>枚举投中了球，易知答案为$\dfrac{\sum\limits<em>{i=0}^kC_m^iC</em>{n-m}^{k-i}i^L}{C_n^k}$</p>
+<p>枚举投中了球，易知答案为$\dfrac{\sum\limits_{i=0}^kC_m^iC_{n-m}^{k-i}i^L}{C_n^k}$</p>
 <p>大力搞分子。考虑到$L$相对较小，用第二类斯特林数展开$L$次方：</p>
-<p>$\sum\limits<em>{j=0}^L\begin{Bmatrix}L\j\end{Bmatrix}j!\sum\limits</em>{i=0}^kC<em>i^jC_m^iC</em>{n-m}^{k-i}$</p>
-<p>这里出现了一个经典的等式：$C<em>i^jC_m^i=C_m^jC</em>{m-j}^{i-j}$：</p>
-<p>$=\sum\limits<em>{j=0}^L\begin{Bmatrix}L\j\end{Bmatrix}C_m^jj!\sum\limits</em>{i=0}^kC<em>{m-j}^{i-j}C</em>{n-m}^{k-i}$</p>
+<p>$\sum\limits_{j=0}^L\begin{Bmatrix}L\\j\end{Bmatrix}j!\sum\limits_{i=0}^kC_i^jC_m^iC_{n-m}^{k-i}$</p>
+<p>这里出现了一个经典的等式：$C_i^jC_m^i=C_m^jC_{m-j}^{i-j}$：</p>
+<p>$=\sum\limits_{j=0}^L\begin{Bmatrix}L\\j\end{Bmatrix}C_m^jj!\sum\limits_{i=0}^kC_{m-j}^{i-j}C_{n-m}^{k-i}$</p>
 <p>感觉后面长得很范德蒙，又由于$i\in[0,j-1]$的时候$C_{m-j}^{i-j}$都没有意义，统一把$i$换成$i+j$：</p>
-<p>$=\sum\limits<em>{j=0}^L\begin{Bmatrix}L\j\end{Bmatrix}C_m^jj!\sum\limits</em>{i=0}^{k-j}C<em>{m-j}^iC</em>{n-m}^{k-j-i}$</p>
-<p>大名鼎鼎的范德蒙恒等式就出来了：$\sum\limits<em>{i=0}^{k-j}C</em>{m-j}^iC<em>{n-m}^{k-j-i}=C</em>{n-j}^{k-j}$。</p>
-<p>于是答案就是$\dfrac{\sum\limits<em>{j=0}^L\begin{Bmatrix}L\j\end{Bmatrix}C_m^jC</em>{n-j}^{k-j}j!}{C_n^k}$。</p>
+<p>$=\sum\limits_{j=0}^L\begin{Bmatrix}L\\j\end{Bmatrix}C_m^jj!\sum\limits_{i=0}^{k-j}C_{m-j}^iC_{n-m}^{k-j-i}$</p>
+<p>大名鼎鼎的范德蒙恒等式就出来了：$\sum\limits_{i=0}^{k-j}C_{m-j}^iC_{n-m}^{k-j-i}=C_{n-j}^{k-j}$。</p>
+<p>于是答案就是$\dfrac{\sum\limits_{j=0}^L\begin{Bmatrix}L\\j\end{Bmatrix}C_m^jC_{n-j}^{k-j}j!}{C_n^k}$。</p>
 <p>$NTT$预处理一行第二类斯特林数，每次询问暴力$O(L)$回答，复杂度$O(N+L\log L+SL)$。</p>
 <p>听说有点卡常，把组合数拆开约分一下就好了。<del>不知道为啥吸氧比不吸氧<strong>慢了一倍</strong>。</del></p>
 <p>代码：</p>

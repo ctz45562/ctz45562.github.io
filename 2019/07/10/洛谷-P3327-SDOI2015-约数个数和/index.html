@@ -617,17 +617,17 @@
           <p><a href="https://www.luogu.org/problemnew/show/P3327" target="_blank" rel="noopener">传送门</a></p>
 <p>颓颓颓推式子。</p>
 <a id="more"></a>
-<p>首先有一个玄学的式子：$d(ij)=\sum\limits<em>{a|i}\sum\limits</em>{b|j}[gcd(a,b)=1]$</p>
+<p>首先有一个玄学的式子：$d(ij)=\sum\limits_{a|i}\sum\limits_{b|j}[gcd(a,b)=1]$</p>
 <p>然后就可以推了：（以下默认$n&lt;m$）</p>
-<p>$\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^md(ij)$</p>
-<p>$=\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^m\sum\limits<em>{d|i}\sum\limits</em>{e|j}[gcd(d,e)=1]$</p>
-<p>$=\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^m\sum\limits<em>{d|i}\sum\limits</em>{e|j}\sum\limits_{a|gcd(d,e)}\mu(a)$</p>
-<p>$=\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^m\sum\limits<em>{d|i}\sum\limits</em>{e|j}\sum\limits_{a|d,a|e}\mu(a)$</p>
+<p>$\sum\limits_{i=1}^n\sum\limits_{j=1}^md(ij)$</p>
+<p>$=\sum\limits_{i=1}^n\sum\limits_{j=1}^m\sum\limits_{d|i}\sum\limits_{e|j}[gcd(d,e)=1]$</p>
+<p>$=\sum\limits_{i=1}^n\sum\limits_{j=1}^m\sum\limits_{d|i}\sum\limits_{e|j}\sum\limits_{a|gcd(d,e)}\mu(a)$</p>
+<p>$=\sum\limits_{i=1}^n\sum\limits_{j=1}^m\sum\limits_{d|i}\sum\limits_{e|j}\sum\limits_{a|d,a|e}\mu(a)$</p>
 <p>枚举$a,d,e$：</p>
-<p>$=\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^m\sum\limits<em>{d=1}^n\sum\limits</em>{e=1}^m\sum\limits_{a=1}^n[d|i][e|j][a|d][a|e]\mu(a)$</p>
-<p>$=\sum\limits<em>{a=1}^n\sum\limits</em>{d=1}^n\sum\limits<em>{i=1}^n[d|i]\sum\limits</em>{e=1}^m\sum\limits_{j=1}^m[e|j][a|d][a|e]\mu(a)$</p>
-<p>$=\sum\limits<em>{a=1}^n\sum\limits</em>{d=1}^n\left\lfloor\dfrac{n}{d}\right\rfloor[a|d]\sum\limits_{e=1}^m\left\lfloor\dfrac{m}{e}\right\rfloor[a|e]\mu(a)$</p>
-<p>$=\sum\limits<em>{a=1}^n\sum\limits</em>{d=1}^{\lfloor\frac{n}{a}\rfloor}\left\lfloor\dfrac{n}{ad}\right\rfloor\sum\limits_{e=1}^{\lfloor\frac{m}{a}\rfloor}\left\lfloor\dfrac{m}{ae}\right\rfloor\mu(a)$</p>
+<p>$=\sum\limits_{i=1}^n\sum\limits_{j=1}^m\sum\limits_{d=1}^n\sum\limits_{e=1}^m\sum\limits_{a=1}^n[d|i][e|j][a|d][a|e]\mu(a)$</p>
+<p>$=\sum\limits_{a=1}^n\sum\limits_{d=1}^n\sum\limits_{i=1}^n[d|i]\sum\limits_{e=1}^m\sum\limits_{j=1}^m[e|j][a|d][a|e]\mu(a)$</p>
+<p>$=\sum\limits_{a=1}^n\sum\limits_{d=1}^n\left\lfloor\dfrac{n}{d}\right\rfloor[a|d]\sum\limits_{e=1}^m\left\lfloor\dfrac{m}{e}\right\rfloor[a|e]\mu(a)$</p>
+<p>$=\sum\limits_{a=1}^n\sum\limits_{d=1}^{\lfloor\frac{n}{a}\rfloor}\left\lfloor\dfrac{n}{ad}\right\rfloor\sum\limits_{e=1}^{\lfloor\frac{m}{a}\rfloor}\left\lfloor\dfrac{m}{ae}\right\rfloor\mu(a)$</p>
 <p>设$f(n)=\sum\limits_{i=1}^n\left\lfloor\dfrac{n}{i}\right\rfloor$</p>
 <p>现在我们求的就是$\sum\limits_{a=1}^nf(\left\lfloor\dfrac{n}{a}\right\rfloor)f(\left\lfloor\dfrac{m}{a}\right\rfloor)\mu(a)$</p>
 <p>显然预处理出$f$就可以整除分块了。</p>

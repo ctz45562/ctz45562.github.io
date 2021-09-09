@@ -621,10 +621,10 @@
 <p>统计有序点对$\langle x,y\rangle$个数，满足$x$到$y$路径连成的数字能被$m(\gcd(m,10)=1)$整除。</p>
 </blockquote>
 <p>路径统计显然是点分了。</p>
-<p>记$root$为分治中心，$dep<em>i$为点$i$到$root$的经过的边数，$a</em>{\langle i,j\rangle}$为点$i$到点$j$路径形成的数字模$m$的值。</p>
-<p>则有向路径$\langle i,j\rangle$有贡献的条件为$a<em>{\langle i,root\rangle}+a</em>{\langle root,j\rangle}\times10^{dep_i}\equiv0\pmod m$。</p>
+<p>记$root$为分治中心，$dep_i$为点$i$到$root$的经过的边数，$a_{\langle i,j\rangle}$为点$i$到点$j$路径形成的数字模$m$的值。</p>
+<p>则有向路径$\langle i,j\rangle$有贡献的条件为$a_{\langle i,root\rangle}+a_{\langle root,j\rangle}\times10^{dep_i}\equiv0\pmod m$。</p>
 <p>$\gcd(m,10)=1$，直接把$10^{dep_i}$除掉：</p>
-<p>$a<em>{\langle i,root\rangle}\times10^{-dep_i}+a</em>{\langle root,j\rangle}\equiv0\pmod m$</p>
+<p>$a_{\langle i,root\rangle}\times10^{-dep_i}+a_{\langle root,j\rangle}\equiv0\pmod m$</p>
 <p>处理波$10^a$的逆元开个<code>map</code>存$a_{\langle i,root\rangle}\times 10^{-dep_i}$就行了。</p>
 <p>不知道为啥<code>unordered_map</code>$T$了。</p>
 <p>代码：</p>

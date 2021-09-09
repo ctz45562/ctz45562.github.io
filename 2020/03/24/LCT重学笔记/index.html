@@ -757,8 +757,8 @@ void link(int x,int y){
 <h1 id="水题"><a href="#水题" class="headerlink" title="水题"></a>水题</h1><p><a href="/tags/LCT/">现在已经不会了的题</a></p>
 <h2 id="由乃的OJ"><a href="#由乃的OJ" class="headerlink" title="由乃的OJ"></a><a href="https://www.luogu.com.cn/problem/P5354" target="_blank" rel="noopener">由乃的OJ</a></h2><p>和<a href="https://www.luogu.com.cn/problem/P2114" target="_blank" rel="noopener">起床困难综合征</a>完全一致，维护全$0$和全$1$经过链变成什么。从高位到低位贪心，能填$0$就填$0$。</p>
 <p>至于怎么维护，用$z_x$和$o_x$分别表示全$0$和全$1$经过$x$子树代表的链后的结果（从左子树走到右子树）。先把左儿子和$x$合并起来，分别记为$lz,lo$。再用$\&amp;$分别提取出$0$位和$1$位，和右儿子合并。</p>
-<p>$z<em>x=((\sim lz)\&amp;z</em>{rs(x)})|(lz\&amp;o_{rs(x)})$</p>
-<p>$o<em>x=((\sim lo)\&amp;z</em>{rs(x)})|(lo\&amp;o_{rs(x)})$</p>
+<p>$z_x=((\sim lz)\&amp;z_{rs(x)})|(lz\&amp;o_{rs(x)})$</p>
+<p>$o_x=((\sim lo)\&amp;z_{rs(x)})|(lo\&amp;o_{rs(x)})$</p>
 <p>因为要翻转，还要维护从右子树走到左子树的结果。</p>
 <h2 id="在美妙的数学王国中畅游"><a href="#在美妙的数学王国中畅游" class="headerlink" title="在美妙的数学王国中畅游"></a><a href="https://www.luogu.com.cn/problem/P4546" target="_blank" rel="noopener">在美妙的数学王国中畅游</a></h2><p><a href="/2020/03/28/洛谷-P4546-THUWC2017-在美妙的数学王国中畅游/">题解</a></p>
 <h2 id="首都"><a href="#首都" class="headerlink" title="首都"></a><a href="https://www.luogu.com.cn/problem/P4299" target="_blank" rel="noopener">首都</a></h2><p>动态维护树的重心。</p>

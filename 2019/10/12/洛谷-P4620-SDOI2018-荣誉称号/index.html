@@ -621,7 +621,7 @@
 <p><del>虽然这个题不难</del></p>
 <a id="more"></a>
 <p>向下取整满足结合律（并不知道为啥，<del><a href="https://www.cnblogs.com/asuldb" target="_blank" rel="noopener">asuldb</a>说这很显然</del>）。然后把那个鬼畜的条件拆开（懒得打向下取整了）：</p>
-<p>$a<em>{x/2}+a</em>{x/2/2}+a_{x/2/2/2}+…\equiv 0 \pmod m$</p>
+<p>$a_{x/2}+a_{x/2/2}+a_{x/2/2/2}+…\equiv 0 \pmod m$</p>
 <p>如果连上边数列就会变成这个样子：</p>
 <p><img src="\images\荣誉称号-1.png" alt=""></p>
 <p>很明显构成了一棵完全二叉树。这个条件就能转化为<strong>从任意点出发，向下延伸包含$k+1$个点的路径权值和模$m$等于$0$</strong>。</p>
@@ -629,13 +629,13 @@
 <p>$a_1+a_2+a_4\equiv 0\pmod m$</p>
 <p>$a_2+a_4+a_8\equiv 0\pmod m$</p>
 <p>$\therefore a_1\equiv a_8\pmod m$</p>
-<p>同理，$a<em>1\equiv a_9\equiv a</em>{10}\equiv…a<em>{15}$，$a_2\equiv a</em>{16}\equiv a<em>{17}\equiv … a</em>{23}\pmod m$</p>
+<p>同理，$a_1\equiv a_9\equiv a_{10}\equiv…a_{15}$，$a_2\equiv a_{16}\equiv a_{17}\equiv … a_{23}\pmod m$</p>
 <p>也就是说每个点与其子树内向下第$k+1$层的点最终的权值相等。</p>
 <p>这样只要前$k+1$层的路径满足模$m$等于$0$，下面的所有路径就都满足。$DP$的时候要考虑的点数直接降到$2^{k+1}$个。</p>
 <p>设$f(i,j)$为点$i$向下延伸至$k+1$层路径权值和模$m$为$j$的最小花费。</p>
 <p>$O(n+m^22^{k+1})$预处理一个$v(i,j)$表示将点$i$以及与它相等的点权值全部改为$j$的花费。</p>
 <p>直接枚举左右儿子的路径权值转移：</p>
-<p>$f(i,j)=\min{f(i&lt;&lt;1,k)+f(i&lt;&lt;1|1,k)+v(i,(j-k+m)\%m)}$</p>
+<p>$f(i,j)=\min\{f(i&lt;&lt;1,k)+f(i&lt;&lt;1|1,k)+v(i,(j-k+m)\%m)\}$</p>
 <p>从$2^{k+1}$开始倒着$DP$，答案就是$f(1,0)$。复杂度$O(Tn+Tm^22^{k+1})$。</p>
 <p>代码：</p>
 <pre><code class="lang-cpp">#include &lt;iostream&gt;

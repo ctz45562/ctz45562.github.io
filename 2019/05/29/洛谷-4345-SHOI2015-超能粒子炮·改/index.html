@@ -619,9 +619,9 @@
 <a id="more"></a>
 <p>设$f(n,k)=\sum\limits_{i=0}^kC_n^i$</p>
 <p>套上卢卡斯：</p>
-<p>$f(n,k)=\sum\limits<em>{i=0}^kC</em>{n/p}^{i/p}C_{n\% p}^{i\% p}$</p>
+<p>$f(n,k)=\sum\limits_{i=0}^kC_{n/p}^{i/p}C_{n\% p}^{i\% p}$</p>
 <p>$i$每增长$p$，$i/p$才会加$1$。把$C_{n/p}^{i/p}$拆出来：</p>
-<p>$=\left(\sum\limits<em>{i=0}^{k/p-1}C</em>{n/p}^i\sum\limits<em>{j=0}^{p-1}C</em>{n\% p}^{j}\right)+C<em>{n/p}^{k/p}\sum\limits</em>{i=0}^{k\% p}C_{n\% p}^{i}$</p>
+<p>$=\left(\sum\limits_{i=0}^{k/p-1}C_{n/p}^i\sum\limits_{j=0}^{p-1}C_{n\% p}^{j}\right)+C_{n/p}^{k/p}\sum\limits_{i=0}^{k\% p}C_{n\% p}^{i}$</p>
 <p>$=f(n/p,k/p-1)f(n\% p,p-1)+C_{n/p}^{k/p}f(n\% p,k\% p)$</p>
 <p>$f$相当于是组合数的前缀和，$O(p^2)$预处理$0\sim p-1$的$f$，递归计算$f(n/p,k/p-1)$，$C_{n/p}^{k/p}$用卢卡斯计算即可。</p>
 <p>注意特判递归时$k&lt;0$的情况。</p>

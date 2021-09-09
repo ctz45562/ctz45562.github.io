@@ -695,7 +695,7 @@ void mul(int *a,int *b,int *c,int n,int lim){//长度为n的多项式a和b相乘
 </code></pre>
 <h2 id="泰勒公式"><a href="#泰勒公式" class="headerlink" title="泰勒公式"></a>泰勒公式</h2><p>用多项式来拟合函数：</p>
 <p>若$f(x)$在$x_0$处可$n$阶导，有：</p>
-<p>$f(x)=R<em>n(x)+\sum\limits</em>{i=0}^n\dfrac{f^{(i)}(x_0)}{i!}(x-x_0)^i$</p>
+<p>$f(x)=R_n(x)+\sum\limits_{i=0}^n\dfrac{f^{(i)}(x_0)}{i!}(x-x_0)^i$</p>
 <p>其中$f^{(i)}(x)$表示$i$阶导数，$R_n(x)$是余项（毕竟拟合是有误差的）</p>
 <p>若能无限求导，有：</p>
 <p>$f(x)=\sum\limits_{i=0}^\infty \dfrac{f^{(i)}(x_0)}{i!}(x-x_0)^i$</p>
@@ -907,8 +907,8 @@ void div(int *f,int *g,int n,int m,int *d,int *mo){//f=d*g+mo
 <p>那么将两个多项式相乘会发生什么？</p>
 <p>考虑一个多项式的某一项$a_ix^i$和另一个多项式的某一项$a_jx^j$的贡献，指数$i,j$相加，表示了状态$i+j$；系数$a_i,a_j$相乘，是乘法原理，即达到状态$i+j$的方案数；而每一个$x^{i+j}$的系数$a_ia_j$加起来，又是加法原理。最终得到的新多项式就是用这两种方式的方案情况！</p>
 <p>所以，将$4$个多项式乘起来，取$n$次项就是答案。</p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>对一个数列${a<em>i}$，其普通生成函数（$OGF$）为$\sum\limits</em>{i=0}^\infty a<em>ix^i$，指数生成函数（$EGF$）为$\sum\limits</em>{i=0}^\infty \dfrac{a_i}{i!}x^i$。</p>
-<p>比如说数列${1,1,1,1…}$的生成函数为$\sum\limits_{i=0}^\infty x^i$。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>对一个数列$\{a_i\}$，其普通生成函数（$OGF$）为$\sum\limits_{i=0}^\infty a_ix^i$，指数生成函数（$EGF$）为$\sum\limits_{i=0}^\infty \dfrac{a_i}{i!}x^i$。</p>
+<p>比如说数列$\{1,1,1,1…\}$的生成函数为$\sum\limits_{i=0}^\infty x^i$。</p>
 <p>我们发现这其实是一个等比数列求和，等于$\dfrac{1-x^\infty}{1-x}$。根据引入部分，这个$x$其实没啥意义。如果给$x$代一个$(-1,1)$的数，$x^\infty$趋近于$0$，这个式子就为$\dfrac{1}{1-x}$。</p>
 <p>普通生成函数，一般用于无标号计数问题。而指数生成函数一般用于有标号计数问题。这个很好理解，因为有标号的除以$n!$就成为无标号问题了。</p>
 <p>一些常见的生成函数：</p>
@@ -917,14 +917,14 @@ void div(int *f,int *g,int n,int m,int *d,int *mo){//f=d*g+mo
 <li>$\sum\limits_{n=0}^\infty x^{dn}=\dfrac{1}{1-x^d}$</li>
 <li>$\sum\limits_{n=0}^\infty c^nx^n=\dfrac{1}{1-cx}$</li>
 <li>$\sum\limits_{n=0}^\infty C_k^nx^n=(x+1)^k$</li>
-<li>$\sum\limits<em>{n=0}^\infty C</em>{n+k-1}^{k-1}x^n=\dfrac{1}{(1-x)^k}$。（广义二项式定理）</li>
+<li>$\sum\limits_{n=0}^\infty C_{n+k-1}^{k-1}x^n=\dfrac{1}{(1-x)^k}$。（广义二项式定理）</li>
 <li>$\sum\limits_{n=0}^\infty \dfrac{c^nx^n}{n!}=e^{cx}$（泰勒公式）</li>
 <li>$\sum\limits_{n=1}^\infty \dfrac{c^nx^{dn}}{n}=\ln\left(\dfrac{1}{1-cx^d}\right)$</li>
 </ul>
-<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="推导通项公式"><a href="#推导通项公式" class="headerlink" title="推导通项公式"></a>推导通项公式</h3><h4 id="序"><a href="#序" class="headerlink" title="序"></a>序</h4><p>有$k$个非负变量$x<em>i$，求满足$\sum\limits</em>{i=1}^kx_i=n$的方案数。</p>
-<p>考虑生成函数做法，因为$x<em>i\in[0,n]$，所以它对应的数列就是${1,1,1\dots}$，构造生成函数$\sum\limits</em>{i=0}^nx^i=\dfrac{1}{1-x}$，乘$k$次就是每个$n$的方案数的生成函数，即$\dfrac{1}{(1-x)^k}$。</p>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="推导通项公式"><a href="#推导通项公式" class="headerlink" title="推导通项公式"></a>推导通项公式</h3><h4 id="序"><a href="#序" class="headerlink" title="序"></a>序</h4><p>有$k$个非负变量$x_i$，求满足$\sum\limits_{i=1}^kx_i=n$的方案数。</p>
+<p>考虑生成函数做法，因为$x_i\in[0,n]$，所以它对应的数列就是$\{1,1,1\dots\}$，构造生成函数$\sum\limits_{i=0}^nx^i=\dfrac{1}{1-x}$，乘$k$次就是每个$n$的方案数的生成函数，即$\dfrac{1}{(1-x)^k}$。</p>
 <p>我们只要找出这个生成函数对应数列就能知道答案。</p>
-<p>根据前文，$\dfrac{1}{(1-x)^k}=\sum\limits<em>{i=0}^\infty C</em>{i+k-1}^{k-1}x^i$。</p>
+<p>根据前文，$\dfrac{1}{(1-x)^k}=\sum\limits_{i=0}^\infty C_{i+k-1}^{k-1}x^i$。</p>
 <p>于是得到答案为$C_{n+k-1}^{k-1}$。实际上这和插板法得到的是一样的。</p>
 <h4 id="简单的例题"><a href="#简单的例题" class="headerlink" title="简单的例题"></a><a href="https://www.luogu.com.cn/problem/P2000" target="_blank" rel="noopener">简单的例题</a></h4><p>直接根据题意构造$10$个生成函数就好了：</p>
 <ul>
@@ -933,12 +933,12 @@ void div(int *f,int *g,int n,int m,int *d,int *mo){//f=d*g+mo
 <li>$\dots$</li>
 </ul>
 <p>把这些乘起来，化简得到$\dfrac{1}{(1-x)^5}$。再把这个生成函数还原成数列。</p>
-<p>$\dfrac{1}{(1-x)^5}=\sum\limits<em>{n=0}^\infty C</em>{n+4}^4x^n$</p>
+<p>$\dfrac{1}{(1-x)^5}=\sum\limits_{n=0}^\infty C_{n+4}^4x^n$</p>
 <p>第$n$项就是答案，即$C_{n+4}^4=\dfrac{(n+1)(n+2)(n+3)(n+4)}{24}$。</p>
 <p>只要套个高精就行了<span class="spoiler">事实上不久之前这个题缩短时限把python卡掉了，涉及到100000位的高精乘高精你还要写个FFT/NTT</span></p>
 <h4 id="斐波那契数列通项公式"><a href="#斐波那契数列通项公式" class="headerlink" title="斐波那契数列通项公式"></a>斐波那契数列通项公式</h4><p>上面这些没啥意思，我们试试用生成函数推导斐波那契数列的通项公式。</p>
-<p>定义斐波那契数列$fib<em>0=0,fib_1=1,fib_i=fib</em>{i-1}+fib_{i-2}$。</p>
-<p>令${fib<em>n}$的$OGF$为$F(x)=\sum\limits</em>{n=0}^\infty fib_nx^n$.</p>
+<p>定义斐波那契数列$fib_0=0,fib_1=1,fib_i=fib_{i-1}+fib_{i-2}$。</p>
+<p>令$\{fib_n\}$的$OGF$为$F(x)=\sum\limits_{n=0}^\infty fib_nx^n$.</p>
 <p>根据斐波那契数列的递推式，可以考虑<strong>错位相减法</strong>。乘上$x$就能使数列平移一位。</p>
 <p>$\ \ \ F(x)=fib_1x^1+fib_2x^2+fib_3x^3\dots$</p>
 <p>$\ xF(x)=0\qquad\ +fib_1x^2+fib_2x^3\dots$</p>
@@ -948,20 +948,20 @@ void div(int *f,int *g,int n,int m,int *d,int *mo){//f=d*g+mo
 <p>这玩意看不透它的数列，考虑转化为常见的形式：</p>
 <p>设$\dfrac{x}{1-x-x^2}=\dfrac{A}{1-ax}+\dfrac{B}{1-bx}$</p>
 <p>相加肯定是要通分的，看分母，有$1-x-x^2=(1-ax)(1-bx)=abx^2-(a+b)x+1$</p>
-<p>系数分别相同，有$\begin{cases}ab=-1\a+b=1\end{cases}$</p>
+<p>系数分别相同，有$\begin{cases}ab=-1\\a+b=1\end{cases}$</p>
 <p>解得$a=\dfrac{1+\sqrt5}{2},b=\dfrac{1-\sqrt5}{2}$。</p>
 <p>代回去看分子：$A(1-bx)+B(1-ax)=A+B-\dfrac{(1-\sqrt5)Ax}{2}-\dfrac{(1+\sqrt5)Bx}{2}=x$</p>
-<p>还是看相同的系数，得出$\begin{cases}A+B=0\ -\dfrac{(1-\sqrt5)A}{2}-\dfrac{(1+\sqrt5)B}{2}=1\end{cases}$</p>
+<p>还是看相同的系数，得出$\begin{cases}A+B=0\\ -\dfrac{(1-\sqrt5)A}{2}-\dfrac{(1+\sqrt5)B}{2}=1\end{cases}$</p>
 <p>解得$A=\dfrac{1}{\sqrt5},B=-\dfrac{1}{\sqrt5}$</p>
 <p>回到最初的目的，$\dfrac{x}{1-x-x^2}=\dfrac{1}{\sqrt5}\left[\dfrac{1}{1-(\frac{1+\sqrt5}{2})x}-\dfrac{1}{1-(\frac{1-\sqrt5}{2})x}\right]$</p>
 <p>我们知道，$\dfrac{1}{1-ax}=\sum\limits_{n=0}^\infty a^nx^n$</p>
 <p>于是斐波那契数列生成函数为$\sum\limits_{n=0}^\infty\frac{1}{\sqrt5}\left[(\frac{1+\sqrt5}{2})^n-(\frac{1-\sqrt5}{2})^n\right]x^n$</p>
 <p>就能得到$fib_n=\frac{1}{\sqrt5}\left[(\frac{1+\sqrt5}{2})^n-(\frac{1-\sqrt5}{2})^n\right]$</p>
 <h4 id="卡特兰数通项公式"><a href="#卡特兰数通项公式" class="headerlink" title="卡特兰数通项公式"></a>卡特兰数通项公式</h4><p>我不是鸽子！我来<del>抄</del>推卡特兰数通项辣！</p>
-<p>卡特兰数的定义式为$c<em>0=1,c_n=\sum\limits</em>{i=0}^{n-1}c<em>ic</em>{n-1-i}$。看起来很卷积。</p>
-<p>令$F(x)$为${c_n}$的生成函数。</p>
+<p>卡特兰数的定义式为$c_0=1,c_n=\sum\limits_{i=0}^{n-1}c_ic_{n-1-i}$。看起来很卷积。</p>
+<p>令$F(x)$为$\{c_n\}$的生成函数。</p>
 <p>$F=\sum\limits_{n=0}^\infty c_nx^n$</p>
-<p>$=\sum\limits<em>{n=0}^\infty x^n\left([n=0]+\sum\limits</em>{i=1}^{n-1}c<em>ic</em>{n-1-i}\right)$</p>
+<p>$=\sum\limits_{n=0}^\infty x^n\left([n=0]+\sum\limits_{i=1}^{n-1}c_ic_{n-1-i}\right)$</p>
 <p>$=1+xF^2$</p>
 <p>解一元二次方程，$F=\dfrac{1\pm\sqrt{1-4x}}{2x}$</p>
 <p>诶？这咋有个$\pm$啊？</p>
@@ -972,7 +972,7 @@ void div(int *f,int *g,int n,int m,int *d,int *mo){//f=d*g+mo
 <p>然后开始抄<del>rqy</del>铃悬的博客：</p>
 <p>根据广义二项式定理展开$\sqrt{1-4x}$</p>
 <p>$(1-4x)^{\frac{1}{2}}$</p>
-<p>$=\sum\limits<em>{n=0}^\infty C</em>{\frac{1}{2}}^n(-4x)^n$</p>
+<p>$=\sum\limits_{n=0}^\infty C_{\frac{1}{2}}^n(-4x)^n$</p>
 <p>$=1+\sum\limits_{n=1}^\infty\dfrac{\frac{1}{2}(-\frac{1}{2})(-\frac{3}{2})\dots(\frac{3}{2}-n)}{n!}(-4x)^n$</p>
 <p>$=1+\sum\limits_{n=1}^\infty\dfrac{(-1)(-3)\dots(3-2n)}{n!}(-2x)^n$</p>
 <p>$=1-\sum\limits_{n=1}^\infty\dfrac{1\times3\times\dots(2n-3)}{n!}(2x)^n$</p>
@@ -984,14 +984,14 @@ void div(int *f,int *g,int n,int m,int *d,int *mo){//f=d*g+mo
 <p>$=\dfrac{\sum\limits_{n=1}^\infty\dfrac{(2n-2)!}{(n-1)!n!}2x^n}{2x}$</p>
 <p>$=\sum\limits_{n=1}^\infty\dfrac{(2n-2)!}{n!(n-1)!}x^{n-1}$</p>
 <p>$=\sum\limits_{n=0}^\infty\dfrac{(2n)!}{(n+1)!n!}x^n$</p>
-<p>$=\sum\limits<em>{n=0}^\infty\dfrac{C</em>{2n}^n}{n+1}x^n$</p>
-<p>于是得出卡特兰数通项公式为$c<em>n=\dfrac{C</em>{2n}^n}{n+1}$</p>
+<p>$=\sum\limits_{n=0}^\infty\dfrac{C_{2n}^n}{n+1}x^n$</p>
+<p>于是得出卡特兰数通项公式为$c_n=\dfrac{C_{2n}^n}{n+1}$</p>
 <h3 id="结合多项式"><a href="#结合多项式" class="headerlink" title="结合多项式"></a>结合多项式</h3><p><a href="https://www.luogu.com.cn/problem/CF438E" target="_blank" rel="noopener">例题</a></p>
 <p>设$f(n)$为权值为$n$的神犇二叉树数量。</p>
-<p>枚举根、左右儿子的权值，$f(0)=1,f(n)=\sum\limits<em>{i=1}^n[i\in C]\sum\limits</em>{j=0}^{n-i}f(j)f(n-i-j)$</p>
+<p>枚举根、左右儿子的权值，$f(0)=1,f(n)=\sum\limits_{i=1}^n[i\in C]\sum\limits_{j=0}^{n-i}f(j)f(n-i-j)$</p>
 <p>后面那个看起来很卷积很多项式。</p>
-<p>令${a<em>n=[n\in C]}$的$OGF$为$G(x)=\sum\limits</em>{n=0}^\infty[n\in C]x^n$，${f(n)}$的$OGF$为$F(x)\sum\limits_{n=0}^\infty f(n)x^n$</p>
-<p>$F(x)=\sum\limits<em>{n=0}^\infty x^n\left([n=0]+\sum\limits</em>{i=1}^n[i\in C]\sum\limits_{j=0}^{n-i}f(i)f(n-i-j)\right)$</p>
+<p>令$\{a_n=[n\in C]\}$的$OGF$为$G(x)=\sum\limits_{n=0}^\infty[n\in C]x^n$，$\{f(n)\}$的$OGF$为$F(x)\sum\limits_{n=0}^\infty f(n)x^n$</p>
+<p>$F(x)=\sum\limits_{n=0}^\infty x^n\left([n=0]+\sum\limits_{i=1}^n[i\in C]\sum\limits_{j=0}^{n-i}f(i)f(n-i-j)\right)$</p>
 <p>于是有$F=1+GF^2$。</p>
 <p>解这个一元二次方程得$F=\dfrac{1\pm\sqrt{1-4G}}{2G}$。</p>
 <p>$G(0)=0,F(0)=1$，令$x=0$，计算可知取减号。</p>
@@ -1004,8 +1004,8 @@ void div(int *f,int *g,int n,int m,int *d,int *mo){//f=d*g+mo
 <h1 id="水题"><a href="#水题" class="headerlink" title="水题"></a>水题</h1><h2 id="整数的lqp拆分"><a href="#整数的lqp拆分" class="headerlink" title="整数的lqp拆分"></a><a href="https://www.luogu.com.cn/problem/P4451" target="_blank" rel="noopener">整数的lqp拆分</a></h2><p>设$f(n)$为答案。</p>
 <p><del>根据打表可知f(n)=2f(n-1)+f(n-2)，高精矩乘应该能过</del></p>
 <p>显然有$f(0)=1,f(n)=\sum\limits_{i=1}^nfib(i)f(n-i)$</p>
-<p>设${fib(i)}$的$OGF$为$G(x)=\sum\limits<em>{n=0}^\infty fib(n)x^n$（不要在意为什么是$G$），${f(i)}$的$OGF$为$F(x)=\sum\limits</em>{n=0}^\infty f(n)x^n$</p>
-<p>$F(x)=\sum\limits<em>{n=0}^\infty x^n\left([n=0]+\sum\limits</em>{i=1}^nfib(i)f(n-i)\right)$</p>
+<p>设$\{fib(i)\}$的$OGF$为$G(x)=\sum\limits_{n=0}^\infty fib(n)x^n$（不要在意为什么是$G$），$\{f(i)\}$的$OGF$为$F(x)=\sum\limits_{n=0}^\infty f(n)x^n$</p>
+<p>$F(x)=\sum\limits_{n=0}^\infty x^n\left([n=0]+\sum\limits_{i=1}^nfib(i)f(n-i)\right)$</p>
 <p>$F=1+F\times G$</p>
 <p>$F=\dfrac{1}{1-G}$</p>
 <p>根据前文，$G(x)=\dfrac{x}{1-x-x^2}$</p>
@@ -1021,33 +1021,33 @@ void div(int *f,int *g,int n,int m,int *d,int *mo){//f=d*g+mo
 <h2 id="ZJL的妹子序列"><a href="#ZJL的妹子序列" class="headerlink" title="ZJL的妹子序列"></a><a href="https://www.luogu.com.cn/problem/T46780" target="_blank" rel="noopener">ZJL的妹子序列</a></h2><p>一句话题意：求恰好有$k$对逆序对的$1\sim n$排列数。$n,k\le 10^5$。</p>
 <p>和「付公主的背包」挺像的。设$f(i,j)$为恰有$j$对逆序对的$1\sim i$排列数。</p>
 <p>$f(i,0)=1,f(i,j)=\sum\limits_{k=0}^{i-1}f(i-1,j-k)$</p>
-<p>令${f(i)}$的普通生成函数为$F_i(x)$。</p>
-<p>$F<em>i=\sum\limits</em>{n=0}^\infty f(i,n)x^n$</p>
-<p>$=\sum\limits<em>{n=0}^\infty x^n\sum\limits</em>{j=0}^{i-1}f(i-1,n-j)$</p>
-<p>$=\sum\limits<em>{j=0}^{i-1}x^jF</em>{i-1}$</p>
-<p>$\dfrac{F<em>i}{F</em>{i-1}}=\dfrac{1-x^i}{1-x}$</p>
-<p>累乘得到$F<em>n=F_0\prod\limits</em>{i=1}^n\dfrac{1-x^i}{1-x}$</p>
+<p>令$\{f(i)\}$的普通生成函数为$F_i(x)$。</p>
+<p>$F_i=\sum\limits_{n=0}^\infty f(i,n)x^n$</p>
+<p>$=\sum\limits_{n=0}^\infty x^n\sum\limits_{j=0}^{i-1}f(i-1,n-j)$</p>
+<p>$=\sum\limits_{j=0}^{i-1}x^jF_{i-1}$</p>
+<p>$\dfrac{F_i}{F_{i-1}}=\dfrac{1-x^i}{1-x}$</p>
+<p>累乘得到$F_n=F_0\prod\limits_{i=1}^n\dfrac{1-x^i}{1-x}$</p>
 <p>$F_0=1$就不要了。还是通过取对数转乘为加：</p>
-<p>$F<em>n=\exp\sum\limits</em>{i=1}^n\ln\dfrac{1-x^i}{1-x}$</p>
+<p>$F_n=\exp\sum\limits_{i=1}^n\ln\dfrac{1-x^i}{1-x}$</p>
 <p>$=\exp\sum\limits_{i=1}^n\left(\ln\dfrac{1}{1-x}-\ln\dfrac{1}{1-x^i}\right)$</p>
-<p>$=\exp\sum\limits<em>{i=1}^n\left(\sum\limits</em>{k=1}^\infty\dfrac{x^k}{k}-\sum\limits_{k=1}^\infty\dfrac{x^{ik}}{k}\right)$</p>
-<p>$=\exp\left(\sum\limits<em>{k=1}^\infty\dfrac{n}{k}x^k-\sum\limits</em>{i=1}^n\sum\limits_{k=1}^\infty\dfrac{x^{ik}}{k}\right)$</p>
+<p>$=\exp\sum\limits_{i=1}^n\left(\sum\limits_{k=1}^\infty\dfrac{x^k}{k}-\sum\limits_{k=1}^\infty\dfrac{x^{ik}}{k}\right)$</p>
+<p>$=\exp\left(\sum\limits_{k=1}^\infty\dfrac{n}{k}x^k-\sum\limits_{i=1}^n\sum\limits_{k=1}^\infty\dfrac{x^{ik}}{k}\right)$</p>
 <p>枚举倍数构造多项式再$\exp$回来即可，$O(n\log k)$的。</p>
 <h2 id="射命丸文的笔记"><a href="#射命丸文的笔记" class="headerlink" title="射命丸文的笔记"></a><a href="https://www.luogu.com.cn/problem/P4233" target="_blank" rel="noopener">射命丸文的笔记</a></h2><p>和「城市规划」差不多。</p>
 <p><a href="/2020/01/10/洛谷-P4233-射命丸文的笔记">题解</a></p>
-<h2 id="玩游戏"><a href="#玩游戏" class="headerlink" title="玩游戏"></a><a href="https://www.luogu.com.cn/problem/P4705" target="_blank" rel="noopener">玩游戏</a></h2><p>答案为$\dfrac{\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^m(a_i+b_j)^k}{nm}$，只考虑分子。</p>
+<h2 id="玩游戏"><a href="#玩游戏" class="headerlink" title="玩游戏"></a><a href="https://www.luogu.com.cn/problem/P4705" target="_blank" rel="noopener">玩游戏</a></h2><p>答案为$\dfrac{\sum\limits_{i=1}^n\sum\limits_{j=1}^m(a_i+b_j)^k}{nm}$，只考虑分子。</p>
 <p>用二项式定理展开：</p>
-<p>$\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^m(a_i+b_j)^k$</p>
-<p>$=\sum\limits<em>{x=0}^k\sum\limits</em>{i=1}^n\sum\limits_{j=1}^mC_k^xa_i^xb_i^{k-x}$</p>
-<p>$=k!\sum\limits<em>{x=0}^k\dfrac{\sum\limits</em>{i=1}^na<em>i^x}{x!}\dfrac{\sum\limits</em>{j=1}^mb_j^{k-x}}{(k-x)!}$</p>
+<p>$\sum\limits_{i=1}^n\sum\limits_{j=1}^m(a_i+b_j)^k$</p>
+<p>$=\sum\limits_{x=0}^k\sum\limits_{i=1}^n\sum\limits_{j=1}^mC_k^xa_i^xb_i^{k-x}$</p>
+<p>$=k!\sum\limits_{x=0}^k\dfrac{\sum\limits_{i=1}^na_i^x}{x!}\dfrac{\sum\limits_{j=1}^mb_j^{k-x}}{(k-x)!}$</p>
 <p>搞出来$3$个$EGF$卷一下就好了，问题是怎么求$\sum\limits_{i=1}^na_i^k$。</p>
-<p>先把${a<em>i^k}$写成生成函数：$\sum\limits</em>{k=1}^\infty a_i^kx^k=\dfrac{1}{1-a_ix}$。</p>
-<p>那么$\left{\sum\limits<em>{i=1}^na_i^k\right}$的生成函数$F(x)$就是这$n$个生成函数的和，即$F(x)=\sum\limits</em>{i=1}^n\dfrac{1}{1-a_ix}$。</p>
+<p>先把$\{a_i^k\}$写成生成函数：$\sum\limits_{k=1}^\infty a_i^kx^k=\dfrac{1}{1-a_ix}$。</p>
+<p>那么$\left\{\sum\limits_{i=1}^na_i^k\right\}$的生成函数$F(x)$就是这$n$个生成函数的和，即$F(x)=\sum\limits_{i=1}^n\dfrac{1}{1-a_ix}$。</p>
 <p>令$G(x)=\sum\limits_{i=1}^n\dfrac{-a_i}{1-a_ix}$。</p>
 <p>接下来变魔术：</p>
 <p>$F(x)=n+\sum\limits_{i=1}^n\dfrac{1-1+a_ix}{1-a_ix}=-xG(x)+n$</p>
 <p>现在要求$G(x)$。发现$\ln’(1-a_ix)=\dfrac{-a_i}{1-a_ix}$。</p>
-<p>于是$G(x)=\sum\limits<em>{i=1}^n\ln’(1-a_ix)=\ln’\left(\prod\limits</em>{i=1}^n(1-a<em>ix)\right)=\dfrac{\left(\prod\limits</em>{i=1}^n(1-a<em>ix)\right)’}{\prod\limits</em>{i=1}^n(1-a_ix)}$</p>
+<p>于是$G(x)=\sum\limits_{i=1}^n\ln’(1-a_ix)=\ln’\left(\prod\limits_{i=1}^n(1-a_ix)\right)=\dfrac{\left(\prod\limits_{i=1}^n(1-a_ix)\right)’}{\prod\limits_{i=1}^n(1-a_ix)}$</p>
 <p>这个连乘用分治求。将两边区间的结果$NTT$乘起来。复杂度为$T(n)=2T(\frac{n}{2})+O(n\log n)=O(n\log^2n)$。 最后还原上面的推导。</p>
 <p>终于做完了。。。<img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.4/emojis/menhera/73.jpg" class="emoji-coda" alt="" style="vertical-align:middle;height:60px;width:auto;margin-top:-10px"></p>
 <p><del>然后发现我是真的真的真的写不动，那就光嘴巴好了</del></p>

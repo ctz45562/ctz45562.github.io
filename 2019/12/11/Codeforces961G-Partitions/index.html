@@ -618,16 +618,16 @@
 <p><strong>「有生之年」系列节目之——跟活的成爷一起上数学课</strong><img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/xiaodianshi/taitaixihuan.png"></p>
 <a id="more"></a>
 <p>考虑每个物品的贡献。枚举该物品在所在的集合大小，易得答案为：</p>
-<p>$\sum\limits<em>{s=1}^nw_s\sum\limits</em>{i=1}^niC_{n-1}^{i-1}\begin{Bmatrix}n-i\k-1\end{Bmatrix}$</p>
+<p>$\sum\limits_{s=1}^nw_s\sum\limits_{i=1}^niC_{n-1}^{i-1}\begin{Bmatrix}n-i\\k-1\end{Bmatrix}$</p>
 <p>求出单列第二类斯特林数就行了。再考察一下模数。</p>
 <p>$10^9+7$，好的不是$NTT$模数呢<del>而且我也不会求单列第二类斯特林数</del></p>
 <p>于是开始<del>抄题解</del>推式子，暴力用第二类斯特林数通项公式展开：</p>
-<p>$\sum\limits<em>{i=1}^niC</em>{n-1}^{i-1}\begin{Bmatrix}n-i\k-1\end{Bmatrix}$</p>
-<p>$=\sum\limits<em>{j=0}^{k-1}\sum\limits</em>{i=1}^niC_{n-1}^{i-1}\dfrac{(-1)^j(k-1-j)^{n-i}}{j!(k-1-j)!}$</p>
-<p>$=\sum\limits<em>{j=0}^{k-1}\dfrac{(-1)^j}{j!(k-1-j)!}\sum\limits</em>{i=1}^n(i-1+1)C_{n-1}^{i-1}(k-1-j)^{n-i}$</p>
-<p>$=\sum\limits<em>{j=0}^{k-1}\dfrac{(-1)^j}{j!(k-1-j)!}\left(\sum\limits</em>{i=1}^n(i-1)C<em>{n-1}^{i-1}(k-1-j)^{n-i}+\sum\limits</em>{i=1}^nC_{n-1}^{i-1}(k-1-j)^{n-i}\right)$</p>
-<p>根据$mC<em>n^m=nC</em>{n-1}^{m-1}$和二项式定理，有：</p>
-<p>$=\sum\limits<em>{j=0}^{k-1}\dfrac{(-1)^j}{j!(k-1-j)!}\left((n-1)\sum\limits</em>{i=1}^nC_{n-2}^{i-2}(k-1-j)^{n-i}+(k-j)^{n-1}\right)$</p>
+<p>$\sum\limits_{i=1}^niC_{n-1}^{i-1}\begin{Bmatrix}n-i\\k-1\end{Bmatrix}$</p>
+<p>$=\sum\limits_{j=0}^{k-1}\sum\limits_{i=1}^niC_{n-1}^{i-1}\dfrac{(-1)^j(k-1-j)^{n-i}}{j!(k-1-j)!}$</p>
+<p>$=\sum\limits_{j=0}^{k-1}\dfrac{(-1)^j}{j!(k-1-j)!}\sum\limits_{i=1}^n(i-1+1)C_{n-1}^{i-1}(k-1-j)^{n-i}$</p>
+<p>$=\sum\limits_{j=0}^{k-1}\dfrac{(-1)^j}{j!(k-1-j)!}\left(\sum\limits_{i=1}^n(i-1)C_{n-1}^{i-1}(k-1-j)^{n-i}+\sum\limits_{i=1}^nC_{n-1}^{i-1}(k-1-j)^{n-i}\right)$</p>
+<p>根据$mC_n^m=nC_{n-1}^{m-1}$和二项式定理，有：</p>
+<p>$=\sum\limits_{j=0}^{k-1}\dfrac{(-1)^j}{j!(k-1-j)!}\left((n-1)\sum\limits_{i=1}^nC_{n-2}^{i-2}(k-1-j)^{n-i}+(k-j)^{n-1}\right)$</p>
 <p>$=\sum\limits_{j=0}^{k-1}\dfrac{(-1)^j}{j!(k-1-j)!}((n-1)(k-j)^{n-2}+(k-j)^{n-1})$</p>
 <p>$=\sum\limits_{j=0}^{k-1}\dfrac{(-1)^j}{j!(k-1-j)!}(n-1+k-j)(k-j)^{n-2}$</p>
 <p>就能$O(k\log n)$做了。</p>

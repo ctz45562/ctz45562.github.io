@@ -619,8 +619,8 @@
 <a id="more"></a>
 <p>把两个串拼一块染个色造$SA​$。</p>
 <p>对于它们的子串$S_A,S_B$，设它们分别属于后缀$suffix_i,suffix_j$，则只要$LCP(suffix_i,suffix_j)\ge len(S_A)$两个子串就是相同的。</p>
-<p>又有$LCP(suffix_i,suffix_j)=\min{height[k]}(i&lt;k\le j)$</p>
-<p>那么对于任意一个区间$[l,r]$它会产生$\min{height[k]}(k\in (l,r])​$的贡献。</p>
+<p>又有$LCP(suffix_i,suffix_j)=\min\{height[k]\}(i&lt;k\le j)$</p>
+<p>那么对于任意一个区间$[l,r]$它会产生$\min\{height[k]\}(k\in (l,r])​$的贡献。</p>
 <p>然后就可以用单调栈了。显然选取的两个区间端点颜色要不同，做个前缀和就好了。</p>
 <p>代码：</p>
 <pre><code class="lang-cpp">#include &lt;iostream&gt;

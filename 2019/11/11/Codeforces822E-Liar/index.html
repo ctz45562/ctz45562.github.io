@@ -620,9 +620,9 @@
 </blockquote>
 <a id="more"></a>
 <p>容易想到设$f(i,j)$为$s$的前$i$位中选$j$个子串匹配$t$的最大长度。</p>
-<p>枚举分段长度转移：$f(i,j)=\max{f(i-1,j),f(i-k,j-1)+k}(s[i-k+1,i]=t[f(i-k,j-1)+1,f(i-k,j-1)+k])$</p>
+<p>枚举分段长度转移：$f(i,j)=\max\{f(i-1,j),f(i-k,j-1)+k\}(s[i-k+1,i]=t[f(i-k,j-1)+1,f(i-k,j-1)+k])$</p>
 <p>为了方便优化改成刷表的形式：</p>
-<p>$\begin{cases}f(i,j)+k\rightarrow f(i+k,j+1)(s[i+1,i+k]=t[f(i,j)+1,f(i,j)+k])\f(i,j)\rightarrow f(i+1,j)\end{cases}$</p>
+<p>$\begin{cases}f(i,j)+k\rightarrow f(i+k,j+1)(s[i+1,i+k]=t[f(i,j)+1,f(i,j)+k])\\f(i,j)\rightarrow f(i+1,j)\end{cases}$</p>
 <p>假设有两个可行的转移$i+k_1,i+k_2(k_1&lt;k_2)$。在$i+k_1$会存在一个的转移到$i+k_2$（即分为两段$[i+1,k_1],[i+k_1+1,k_2]$），这样多分了一段，一定不优。</p>
 <p>所以直接转移到$i+1$开始最大匹配长度即可，哈希+二分。</p>
 <p>然而。。。这个。。。这个丧心病狂的CF它卡哈希：<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/luotianyi/无言以对.png"></p>

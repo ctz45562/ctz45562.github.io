@@ -621,7 +621,7 @@
 <p>设$f(i)$为点$i$的权值在其子树内的叶子中，能取到的最靠前的排名。</p>
 <ul>
 <li>若$i$为叶子，$f(i)=1$</li>
-<li>若$i$操作为$\max$，取所有儿子中排名最靠前的，$f(i)=\min\limits_{j\in son(i)}{f(j)}$</li>
+<li>若$i$操作为$\max$，取所有儿子中排名最靠前的，$f(i)=\min\limits_{j\in son(i)}\{f(j)\}$</li>
 <li>若$i$操作为$\min$，$i$需要给所有儿子的$f$分配名额，$f(i)=\sum\limits_{j\in son(i)}f(j)$</li>
 </ul>
 <p>答案就是叶子数$-f(1)+1$</p>

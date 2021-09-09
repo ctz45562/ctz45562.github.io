@@ -633,7 +633,7 @@
 <p>$g(i,j,1)=g(i-2k,j-1,0)+g(i-2k,j-1,1)+g(i-2k,j-1,2)$</p>
 <p>$g(i,j,2)=g(i-2k,j,0)+g(i-2k,j,1)+g(i-2k,j,2)$</p>
 <p>考虑合并所有链，做个背包就行了：</p>
-<p>$f(i)=\sum\limits_{j=1}^i f(i-j)\times (g(k,j,0)+g(k,j,1)+g(k,j,2))(k\in [\max{n-2k+1,1},n])$</p>
+<p>$f(i)=\sum\limits_{j=1}^i f(i-j)\times (g(k,j,0)+g(k,j,1)+g(k,j,2))(k\in [\max\{n-2k+1,1\},n])$</p>
 <p>最后容斥一波，由于求的$f(i)$是仅考虑选不合法位置的方案数，还要给剩下位置随机钦定。</p>
 <p>$ans=\sum\limits_{i=0}^n(-1)^if(i)(n-i)!$</p>
 <p>我的写法不能处理$k=0$的情况要特判，这时其实就是错排。</p>

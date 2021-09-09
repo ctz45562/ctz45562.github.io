@@ -618,7 +618,7 @@
 <p>写篇题解纪念一下我想了一天的<del>沙雕</del>题。</p>
 <a id="more"></a>
 <p>显然，$gcd(i,n)$一定等于$n$的某个因子。</p>
-<p>$O(\sqrt n)$筛出$n$的因子，假设有$cnt$个，分别为$a<em>1,a_2…a</em>{cnt}$。</p>
+<p>$O(\sqrt n)$筛出$n$的因子，假设有$cnt$个，分别为$a_1,a_2…a_{cnt}$。</p>
 <p>对于任意一个因子$a_i$，若有$gcd(ka_i,n)=a_i$，则$gcd(k,n/a_i)=1$。</p>
 <p>即$k$与$n/a_i$互质。所以$a_i$的贡献为$\varphi(n/a_i)*a_i$。</p>
 <p>答案即为$\sum\limits_{i=1}^{cnt}\varphi(n/a_i)*a_i$</p>

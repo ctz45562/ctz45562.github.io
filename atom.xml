@@ -6,7 +6,7 @@
   <link href="https://ctz45562.github.io/atom.xml" rel="self"/>
   
   <link href="https://ctz45562.github.io/"/>
-  <updated>2021-08-21T03:30:16.105Z</updated>
+  <updated>2021-09-09T02:20:52.569Z</updated>
   <id>https://ctz45562.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>9.8 The End of Military Training</title>
+    <link href="https://ctz45562.github.io/2021/09/08/9-8-The-End-of-Military-Training/"/>
+    <id>https://ctz45562.github.io/2021/09/08/9-8-The-End-of-Military-Training/</id>
+    <published>2021-09-08T08:07:52.000Z</published>
+    <updated>2021-09-09T02:20:52.569Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最后一次军训。高中我没军训，这次新鲜感十足。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="日常" scheme="https://ctz45562.github.io/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>8.19 Hello, World!</title>
@@ -418,28 +435,6 @@
     
     
     <category term="OI" scheme="https://ctz45562.github.io/tags/OI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>终·日记</title>
-    <link href="https://ctz45562.github.io/2020/05/19/the-Last-Diary/"/>
-    <id>https://ctz45562.github.io/2020/05/19/the-Last-Diary/</id>
-    <published>2020-05-19T12:28:05.000Z</published>
-    <updated>2021-06-18T04:28:47.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;疫情时代就想搞个日记写了，主要是记录颓废的生活。&lt;/p&gt;
-&lt;p&gt;可惜&lt;del&gt;我太懒了&lt;/del&gt;想到这个点子的时候已经快开学了，记不了多少只能作罢。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="日常" scheme="https://ctz45562.github.io/categories/%E6%97%A5%E5%B8%B8/"/>
-    
-    
-    <category term="OI" scheme="https://ctz45562.github.io/tags/OI/"/>
-    
-    <category term="日记" scheme="https://ctz45562.github.io/tags/%E6%97%A5%E8%AE%B0/"/>
     
   </entry>
   

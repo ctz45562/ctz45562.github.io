@@ -750,13 +750,13 @@ void ssort(){
 <p><img src="\images\后缀数组学习笔记-1.png" alt=""></p>
 <hr>
 <h1 id="height数组-1"><a href="#height数组-1" class="headerlink" title="height数组"></a>height数组</h1><p>后缀数组的精髓。</p>
-<h2 id="性质及XJB证明："><a href="#性质及XJB证明：" class="headerlink" title="性质及XJB证明："></a>性质及<del>XJB</del>证明：</h2><p><strong>1.</strong>$lcp(i,j)=\min{lcp(i,k),lcp(k,j)}(i&lt;k&lt;j)$</p>
+<h2 id="性质及XJB证明："><a href="#性质及XJB证明：" class="headerlink" title="性质及XJB证明："></a>性质及<del>XJB</del>证明：</h2><p><strong>1.</strong>$lcp(i,j)=\min\{lcp(i,k),lcp(k,j)\}(i&lt;k&lt;j)$</p>
 <p>放个图会直观一些（以$aaaaabaaab$为例，下面的数组是$sa$）</p>
 <p><img src="\images\后缀数组学习笔记-2.png" alt=""></p>
 <p><del>抄来的</del>证明：</p>
-<p>设$I=S(i),J=S(j),K=S(k),p=\min{lcp(i,k),lcp(k,j)}$</p>
+<p>设$I=S(i),J=S(j),K=S(k),p=\min\{lcp(i,k),lcp(k,j)\}$</p>
 <p>则$I$与$K$前$p$个字符相同，$K$与$J$前$p$个字符相同。$I$与$J$最少有前$p$个字符相同。</p>
-<p>由$p=\min{lcp(i,k),lcp(k,j)}$可知$I$与$K$第$p+1$个字符不相同或$K$与$J$第$p+1$个字符不相同。即$I$与$J$第$p+1$个字符不相同。</p>
+<p>由$p=\min\{lcp(i,k),lcp(k,j)\}$可知$I$与$K$第$p+1$个字符不相同或$K$与$J$第$p+1$个字符不相同。即$I$与$J$第$p+1$个字符不相同。</p>
 <p>所以$I$与$J$最长公共前缀为$p$。</p>
 <p><strong>2.</strong>$h[i]\ge h[i-1]-1$<strong>（重点）</strong></p>
 <p>对于$h[i-1]\le 1$时显然成立。</p>
@@ -775,9 +775,9 @@ void ssort(){
 <p>$height[rk[i]]\ge h[i-1]-1$</p>
 <p>$h[i]\ge h[i-1]-1$</p>
 <p>（阳阳$2$分钟讲明白了我看了一天的证明，$TQL$！）</p>
-<p><strong>3.</strong>$lcp(i,j)=\min{height[k]}(i&lt; k\le j)$</p>
+<p><strong>3.</strong>$lcp(i,j)=\min\{height[k]\}(i&lt; k\le j)$</p>
 <p>根据性质$1$，有：</p>
-<p>$lcp(i,j)=\min{lcp(i,i+1),lcp(i+1,j)}\ \qquad\quad\ =\min{lcp(i,i+1),lcp(i+1,i+2),lcp(i+2,j)}\ \qquad\quad\ =\min{lcp(k,k-1)}(i&lt;k\le j)\ \qquad\quad\ =\min{height[k]}(i&lt;k\le j)$</p>
+<p>$lcp(i,j)=\min\{lcp(i,i+1),lcp(i+1,j)\}\\ \qquad\quad\ =\min\{lcp(i,i+1),lcp(i+1,i+2),lcp(i+2,j)\}\\ \qquad\quad\ =\min\{lcp(k,k-1)\}(i&lt;k\le j)\\ \qquad\quad\ =\min\{height[k]\}(i&lt;k\le j)$</p>
 <p><del>（还是抄的）</del></p>
 <h2 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h2><p>说了那么多，怎么求$height$数组呢？</p>
 <p>根据上面的性质$2$，就有线性时间复杂度推出$h$数组的方法，进而求出$height$数组。</p>
@@ -797,7 +797,7 @@ void get_height(){
 <p>这样就能$O(n)$求$height$啦！</p>
 <hr>
 <h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><h2 id="任意两个后缀的LCP​"><a href="#任意两个后缀的LCP​" class="headerlink" title="任意两个后缀的LCP​"></a>任意两个后缀的LCP​</h2><p>由性质$3$可知：</p>
-<p>$LCP(i,j)=\min{height[k]}(\min{rk[i],rk[j]}+1&lt;k\le \max{rk[i],rk[j]})$</p>
+<p>$LCP(i,j)=\min\{height[k]\}(\min\{rk[i],rk[j]\}+1&lt;k\le \max\{rk[i],rk[j]\})$</p>
 <p>用$ST$表$O(n\log n)$预处理，$O(1)$回答。</p>
 <h2 id="不同子串个数"><a href="#不同子串个数" class="headerlink" title="不同子串个数"></a>不同子串个数</h2><p>求一个字符串<strong>本质不同</strong>的子串个数。</p>
 <p>总子串个数为$\dfrac{n(n+1)}{2}$</p>
@@ -805,15 +805,15 @@ void get_height(){
 <p>答案即为$\dfrac{n(n+1)}{2}-\sum\limits_{i=1}^{n}height[i]$</p>
 <h2 id="最长公共子串"><a href="#最长公共子串" class="headerlink" title="最长公共子串"></a>最长公共子串</h2><p>求多个字符串的最长公共子串。</p>
 <p>把每个字符串依次连接起来，每个串之间用一个特殊字符隔开。再给每个串的字符染上颜色。构建后缀数组。</p>
-<p>扫一遍$sa$数组，用<strong>尺取法</strong>获取尽可能小的区间$[l,r]$使$sa[i]$$(i\in [l,r])$能覆盖所有颜色，所有的$\min{hei[i]}(i\in (l,r])$的最大值即为答案。用单调队列维护达到$O(\sum len(S))$。</p>
+<p>扫一遍$sa$数组，用<strong>尺取法</strong>获取尽可能小的区间$[l,r]$使$sa[i]$$(i\in [l,r])$能覆盖所有颜色，所有的$\min\{hei[i]\}(i\in (l,r])$的最大值即为答案。用单调队列维护达到$O(\sum len(S))$。</p>
 <h2 id="模式串出现次数"><a href="#模式串出现次数" class="headerlink" title="模式串出现次数"></a>模式串出现次数</h2><p>给定一些模式串和一些母串，求每个模式串在所有母串中出现过多少次。</p>
 <p>把所有串拼到一起建出$SA$，找到每个模式串$p$的“匹配区间”，也就是最大的区间$[l,r]$使所有的$LCP(i,p)\ge len(p)(i\in[l,r])$。答案具有单调性可以$ST$表+二分。由于模式串之间可能有子串关系，统计时染个色，模式串不加入答案，做一个前缀和就好了。</p>
 <h2 id="模式串出现次数（去重）"><a href="#模式串出现次数（去重）" class="headerlink" title="模式串出现次数（去重）"></a>模式串出现次数（去重）</h2><p>给定一些模式串和母串，求每个模式串在<strong>多少个母串</strong>里出现过。</p>
 <p>和上面一样，二分出来区间，数颜色种数。</p>
 <p>额。。。$HH$的项链？主席树？离线+树状数组？莫队？有那么麻烦？</p>
 <p>好吧真的这么做。。。</p>
-<h2 id="可重叠最长重复子串"><a href="#可重叠最长重复子串" class="headerlink" title="可重叠最长重复子串"></a>可重叠最长重复子串</h2><p>$\max{height[i]}$</p>
-<h2 id="不可重叠最长重复子串"><a href="#不可重叠最长重复子串" class="headerlink" title="不可重叠最长重复子串"></a>不可重叠最长重复子串</h2><p>二分答案。找到所有满足$\min{height[i]}\ge mid(i\in[l,r])$的区间（区间尽可能大），若$\max{sa[i]}-\min{sa[i]}\ge mid$则答案可行。</p>
+<h2 id="可重叠最长重复子串"><a href="#可重叠最长重复子串" class="headerlink" title="可重叠最长重复子串"></a>可重叠最长重复子串</h2><p>$\max\{height[i]\}$</p>
+<h2 id="不可重叠最长重复子串"><a href="#不可重叠最长重复子串" class="headerlink" title="不可重叠最长重复子串"></a>不可重叠最长重复子串</h2><p>二分答案。找到所有满足$\min\{height[i]\}\ge mid(i\in[l,r])$的区间（区间尽可能大），若$\max\{sa[i]\}-\min\{sa[i]\}\ge mid$则答案可行。</p>
 <h2 id="最长回文子串"><a href="#最长回文子串" class="headerlink" title="最长回文子串"></a>最长回文子串</h2><p><del>并不会manacher和哈希</del>所以在这里写写。</p>
 <p>枚举一下回文中心$p$，求出翻转过来的前缀$p$与后缀$p$的$LCP$更新答案。把串翻转过来接在后面用$ST$表维护。</p>
 <h2 id="最小表示法"><a href="#最小表示法" class="headerlink" title="最小表示法"></a>最小表示法</h2><p>给定一个串，可以任意把最后面的字符移到开头，求能得到的字典序最小的串。</p>
@@ -821,15 +821,15 @@ void get_height(){
 <hr>
 <h1 id="水题"><a href="#水题" class="headerlink" title="水题"></a>水题</h1><h2 id="不同子串个数-1"><a href="#不同子串个数-1" class="headerlink" title="不同子串个数"></a><a href="https://www.luogu.org/problemnew/show/P2408" target="_blank" rel="noopener">不同子串个数</a></h2><p>就是上面应用第二个。</p>
 <h2 id="LCS-Longest-Common-Substring"><a href="#LCS-Longest-Common-Substring" class="headerlink" title="LCS - Longest Common Substring"></a><a href="https://www.luogu.org/problemnew/show/SP1811" target="_blank" rel="noopener">LCS - Longest Common Substring</a></h2><p>两个串的$LCS$，应用第三个求解即可。</p>
-<p>不过这个题就两个串也可以直接取$\max{height[i]}(col[i-1]\neq col[i])$</p>
+<p>不过这个题就两个串也可以直接取$\max\{height[i]\}(col[i-1]\neq col[i])$</p>
 <h2 id="字符加密"><a href="#字符加密" class="headerlink" title="字符加密"></a><a href="https://www.luogu.org/problemnew/show/P4051" target="_blank" rel="noopener">字符加密</a></h2><p>把字符串复制一遍接到后面，直接后缀排序，按$sa$的顺序输出。</p>
 <h2 id="Sandy的卡片"><a href="#Sandy的卡片" class="headerlink" title="Sandy的卡片"></a><a href="https://www.luogu.org/problemnew/show/P2463" target="_blank" rel="noopener">Sandy的卡片</a></h2><p>多个串的$LCS$。显然两个串相同时相邻两项之间的差是相等的。</p>
 <p>差分一下上板子就完了。</p>
 <h2 id="差异"><a href="#差异" class="headerlink" title="差异"></a><a href="https://www.luogu.org/problemnew/show/P4248" target="_blank" rel="noopener">差异</a></h2><p>$asuldb$强推此题，他说有六成$SA$的题都能转到这个题上。</p>
 <p>求$\sum\limits_{1\le i&lt;j\le n} len(S(i))+len(S(j))-2LCP(i,j)$</p>
 <p>前面的$len(S(i)),len(S(j))$和系数$2$提出来，就成了求：</p>
-<p>$\sum\limits<em>{1\le i&lt;j\le n}LCP(i,j)=\sum\limits</em>{1\le i&lt;j\le n}\min{height[k]}(i&lt;k\le j)$</p>
-<p>也就是$sa$里每个子区间的$min{height[i]}$之和。</p>
+<p>$\sum\limits_{1\le i&lt;j\le n}LCP(i,j)=\sum\limits_{1\le i&lt;j\le n}\min\{height[k]\}(i&lt;k\le j)$</p>
+<p>也就是$sa$里每个子区间的$min\{height[i]\}$之和。</p>
 <p>枚举一下每个$height[i]$在哪个区间为最小值，找到左右第一个比它小的$height$，单调栈扫两遍乘起来就行了。注意处理好$height$值相同的数。</p>
 <h2 id="喵星球上的点名"><a href="#喵星球上的点名" class="headerlink" title="喵星球上的点名"></a><a href="https://www.luogu.org/problemnew/show/P2336" target="_blank" rel="noopener">喵星球上的点名</a></h2><p>题意概述：给一堆母串和模式串，求出每个模式串在多少个母串中出现过，每个母串包含了多少个模式串。</p>
 <p>第一问<strong>应用</strong>里讲过了，为了处理第二问得用莫队。</p>
@@ -839,10 +839,10 @@ void get_height(){
 <blockquote>
 <p>后记：调了一晚上<del>，蒟蒻命要没了</del></p>
 </blockquote>
-<h2 id="仰望半月的夜空"><a href="#仰望半月的夜空" class="headerlink" title="仰望半月的夜空"></a><a href="https://www.luogu.org/problemnew/show/P5108" target="_blank" rel="noopener">仰望半月的夜空</a></h2><p>对每个长度$L$，找到它在$sa$数组里最靠前且最大的<strong>可行区间</strong>，然后$ST$表查询这个区间的$\min{sa[i]}$即可。</p>
-<p>这里可行区间就是<strong>对区间内每个后缀，截取的长度为$L$的子串相同</strong>的区间。最靠前保证了字典序最小。容易想到区间$[l,r]$满足$\min{height[i]}\ge len(i\in[l,r])$就是可行区间。</p>
-<p>左端点好确定，$O(n)$扫一遍。右端点$ST$表维护$\min{height[i]}$+二分。</p>
-<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a><a href="https://www.luogu.org/problemnew/show/P4094" target="_blank" rel="noopener">字符串</a></h2><p>显然是要从$S(a\sim b)$和$S(c)$取$LCP$。则$S(i)$与$S(c)$的$LCP$为$\min{LCP(i,c),b-i+1,d-c+1}$</p>
+<h2 id="仰望半月的夜空"><a href="#仰望半月的夜空" class="headerlink" title="仰望半月的夜空"></a><a href="https://www.luogu.org/problemnew/show/P5108" target="_blank" rel="noopener">仰望半月的夜空</a></h2><p>对每个长度$L$，找到它在$sa$数组里最靠前且最大的<strong>可行区间</strong>，然后$ST$表查询这个区间的$\min\{sa[i]\}$即可。</p>
+<p>这里可行区间就是<strong>对区间内每个后缀，截取的长度为$L$的子串相同</strong>的区间。最靠前保证了字典序最小。容易想到区间$[l,r]$满足$\min\{height[i]\}\ge len(i\in[l,r])$就是可行区间。</p>
+<p>左端点好确定，$O(n)$扫一遍。右端点$ST$表维护$\min\{height[i]\}$+二分。</p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a><a href="https://www.luogu.org/problemnew/show/P4094" target="_blank" rel="noopener">字符串</a></h2><p>显然是要从$S(a\sim b)$和$S(c)$取$LCP$。则$S(i)$与$S(c)$的$LCP$为$\min\{LCP(i,c),b-i+1,d-c+1\}$</p>
 <p>这个$b-i+1$是变化的，很麻烦，那么二分答案。</p>
 <p>对于当前答案$mid$，$S(a\sim b-mid+1)$不受影响，求出这个区间内最大$LCP$值确定二分边界。</p>
 <p>显然$sa$里离得越近$LCP$越大（废话），问题就成了求$S(a\sim b-mid+1)$谁的$rk$和$S(c)$的$rk$离得最近。</p>

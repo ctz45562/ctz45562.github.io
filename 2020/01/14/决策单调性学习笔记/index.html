@@ -630,7 +630,7 @@
 <p>某网课</p>
 </blockquote>
 <hr>
-<h1 id="决策单调性"><a href="#决策单调性" class="headerlink" title="决策单调性"></a>决策单调性</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>如果我们有一个$DP$的式子：$f(i)=\min\limits_{j&lt;i}{f(j)+w(j,i)}$</p>
+<h1 id="决策单调性"><a href="#决策单调性" class="headerlink" title="决策单调性"></a>决策单调性</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>如果我们有一个$DP$的式子：$f(i)=\min\limits_{j&lt;i}\{f(j)+w(j,i)\}$</p>
 <p>其中$w(j,i)$是一个与$i,j$有关的二元函数。而且这个$w(j,i)$搞不了单调队列或斜率优化。</p>
 <p>但是，如果我们通过打表或证明发现决策点是单调不降的（$f$值不一定单调），这个$DP$就满足决策单调性。</p>
 <p>形式化地说，记$p_i$为$f(i)$的决策点（即$p_i$是使$f(j)+w(j,i)$最小的那个$j$），则$\forall i&gt;j,p_i\ge p_j$。</p>
@@ -650,8 +650,8 @@
 <p>你会发现这实质上就是四边形不等式，但从决策单调性的角度上理解更直观了。</p>
 <h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>一般有两种优化方式——二分和分治。</p>
 <h3 id="二分"><a href="#二分" class="headerlink" title="二分"></a>二分</h3><h4 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h4><p><a href="https://www.luogu.com.cn/problem/P1912" target="_blank" rel="noopener">例题-诗人小G</a></p>
-<p>设$f(i)$为前$i$句话的最小代价，$sum<em>i$为$\sum\limits</em>{j\le i}len(s_j)+1$。</p>
-<p>$DP$方程显然：$f(i)=\min\limits_{j&lt;i}{f(j)+|sum_i-sum_j-L-1|^P}$。</p>
+<p>设$f(i)$为前$i$句话的最小代价，$sum_i$为$\sum\limits_{j\le i}len(s_j)+1$。</p>
+<p>$DP$方程显然：$f(i)=\min\limits_{j&lt;i}\{f(j)+|sum_i-sum_j-L-1|^P\}$。</p>
 <p>打表可以发现决策单调性，尝试证明一下：</p>
 <p>$w(j,i)$就是$|sum_i-sum_j-L-1|^P$。</p>
 <p>假设有$k&lt;j$，现在要证明$w(k,i)$增长速度比$w(j,i)$快，即$|sum_i-sum_k-L-1|^P$增长速度比$|sum_i-sum_j-L-1|^P$快。</p>
@@ -674,13 +674,13 @@
 <p>考虑如何优化。既然有决策单调性了，决策点与位置会有这样的关系：</p>
 <p><img src="/images/决策单调性学习笔记-2.png" alt=""></p>
 <p><strong>每个决策点控制了一段连续的区间。</strong></p>
-<p>于是可以维护一个决策点的单调队列，其中存有若干三元组$(p<em>i,l_i,r_i)$表示决策点$p_i$当前控制区间$[l_i,r_i]$的转移，队尾三元组一定满足$r</em>{tail}=n$。</p>
+<p>于是可以维护一个决策点的单调队列，其中存有若干三元组$(p_i,l_i,r_i)$表示决策点$p_i$当前控制区间$[l_i,r_i]$的转移，队尾三元组一定满足$r_{tail}=n$。</p>
 <p>转移时，弹出队头直到$i\in[l,r]$，然后直接转移。</p>
 <p>之后我们得到了一个新的决策点$i$，分步进行：</p>
 <ul>
 <li>判断$n$以$i$为决策点是否不如$p_{tail}$优，如果在位置$n$都干不过队尾的话就可以当场去世了。</li>
-<li>否则，不断判断$l<em>{tail}$以$i$为决策点转移是否比$p</em>{tail}$更优。如果$i$在$l<em>{tail}$都比$p</em>{tail}$优的话，后面的位置就更不用说了，把队尾踢掉好了。</li>
-<li>最后，显然控制区间是有单调性的。根据$[l<em>{tail},r</em>{tail}]$二分出左端点（右端点为$n$），更新队尾的$r_{tail}$并把$i$压入队尾。</li>
+<li>否则，不断判断$l_{tail}$以$i$为决策点转移是否比$p_{tail}$更优。如果$i$在$l_{tail}$都比$p_{tail}$优的话，后面的位置就更不用说了，把队尾踢掉好了。</li>
+<li>最后，显然控制区间是有单调性的。根据$[l_{tail},r_{tail}]$二分出左端点（右端点为$n$），更新队尾的$r_{tail}$并把$i$压入队尾。</li>
 </ul>
 <p>复杂度$O(n\log n)$。</p>
 <p>要判断答案是否超过$10^{18}$，直接<code>long long</code>的话会爆炸，用<code>long double</code>存储。</p>
@@ -738,14 +738,14 @@ int main(){
 <h3 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h3><h4 id="普通分治"><a href="#普通分治" class="headerlink" title="普通分治"></a>普通分治</h4><p><a href="https://www.luogu.com.cn/problem/P3515" target="_blank" rel="noopener">例题</a></p>
 <p><del>其实算不上DP，只是用决策单调性优化而已</del></p>
 <p>移个项：$a_j+\sqrt{|i-j|}-a_i\le p$</p>
-<p>则$ans_i=\max{a_j+\sqrt{|i-j|}}-a_i$。</p>
-<p>分类去掉绝对值：$ans<em>i=\max{\max\limits</em>{j&lt; i}{a<em>j+\sqrt{i-j}},\max\limits</em>{j&gt;i}{a_j+\sqrt{j-i}}}-a_i$</p>
-<p>因为前一半翻转过来再求一遍就是后一半，所以只考虑$\max\limits_{j&lt;i}{a_j+\sqrt{i-j}}$。</p>
+<p>则$ans_i=\max\{a_j+\sqrt{|i-j|}\}-a_i$。</p>
+<p>分类去掉绝对值：$ans_i=\max\{\max\limits_{j&lt; i}\{a_j+\sqrt{i-j}\},\max\limits_{j&gt;i}\{a_j+\sqrt{j-i}\}\}-a_i$</p>
+<p>因为前一半翻转过来再求一遍就是后一半，所以只考虑$\max\limits_{j&lt;i}\{a_j+\sqrt{i-j}\}$。</p>
 <p>同样通过打表，可以发现满足决策单调性。</p>
 <p>严格证明也好说，显然函数$f(x)=x^{\frac{1}{2}}$的增长速度是越来越慢的，就能证出来，不再赘述。</p>
 <p>分治的基础是根据决策单调性，如果已知$i$的决策点$p_i$，则$\forall j&lt; i,p_j\le p_i$；$\forall j&gt;i,p_j\ge p_i$。</p>
 <p>维护一个位置区间$[l,r]$和决策点区间$[L,R]$，表示$\forall i\in[l,r],p_i\in[L,R]$。初始都是$[1,n]$。</p>
-<p>分治时，取$[l,r]$的中点$mid$，暴力遍历$[L,R]$得到$p<em>{mid}$，然后继续分治$([l,mid-1],[L,p</em>{mid}])$和$([mid+1,r],[p_{mid},R])$。</p>
+<p>分治时，取$[l,r]$的中点$mid$，暴力遍历$[L,R]$得到$p_{mid}$，然后继续分治$([l,mid-1],[L,p_{mid}])$和$([mid+1,r],[p_{mid},R])$。</p>
 <p>复杂度还是容易算的：一共递归$O(\log n)$层，每层遍历的$[L,R]$之和是$O(n)$的，总复杂度为$O(n\log n)$。</p>
 <h4 id="代码1"><a href="#代码1" class="headerlink" title="代码1"></a>代码1</h4><pre><code class="lang-cpp">double f[maxn],ans[maxn];
 int a[maxn];
@@ -771,8 +771,8 @@ int main(){
 <h4 id="分治-莫队"><a href="#分治-莫队" class="headerlink" title="分治+莫队"></a>分治+莫队</h4><p><a href="https://www.luogu.com.cn/problem/CF868F" target="_blank" rel="noopener">例题</a></p>
 <p>本题中$w(j,i)$就是区间$[j,i]$的相同元素对数。</p>
 <p>暴力很简单，设$f(i,j)$为前$j$个数分了$i$段的最小代价。</p>
-<p>$f(i,j)=\min\limits_{k&lt;j}{f(i-1,k)+w(k+1,j)}$</p>
-<p>决策单调性的证明也很简单，把元素$a<em>{i+1}$分别添加到$[j,i]$和$[k,i]$（$k&lt;j$）中，一定有$\sum\limits</em>{x\in[j,i]}[a<em>x=a</em>{i+1}]&lt;\sum\limits<em>{x\in[k,i]}[a_x=a</em>{i+1}]$，$w(j,i)$的增长速度比$w(k,i)$慢，满足决策单调性。</p>
+<p>$f(i,j)=\min\limits_{k&lt;j}\{f(i-1,k)+w(k+1,j)\}$</p>
+<p>决策单调性的证明也很简单，把元素$a_{i+1}$分别添加到$[j,i]$和$[k,i]$（$k&lt;j$）中，一定有$\sum\limits_{x\in[j,i]}[a_x=a_{i+1}]&lt;\sum\limits_{x\in[k,i]}[a_x=a_{i+1}]$，$w(j,i)$的增长速度比$w(k,i)$慢，满足决策单调性。</p>
 <p>而现在最大的问题在于无法快速计算$w(j,i)$。</p>
 <p>如果仅仅是多次询问$w(l,r)$且可以离线，第一想法肯定是莫队。</p>
 <p>是不是可以把莫队的思想用到分治里呢？</p>
@@ -822,11 +822,11 @@ int main(){
 <h2 id="邮局"><a href="#邮局" class="headerlink" title="邮局"></a><a href="https://www.luogu.com.cn/problem/P4767" target="_blank" rel="noopener">邮局</a></h2><p>$w(j,i)$为在村儿$[j,i]$中建一个邮局最小的距离和。</p>
 <p>显然建在中点是最优的。维护个坐标前缀和就可以$O(1)$算了。</p>
 <p>设$f(i,j)$为在前$j$个村儿里造$i$个邮局的最小代价。</p>
-<p>枚举第$i$个邮局的控制范围转移：$f(i,j)=\min\limits_{k&lt;j}{f(i-1,k)+w(k+1,j)}$</p>
+<p>枚举第$i$个邮局的控制范围转移：$f(i,j)=\min\limits_{k&lt;j}\{f(i-1,k)+w(k+1,j)\}$</p>
 <p>看起来这个方程有点别扭，可能$[k+1,j]$里有的村儿最近的邮局不是$i$啊。但这样的话这个转移一定不优，会有一个更大的$k$让这些村儿往最近的邮局跑。</p>
 <h2 id="任务分配问题"><a href="#任务分配问题" class="headerlink" title="任务分配问题"></a><a href="https://www.luogu.com.cn/problem/P5574" target="_blank" rel="noopener">任务分配问题</a></h2><p>简单地说就是把序列分成$k$段，段内顺序对之和最小。</p>
 <p>设$f(i,j)$为前$j$个数分了$i$段的最小顺序对，$w(j,i)$为区间$[j,i]$的顺序对数。</p>
-<p>$f(i,j)=\min\limits_{k&lt;j}{f(i-1,k)+w(k+1,j)}$</p>
+<p>$f(i,j)=\min\limits_{k&lt;j}\{f(i-1,k)+w(k+1,j)\}$</p>
 <p>分治+莫队套个树状数组即可，$O(nk\log^2n)$的。</p>
 <h2 id="柠檬"><a href="#柠檬" class="headerlink" title="柠檬"></a><a href="https://www.luogu.com.cn/problem/P5504" target="_blank" rel="noopener">柠檬</a></h2><p>决策单调性请右转题解区吧，因为我写的斜率优化。。。</p>
 <p><a href="/2020/01/15/洛谷-P5504-JSOI2011-柠檬">斜率优化の题解</a></p>

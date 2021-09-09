@@ -721,7 +721,7 @@ inline bool in(point a,line b){return in(a.x,b.a.x,b.b.x)&amp;&amp;in(a.y,b.a.y,
 <p>显然，我们可以用$P+t\vec{a}$来表示一个在直线上的点。</p>
 <p>设$C=P+t_1\vec{a}=Q+t_2\vec{b}$。</p>
 <p>大力列方程：</p>
-<p>$\begin{cases}x_C=x_P+t_1x_a=x_Q+t_2x_b\y_C=y_P+t_1y_a=y_Q+t_2t_b\end{cases}$</p>
+<p>$\begin{cases}x_C=x_P+t_1x_a=x_Q+t_2x_b\\y_C=y_P+t_1y_a=y_Q+t_2t_b\end{cases}$</p>
 <p>大力化式子：</p>
 <p>$t_1=\dfrac{x_by_P-x_Py_b+x_Qy_b-x_by_Q}{x_ay_b-x_by_a}$</p>
 <p>大力叉乘：</p>
@@ -781,7 +781,7 @@ inline bool in(point a,line b){return in(a.x,b.a.x,b.b.x)&amp;&amp;in(a.y,b.a.y,
 <p><img src="/images/计算几何学习笔记-11.png" alt=""></p>
 <ul>
 <li>左边情况：$\overrightarrow{OJ}\times\overrightarrow{JI}&lt;0,y_O\in[y_I,y_J]$</li>
-<li>右边情况：$\overrightarrow{OJ’}\times\overrightarrow{OI’}&gt;0,y<em>O\in[y</em>{J’},y_{I’}]$。</li>
+<li>右边情况：$\overrightarrow{OJ’}\times\overrightarrow{OI’}&gt;0,y_O\in[y_{J’},y_{I’}]$。</li>
 </ul>
 <pre><code class="lang-cpp">inline int contain(point a,polygon &amp;b){
     int cnt=0;
@@ -1027,7 +1027,7 @@ int main(){
 <h1 id="最小圆覆盖"><a href="#最小圆覆盖" class="headerlink" title="最小圆覆盖"></a>最小圆覆盖</h1><p><a href="https://www.luogu.com.cn/problem/P1742" target="_blank" rel="noopener">板子</a> <a href="https://www.luogu.com.cn/problem/P2533" target="_blank" rel="noopener">双倍经验</a></p>
 <p>给出平面上的$n$个点，求一个最小的圆使其覆盖所有的点。</p>
 <p>这个要用<strong>随机增量法</strong>。</p>
-<p>不难发现一个结论：<strong>如果点集$S$的最小覆盖圆没有覆盖到$P$，则$P$一定在$S\cup{P}$的最小覆盖圆上</strong>。</p>
+<p>不难发现一个结论：<strong>如果点集$S$的最小覆盖圆没有覆盖到$P$，则$P$一定在$S\cup\{P\}$的最小覆盖圆上</strong>。</p>
 <p>根据这个，我们可以得到一个复杂度不靠谱的解法：</p>
 <ul>
 <li>遍历一遍点集，维护前$i-1$个点的最小覆盖圆作为当前答案（记为$ans$）</li>
@@ -1038,12 +1038,12 @@ int main(){
 <p>乍一看是$O(n^3)$的，既然是<strong>随机</strong>增量法，先<code>random_shuffle</code>打乱点集。</p>
 <ul>
 <li>第一层遍历：根据三点定圆，$P_i$有$\frac{3}{i}$的概率在前$i$个点的最小覆盖圆上，进入第二层遍历。</li>
-<li>第二层遍历：遍历到$P_j$时，实际上是在求${P_i}\cup{P_x|x\le j}$的最小覆盖圆，点集大小为$j+1$，$P_j$有$\frac{3}{j}$的概率被选中，进入第三层遍历。</li>
+<li>第二层遍历：遍历到$P_j$时，实际上是在求$\{P_i\}\cup\{P_x|x\le j\}$的最小覆盖圆，点集大小为$j+1$，$P_j$有$\frac{3}{j}$的概率被选中，进入第三层遍历。</li>
 <li>第三层遍历的复杂度显然是点集大小的。</li>
 </ul>
 <p>于是得到：</p>
-<p>$T<em>1(n)=O(n)+\sum\limits</em>{i=1}^n\dfrac{3}{i}T_2(i)$</p>
-<p>$T<em>2(n)=O(n)+\sum\limits</em>{i=1}^n\dfrac{3}{i}T_3(i)$</p>
+<p>$T_1(n)=O(n)+\sum\limits_{i=1}^n\dfrac{3}{i}T_2(i)$</p>
+<p>$T_2(n)=O(n)+\sum\limits_{i=1}^n\dfrac{3}{i}T_3(i)$</p>
 <p>$T_3(n)=O(n)$</p>
 <p>所以期望复杂度是$O(n)$的。</p>
 <pre><code class="lang-cpp">point p[maxn];

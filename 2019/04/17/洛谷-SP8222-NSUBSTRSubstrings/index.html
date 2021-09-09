@@ -618,7 +618,7 @@
 <p>$SAM$是啥？来一发朴素的$SA$解法。</p>
 <a id="more"></a>
 <p>先把$SA$建出来。如果某两个子串$S_1,S_2$相同的话，它们所属的后缀的$LCP$要大于等于$len(S_1)$。</p>
-<p>$LCP$是$\min{height[k]}(i&lt;k\le j)$，然后就变成了对每个长度$L$，求出最长的一段区间$[l,r]$使$height[i]\ge L(i\in[l,r])$。单调栈扫两遍就行了。</p>
+<p>$LCP$是$\min\{height[k]\}(i&lt;k\le j)$，然后就变成了对每个长度$L$，求出最长的一段区间$[l,r]$使$height[i]\ge L(i\in[l,r])$。单调栈扫两遍就行了。</p>
 <p>代码：</p>
 <pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;cstdio&gt;

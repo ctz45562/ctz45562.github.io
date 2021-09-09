@@ -619,18 +619,18 @@
 <a id="more"></a>
 <p>小学数论知识：$lcm(i,j)=\dfrac{ij}{gcd(i,j)}$</p>
 <p>以下规定$n&lt;m$。</p>
-<p>$\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^mlcm(i,j)$</p>
-<p>$=\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^m\dfrac{ij}{gcd(i,j)}$</p>
+<p>$\sum\limits_{i=1}^n\sum\limits_{j=1}^mlcm(i,j)$</p>
+<p>$=\sum\limits_{i=1}^n\sum\limits_{j=1}^m\dfrac{ij}{gcd(i,j)}$</p>
 <p>套路枚举$gcd$：</p>
-<p>$=\sum\limits<em>{d=1}^n\sum\limits</em>{i=1}^n\sum\limits_{j=1}^m\dfrac{ij[gcd(i,j)=d]}{d}$</p>
+<p>$=\sum\limits_{d=1}^n\sum\limits_{i=1}^n\sum\limits_{j=1}^m\dfrac{ij[gcd(i,j)=d]}{d}$</p>
 <p>套路枚举$d$的倍数：</p>
-<p>$=\sum\limits<em>{d=1}^n\sum\limits</em>{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum\limits_{j=1}^{\lfloor\frac{m}{d}\rfloor}ijd[gcd(i,j)=1]$</p>
-<p>$=\sum\limits<em>{d=1}^n\sum\limits</em>{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum\limits<em>{j=1}^{\lfloor\frac{m}{d}\rfloor}ijd\sum\limits</em>{a|gcd(i,j)}\mu(a)$</p>
-<p>$=\sum\limits<em>{d=1}^nd\sum\limits</em>{a=1}^{\lfloor\frac{n}{d}\rfloor}\mu(a)\sum\limits<em>{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum\limits</em>{j=1}^{\lfloor\frac{m}{d}\rfloor}ij[a|i][a|j]$</p>
+<p>$=\sum\limits_{d=1}^n\sum\limits_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum\limits_{j=1}^{\lfloor\frac{m}{d}\rfloor}ijd[gcd(i,j)=1]$</p>
+<p>$=\sum\limits_{d=1}^n\sum\limits_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum\limits_{j=1}^{\lfloor\frac{m}{d}\rfloor}ijd\sum\limits_{a|gcd(i,j)}\mu(a)$</p>
+<p>$=\sum\limits_{d=1}^nd\sum\limits_{a=1}^{\lfloor\frac{n}{d}\rfloor}\mu(a)\sum\limits_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum\limits_{j=1}^{\lfloor\frac{m}{d}\rfloor}ij[a|i][a|j]$</p>
 <p>套路枚举$a$的倍数：</p>
-<p>$=\sum\limits<em>{d=1}^nd\sum\limits</em>{a=1}^{\lfloor\frac{n}{d}\rfloor}\mu(a)\sum\limits<em>{i=1}^{\lfloor\frac{n}{ad}\rfloor}ia\sum\limits</em>{j=1}^{\lfloor\frac{m}{ad}\rfloor}ja$</p>
-<p>$=\sum\limits<em>{d=1}^nd\sum\limits</em>{a=1}^{\lfloor\frac{n}{d}\rfloor}\mu(a)a^2\sum\limits<em>{i=1}^{\lfloor\frac{n}{ad}\rfloor}i\sum\limits</em>{j=1}^{\lfloor\frac{m}{ad}\rfloor}j$</p>
-<p>设$g(n)=\sum\limits<em>{i=1}^ni$（就是自然数前$n$项和）,$f(n,m)=\sum\limits</em>{i=1}^n\mu(i)i^2g(\lfloor\dfrac{n}{i}\rfloor)g(\lfloor\dfrac{m}{i}\rfloor)$</p>
+<p>$=\sum\limits_{d=1}^nd\sum\limits_{a=1}^{\lfloor\frac{n}{d}\rfloor}\mu(a)\sum\limits_{i=1}^{\lfloor\frac{n}{ad}\rfloor}ia\sum\limits_{j=1}^{\lfloor\frac{m}{ad}\rfloor}ja$</p>
+<p>$=\sum\limits_{d=1}^nd\sum\limits_{a=1}^{\lfloor\frac{n}{d}\rfloor}\mu(a)a^2\sum\limits_{i=1}^{\lfloor\frac{n}{ad}\rfloor}i\sum\limits_{j=1}^{\lfloor\frac{m}{ad}\rfloor}j$</p>
+<p>设$g(n)=\sum\limits_{i=1}^ni$（就是自然数前$n$项和）,$f(n,m)=\sum\limits_{i=1}^n\mu(i)i^2g(\lfloor\dfrac{n}{i}\rfloor)g(\lfloor\dfrac{m}{i}\rfloor)$</p>
 <p>这个$f(n,m)$显然可以预处理$\mu(i)i^2$后整除分块。</p>
 <p>我们求的就成了$\sum\limits_{d=1}^ndf(\lfloor\dfrac{n}{d}\rfloor,\lfloor\dfrac{m}{d}\rfloor)$</p>
 <p>又可以整除分块了。</p>
@@ -693,11 +693,11 @@ int main(){
 </code></pre>
 <p>$update$：</p>
 <p>由于$O(n^{\frac{3}{4}})$足以通过此题，所以当时没继续往下推。然而还是很容易优化到$O(\sqrt{n})$的。</p>
-<p>$\sum\limits<em>{d=1}^nd\sum\limits</em>{a=1}^{\lfloor\frac{n}{d}\rfloor}\mu(a)a^2g(\left\lfloor\dfrac{n}{ad}\right\rfloor)g(\left\lfloor\dfrac{m}{ad}\right\rfloor)$</p>
+<p>$\sum\limits_{d=1}^nd\sum\limits_{a=1}^{\lfloor\frac{n}{d}\rfloor}\mu(a)a^2g(\left\lfloor\dfrac{n}{ad}\right\rfloor)g(\left\lfloor\dfrac{m}{ad}\right\rfloor)$</p>
 <p>设$T=ad$，有$d|T$。改为枚举$T$：</p>
-<p>$=\sum\limits<em>{d=1}^nd\sum\limits</em>{T=1}^n[d|T]\mu(\dfrac{T}{d})\left(\dfrac{T}{d}\right)^2g(\left\lfloor\dfrac{n}{T}\right\rfloor)g(\left\lfloor\dfrac{m}{T}\right\rfloor)$</p>
-<p>$=\sum\limits<em>{T=1}^ng(\left\lfloor\dfrac{n}{T}\right\rfloor)g(\left\lfloor\dfrac{m}{T}\right\rfloor)T\sum\limits</em>{d|T}\mu(\dfrac{T}{d})\dfrac{T}{d}$</p>
-<p>$=\sum\limits<em>{T=1}^ng(\left\lfloor\dfrac{n}{T}\right\rfloor)g(\left\lfloor\dfrac{m}{T}\right\rfloor)T\sum\limits</em>{d|T}\mu(d)d$</p>
+<p>$=\sum\limits_{d=1}^nd\sum\limits_{T=1}^n[d|T]\mu(\dfrac{T}{d})\left(\dfrac{T}{d}\right)^2g(\left\lfloor\dfrac{n}{T}\right\rfloor)g(\left\lfloor\dfrac{m}{T}\right\rfloor)$</p>
+<p>$=\sum\limits_{T=1}^ng(\left\lfloor\dfrac{n}{T}\right\rfloor)g(\left\lfloor\dfrac{m}{T}\right\rfloor)T\sum\limits_{d|T}\mu(\dfrac{T}{d})\dfrac{T}{d}$</p>
+<p>$=\sum\limits_{T=1}^ng(\left\lfloor\dfrac{n}{T}\right\rfloor)g(\left\lfloor\dfrac{m}{T}\right\rfloor)T\sum\limits_{d|T}\mu(d)d$</p>
 <p>设$F(T)=\sum\limits_{d|T}\mu(d)d$。可以证明$F$是积性函数（<del>懒得写了</del>挂个<a href="https://www.luogu.org/blog/An-Amazing-Blog/mu-bi-wu-si-fan-yan-ji-ge-ji-miao-di-dong-xi" target="_blank" rel="noopener">有证明的链接</a>吧）</p>
 <p>对于质数$p$，$F(p)=1-p$，$F(p^{k+1})=F(p^k)$，就能线筛了。</p>
 <p>复杂度降为$O(\sqrt{n})$。</p>

@@ -618,15 +618,15 @@
 <p>我好菜啊连卢卡斯都不会了<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/2233/daku.png"></p>
 <a id="more"></a>
 <p>卢卡斯搞那一坨组合数：</p>
-<p>$C<em>{a_i}^{a_j}\equiv C</em>{a<em>i/2}^{a_j/2}\times C</em>{a_i\%2}^{a_j\%2}\pmod 2$</p>
+<p>$C_{a_i}^{a_j}\equiv C_{a_i/2}^{a_j/2}\times C_{a_i\%2}^{a_j\%2}\pmod 2$</p>
 <p>后面那个$C_{a_i\%2}^{a_j\%2}$有四种情况$C_0^0,C_0^1,C_1^0,C_1^1$，其中只有$C_0^1=0$。</p>
 <p>然后继续处理$C_{a_i/2}^{a_j/2}$。</p>
-<p>我们发现，这就是把$a<em>i$和$a_j$按二进制拆位了。其中只要出现过$C_0^1$，$C</em>{a_i}^{a_j}$就等于$0$。</p>
+<p>我们发现，这就是把$a_i$和$a_j$按二进制拆位了。其中只要出现过$C_0^1$，$C_{a_i}^{a_j}$就等于$0$。</p>
 <p>也就是说二进制下不存在某一位$a_i$为$0$而$a_j$为$1$，即$a_j$二进制下是$a_i$的子集。</p>
 <p>问题就变成了求子序列的个数，满足每一项在二进制下是前一项的子集。</p>
 <p>$a_i\le 233333$还互不相同，直接设$f(i)$为以$i$为结尾的子序列个数，枚举子集刷表转移就没了。</p>
 <p>而且都是它的子集了，就不用考虑序列的单调性了。</p>
-<p>复杂度是枚举子集的$O(3^{\log_2\max{a_i}})$。</p>
+<p>复杂度是枚举子集的$O(3^{\log_2\max\{a_i\}})$。</p>
 <p>非常简短的代码：</p>
 <pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;cstdio&gt;

@@ -587,7 +587,7 @@
       
     <div>
 		  <ul class="spfk-ul">
-		    &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<li class="spfk-li"><span class="triangle"></span><a href="/tags/动态规划/" class="butterfly-tags">动态规划</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/点分治/" class="butterfly-tags">点分治</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/虚树/" class="butterfly-tags">虚树</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/单调栈/" class="butterfly-tags">单调栈</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/树链剖分/" class="butterfly-tags">树链剖分</a></li>
+		    &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<li class="spfk-li"><span class="triangle"></span><a href="/tags/动态规划/" class="butterfly-tags">动态规划</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/点分治/" class="butterfly-tags">点分治</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/虚树/" class="butterfly-tags">虚树</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/树链剖分/" class="butterfly-tags">树链剖分</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/单调栈/" class="butterfly-tags">单调栈</a></li>
           </ul>
 		</div>
 		<script>
@@ -622,7 +622,7 @@
 <p>考虑$DP$，最大值类似于树的直径，只不过两端点必须为关键点。</p>
 <p>设$ma(i)$为以点$i$到其子树中的关键点的最长路径长度。若$i$为关键点，$ma(i)$初值为$0$，否则为$-inf$，然后和树的直径一样$DP$即可。最小值类似。</p>
 <p>对于权值和，记$siz(i)$为点$i$的子树中关键点的个数（包括$i$），$len(i)$为点$i$到其子树中所有关键点的路径权值之和。</p>
-<p>显然，$siz(i)=\sum\limits<em>{edge(i,j)}siz(j)$，$len(i)=\sum\limits</em>{edge(i,j)}len(j)+siz(j)*length(edge(i,j))$。</p>
+<p>显然，$siz(i)=\sum\limits_{edge(i,j)}siz(j)$，$len(i)=\sum\limits_{edge(i,j)}len(j)+siz(j)*length(edge(i,j))$。</p>
 <p>对答案的贡献即$\sum\limits_{edge(i,j)}siz(i)*[len(j)+siz(j)*length(edge(i,j))]+siz(j)*len(i)$，注意此处的$siz(i)$和$len(i)$是统计到$j$时的值。</p>
 <p>其实还有更简单的方法，直接统计每条边被经过的次数乘上边长，即$length(edge(i,j))*siz(j)*(k-siz(j))$</p>
 <p>复杂度$O(\sum k\log n)$，$\log n$是小常数树剖$lca$和排序。</p>

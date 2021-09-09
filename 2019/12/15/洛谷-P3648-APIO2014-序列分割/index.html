@@ -619,11 +619,11 @@
 <a id="more"></a>
 <p>令$S_i$为分成$k+1$段后第$i$段的和。</p>
 <p>考虑任意的第$i$段和第$j$段（$i\neq j$）之间的贡献，一定会存在某次分割使它们分开，产生$S_iS_j$的贡献，之后两者再无关联。</p>
-<p>所以答案为$\sum\limits<em>{i=1}^{k+1}\sum\limits</em>{j=i+1}^{k+1}S_iS_j$，与分割顺序无关。</p>
-<p>把这个式子变一变：$\dfrac{\left(\sum\limits<em>{i=1}^{k+1}S_i\right)^2-\sum\limits</em>{i=1}^{k+1}S_i^2}{2}$</p>
-<p>$\left(\sum\limits<em>{i=1}^{k+1}S_i\right)^2$就是整个序列的和的平方，我们的任务就成了最小化$\sum\limits</em>{i=1}^{k+1}S_i^2$。</p>
+<p>所以答案为$\sum\limits_{i=1}^{k+1}\sum\limits_{j=i+1}^{k+1}S_iS_j$，与分割顺序无关。</p>
+<p>把这个式子变一变：$\dfrac{\left(\sum\limits_{i=1}^{k+1}S_i\right)^2-\sum\limits_{i=1}^{k+1}S_i^2}{2}$</p>
+<p>$\left(\sum\limits_{i=1}^{k+1}S_i\right)^2$就是整个序列的和的平方，我们的任务就成了最小化$\sum\limits_{i=1}^{k+1}S_i^2$。</p>
 <p>设$s_i$为数列前缀和，$f(i,j)$为前$i$个数分成$j$段的最小代价。</p>
-<p>显然，$f(i,k)=\min\limits_{j&lt;i}{f(j,k-1)+(s_i-s_j)^2}$</p>
+<p>显然，$f(i,k)=\min\limits_{j&lt;i}\{f(j,k-1)+(s_i-s_j)^2\}$</p>
 <p>变个形：$f(j,k-1)+s_j^2=f(i,k)+2s_is_j-s_i^2$</p>
 <p>然后就能斜率优化了。有一个坑点是序列可能有$0$，所以斜率可能不存在。</p>
 <p>复杂度$O(nk)$。</p>

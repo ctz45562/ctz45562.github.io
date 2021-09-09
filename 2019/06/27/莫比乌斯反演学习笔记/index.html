@@ -641,7 +641,7 @@
     return ans;
 }
 </code></pre>
-<p>同理也能做到$O(\sqrt{n})$求$\sum\limits<em>{i=1}^n\left\lfloor\dfrac{n}{i}\right\rfloor\left\lfloor\dfrac{m}{i}\right\rfloor$，也能把<code>r-l+1</code>换成别的，甚至可以用于求$\sum\limits</em>{i=1}^nf(\lfloor\dfrac{n}{i}\rfloor,\lfloor\dfrac{m}{i}\rfloor)$。</p>
+<p>同理也能做到$O(\sqrt{n})$求$\sum\limits_{i=1}^n\left\lfloor\dfrac{n}{i}\right\rfloor\left\lfloor\dfrac{m}{i}\right\rfloor$，也能把<code>r-l+1</code>换成别的，甚至可以用于求$\sum\limits_{i=1}^nf(\lfloor\dfrac{n}{i}\rfloor,\lfloor\dfrac{m}{i}\rfloor)$。</p>
 <p>证明的话「算法竞赛·进阶指南」关于「余数求和」一题的解法写的就很好。</p>
 <hr>
 <h1 id="莫比乌斯函数"><a href="#莫比乌斯函数" class="headerlink" title="莫比乌斯函数"></a>莫比乌斯函数</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>定义$\mu(n)$为莫比乌斯函数。</p>
@@ -713,9 +713,9 @@ void sieve(){
 <p>$\sum\limits_{d|n}\dfrac{\mu(d)}{d}=\dfrac{\varphi(n)}{n}$</p>
 <hr>
 <h1 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h1><h2 id="式子"><a href="#式子" class="headerlink" title="式子"></a>式子</h2><p>就是这个：</p>
-<p>$f(n)=\sum\limits<em>{d|n}g(d)\leftrightarrow g(n)=\sum\limits</em>{d|n}\mu(d)f(\dfrac{n}{d})$</p>
+<p>$f(n)=\sum\limits_{d|n}g(d)\leftrightarrow g(n)=\sum\limits_{d|n}\mu(d)f(\dfrac{n}{d})$</p>
 <p>还有一种形式：</p>
-<p>$f(d)=\sum\limits<em>{d|n}g(n)\leftrightarrow g(d)=\sum\limits</em>{d|n}\mu(\dfrac{n}{d})f(n)$</p>
+<p>$f(d)=\sum\limits_{d|n}g(n)\leftrightarrow g(d)=\sum\limits_{d|n}\mu(\dfrac{n}{d})f(n)$</p>
 <h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><p>$f(n)=\sum\limits_{d|n}g(d)$</p>
 <p>可以看做$f=g*1$</p>
 <p>两边都卷个$\mu$：</p>
@@ -724,22 +724,22 @@ void sieve(){
 <p>则$f*\mu=g$</p>
 <p>即$g(n)=\sum\limits_{d|n}f(d)\mu(\dfrac{n}{d})$</p>
 <h2 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h2><p>莫比乌斯反演能干啥？</p>
-<p>举个<a href="https://www.luogu.org/problemnew/show/P3455" target="_blank" rel="noopener">栗子</a>：求$\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^m[gcd(i,j)=k]$</p>
-<h3 id="正规做法"><a href="#正规做法" class="headerlink" title="正规做法"></a>正规做法</h3><p>设$f(d)=\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^m[gcd(i,j)=d],g(d)=\sum\limits_{d|n}f(n)$</p>
+<p>举个<a href="https://www.luogu.org/problemnew/show/P3455" target="_blank" rel="noopener">栗子</a>：求$\sum\limits_{i=1}^n\sum\limits_{j=1}^m[gcd(i,j)=k]$</p>
+<h3 id="正规做法"><a href="#正规做法" class="headerlink" title="正规做法"></a>正规做法</h3><p>设$f(d)=\sum\limits_{i=1}^n\sum\limits_{j=1}^m[gcd(i,j)=d],g(d)=\sum\limits_{d|n}f(n)$</p>
 <p>可以发现$g(d)$就是在枚举$d|gcd(i,j)$的倍数的情况，即前$n$个数中能被$d$整除的数的个数和前$m$个数中能被$d$整除的数的个数。</p>
 <p>则$g(d)=\left\lfloor\dfrac{n}{d}\right\rfloor\left\lfloor\dfrac{m}{d}\right\rfloor$。</p>
-<p>显然可以莫比乌斯反演，$f(i)=\sum\limits<em>{i|d}\mu(\dfrac{d}{i})g(d)=\sum\limits</em>{i|d}\mu(\dfrac{d}{i})\left\lfloor\dfrac{n}{d}\right\rfloor\left\lfloor\dfrac{m}{d}\right\rfloor$。</p>
+<p>显然可以莫比乌斯反演，$f(i)=\sum\limits_{i|d}\mu(\dfrac{d}{i})g(d)=\sum\limits_{i|d}\mu(\dfrac{d}{i})\left\lfloor\dfrac{n}{d}\right\rfloor\left\lfloor\dfrac{m}{d}\right\rfloor$。</p>
 <p>答案为$f(k)=\sum\limits_{k|d}\mu(\dfrac{d}{k})\left\lfloor\dfrac{n}{d}\right\rfloor\left\lfloor\dfrac{m}{d}\right\rfloor$，枚举$k$的倍数，上界显然为$\left\lfloor\dfrac{n}{k}\right\rfloor$：</p>
 <p>$f(k)=\sum\limits_{i=1}^{\lfloor\frac{n}{k}\rfloor}\mu(i)\left\lfloor\dfrac{n}{ik}\right\rfloor\left\lfloor\dfrac{m}{ik}\right\rfloor$</p>
 <p>把$n,m$都除以$k$，预处理$\mu$的前缀和，后面这一坨就能整除分块$O(\sqrt{n})$做了。</p>
 <h3 id="常见做法"><a href="#常见做法" class="headerlink" title="常见做法"></a>常见做法</h3><p>真的做反演题的时候用得最多的还是$\sum\limits_{d|n}\mu(d)=[n=1]$。</p>
 <p>还是这道题，枚举$k$的倍数：</p>
-<p>$\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^m[gcd(i,j)=k]$</p>
-<p>$=\sum\limits<em>{i=1}^{\lfloor\frac{n}{k}\rfloor}\sum\limits</em>{j=1}^{\lfloor\frac{m}{k}\rfloor}[gcd(i,j)=1]$</p>
+<p>$\sum\limits_{i=1}^n\sum\limits_{j=1}^m[gcd(i,j)=k]$</p>
+<p>$=\sum\limits_{i=1}^{\lfloor\frac{n}{k}\rfloor}\sum\limits_{j=1}^{\lfloor\frac{m}{k}\rfloor}[gcd(i,j)=1]$</p>
 <p>直接把$\mu$的性质往上套：</p>
-<p>$=\sum\limits<em>{i=1}^{\lfloor\frac{n}{k}\rfloor}\sum\limits</em>{j=1}^{\lfloor\frac{m}{k}\rfloor}\sum\limits_{d|gcd(i,j)}\mu(d)$</p>
+<p>$=\sum\limits_{i=1}^{\lfloor\frac{n}{k}\rfloor}\sum\limits_{j=1}^{\lfloor\frac{m}{k}\rfloor}\sum\limits_{d|gcd(i,j)}\mu(d)$</p>
 <p>$d|gcd(i,j)$和$d|i,d|j$是等价的，然后我们改为枚举$d$，上界为$\left\lfloor\dfrac{n}{k}\right\rfloor$，再变换一下求和顺序：</p>
-<p>$=\sum\limits<em>{d=1}^{\lfloor\frac{n}{k}\rfloor}\sum\limits</em>{i=1}^{\lfloor\frac{n}{k}\rfloor}[d|i]\sum\limits_{j=1}^{\lfloor\frac{m}{k}\rfloor}[d|j]\mu(d)$</p>
+<p>$=\sum\limits_{d=1}^{\lfloor\frac{n}{k}\rfloor}\sum\limits_{i=1}^{\lfloor\frac{n}{k}\rfloor}[d|i]\sum\limits_{j=1}^{\lfloor\frac{m}{k}\rfloor}[d|j]\mu(d)$</p>
 <p>显然，$\sum\limits_{i=1}^n[d|i]=\left\lfloor\dfrac{n}{d}\right\rfloor$：</p>
 <p>$=\sum\limits_{d=1}^{\lfloor\frac{n}{k}\rfloor}\mu(d)\left\lfloor\dfrac{n}{dk}\right\rfloor\left\lfloor\dfrac{m}{dk}\right\rfloor$</p>
 <hr>
@@ -749,24 +749,24 @@ void sieve(){
 <p>设出另外两个函数$g,h$，满足$h=f*g$。</p>
 <p>即$h=\sum\limits_{d|n}g(d)f(\dfrac{n}{d})$</p>
 <p>对$h$做个前缀和：</p>
-<p>$\sum\limits<em>{i=1}^nh(i)=\sum\limits</em>{i=1}^n\sum\limits_{d|i}g(d)f(\dfrac{i}{d})$</p>
+<p>$\sum\limits_{i=1}^nh(i)=\sum\limits_{i=1}^n\sum\limits_{d|i}g(d)f(\dfrac{i}{d})$</p>
 <p>我们发现等号后面两个$\sum$就是把$1\sim n$的约数枚举了一遍。</p>
 <p>于是改为枚举$d$：</p>
-<p>$\sum\limits<em>{i=1}^nh(i)=\sum\limits</em>{d=1}^ng(d)\sum\limits<em>{i=1}^{\lfloor\frac{n}{d}\rfloor}f(\dfrac{id}{d})=\sum\limits</em>{d=1}^ng(d)S(\dfrac{n}{d})$</p>
+<p>$\sum\limits_{i=1}^nh(i)=\sum\limits_{d=1}^ng(d)\sum\limits_{i=1}^{\lfloor\frac{n}{d}\rfloor}f(\dfrac{id}{d})=\sum\limits_{d=1}^ng(d)S(\dfrac{n}{d})$</p>
 <p>把$d=1$提出来：</p>
-<p>$\sum\limits<em>{i=1}^nh(i)=g(1)S(n)+\sum\limits</em>{d=2}^ng(d)S(\dfrac{n}{d})$</p>
+<p>$\sum\limits_{i=1}^nh(i)=g(1)S(n)+\sum\limits_{d=2}^ng(d)S(\dfrac{n}{d})$</p>
 <p>移项：</p>
-<p>$g(1)S(n)=\sum\limits<em>{i=1}^nh(i)-\sum\limits</em>{d=2}^ng(d)S(\dfrac{n}{d})$</p>
-<p>$g(1)S(n)=\sum\limits<em>{i=1}^n(f*g)(i)-\sum\limits</em>{d=2}^ng(d)S(\dfrac{n}{d})$</p>
+<p>$g(1)S(n)=\sum\limits_{i=1}^nh(i)-\sum\limits_{d=2}^ng(d)S(\dfrac{n}{d})$</p>
+<p>$g(1)S(n)=\sum\limits_{i=1}^n(f*g)(i)-\sum\limits_{d=2}^ng(d)S(\dfrac{n}{d})$</p>
 <p>如果选取了合适的$g$使$f*g$的前缀和便于计算的话，就能整除分块递归计算$S(\dfrac{n}{d})$了。</p>
 <h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="莫比乌斯函数-1"><a href="#莫比乌斯函数-1" class="headerlink" title="莫比乌斯函数"></a>莫比乌斯函数</h3><p>我们知道$\mu* 1=e$，显然$e$的前缀和就是$1$。</p>
 <p>把$g$配为$1$，就有$S(n)=1-\sum\limits_{d=2}^nS(\dfrac{n}{d})$</p>
 <h3 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h3><p>欧拉函数有$\varphi*1=id$，$id$前缀和就是自然数前$n$项和。</p>
-<p>于是$S(n)=\sum\limits<em>{i=1}^ni-\sum\limits</em>{d=2}^nS(\dfrac{n}{d})$</p>
+<p>于是$S(n)=\sum\limits_{i=1}^ni-\sum\limits_{d=2}^nS(\dfrac{n}{d})$</p>
 <h3 id="奇怪的欧拉函数"><a href="#奇怪的欧拉函数" class="headerlink" title="奇怪的欧拉函数"></a>奇怪的欧拉函数</h3><p>求$\sum\limits_{i=1}^ni\varphi(i)$。</p>
 <p>要消去烦人的$i$，给$i\varphi(i)$卷上$id$：</p>
-<p>$i\varphi(i)*id=\sum\limits<em>{d|n}d\varphi(d)\dfrac{n}{d}=n\sum\limits</em>{d|n}\varphi(d)=n^2$</p>
-<p>$S(n)=\sum\limits<em>{i=1}^ni^2-\sum\limits</em>{d=2}^ndS(\dfrac{n}{d})$</p>
+<p>$i\varphi(i)*id=\sum\limits_{d|n}d\varphi(d)\dfrac{n}{d}=n\sum\limits_{d|n}\varphi(d)=n^2$</p>
+<p>$S(n)=\sum\limits_{i=1}^ni^2-\sum\limits_{d=2}^ndS(\dfrac{n}{d})$</p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>一般是先线筛出部分前缀和，再配合上记忆化。</p>
 <p>以$\mu$为例：</p>
 <pre><code class="lang-cpp">#define maxn 10000001
@@ -830,38 +830,38 @@ int smu(int n){
 <p>同理，杜教筛套杜教筛的复杂度为$O(n^{\frac{2}{3}})$。</p>
 <hr>
 <h1 id="水题"><a href="#水题" class="headerlink" title="水题"></a>水题</h1><h2 id="Problem-b"><a href="#Problem-b" class="headerlink" title="Problem b"></a><a href="https://www.luogu.org/problemnew/show/P2522" target="_blank" rel="noopener">Problem b</a></h2><p>其实是个容斥，也算是二维前缀和。</p>
-<p>设$f(n,m)=\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^m[gcd(i,j)=k]$</p>
-<p>求$\sum\limits<em>{i=a}^b\sum\limits</em>{j=c}^{d}[gcd(i,j)=k]$</p>
+<p>设$f(n,m)=\sum\limits_{i=1}^n\sum\limits_{j=1}^m[gcd(i,j)=k]$</p>
+<p>求$\sum\limits_{i=a}^b\sum\limits_{j=c}^{d}[gcd(i,j)=k]$</p>
 <p>我们暴力展开或者把它想象成二维平面上的一个矩形，就变成了$f(b,d)-f(b,c-1)-f(a-1,d)+f(a-1,c-1)$</p>
 <p>然后就是栗子了。</p>
-<h2 id="YY的GCD"><a href="#YY的GCD" class="headerlink" title="YY的GCD"></a><a href="https://www.luogu.org/problemnew/show/P2257" target="_blank" rel="noopener">YY的GCD</a></h2><p>求$\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^m[gcd(i,j)\in prime]$</p>
+<h2 id="YY的GCD"><a href="#YY的GCD" class="headerlink" title="YY的GCD"></a><a href="https://www.luogu.org/problemnew/show/P2257" target="_blank" rel="noopener">YY的GCD</a></h2><p>求$\sum\limits_{i=1}^n\sum\limits_{j=1}^m[gcd(i,j)\in prime]$</p>
 <p>暴力枚举质数：</p>
-<p>$=\sum\limits<em>{a\in prime}\sum\limits</em>{i=1}^n\sum\limits_{j=1}^m[gcd(i,j)=a]$</p>
+<p>$=\sum\limits_{a\in prime}\sum\limits_{i=1}^n\sum\limits_{j=1}^m[gcd(i,j)=a]$</p>
 <p>套路地变换：</p>
-<p>$=\sum\limits<em>{a\in prime}\sum\limits</em>{i=1}^{\lfloor\frac{n}{a}\rfloor}\sum\limits<em>{j=1}^{\lfloor\frac{m}{a}\rfloor}\sum\limits</em>{d|gcd(i,j)}\mu(d)$</p>
-<p>$=\sum\limits<em>{a\in prime}\sum\limits</em>{d=1}^{\lfloor\frac{n}{a}\rfloor}\left\lfloor\dfrac{n}{ad}\right\rfloor\left\lfloor\dfrac{m}{ad}\right\rfloor\mu(d)$</p>
+<p>$=\sum\limits_{a\in prime}\sum\limits_{i=1}^{\lfloor\frac{n}{a}\rfloor}\sum\limits_{j=1}^{\lfloor\frac{m}{a}\rfloor}\sum\limits_{d|gcd(i,j)}\mu(d)$</p>
+<p>$=\sum\limits_{a\in prime}\sum\limits_{d=1}^{\lfloor\frac{n}{a}\rfloor}\left\lfloor\dfrac{n}{ad}\right\rfloor\left\lfloor\dfrac{m}{ad}\right\rfloor\mu(d)$</p>
 <p>这样复杂度还是太高。</p>
 <p>设$k=ad$，显然$a|k$。改为枚举$k$：</p>
-<p>$=\sum\limits<em>{a\in prime}\sum\limits</em>{k=1}^n[a|k]\left\lfloor\dfrac{n}{k}\right\rfloor\left\lfloor\dfrac{m}{k}\right\rfloor\mu(d)$</p>
+<p>$=\sum\limits_{a\in prime}\sum\limits_{k=1}^n[a|k]\left\lfloor\dfrac{n}{k}\right\rfloor\left\lfloor\dfrac{m}{k}\right\rfloor\mu(d)$</p>
 <p>变换求和顺序：</p>
-<p>$=\sum\limits<em>{k=1}^n\left\lfloor\dfrac{n}{k}\right\rfloor\left\lfloor\dfrac{m}{k}\right\rfloor\sum\limits</em>{a\in prime}[a|k]\mu(d)$</p>
+<p>$=\sum\limits_{k=1}^n\left\lfloor\dfrac{n}{k}\right\rfloor\left\lfloor\dfrac{m}{k}\right\rfloor\sum\limits_{a\in prime}[a|k]\mu(d)$</p>
 <p>这样前面的可以整除分块，后面那一坨可以预处理。对于每个质数，给它的倍数加上$\mu$即可。</p>
 <h2 id="约数个数和"><a href="#约数个数和" class="headerlink" title="约数个数和"></a><a href="https://www.luogu.org/problemnew/show/P3327" target="_blank" rel="noopener">约数个数和</a></h2><p><a href="/2019/07/10/洛谷-P3327-SDOI2015-约数个数和">题解</a></p>
 <h2 id="Crash的数字表格"><a href="#Crash的数字表格" class="headerlink" title="Crash的数字表格"></a><a href="https://www.luogu.org/problemnew/show/P1829" target="_blank" rel="noopener">Crash的数字表格</a></h2><p><a href="/2019/07/10/洛谷-P1829-国家集训队-Crash的数字表格">题解</a></p>
 <h2 id="选数"><a href="#选数" class="headerlink" title="选数"></a><a href="https://www.luogu.org/problemnew/show/P3172" target="_blank" rel="noopener">选数</a></h2><p>这个题直接把我送去学杜教筛了。</p>
 <p>个人习惯把$H$看作$R$，把$N$看作$n$。</p>
-<p>求$\sum\limits<em>{i_1=L}^R\sum\limits</em>{i<em>2=L}^R···\sum\limits</em>{i_n=L}^R[gcd(i_1,i_2,…i_n)=k]$</p>
+<p>求$\sum\limits_{i_1=L}^R\sum\limits_{i_2=L}^R···\sum\limits_{i_n=L}^R[gcd(i_1,i_2,…i_n)=k]$</p>
 <p>如果玩套路的话感觉有点麻烦，试试正规反演：</p>
 <p>先转化一下，枚举$k$的倍数，这样$R=\lfloor\dfrac{R}{k}\rfloor,L=\lceil\dfrac{L}{k}\rceil$</p>
-<p>就成了$\sum\limits<em>{i_1=L}^R\sum\limits</em>{i<em>2=L}^R···\sum\limits</em>{i_n=L}^R[gcd(i_1,i_2,…i_n)=1]$</p>
-<p>设$f(d)=\sum\limits<em>{i_1=L}^R\sum\limits</em>{i<em>2=L}^R···\sum\limits</em>{i<em>n=L}^R[gcd(i_1,i_2,…i_n)=d],g(d)=\sum\limits</em>{d|n}f(n)$</p>
+<p>就成了$\sum\limits_{i_1=L}^R\sum\limits_{i_2=L}^R···\sum\limits_{i_n=L}^R[gcd(i_1,i_2,…i_n)=1]$</p>
+<p>设$f(d)=\sum\limits_{i_1=L}^R\sum\limits_{i_2=L}^R···\sum\limits_{i_n=L}^R[gcd(i_1,i_2,…i_n)=d],g(d)=\sum\limits_{d|n}f(n)$</p>
 <p>考虑$g$的含义，就是有$n$个值域为$[L,R]$的数，它们的$gcd$为$d$的倍数。</p>
 <p>$g(d)=\left(\left\lfloor\dfrac{R}{d}\right\rfloor-\left\lfloor\dfrac{L-1}{d}\right\rfloor\right)^{n}$</p>
 <p>反演得：$f(d)=\sum\limits_{d|n}\mu(n)g(\dfrac{n}{d})$</p>
 <p>答案为$f(1)=\sum\limits_{i=1}^R\mu(i)g(i)$</p>
 <p>后面$g$可以整除分块，$R$达到$1e9$要杜教筛。复杂度为$O(n^{\frac{2}{3}}+\sqrt{n}\log n)$。</p>
 <h2 id="于神之怒加强版"><a href="#于神之怒加强版" class="headerlink" title="于神之怒加强版"></a><a href="https://www.luogu.org/problemnew/show/P4449" target="_blank" rel="noopener">于神之怒加强版</a></h2><p>上面那道题送我去学了杜教筛，这道题送我去重学了遍线筛。</p>
-<p>推法很套路，最后求的是$\sum\limits<em>{T=1}^n\left\lfloor\dfrac{n}{T}\right\rfloor\left\lfloor\dfrac{m}{T}\right\rfloor\sum\limits</em>{d|T}d^k\mu(\dfrac{T}{d})$</p>
+<p>推法很套路，最后求的是$\sum\limits_{T=1}^n\left\lfloor\dfrac{n}{T}\right\rfloor\left\lfloor\dfrac{m}{T}\right\rfloor\sum\limits_{d|T}d^k\mu(\dfrac{T}{d})$</p>
 <p>然后就是筛$f(T)=\sum\limits_{d|T}d^k\mu(\dfrac{T}{d})$。$n$有$5e6$，简单的$O(n\log n)$筛法不好过了。</p>
 <p>显然$f=\mu*id^k$是个积性函数，可以考虑线筛。</p>
 <p>对于质数$p$：</p>
@@ -895,8 +895,8 @@ void sieve(){
 }
 </code></pre>
 <h2 id="简单的数学题"><a href="#简单的数学题" class="headerlink" title="简单的数学题"></a><a href="https://www.luogu.org/problemnew/show/P3768" target="_blank" rel="noopener">简单的数学题</a></h2><p><a href="/2019/07/12/洛谷-P3768-简单的数学题">题解</a></p>
-<h2 id="数表"><a href="#数表" class="headerlink" title="数表"></a><a href="https://www.luogu.org/problemnew/show/P3312" target="_blank" rel="noopener">数表</a></h2><p>求$\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^m\sigma(gcd(i,j))[\sigma(gcd(i,j))\le a]$</p>
-<p>套路推完式子长这样：$\sum\limits<em>{T=1}^n\left\lfloor\dfrac{n}{i}\right\rfloor\left\lfloor\dfrac{m}{i}\right\rfloor\sum\limits</em>{d|T,\sigma(d)\le a}\mu(\dfrac{T}{d})\sigma(d)$</p>
+<h2 id="数表"><a href="#数表" class="headerlink" title="数表"></a><a href="https://www.luogu.org/problemnew/show/P3312" target="_blank" rel="noopener">数表</a></h2><p>求$\sum\limits_{i=1}^n\sum\limits_{j=1}^m\sigma(gcd(i,j))[\sigma(gcd(i,j))\le a]$</p>
+<p>套路推完式子长这样：$\sum\limits_{T=1}^n\left\lfloor\dfrac{n}{i}\right\rfloor\left\lfloor\dfrac{m}{i}\right\rfloor\sum\limits_{d|T,\sigma(d)\le a}\mu(\dfrac{T}{d})\sigma(d)$</p>
 <p>所有数按$\sigma$排序，把询问离线下来按$a$排序。</p>
 <p>处理每个询问前依次把$\sigma(i)\le a$的数的贡献算上。</p>
 <p>这样就是若干个单点加和区间查，树状数组维护即可。</p>

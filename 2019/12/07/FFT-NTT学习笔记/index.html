@@ -706,13 +706,13 @@ int main(){
 }
 </code></pre>
 <hr>
-<h1 id="水题"><a href="#水题" class="headerlink" title="水题"></a>水题</h1><h2 id="力"><a href="#力" class="headerlink" title="力"></a><a href="https://www.luogu.com.cn/problem/P3338" target="_blank" rel="noopener">力</a></h2><p>令$q<em>0=0$，前半部分就是$\sum\limits</em>{i=0}^{n-1}\dfrac{q_i}{(n-i)^2}$</p>
-<p>设$f(i)=q<em>i,g(i)=\dfrac{1}{(i+1)^2}$，求的成了$\sum\limits</em>{i=0}^{n-1}f(i)g(n-i-1)$，$FFT$就没了。</p>
+<h1 id="水题"><a href="#水题" class="headerlink" title="水题"></a>水题</h1><h2 id="力"><a href="#力" class="headerlink" title="力"></a><a href="https://www.luogu.com.cn/problem/P3338" target="_blank" rel="noopener">力</a></h2><p>令$q_0=0$，前半部分就是$\sum\limits_{i=0}^{n-1}\dfrac{q_i}{(n-i)^2}$</p>
+<p>设$f(i)=q_i,g(i)=\dfrac{1}{(i+1)^2}$，求的成了$\sum\limits_{i=0}^{n-1}f(i)g(n-i-1)$，$FFT$就没了。</p>
 <p>后半部分就是翻过来卷。</p>
-<h2 id="差分与前缀和"><a href="#差分与前缀和" class="headerlink" title="差分与前缀和"></a><a href="https://www.luogu.com.cn/problem/P5488" target="_blank" rel="noopener">差分与前缀和</a></h2><p>通过手玩会发现$k$阶前缀和答案为$\sum\limits<em>{j=1}^iC</em>{i-j+k-1}^{i-j}a<em>j$，$k$阶差分答案为$\sum\limits</em>{j=1}^i(-1)^{i-j}C_k^{i-j}a_j$</p>
+<h2 id="差分与前缀和"><a href="#差分与前缀和" class="headerlink" title="差分与前缀和"></a><a href="https://www.luogu.com.cn/problem/P5488" target="_blank" rel="noopener">差分与前缀和</a></h2><p>通过手玩会发现$k$阶前缀和答案为$\sum\limits_{j=1}^iC_{i-j+k-1}^{i-j}a_j$，$k$阶差分答案为$\sum\limits_{j=1}^i(-1)^{i-j}C_k^{i-j}a_j$</p>
 <p>显然是个卷积的形式。而这个组合数可以递推：</p>
 <ul>
-<li>对于$C<em>{i+k-1}^i$，$C</em>{i+k-1}^0=1,C<em>{i+k+1}^{i}=C</em>{i+k}^{i-1}\times \dfrac{k+i-1}{i}$</li>
+<li>对于$C_{i+k-1}^i$，$C_{i+k-1}^0=1,C_{i+k+1}^{i}=C_{i+k}^{i-1}\times \dfrac{k+i-1}{i}$</li>
 <li>对于$C_k^i$，$C_k^0=1,C_k^i=C_k^{i-1}\times\dfrac{k-i+1}{i}$</li>
 </ul>
 <p>这样$k$就能取模了。然后就是$NTT$板子。</p>
@@ -734,25 +734,25 @@ int main(){
 <li>两者相等，$a-b=0$</li>
 <li>其中一个是通配符，$ab=0$</li>
 </ul>
-<p>那么以$i$为结尾的子串能匹配的条件就是$\sum\limits<em>{j=0}^i(a_j-b</em>{i-j})^2a<em>jb</em>{i-j}=0$。带平方是为了防止正负抵消。</p>
-<p>拆一下式子就是$\sum\limits<em>{j=0}^ia_j^3b</em>{i-j}-2\sum\limits<em>{j=0}^ia_j^2b</em>{i-j}^2+\sum\limits<em>{j=0}^ia_jb</em>{i-j}^3$</p>
+<p>那么以$i$为结尾的子串能匹配的条件就是$\sum\limits_{j=0}^i(a_j-b_{i-j})^2a_jb_{i-j}=0$。带平方是为了防止正负抵消。</p>
+<p>拆一下式子就是$\sum\limits_{j=0}^ia_j^3b_{i-j}-2\sum\limits_{j=0}^ia_j^2b_{i-j}^2+\sum\limits_{j=0}^ia_jb_{i-j}^3$</p>
 <p>$FFT/NTT$卷三遍即可。</p>
 <h2 id="礼物"><a href="#礼物" class="headerlink" title="礼物"></a><a href="https://www.luogu.com.cn/problem/P3723" target="_blank" rel="noopener">礼物</a></h2><p><a href="/2019/12/09/洛谷-P3723-AH2017-HNOI2017-礼物/">题解</a></p>
 <h2 id="万径人踪灭"><a href="#万径人踪灭" class="headerlink" title="万径人踪灭"></a><a href="https://www.luogu.com.cn/problem/P4199" target="_blank" rel="noopener">万径人踪灭</a></h2><p>枚举对称轴，算出有多少对字符关于该轴对称。</p>
-<p>因为字符集只有$a,b$，可以用$\sum\limits<em>{i=0}^j(a_j-a</em>{i-j})^2$表示不对称的字符对，用总的减去不对称的就是对称的了。</p>
+<p>因为字符集只有$a,b$，可以用$\sum\limits_{i=0}^j(a_j-a_{i-j})^2$表示不对称的字符对，用总的减去不对称的就是对称的了。</p>
 <p>式子拆开，两个平方一个卷积，上$NTT$。</p>
 <p>假设算出的字符对有$cnt$个，若该轴为字符，这个字符也可以算进子序列里，有$2^{cnt+1}-1$个子序列关于该轴对称；否则为$2^{cnt}$。</p>
 <p>最后第二个条件就减去回文子串数就行。</p>
 <p>顺便一提，我又双叒叕$hash$被卡被迫默写$SA$了。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/xiaodianshi/fachou.png"></p>
 <h2 id="DNA"><a href="#DNA" class="headerlink" title="DNA"></a><a href="https://www.luogu.com.cn/problem/P3763" target="_blank" rel="noopener">DNA</a></h2><p>当年用$SAM$写的，但不得不说$FFT/NTT$在字符串匹配上有奇效。</p>
-<p>$A,G,C,T$分开算。以$A$为例，$A$看作$1$，不是$A$的看作$0$，贡献为$\sum\limits<em>{j=0}^i(s_j-s</em>{i-j})^2$。</p>
+<p>$A,G,C,T$分开算。以$A$为例，$A$看作$1$，不是$A$的看作$0$，贡献为$\sum\limits_{j=0}^i(s_j-s_{i-j})^2$。</p>
 <p>四个贡献加起来不超过$3$的就是合法的。</p>
 <h2 id="染色"><a href="#染色" class="headerlink" title="染色"></a><a href="https://www.luogu.com.cn/problem/P4491" target="_blank" rel="noopener">染色</a></h2><p><a href="/2019/12/10/洛谷-P4491-HAOI2018-染色">题解</a></p>
 <h2 id="求和"><a href="#求和" class="headerlink" title="求和"></a><a href="https://www.luogu.com.cn/problem/P4091" target="_blank" rel="noopener">求和</a></h2><p>大力推式子：</p>
-<p>$\sum\limits<em>{i=0}^n\sum\limits</em>{j=0}^i\begin{Bmatrix}i\j\end{Bmatrix}2^jj!$</p>
-<p>$=\sum\limits<em>{j=0}^n2^jj!\sum\limits</em>{i=0}^n\begin{Bmatrix}i\j\end{Bmatrix}$</p>
-<p>$=\sum\limits<em>{j=0}^n2^jj!\sum\limits</em>{i=0}^n\sum\limits_{k=0}^j\dfrac{(-1)^k}{k!}\dfrac{(j-k)^i}{(j-k)!}$</p>
-<p>$=\sum\limits<em>{j=0}^n2^jj!\sum\limits</em>{k=0}^j\dfrac{(-1)^k}{k!}\dfrac{\sum\limits_{i=0}^n(j-k)^i}{(j-k)!}$</p>
+<p>$\sum\limits_{i=0}^n\sum\limits_{j=0}^i\begin{Bmatrix}i\\j\end{Bmatrix}2^jj!$</p>
+<p>$=\sum\limits_{j=0}^n2^jj!\sum\limits_{i=0}^n\begin{Bmatrix}i\\j\end{Bmatrix}$</p>
+<p>$=\sum\limits_{j=0}^n2^jj!\sum\limits_{i=0}^n\sum\limits_{k=0}^j\dfrac{(-1)^k}{k!}\dfrac{(j-k)^i}{(j-k)!}$</p>
+<p>$=\sum\limits_{j=0}^n2^jj!\sum\limits_{k=0}^j\dfrac{(-1)^k}{k!}\dfrac{\sum\limits_{i=0}^n(j-k)^i}{(j-k)!}$</p>
 <p>观察一下$\sum\limits_{i=0}^n(j-k)^i$，这不就一等比数列求和吗。到这里卷积已经很明显了吧。</p>
 <p>还有种不用卷积$O(n)$的做法，看不透。</p>
 

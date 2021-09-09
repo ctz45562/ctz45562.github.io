@@ -620,15 +620,15 @@
 <p>众所周知$n$个点的二叉树数量是卡特兰数$c(n)$。</p>
 <p>令$G(x)$为其生成函数，其封闭形式为$\dfrac{1-\sqrt{1-4x}}{2x}$。怎么得到的可以看我的<a href="/2020/01/06/多项式-生成函数学习笔记/#卡特兰数通项公式">生成函数笔记</a>。</p>
 <p>设$f(n)$为$n$个节点二叉树的叶子总数。枚举根的左子树大小转移：$f(0)=0,f(1)=1,f(n)=\sum\limits_{i=0}^{n-1}f(i)c(n-1-i)+f(n-1-i)c(i)$</p>
-<p>令$F(x)$为${f(n)}$的生成函数。</p>
+<p>令$F(x)$为$\{f(n)\}$的生成函数。</p>
 <p>$F=\sum\limits_{n=1}^\infty f(n)x^n$</p>
-<p>$=\sum\limits<em>{n=1}^\infty x^n\left([n=1]+\sum\limits</em>{i=0}^{n-1}f(i)c(n-1-i)+f(n-1-i)c(i)\right)$</p>
+<p>$=\sum\limits_{n=1}^\infty x^n\left([n=1]+\sum\limits_{i=0}^{n-1}f(i)c(n-1-i)+f(n-1-i)c(i)\right)$</p>
 <p>$=x+2xF\times G$</p>
 <p>解出来$F=\dfrac{x}{1-2xG}=\dfrac{x}{\sqrt{1-4x}}$。</p>
 <p>之后的操作就有点仙了，不知道谁想到的对$xG(x)$求导：</p>
 <p>$(xG(x))’=\dfrac{1}{\sqrt{1-4x}}=\dfrac{F(x)}{x}$</p>
 <p>另一方面：</p>
-<p>$(xG(x))’=\left(\sum\limits<em>{n=1}^\infty c(n-1)x^n\right)’=\sum\limits</em>{n=0}^\infty (n+1)c(n)x^n$</p>
+<p>$(xG(x))’=\left(\sum\limits_{n=1}^\infty c(n-1)x^n\right)’=\sum\limits_{n=0}^\infty (n+1)c(n)x^n$</p>
 <p>$\dfrac{F(x)}{x}=\sum\limits_{n=0}^\infty f(n+1)x^n$</p>
 <p>于是$f(n+1)=(n+1)c(n)$。</p>
 <p>答案为$\dfrac{f(n)}{c(n)}$，代入上式和卡特兰数通项公式，化简得到$\dfrac{n(n+1)}{2(2n-1)}$。</p>

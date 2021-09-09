@@ -621,12 +621,12 @@
 <p><strong>若$i$为关键点：</strong></p>
 <p>$f(i,1)$的情况不可能成立（关键点$i$和$i$联通），$f(i,1)=inf$。</p>
 <p>判断一下是否有$i$的儿子为关键点且与$i$在原树上有边，存在则无解。</p>
-<p>对于$f(i,0)$，处于情况$0$的儿子为满足<strong>关键点互不联通</strong>，需断掉路径上的某个点，处于情况$1$的儿子不用管，$f(i,0)=\sum\limits_{j\in son(i)}\min{f(j,1),f(j,0)+1}$</p>
+<p>对于$f(i,0)$，处于情况$0$的儿子为满足<strong>关键点互不联通</strong>，需断掉路径上的某个点，处于情况$1$的儿子不用管，$f(i,0)=\sum\limits_{j\in son(i)}\min\{f(j,1),f(j,0)+1\}$</p>
 <p><strong>若$i$不为关键点：</strong></p>
 <p>若$i$有不少于$2$个点为关键点，不可能存在情况$0$，此时$f(i,0)=inf$。</p>
-<p>否则其儿子里需有且只有处于情况$0$，即$f(i,0)=\sum\limits<em>{j\in son(i)}f(j,1)+\min\limits</em>{j\in son(i)}{f(j,0)-f(j,1)}$</p>
-<p>对于$f(i,1)$，要么断开点$i$，儿子随便选；要么儿子都处于情况$1$。即$f(i,1)=\min{\left(\sum\limits<em>{j\in son(i)}\min{f(j,0),f(j,1)}\right)+1,\sum\limits</em>{j\in son(i)}f(j,1)}$</p>
-<p>最后答案为$\min{f(1,0),f(1,1)}$。</p>
+<p>否则其儿子里需有且只有处于情况$0$，即$f(i,0)=\sum\limits_{j\in son(i)}f(j,1)+\min\limits_{j\in son(i)}\{f(j,0)-f(j,1)\}$</p>
+<p>对于$f(i,1)$，要么断开点$i$，儿子随便选；要么儿子都处于情况$1$。即$f(i,1)=\min\{\left(\sum\limits_{j\in son(i)}\min\{f(j,0),f(j,1)\}\right)+1,\sum\limits_{j\in son(i)}f(j,1)\}$</p>
+<p>最后答案为$\min\{f(1,0),f(1,1)\}$。</p>
 <p>代码：</p>
 <pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;cstdio&gt;

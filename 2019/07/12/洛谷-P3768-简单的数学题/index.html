@@ -617,23 +617,23 @@
           <p><a href="https://www.luogu.org/problemnew/show/P3768" target="_blank" rel="noopener">传送门</a></p>
 <p>恶心的取模调了一下午。。。</p>
 <a id="more"></a>
-<p>求$\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^nijgcd(i,j)$</p>
+<p>求$\sum\limits_{i=1}^n\sum\limits_{j=1}^nijgcd(i,j)$</p>
 <p>枚举$gcd$：</p>
-<p>$=\sum\limits<em>{d=1}^n\sum\limits</em>{i=1}^n\sum\limits_{j=1}^nijd[gcd(i,j)=d]$</p>
+<p>$=\sum\limits_{d=1}^n\sum\limits_{i=1}^n\sum\limits_{j=1}^nijd[gcd(i,j)=d]$</p>
 <p>枚举$d$的倍数：</p>
-<p>$=\sum\limits<em>{d=1}^n\sum\limits</em>{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum\limits_{j=1}^{\lfloor\frac{n}{d}\rfloor}ijd^3[gcd(i,j)=1]$</p>
+<p>$=\sum\limits_{d=1}^n\sum\limits_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum\limits_{j=1}^{\lfloor\frac{n}{d}\rfloor}ijd^3[gcd(i,j)=1]$</p>
 <p>套路反演：</p>
-<p>$=\sum\limits<em>{d=1}^nd^3\sum\limits</em>{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum\limits<em>{j=1}^{\lfloor\frac{n}{d}\rfloor}ij\sum\limits</em>{k|gcd(i,j)}\mu(k)$</p>
-<p>$=\sum\limits<em>{d=1}^nd^3\sum\limits</em>{k=1}^{\lfloor\frac{n}{d}\rfloor}\sum\limits<em>{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum\limits</em>{j=1}^{\lfloor\frac{n}{d}\rfloor}[k|i][k|j]ij\mu(k)$</p>
+<p>$=\sum\limits_{d=1}^nd^3\sum\limits_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum\limits_{j=1}^{\lfloor\frac{n}{d}\rfloor}ij\sum\limits_{k|gcd(i,j)}\mu(k)$</p>
+<p>$=\sum\limits_{d=1}^nd^3\sum\limits_{k=1}^{\lfloor\frac{n}{d}\rfloor}\sum\limits_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum\limits_{j=1}^{\lfloor\frac{n}{d}\rfloor}[k|i][k|j]ij\mu(k)$</p>
 <p>枚举$k$的倍数：</p>
-<p>$=\sum\limits<em>{d=1}^nd^3\sum\limits</em>{k=1}^{\lfloor\frac{n}{d}\rfloor}\mu(k)k^2\sum\limits<em>{i=1}^{\lfloor\frac{n}{kd}\rfloor}i\sum\limits</em>{j=1}^{\lfloor\frac{n}{kd}\rfloor}j$</p>
+<p>$=\sum\limits_{d=1}^nd^3\sum\limits_{k=1}^{\lfloor\frac{n}{d}\rfloor}\mu(k)k^2\sum\limits_{i=1}^{\lfloor\frac{n}{kd}\rfloor}i\sum\limits_{j=1}^{\lfloor\frac{n}{kd}\rfloor}j$</p>
 <p>到这里复杂度还是不够优秀，继续往下推：</p>
 <p>设$g(n)=\sum\limits_{i=1}^ni$，即自然数前$n$项和。</p>
 <p>令$T=kd$，则有$d|T$。</p>
 <p>枚举$T$：</p>
-<p>$=\sum\limits<em>{d=1}^nd^3\sum\limits</em>{T=1}^n[d|T]\mu(\dfrac{T}{d})\left(\dfrac{T}{d}\right)^2g^2(\dfrac{n}{T})$</p>
+<p>$=\sum\limits_{d=1}^nd^3\sum\limits_{T=1}^n[d|T]\mu(\dfrac{T}{d})\left(\dfrac{T}{d}\right)^2g^2(\dfrac{n}{T})$</p>
 <p>变换求和顺序：</p>
-<p>$=\sum\limits<em>{T=1}^ng^2(\dfrac{n}{T})T^2\sum\limits</em>{d|T}\mu(\dfrac{T}{d})d$</p>
+<p>$=\sum\limits_{T=1}^ng^2(\dfrac{n}{T})T^2\sum\limits_{d|T}\mu(\dfrac{T}{d})d$</p>
 <p>后面那个$\sum$其实是个卷积：</p>
 <p>$\sum\limits_{d|T}\mu(\dfrac{T}{d})d$</p>
 <p>$=\mu*id$</p>
@@ -647,7 +647,7 @@
 <p>然后就能$O(n^{\frac{2}{3}})$做了。</p>
 <p>通过查阅题解还发现了一种更$NB$的推法：</p>
 <p>根据$n=\sum\limits_{d|n}\varphi(d)$</p>
-<p>原式直接化为$\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^nij\sum\limits_{d|gcd(i,j)}\varphi(d)$</p>
+<p>原式直接化为$\sum\limits_{i=1}^n\sum\limits_{j=1}^nij\sum\limits_{d|gcd(i,j)}\varphi(d)$</p>
 <p>剩下的就都是套路了。</p>
 <p>代码：</p>
 <pre><code class="lang-cpp">#include &lt;iostream&gt;

@@ -619,26 +619,26 @@
 <a id="more"></a>
 <p>概括题意：</p>
 <blockquote>
-<p>求$\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^m[gcd(i,j)=1][gcd(j,k)=1]$</p>
+<p>求$\sum\limits_{i=1}^n\sum\limits_{j=1}^m[gcd(i,j)=1][gcd(j,k)=1]$</p>
 </blockquote>
 <p>蛤？你问我为啥是这个式子？<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/2233/kunhuo.png"></p>
 <p>道可道，非常道。只可意会，不可言传。请出门右转题解区。<del>（一言以蔽之，我不会推）</del><img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/2233/heshui.png"></p>
 <hr>
 <p><del>大跃进</del>反演：</p>
-<p>$\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^m[gcd(i,j)=1][gcd(j,k)=1]$</p>
-<p>$=\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^m\sum\limits<em>{a=1}^n\mu(a)[a|i][a|j]\sum\limits</em>{b=1}^m\mu(b)[b|j][b|k]$</p>
-<p>$=\sum\limits<em>{a=1}^n\mu(a)\left\lfloor\dfrac{n}{a}\right\rfloor\sum\limits</em>{b|k}\mu(b)\left\lfloor\dfrac{m}{lcm(a,b)}\right\rfloor$</p>
+<p>$\sum\limits_{i=1}^n\sum\limits_{j=1}^m[gcd(i,j)=1][gcd(j,k)=1]$</p>
+<p>$=\sum\limits_{i=1}^n\sum\limits_{j=1}^m\sum\limits_{a=1}^n\mu(a)[a|i][a|j]\sum\limits_{b=1}^m\mu(b)[b|j][b|k]$</p>
+<p>$=\sum\limits_{a=1}^n\mu(a)\left\lfloor\dfrac{n}{a}\right\rfloor\sum\limits_{b|k}\mu(b)\left\lfloor\dfrac{m}{lcm(a,b)}\right\rfloor$</p>
 <p>这什么沙雕<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/luotianyi/掀桌.png">？！</p>
 <p><del>事实证明，大跃进不可取</del></p>
 <hr>
 <p>五五开反演：</p>
-<p>设$f(n,m,k)=\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^m[gcd(i,j)=1][gcd(j,k)=1]$</p>
-<p>$f(n,m,k)=\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^m[gcd(i,j)=1]\sum\limits_{d|k}\mu(d)[d|j]$</p>
-<p>$=\sum\limits<em>{d|k}\mu(d)\sum\limits</em>{i=1}^n\sum\limits_{j=1}^{\lfloor\frac{m}{d}\rfloor}[gcd(i,jd)=1]$</p>
-<p>$=\sum\limits<em>{d|k}\mu(d)\sum\limits</em>{j=1}^{\lfloor\frac{m}{d}\rfloor}\sum\limits_{i=1}^n[gcd(i,j)=1][gcd(i,d)=1]$</p>
+<p>设$f(n,m,k)=\sum\limits_{i=1}^n\sum\limits_{j=1}^m[gcd(i,j)=1][gcd(j,k)=1]$</p>
+<p>$f(n,m,k)=\sum\limits_{i=1}^n\sum\limits_{j=1}^m[gcd(i,j)=1]\sum\limits_{d|k}\mu(d)[d|j]$</p>
+<p>$=\sum\limits_{d|k}\mu(d)\sum\limits_{i=1}^n\sum\limits_{j=1}^{\lfloor\frac{m}{d}\rfloor}[gcd(i,jd)=1]$</p>
+<p>$=\sum\limits_{d|k}\mu(d)\sum\limits_{j=1}^{\lfloor\frac{m}{d}\rfloor}\sum\limits_{i=1}^n[gcd(i,j)=1][gcd(i,d)=1]$</p>
 <p>$=\sum\limits_{d|k}\mu(d)f(\left\lfloor\dfrac{m}{d}\right\rfloor,n,d)$</p>
 <p>暴力递归算就好了。</p>
-<p>边界：$f(n,0,k)=f(0,m,k)=0$，$f(n,m,1)=\sum\limits<em>{i=1}^n\sum\limits</em>{j=1}^m[gcd(i,j)=1]=\sum\limits_{d=1}^n\mu(d)\left\lfloor\dfrac{n}{d}\right\rfloor\left\lfloor\dfrac{m}{d}\right\rfloor$，还要套个杜教筛。</p>
+<p>边界：$f(n,0,k)=f(0,m,k)=0$，$f(n,m,1)=\sum\limits_{i=1}^n\sum\limits_{j=1}^m[gcd(i,j)=1]=\sum\limits_{d=1}^n\mu(d)\left\lfloor\dfrac{n}{d}\right\rfloor\left\lfloor\dfrac{m}{d}\right\rfloor$，还要套个杜教筛。</p>
 <p>蛤？你问我复杂度？<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/quyin/doubt.png"></p>
 <p><del>当然是O(能过)</del>查阅一下题解是$O(\log n\log m\sqrt{n}+n^{\frac{2}{3}})$的。<del>（我TM真不会推啊）</del></p>
 <p>代码：</p>

@@ -624,7 +624,7 @@
 <p>把$p$提出来：$gcd(a,b)*p=p$</p>
 <p>约去$p$：$gcd(a,b)=1$，也就是$a$、$b$互质</p>
 <p>假设$a&gt;b$，问题就变成了求$a$所有取值的欧拉函数的和。$ap$不能超过$n$，则$1\le a\le \left\lfloor\dfrac{n}{p}\right\rfloor$。直接预处理出欧拉函数和前缀和。其中$a,b$可互换，答案乘$2$。当$a=1,b=1$时互换是同一种情况，答案减去$cnt$（$cnt$为质数个数）。</p>
-<p>综上，$ans=\left(\sum\limits<em>{i=1}^{cnt}\sum\limits</em>{j=1}^{\left\lfloor\frac{n}{prime[i]}\right\rfloor}\varphi(j)\right)-cnt$</p>
+<p>综上，$ans=\left(\sum\limits_{i=1}^{cnt}\sum\limits_{j=1}^{\left\lfloor\frac{n}{prime[i]}\right\rfloor}\varphi(j)\right)-cnt$</p>
 <p>用的欧拉筛，时间复杂度$O(n)$。</p>
 <p>代码：</p>
 <pre><code class="lang-cpp">#include &lt;iostream&gt;

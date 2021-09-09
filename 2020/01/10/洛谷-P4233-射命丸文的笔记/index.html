@@ -626,9 +626,9 @@
 <p>考虑把$g(n)$分类。按$1$号点所在强联通分量大小分不好使了，因为这个强连通分量和其他点之间也会有边，关系不好确定。</p>
 <p>按拓扑序最小的强连通分量大小来分，$g(n)=\sum\limits_{i=1}^nC_n^if(i)g(n-i)$。</p>
 <p>后面是个带组合数的卷积，拆开组合数就出来$EGF$了：$\dfrac{g(n)}{n!}=\sum\limits_{i=1}^n\dfrac{f(i)}{i!}\dfrac{g(n-i)}{(n-i)!}$</p>
-<p>令$F(x)$为${f(n)}$的$EGF$，$G(x)$为${g(n)}$的$EGF$。</p>
+<p>令$F(x)$为$\{f(n)\}$的$EGF$，$G(x)$为$\{g(n)\}$的$EGF$。</p>
 <p>$G=\sum\limits_{n=0}^\infty\dfrac{g(n)}{n!}x^n$</p>
-<p>$=\sum\limits<em>{n=0}^\infty x^n\left([n=0]+\sum\limits</em>{i=1}^n\dfrac{f(i)}{i!}\dfrac{g(n-i)}{(n-i)!}\right)$</p>
+<p>$=\sum\limits_{n=0}^\infty x^n\left([n=0]+\sum\limits_{i=1}^n\dfrac{f(i)}{i!}\dfrac{g(n-i)}{(n-i)!}\right)$</p>
 <p>$=1+F\times G$</p>
 <p>$F=\dfrac{G-1}{G}$</p>
 <p>多项式求逆即可。特判一下$n=2$。</p>

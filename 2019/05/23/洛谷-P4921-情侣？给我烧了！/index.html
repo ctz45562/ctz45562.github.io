@@ -621,7 +621,7 @@
 <p>一眼看上去很像错排。$k$位错排问题可以先$C_n^{n-k}$选出配对的$n-k$个，剩下的$k$个完全错排。</p>
 <p>用$f(n)$表示不考虑坐的次序（只考虑谁和谁坐一起），$n$对情侣完全错排的方案数。</p>
 <p>然后考虑$n$对情侣至少$i$对的配对的方案数。</p>
-<p>$C<em>n^i$选出配对的$i$对，剩下的$2n-2i$个人任意配对。这里定义$g(n)=\prod\limits</em>{i=1}^{\frac{n}{2}}(2i-1)$，则有$g(2n-2i)$种方案。</p>
+<p>$C_n^i$选出配对的$i$对，剩下的$2n-2i$个人任意配对。这里定义$g(n)=\prod\limits_{i=1}^{\frac{n}{2}}(2i-1)$，则有$g(2n-2i)$种方案。</p>
 <p>$g(n)$可以预处理，当然可以优雅地<del>百度</del>推导：</p>
 <script type="math/tex; mode=display">\prod\limits_{i=1}^{\frac{n}{2}}(2i-1)</script><script type="math/tex; mode=display">=\dfrac{n!}{\prod\limits_{i=1}^{\frac{n}{2}}(2i)}</script><script type="math/tex; mode=display">=\dfrac{n!}{(\frac{n}{2})!2^{\frac{n}{2}}}</script><p>套路地容斥一下：</p>
 <script type="math/tex; mode=display">f(n)=\sum\limits_{i=0}^{n}(-1)^iC_n^ig(2n-2i)</script><script type="math/tex; mode=display">=\sum\limits_{i=0}^{n}(-1)^iC_n^i\dfrac{(2n-2i)!}{(n-i)!2^{n-i}}</script><p>对于任意$n$和$k$，就能先$C_n^k$选出配对的情侣，剩下的$f(n-k)$完全错排，考虑次序，有$n!$种排列，配对的两人之间可以互换，有$2^n$种情况。</p>

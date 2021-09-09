@@ -617,14 +617,14 @@
           <p><a href="https://www.luogu.com.cn/problem/P4389" target="_blank" rel="noopener">传送门</a></p>
 <p>其实只要多背一些常见生成函数就好说了。</p>
 <a id="more"></a>
-<p>生成函数暴力搞它，根据<del>小学奥数</del>生成函数基础知识，答案的生成函数就是$\prod\limits<em>{i}\left(\sum\limits</em>{n=0}^\infty x^{v_in}\right)$</p>
+<p>生成函数暴力搞它，根据<del>小学奥数</del>生成函数基础知识，答案的生成函数就是$\prod\limits_{i}\left(\sum\limits_{n=0}^\infty x^{v_in}\right)$</p>
 <p>我们还知道$\sum\limits_{n=0}^\infty x^{v_in}=\dfrac{1}{1-x^{v_i}}$。</p>
 <p>于是问题成了求$\prod\limits_i\dfrac{1}{1-x^{v_i}}$。</p>
 <p>这个连乘看起来很别扭，考虑取个$\ln$转加法：</p>
 <p>$\sum\limits_i\ln\dfrac{1}{1-x^{v_i}}$</p>
 <p>根据<del>初中奥数</del>泰勒公式或背式子，我们知道$\ln\dfrac{1}{1-x^d}=\sum\limits_{n=1}^\infty \dfrac{x^{dn}}{n}$：</p>
-<p>$\sum\limits<em>i\sum\limits</em>{n=1}^\infty\dfrac{x^{v_in}}{n}$</p>
-<p>多项式加法好做啊。不过直接枚举每个$v<em>i$的倍数不大行。看到枚举倍数想调和级数，考虑把$v_i$相同的物品一块处理，记$c_i$为$v_j=i$的数量，则$f_j=\sum\limits</em>{i|j}\dfrac{c_i}{j/i}$。</p>
+<p>$\sum\limits_i\sum\limits_{n=1}^\infty\dfrac{x^{v_in}}{n}$</p>
+<p>多项式加法好做啊。不过直接枚举每个$v_i$的倍数不大行。看到枚举倍数想调和级数，考虑把$v_i$相同的物品一块处理，记$c_i$为$v_j=i$的数量，则$f_j=\sum\limits_{i|j}\dfrac{c_i}{j/i}$。</p>
 <p>最后$\exp$回来，复杂度$O(n\log n)$。</p>
 <p>代码：</p>
 <pre><code class="lang-cpp">#include &lt;iostream&gt;

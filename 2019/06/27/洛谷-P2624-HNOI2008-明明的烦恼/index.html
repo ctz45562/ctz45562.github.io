@@ -618,9 +618,9 @@
 <p>好玩但没啥用的$prufer$序列。</p>
 <a id="more"></a>
 <p>记$S$为有度数限制的点的集合，$cnt$为不属于$S$的点的数量，$sum=\sum\limits_{i\in S}d(i)-1$。</p>
-<p>先把$S$中的点扔到$prufer$序列里，$C<em>{n-2}^{sum}$选好位置，序列数有$\dfrac{sum!}{\prod\limits</em>{i\in S}[d(i)-1]!}$种。</p>
+<p>先把$S$中的点扔到$prufer$序列里，$C_{n-2}^{sum}$选好位置，序列数有$\dfrac{sum!}{\prod\limits_{i\in S}[d(i)-1]!}$种。</p>
 <p>再把剩下的$cnt$个点扔进去，也就是剩下的$n-2-sum$个位置，每个位置有$cnt$种取值，即$cnt^{n-2-sum}$。</p>
-<p>答案就是$C<em>{n-2}^{sum}\dfrac{sum!}{\prod\limits</em>{i\in S}[d(i)-1]!}cnt^{n-2-sum}$。注意判一下无解。</p>
+<p>答案就是$C_{n-2}^{sum}\dfrac{sum!}{\prod\limits_{i\in S}[d(i)-1]!}cnt^{n-2-sum}$。注意判一下无解。</p>
 <p>最后就是恶心的高精了。<del>又双叒叕把别人的板子抄了过来</del></p>
 <p>代码：</p>
 <pre><code class="lang-cpp">#include &lt;iostream&gt;

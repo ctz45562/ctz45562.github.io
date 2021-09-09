@@ -620,12 +620,12 @@
 <a id="more"></a>
 <p>定义$f(n,m)$为从$(1,1)$走到$(n,m)$（没有障碍）的方案数，强制$n&lt;m$，反正$f(n,m)=f(m,n)$。</p>
 <p>如果只有$\rightarrow$和$\uparrow$就是$C_{n+m}^n$。</p>
-<p>有了$\nearrow$就枚举有多少步走$\nearrow$，得出$f(n,m)=\sum\limits<em>{i=0}^nC</em>{n+m-i}^iC_{n+m-2i}^{n-i}$</p>
-<p>根据$C<em>m^rC</em>{m-r}^{n-r}=C<em>m^nC_n^r$还可以把这个式子变得更漂亮些：$f(n,m)=\sum\limits</em>{i=0}^nC_{n+m-i}^nC_n^i$。</p>
+<p>有了$\nearrow$就枚举有多少步走$\nearrow$，得出$f(n,m)=\sum\limits_{i=0}^nC_{n+m-i}^iC_{n+m-2i}^{n-i}$</p>
+<p>根据$C_m^rC_{m-r}^{n-r}=C_m^nC_n^r$还可以把这个式子变得更漂亮些：$f(n,m)=\sum\limits_{i=0}^nC_{n+m-i}^nC_n^i$。</p>
 <p>很妙的一个结论是<strong>走出边界的方案数实际上就是走到$(n+1,m+1)$的方案数</strong>，因为一旦走出边界，到$(n+1,m+1)$的方案就是唯一的了。</p>
 <p>把障碍点以$x$为第一关键字、$y$为第二关键字排序。枚举障碍点集合$S$，记$g(S)$为从$(1,1)$经过$S$中所有点到达$(n+1,m+1)$的方案数。</p>
 <p>显然$g(S)$就是按顺序的相邻两点、$(1,1)$到第一个点和最后一个点到$(n+1,m+1)$围成的矩形的$f$乘积。如果存在一个点在上一个点的右下方，方案数就为$0$。</p>
-<p>$O(mk^2\log<em>{mod}n)$预处理出障碍点两两之间矩形的$f$值，$\log</em>{mod}$是卢卡斯带的。</p>
+<p>$O(mk^2\log_{mod}n)$预处理出障碍点两两之间矩形的$f$值，$\log_{mod}$是卢卡斯带的。</p>
 <p>最后容斥，答案为$\sum\limits(-1)^{|S|}g(S)$。</p>
 <p>复杂度$O(mk^2\log_{mod}n+k2^k)$。</p>
 <p>代码：</p>

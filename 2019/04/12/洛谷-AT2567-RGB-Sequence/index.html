@@ -625,7 +625,7 @@
 <p>颜色和$j$一样：$f(i+1,i,k)+=f(i,j,k)$</p>
 <p>颜色和$k$一样：$f(i+1,i,j)+=f(i,j,k)$</p>
 <p>初始状态：$f(1,0,0)=1$</p>
-<p>最后答案为$3*\sum\limits<em>{i=0}^{n-1}\sum\limits</em>{j=0}^{\max(i-1,0)}f(n,i,j)$</p>
+<p>最后答案为$3*\sum\limits_{i=0}^{n-1}\sum\limits_{j=0}^{\max(i-1,0)}f(n,i,j)$</p>
 <p>为啥要乘$3$呢？这里$i,j,k$只是个位置关系，并不是具体某种颜色，所以任意给$i,j,k$选颜色，有$3$种排列。</p>
 <p>代码：</p>
 <pre><code class="lang-cpp">#include &lt;iostream&gt;

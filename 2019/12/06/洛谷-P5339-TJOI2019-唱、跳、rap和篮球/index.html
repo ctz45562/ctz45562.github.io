@@ -622,7 +622,7 @@
 <p>直接组合数学不太会做的样子，咱也不会$NTT$和生成函数，考虑$DP$。</p>
 <p>设$f(i,j)$为前$i$种爱好放了$j$个人的方案数。</p>
 <p>枚举每种爱好有多少人，插进当前的队伍里：$f(i,j)=\sum\limits_{k=0}^{a/b/c/d}f(i-1,j-k)\times C_j^{j-k}$</p>
-<p>套路容斥：$ans=\sum\limits<em>{i=0}^{\min{\frac{n}{4},a,b,c,d}}(-1)^iC</em>{n-3i}^if(4,n-4i)$。注意每个$i$的$a,b,c,d$都不一样，需要重新$DP$。</p>
+<p>套路容斥：$ans=\sum\limits_{i=0}^{\min\{\frac{n}{4},a,b,c,d\}}(-1)^iC_{n-3i}^if(4,n-4i)$。注意每个$i$的$a,b,c,d$都不一样，需要重新$DP$。</p>
 <p>复杂度$O(n^3)$，然而实际上常数极小甚至（应该）到不了$\dfrac{1}{10}$。</p>
 <p>代码：</p>
 <pre><code class="lang-cpp">#include &lt;iostream&gt;

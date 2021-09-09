@@ -726,10 +726,10 @@ int main(){
 <p>概括题意：</p>
 <p>长度为$n$的序列，每个元素有两个属性$a,b$，求最长的子序列的长度，满足每一项的$a,b$都小于等于前一项。并求出每个元素出现在最长子序列中的概率。</p>
 <p>设$f(i)$为以$i$为结尾的最长序列长度，$fc(i)$为序列个数，$g(i)$为以$i$为开头的最长序列长度，$gc(i)$类似于$fc(i)$。</p>
-<p>设$ans=\max{f(i)},cnt=\sum\limits_{i=1}^n[f(i)=ans]fc(i)$。</p>
+<p>设$ans=\max\{f(i)\},cnt=\sum\limits_{i=1}^n[f(i)=ans]fc(i)$。</p>
 <p>对于每个元素$i$，若$f(i)+g(i)-1=ans$，则其概率为$\dfrac{fc(i)*gc(i)}{cnt}$，否则为$0$。</p>
 <p>方程跟$LIS$的差不多：</p>
-<p>$f(i)=\max\limits_{j=1}^{i-1}{f(j)+1}(a_j\ge a_i,b_j\ge b_i)$</p>
+<p>$f(i)=\max\limits_{j=1}^{i-1}\{f(j)+1\}(a_j\ge a_i,b_j\ge b_i)$</p>
 <p>$fc(i)=\sum\limits_{j=1}^{i-1}[f(i)=f(j)+1]fc(j)(a_j\ge a_i,b_j\ge b_i)$</p>
 <p>$g$和$gc$类似。</p>
 <p>裸的树套树优化$DP$，空间$O(n\log^2 n)$，常数和码量也不小<del>（但是好想）</del></p>
@@ -864,7 +864,7 @@ int main(){
 <h2 id="序列"><a href="#序列" class="headerlink" title="序列"></a><a href="https://www.luogu.org/problem/P4093" target="_blank" rel="noopener">序列</a></h2><p>以前拿树套树写的。</p>
 <p>记$mi(i)$为位置$i$出现过的最小值，$ma(i)$为位置$i$出现过的最大值。</p>
 <p>还是做一个$LIS$：</p>
-<p>$f(i)=\max\limits_{j=1}^{i-1}{f(j)+1}(mi(i)\ge a_j,a_i\ge ma(j))$</p>
+<p>$f(i)=\max\limits_{j=1}^{i-1}\{f(j)+1\}(mi(i)\ge a_j,a_i\ge ma(j))$</p>
 <p>$cdq$分治优化即可。</p>
 <hr>
 <p>真的找不到$cdq$分治的题啊$QAQ$</p>
