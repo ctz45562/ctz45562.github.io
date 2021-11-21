@@ -6,7 +6,7 @@
   <link href="https://ctz45562.github.io/atom.xml" rel="self"/>
   
   <link href="https://ctz45562.github.io/"/>
-  <updated>2021-11-06T15:41:38.176Z</updated>
+  <updated>2021-11-21T04:09:02.071Z</updated>
   <id>https://ctz45562.github.io/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>11.8 I used to ...</title>
+    <link href="https://ctz45562.github.io/2021/11/18/11-8-I-used-to/"/>
+    <id>https://ctz45562.github.io/2021/11/18/11-8-I-used-to/</id>
+    <published>2021-11-18T14:34:40.000Z</published>
+    <updated>2021-11-21T04:09:02.071Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;看到七都贴吧里都在说你游要凉了，大概是想起了什么吧。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="日常" scheme="https://ctz45562.github.io/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+    <category term="二次元" scheme="https://ctz45562.github.io/tags/%E4%BA%8C%E6%AC%A1%E5%85%83/"/>
+    
+    <category term="公主连结" scheme="https://ctz45562.github.io/tags/%E5%85%AC%E4%B8%BB%E8%BF%9E%E7%BB%93/"/>
+    
+    <category term="LOL" scheme="https://ctz45562.github.io/tags/LOL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>403の蛤话</title>
     <link href="https://ctz45562.github.io/2021/10/20/words-of-403/"/>
     <id>https://ctz45562.github.io/2021/10/20/words-of-403/</id>
     <published>2021-10-20T15:37:03.000Z</published>
-    <updated>2021-11-06T15:41:38.176Z</updated>
+    <updated>2021-11-21T04:06:17.451Z</updated>
     
     
     <summary type="html">&lt;p&gt;翻日记的时候被一些机房蛤蛤言论笑到了。&lt;/p&gt;
@@ -407,31 +430,6 @@
     <category term="树链剖分" scheme="https://ctz45562.github.io/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/"/>
     
     <category term="换根DP" scheme="https://ctz45562.github.io/tags/%E6%8D%A2%E6%A0%B9DP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>洛谷 P4075 [SDOI2016]模式字符串</title>
-    <link href="https://ctz45562.github.io/2020/06/10/%E6%B4%9B%E8%B0%B7-P4075-SDOI2016-%E6%A8%A1%E5%BC%8F%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    <id>https://ctz45562.github.io/2020/06/10/%E6%B4%9B%E8%B0%B7-P4075-SDOI2016-%E6%A8%A1%E5%BC%8F%E5%AD%97%E7%AC%A6%E4%B8%B2/</id>
-    <published>2020-06-10T02:32:40.000Z</published>
-    <updated>2020-06-21T09:41:03.000Z</updated>
-    
-    
-    <summary type="html">一边听主席的故事（本子）会一边调出来了。</summary>
-    
-    
-    
-    <category term="题解" scheme="https://ctz45562.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="字符串" scheme="https://ctz45562.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
-    <category term="点分治" scheme="https://ctz45562.github.io/tags/%E7%82%B9%E5%88%86%E6%B2%BB/"/>
-    
-    <category term="后缀自动机" scheme="https://ctz45562.github.io/tags/%E5%90%8E%E7%BC%80%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
-    
-    <category term="KMP" scheme="https://ctz45562.github.io/tags/KMP/"/>
     
   </entry>
   
