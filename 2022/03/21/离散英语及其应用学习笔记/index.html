@@ -1064,7 +1064,13 @@
 </ul>
 <hr>
 <h4 id="6-2-抽屉原理"><a href="#6-2-抽屉原理" class="headerlink" title="6.2 抽屉原理"></a>6.2 抽屉原理</h4><ul>
-<li><strong><em>The Pigeonhole Principl</em></strong>：抽屉原理</li>
+<li><strong><em>The Pigeonhole Principl</em></strong>：抽屉原理<ul>
+<li>n个物品放到n+1个盒子里，则至少有一个盒子有不少于1个物品</li>
+<li>k+1个元素的集合到k个元素的集合的函数一定不单射</li>
+<li>n个物品放到k个盒子里，至少有一个盒子有不少于$\left\lceil\dfrac{n}{k}\right\rceil$个物品</li>
+<li>任何长为$n^2+1$的实数列一定存在一个长为$n$的严格单增或单减的子数列</li>
+</ul>
+</li>
 </ul>
 <hr>
 <h4 id="6-3-排列组合"><a href="#6-3-排列组合" class="headerlink" title="6.3 排列组合"></a>6.3 排列组合</h4><ul>
@@ -1090,6 +1096,207 @@
 <li>$x_1+x_2+\dots+x_n=r(x_i\ge0)$:$C_{n+r-1}^{n-1}$</li>
 <li>$x_1+x_2+\dots+x_n=r(x_i&gt;0)$:$C_{r-1}^{n-1}$</li>
 <li><strong><em>Stirling numbers of the second kind</em></strong>:第二类斯特林数</li>
+</ul>
+<hr>
+<h3 id="8-进阶数数技巧"><a href="#8-进阶数数技巧" class="headerlink" title="8 进阶数数技巧"></a>8 进阶数数技巧</h3><h4 id="8-2-线性递推关系"><a href="#8-2-线性递推关系" class="headerlink" title="8.2 线性递推关系"></a>8.2 线性递推关系</h4><ul>
+<li><strong><em>linear homogeneous recurrence</em></strong>：$a_n=c_1a_{n-1}+c_2a_{n-2}+\ldots+c_ka_{n-k}$（线性齐次递推关系）</li>
+<li><strong><em>root</em></strong>：方程的解</li>
+<li><strong><em>multiplicity</em></strong>：方程某个根的重数</li>
+<li>对递推关系$a_n=c_1a_{n-1}+c_2a_{n-2}+\ldots+c_ka_{n-k}$，解特征方程方程$r^k-c_1r^{k-1}-\ldots-c_k=0$得根$r_1,r_2\ldots r_t$和对应重数$m_1,m_2\ldots m_t$，则$a_n=\sum\limits_{i=1}^nr_i^n\sum\limits_{j=0}^{m_i-1}\alpha_{i,j}n^j$，$\alpha_{i,j}$的值由初始条件确定</li>
+<li><strong><em>linear nonhomogeneous recurrence relation with constant coefficients</em></strong>：$a_n=c_1a_{n-1}+c_2a_{n-2}+\ldots+c_ka_{n-k}+F(n),F(n)\neq0$且$F(n)$只与$n$有关（常系数线性非齐次递推关系）</li>
+<li><strong><em>associated homogeneous recurrence relation</em></strong>：上面那个去掉$F(n)$的递推关系（关联齐次递归关系）</li>
+<li>对常系数线性非齐次递推关系，若$\{a_n^{(p)}\}$为其一个特解（即忽略初始条件的解），$\{a_n^{(h)}\}$为其关联齐次递推关系的解，则其解为$a_n=a_n^{(p)}+a_n^{(h)}$</li>
+<li>若$F(n)=s^n\sum\limits_{i=0}^tb_in^i$，$s$为关联齐次递归关系的特征方程根且重数为$m$，则有特解$a_n^{(p)}=n^m\sum\limits_{i=0}^tp_in^i$；否则有特解$a_n^{(p)}=\sum\limits_{i=0}^tp_in^i$（即$m=0$）</li>
+<li>若$F(n)=G(n)+H(n)$，$a_n=\sum\limits_{i=1}^kc_ia_{n-i}+F(n),p_n=\sum\limits_{i=1}^kc_ip_{n-i}+G(n),q_n=\sum\limits_{i=1}^kc_iq_{n-i}+H(n)$，则$a^{(p)}_n=p^{(p)}_n+q^{(p)}_n$</li>
+</ul>
+<hr>
+<h4 id="8-4-生成函数"><a href="#8-4-生成函数" class="headerlink" title="8.4 生成函数"></a>8.4 生成函数</h4><ul>
+<li><strong><em>generating function for the sequence </em></strong>：数列的生成函数$\sum\limits_{n=0}^\infty a_nx^n$</li>
+<li><strong><em>ordinary generating function</em></strong>:普通型生成函数</li>
+<li><strong><em>extended binomial coefficient</em></strong>：广义二项式系数$C_n^k=\begin{cases}\dfrac{n(n-1)\ldots(n-k+1)}{k!}&amp;k&gt;0\\0&amp;k=0\end{cases}$</li>
+<li><strong><em>the extended binomial theorem</em></strong>:广义二项式定理</li>
+</ul>
+<hr>
+<h4 id="8-5-容斥"><a href="#8-5-容斥" class="headerlink" title="8.5 容斥"></a>8.5 容斥</h4><ul>
+<li><strong><em>the principle of inclusion-exclusion</em></strong>:容斥原理$|A_1\cup A_2\cup\ldots\cup A_n|=\sum\limits_{1\le i\le n}|A_i|-\sum\limits_{1\le i&lt;j\le n}|A_i\cap A_j|+\sum\limits_{1\le i&lt;j&lt;k\le n}|A_i\cap A_j\cap A_k|-\ldots+(-1)^{n+1}|A_1\cap A_2\cap\ldots\cap A_n|$</li>
+<li><strong><em>derangement</em></strong>:错排</li>
+</ul>
+<hr>
+<h3 id="9-关系"><a href="#9-关系" class="headerlink" title="9 关系"></a>9 关系</h3><h4 id="9-1-关系和其性质"><a href="#9-1-关系和其性质" class="headerlink" title="9.1 关系和其性质"></a>9.1 关系和其性质</h4><ul>
+<li><strong><em>binary relation from A to B</em></strong>：$A\times B$的一个子集</li>
+<li><strong><em>A relation on a set A</em></strong>：$A\times A$的一个子集</li>
+<li><strong><em>reflexive</em></strong>：$\forall a\in A,(a,a)\in R$</li>
+<li><strong><em>symmetric</em></strong>:$\forall a,b\in A,(a,b)\in R\leftrightarrow (b,a)\in R$</li>
+<li><strong><em>antisymmetric</em></strong>:$\forall a,b\in A,(a,b)\in R\land(b,a)\in R\rightarrow a=b$</li>
+<li><strong><em>transitive</em></strong>:$\forall a,b,c\in A,(a,b)\in R\land(b,c)\in R\rightarrow (a,c)\in R$</li>
+<li><strong><em>composite</em></strong>:若关系$R:A\rightarrow B,S:B\rightarrow C$，则$\forall b\in B,(a,b)\in R\land(b,c)\in S\rightarrow (a,c)\in S\circ R$</li>
+<li>$R^{n+1}=R^n\circ R$</li>
+<li>$R\ is\ transitive\leftrightarrow\forall n,R^n\subseteq R$</li>
+</ul>
+<hr>
+<h4 id="9-3-表示关系"><a href="#9-3-表示关系" class="headerlink" title="9.3 表示关系"></a>9.3 表示关系</h4><ul>
+<li><strong><em>Matrix</em></strong>：矩阵表示$A=\{a_i\},B=\{b_i\},m_{ij}=\begin{cases}1&amp;(a_i,a_j)\in R\\0&amp;(a_i,a_j)\notin R\end{cases}$</li>
+<li><strong><em>digraph/directed graph</em></strong>:用有向图表示<ul>
+<li><strong><em>vertex(pl. vertices)/node</em></strong>:节点</li>
+<li><strong><em>edge/arc</em></strong>:边</li>
+<li><strong><em>initial vertex</em></strong>：边的起点</li>
+<li><strong><em>terminal vertex/end vertex</em></strong>：终点</li>
+<li><strong><em>loop</em></strong>：自环</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="9-4-传递闭包"><a href="#9-4-传递闭包" class="headerlink" title="9.4 传递闭包"></a>9.4 传递闭包</h4><ul>
+<li><strong><em>transitive closure</em></strong>：传递闭包$R^\ast$</li>
+<li><strong><em>path</em></strong>：图的路径</li>
+<li><strong><em>circuit/cycle</em></strong>：起点和终点相同的路径（环）</li>
+<li>$R^\ast=\bigcup\limits_{i=1}^nR^i$</li>
+<li><strong><em>Warshall algorithm</em></strong>：$W_k=[w_{ij}^{[k]}]$表示只允许走编号不超过$k$的节点作为中间节点的路径（不包括起终点），$i,j$的连通性矩阵，则$M_{R^\ast}=W_n,w_{ij}^{[k]}=w_{ij}^{[k-1]}\lor(w_{ik}^{[k-1]}\land w_{kj}^{[k-1]})$</li>
+</ul>
+<hr>
+<h4 id="9-5-等价关系"><a href="#9-5-等价关系" class="headerlink" title="9.5 等价关系"></a>9.5 等价关系</h4><ul>
+<li><strong><em>equivalence relation</em></strong>：reflexive, symmetric, and transitive（等价关系）</li>
+<li><strong><em>equivalent</em></strong>:两个元素能被等价关系关联，记为$a\thicksim b$</li>
+<li><strong><em>equivalence class</em></strong>:在等价关系$R$中与$a$关联的所有元素的集合，记为$[a]_R$（只考虑$R$时可省略$R$）</li>
+</ul>
+<hr>
+<h4 id="9-6-偏序关系"><a href="#9-6-偏序关系" class="headerlink" title="9.6 偏序关系"></a>9.6 偏序关系</h4><ul>
+<li><strong><em>partial ordering or partial order</em></strong>：reflexive, antisymmetric, and transitive（偏序关系）</li>
+<li><strong><em>partially ordered set/poset</em></strong>：集合$S$和一个偏序关系$R$，记作$(S,R)$<ul>
+<li><strong><em>comparable</em></strong>:要么$(a,b)\in R$，要么$(b,a)\in R$</li>
+<li><strong><em>incomparable</em></strong>:$(a,b)\notin R,(b,a)\notin R$</li>
+</ul>
+</li>
+<li><strong><em>totally ordered/linearly ordered set/chain</em></strong>:$(S,R)$中所有元素对都$comparable$，$R$被称为total order/linear order（全序集）</li>
+<li><strong><em>upper bound</em></strong>:$(S,R)$中，$A$为$S$的一个子集$\forall a\in A,a\preccurlyeq u$的$u$</li>
+<li><strong><em>lower bound</em></strong>：上面的反义</li>
+<li><strong><em>least upper bound</em></strong>：所有的upper bound中最小的</li>
+<li><strong><em>greatest lower bound</em></strong>：上面的反义</li>
+<li><strong><em>maximal</em></strong>：没有$a\prec b$</li>
+<li><strong><em>minimal</em></strong>:没有$b\prec a$</li>
+<li><strong><em>greatest element</em></strong>:$\forall b,b\preccurlyeq a$</li>
+<li><strong><em>least element</em></strong>:$\forall b,a\preccurlyeq b$</li>
+<li><strong><em>dual</em></strong>:$(S,R^{-1})$，其中如果$(a,b)\in R$，则$(b,a)\in R^{-1}$</li>
+<li><strong><em>Hasse diagram</em></strong>：哈斯图<ul>
+<li><strong><em>y covers x</em></strong>：y覆盖x，$x\prec y$且不存在$z$使得$x\prec z\prec y$</li>
+<li>构造哈斯图：如果y覆盖x，则把y画在x上面并用无向线段连接x,y</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="10-图论"><a href="#10-图论" class="headerlink" title="10 图论"></a>10 图论</h3><h4 id="10-1-图"><a href="#10-1-图" class="headerlink" title="10.1 图"></a>10.1 图</h4><ul>
+<li><strong><em>endpoints</em></strong>：边两边的端点，边<strong>connect its endpoints</strong></li>
+<li><strong><em>infinite graph</em></strong>:边集或点集无限</li>
+<li><strong><em>simple graph</em></strong>：无重边无自环的无向图（简单图）</li>
+<li><strong><em>simple directed graph</em></strong>:简单有向图</li>
+<li><strong><em>multigraphs</em></strong>：允许有重边无自环的无向图</li>
+<li><strong><em>pseudograph</em></strong>:重边自环都允许的无向图</li>
+<li><strong><em>mixed graph</em></strong>：既有无向边又有有向边</li>
+</ul>
+<hr>
+<h4 id="10-2-图的术语和常见的图"><a href="#10-2-图的术语和常见的图" class="headerlink" title="10.2 图的术语和常见的图"></a>10.2 图的术语和常见的图</h4><ul>
+<li><strong><em>adjacent/neighbors</em></strong>:无向图中两点相邻，连接它们的边被称为incident with the vertices u<br>and v</li>
+<li><strong><em>neighborhood</em></strong>：与$v$相邻的点集$N(v)$</li>
+<li><strong><em>degree</em></strong>:度数$\deg(v)$，自环算2度</li>
+<li><strong><em>isolated</em></strong>：度数为0</li>
+<li><strong><em>pendant</em></strong>：度数为1</li>
+<li>$\sum\limits\deg(i)=2m$</li>
+<li>无向图中，奇度数的点有偶数个</li>
+<li>有向图中有边(u,v)，则称u is adjacent to v或v is adjacent from u</li>
+<li><strong><em>in-degree</em></strong>:入度$\deg^-(v)$</li>
+<li><strong><em>out-degree</em></strong>:出度$\deg^+(v)$</li>
+<li>$\sum\limits\deg^-(v)=\sum\limits\deg^+(v)=m$</li>
+<li><strong><em>complete graph</em></strong>:完全图，记作$K_n$</li>
+<li><strong><em>cycle</em></strong>:环，$V=\{(v_1,v_2),(v_2,v_3)\ldots,(v_n,v_1)\}$，记作$C_n$</li>
+<li><strong><em>wheel</em></strong>:记作$W_n$<br><img src="/images/离散英语及其应用-4.png" alt=""></li>
+<li><strong><em>n-dimensional hypercube/n-cube</em></strong>：记作$Q_n$<br><img src="/images/离散英语及其应用-5.png" alt=""></li>
+<li><strong><em>bipartite graphs</em></strong>:二分图</li>
+<li>一个简单图是二分图等价于能给每个点黑白染色且相邻点异色</li>
+<li>$K_{m,n}$:两边分别有$m,n$个节点的完全二分图</li>
+<li><strong><em>subgraph</em></strong>：子图</li>
+<li><strong><em>subgraph induced by a subset W</em></strong>：点集为W，边集为所有连接W中的点的边</li>
+<li><strong><em>union</em></strong>：两个图组合，记作$\cup$</li>
+</ul>
+<hr>
+<h4 id="10-3-图的表示"><a href="#10-3-图的表示" class="headerlink" title="10.3 图的表示"></a>10.3 图的表示</h4><ul>
+<li><strong><em>adjacency lists</em></strong>：邻接表<ul>
+<li>无向图<br><img src="/images/离散英语及其应用-6.png" alt="" style="height:150px;width:auto;"></li>
+<li>有向图<br><img src="/images/离散英语及其应用-7.png" alt="" style="height:150px;width:auto;"></li>
+</ul>
+</li>
+<li><strong><em>adjacency matrix</em></strong>：邻接矩阵</li>
+<li><strong><em>incidence matrix</em></strong>:$m_{ij}=\begin{cases}1&amp;e_j\ is\ incident\ with\ v_i\\0&amp;otherwise\end{cases}$</li>
+<li><strong><em>isomorphic</em></strong>：对于图$G_1(V_1,E_1),G_2(V_2,E_2)$，若存在双射函数$f(n):V_1\rightarrow V_2$，使得任意$G_1$中相邻的$v_i,v_j$，有$G_2$中$f(v_i),f(v_j)$相邻，则$G_1,G_2$同构，函数$f$称为isomorphism</li>
+</ul>
+<hr>
+<h4 id="10-4-连通性"><a href="#10-4-连通性" class="headerlink" title="10.4 连通性"></a>10.4 连通性</h4><ul>
+<li><strong><em>simple path/circuit</em></strong>:路径或环中没有同一条边</li>
+<li><strong><em>connected</em></strong>：无向图中任意两点都有路径</li>
+<li><strong><em>cut vertices</em></strong>：割了就不连通的点（割点）</li>
+<li><strong><em>cut edge/bridge</em></strong>:割边</li>
+<li><strong><em>nonseparable graph</em></strong>:无割点的连通图</li>
+<li><strong><em>strongly connected</em></strong>：有向图中，任意两点$a,b$都有路径$(a,b),(b,a)$</li>
+<li><strong><em>weakly connected</em></strong>:有向图中任意两点间有路径</li>
+</ul>
+<hr>
+<h4 id="10-5-两个回路"><a href="#10-5-两个回路" class="headerlink" title="10.5 两个回路"></a>10.5 两个回路</h4><ul>
+<li><strong><em>Euler circuit</em></strong>：包含所有边的简单环（欧拉回路）</li>
+<li><strong><em>Euler path</em></strong>：包含所有边的简单路径（欧拉路径）</li>
+<li>一个连通multigraph有欧拉回路当且仅当所有点度数为偶数</li>
+<li>一个连通multigraph有欧拉路径但没有欧拉回路当且仅当恰好有两个点度数为奇数</li>
+<li><strong><em>Hamilton circuit</em></strong>:包含所有点的简单环（哈密顿回路）</li>
+<li><strong><em>Hamilton path</em></strong>：包含所有店的简单路径（哈密顿路径）</li>
+<li><strong><em>dirac’s theorem</em></strong>：若所有点度数不低于$\dfrac{n}{2}$，则存在哈密顿回路</li>
+<li><strong><em>ore’s theorem</em></strong>:若所有不相邻的点$u,v$有$\deg(u)+\deg(v)\ge n$，则有哈密顿回路</li>
+</ul>
+<hr>
+<h4 id="10-7-平面图"><a href="#10-7-平面图" class="headerlink" title="10.7 平面图"></a>10.7 平面图</h4><ul>
+<li><strong><em>planar</em></strong>：平面图，能在平面中画出来且没有边交错的图</li>
+<li><strong><em>regions</em></strong>：平面图中，被边分割出的区域，其度数为包围它的边数，且$\sum\deg(R)=2m$</li>
+<li>简单连通平面图中，$r$为区域数，$e$为边数，$v$为点数，则$r=e-v+2$（欧拉公式），$e\le 3v-6$</li>
+<li>若$G$为简单连通平面图，则有一个度数不超过5的点</li>
+<li>一个图是非平面图当且仅当它有一个子图与$K_{3,3}$或$K_5$同构</li>
+</ul>
+<hr>
+<h3 id="11-树"><a href="#11-树" class="headerlink" title="11 树"></a>11 树</h3><h4 id="11-1-树树"><a href="#11-1-树树" class="headerlink" title="11.1 树树"></a>11.1 树树</h4><ul>
+<li>树是没有简单环的连通无向图</li>
+<li>一个无向图是树当且仅当任意两点间都有且仅有一条简单路径</li>
+<li><strong><em>rooted tree</em></strong>：有根树<ul>
+<li><strong><em>parent</em></strong>：父节点</li>
+<li><strong><em>child</em></strong>：子节点</li>
+<li><strong><em>siblings</em></strong>：兄弟节点</li>
+<li><strong><em>ancestors</em></strong>：祖先</li>
+<li><strong><em>descendants</em></strong>：子孙</li>
+<li><strong><em>leaf</em></strong>：叶子节点</li>
+<li><strong><em>internal vertices</em></strong>：内部节点（不是叶子的节点）</li>
+</ul>
+</li>
+<li><strong><em>ordered rooted trees</em></strong>：儿子有序</li>
+<li><strong><em>m-ary tree</em></strong>：m叉树</li>
+<li><strong><em>full m-ary tree</em></strong>:满m叉树</li>
+<li><strong><em>binary tree</em></strong>：二叉树</li>
+<li><strong><em>subtree</em></strong>：子树</li>
+<li>有i个内部节点的满m叉树一共有mi+1个节点和(m-1)i+1个叶子</li>
+<li><strong><em>level</em></strong>：节点深度</li>
+<li><strong><em>height</em></strong>：树高</li>
+<li>高为h的m叉树最多有$m^h$个节点</li>
+</ul>
+<hr>
+<h4 id="11-3-树的遍历"><a href="#11-3-树的遍历" class="headerlink" title="11.3 树的遍历"></a>11.3 树的遍历</h4><ul>
+<li><strong><em>preorder traversal</em></strong>：先序遍历（先父后子）</li>
+<li><strong><em>inorder traversal</em></strong>:中序遍历（先第一个儿子，再自己，最后其他儿子）</li>
+<li><strong><em>postorder traversal</em></strong>：后序遍历（先子后父）</li>
+<li><strong><em>Polish notation</em></strong>:前缀表达式</li>
+<li><strong><em>reverse Polish notation</em></strong>:后缀表达式</li>
+<li><strong><em>prefix/infix/postfix form</em></strong>:以先序/中序/后序遍历一个表达式的树</li>
+</ul>
+<hr>
+<h4 id="11-4-生成树"><a href="#11-4-生成树" class="headerlink" title="11.4 生成树"></a>11.4 生成树</h4><ul>
+<li><strong><em>spanning tree</em></strong>：包含所有节点且为树的子图（生成树）</li>
+<li>简单图连通当且仅当其有生成树</li>
+<li><strong><em>depth-first search</em></strong>：深搜</li>
+<li><strong><em>breadth-first search</em></strong>：广搜</li>
+<li><strong><em>minimum spanning tree</em></strong>：最小生成树（Prim和Kruskal）</li>
 </ul>
 
             
