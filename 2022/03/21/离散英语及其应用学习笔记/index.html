@@ -733,89 +733,89 @@
 </ul>
 <hr>
 <h4 id="1-7-证明导论"><a href="#1-7-证明导论" class="headerlink" title="1.7 证明导论"></a>1.7 证明导论</h4><ul>
-<li><strong><em>theorem</em></strong>：定理</li>
-<li><strong><em>lemma</em></strong>：引理</li>
-<li><strong><em>corollary</em></strong>：推论</li>
-<li><strong><em>conjecture</em></strong>：猜想</li>
-<li><strong><em>direct proof</em></strong>：直接证明</li>
-<li><strong><em>same/opposite parity</em></strong>：奇偶相同/不同</li>
-<li><strong><em>perfect square</em></strong>：完全平方数</li>
-<li><strong><em>proof by contraposition</em></strong>：要证$p\rightarrow q$，即证$\lnot q\rightarrow \lnot p$（反证法）</li>
-<li><strong><em>trivial proof</em></strong>：用$q$为真证明$p\rightarrow q$为真</li>
-<li><strong><em>proofs by contradiction</em></strong>：要证$p$，即证$\lnot p\rightarrow(r\land\lnot r)$</li>
-<li><strong><em>begging the question/circular reasoning</em></strong>：证明中用到了<strong>未知正确性的待证论题</strong>（偷用论题/循环论证）</li>
+<li><strong><em>theorem</em></strong>:定理</li>
+<li><strong><em>lemma</em></strong>:引理</li>
+<li><strong><em>corollary</em></strong>:推论</li>
+<li><strong><em>conjecture</em></strong>:猜想</li>
+<li><strong><em>direct proof</em></strong>:直接证明</li>
+<li><strong><em>same/opposite parity</em></strong>:奇偶相同/不同</li>
+<li><strong><em>perfect square</em></strong>:完全平方数</li>
+<li><strong><em>proof by contraposition</em></strong>:要证$p\rightarrow q$，即证$\lnot q\rightarrow \lnot p$（反证法）</li>
+<li><strong><em>trivial proof</em></strong>:用$q$为真证明$p\rightarrow q$为真</li>
+<li><strong><em>proofs by contradiction</em></strong>:要证$p$，即证$\lnot p\rightarrow(r\land\lnot r)$</li>
+<li><strong><em>begging the question/circular reasoning</em></strong>:证明中用到了<strong>未知正确性的待证论题</strong>（偷用论题/循环论证）</li>
 </ul>
 <hr>
 <h4 id="1-8-证明的方法和策略"><a href="#1-8-证明的方法和策略" class="headerlink" title="1.8 证明的方法和策略"></a>1.8 证明的方法和策略</h4><ul>
 <li>$\left(\bigvee\limits_{i=1}^np_i\right)\rightarrow q\leftrightarrow\bigwedge\limits_{i=1}^n(p_i\rightarrow q)$</li>
-<li><strong><em>exhaustive proof/proofs by exhaustion</em></strong>：测试所有情况以证明（穷举证明）</li>
-<li><strong><em>perfect power</em></strong>：$n^\alpha(n,\alpha\in Z,a\gt1)$（全幂数）</li>
-<li><strong><em>proof by cases</em></strong>：找出所有情况，分别证明（分情形证明）</li>
-<li><strong><em>without loss of generality</em></strong>：证明一种情形，可以简单地推到另一种情形（不失一般性），简写为<strong><em>WLOG</em></strong></li>
+<li><strong><em>exhaustive proof/proofs by exhaustion</em></strong>:测试所有情况以证明（穷举证明）</li>
+<li><strong><em>perfect power</em></strong>:$n^\alpha(n,\alpha\in Z,a\gt1)$（全幂数）</li>
+<li><strong><em>proof by cases</em></strong>:找出所有情况，分别证明（分情形证明）</li>
+<li><strong><em>without loss of generality</em></strong>:证明一种情形，可以简单地推到另一种情形（不失一般性），简写为<strong><em>WLOG</em></strong></li>
 <li><strong><em>existence proof</em></strong>:证明$\exists xP(x)$（存在性证明）<ul>
-<li><strong><em>constructive</em></strong>：找出$c$满足$P(c)$的证明（构造性的）<ul>
+<li><strong><em>constructive</em></strong>:找出$c$满足$P(c)$的证明（构造性的）<ul>
 <li><strong><em>witness</em></strong>:找到的$c$</li>
 </ul>
 </li>
-<li><strong><em>nonconstructive</em></strong>：不找$c$的证明（非构造性的）</li>
+<li><strong><em>nonconstructive</em></strong>:不找$c$的证明（非构造性的）</li>
 </ul>
 </li>
-<li><strong><em>uniqueness proof</em></strong>：证明$\exists!xP(x)$（唯一性证明），有如下两步<ul>
-<li><strong><em>existence</em></strong>：证明$P(x)$</li>
-<li><strong><em>uniqueness</em></strong>：证明如果$P(y)$，则$y=x$</li>
+<li><strong><em>uniqueness proof</em></strong>:证明$\exists!xP(x)$（唯一性证明），有如下两步<ul>
+<li><strong><em>existence</em></strong>:证明$P(x)$</li>
+<li><strong><em>uniqueness</em></strong>:证明如果$P(y)$，则$y=x$</li>
 </ul>
 </li>
 <li><strong><em>forward and backward reasoning</em></strong>:前推和后推</li>
 <li><strong><em>rational number</em></strong>:有理数</li>
-<li><strong><em>arithmetic mean</em></strong>：$\dfrac{\sum\limits_{i=1}^na_i}{n}$（算术平均数）</li>
-<li><strong><em>geometric mean</em></strong>：$\sqrt[n]{\prod\limits_{i=1}^na_i}$（几何平均数）</li>
-<li><strong><em>harmonic mean</em></strong>：$\dfrac{n}{\sum\limits_{i=1}^n\frac{1}{a_i}}$（调和平均数）</li>
-<li><strong><em>quadratic mean</em></strong>：$\sqrt{\dfrac{\sum\limits_{i=1}^na_i^2}{n}}$（平方平均数）</li>
-<li><strong><em>tile</em></strong>：填充<ul>
-<li><strong><em>checkerboard</em></strong>：若干方格组成的矩形棋盘</li>
+<li><strong><em>arithmetic mean</em></strong>:$\dfrac{\sum\limits_{i=1}^na_i}{n}$（算术平均数）</li>
+<li><strong><em>geometric mean</em></strong>:$\sqrt[n]{\prod\limits_{i=1}^na_i}$（几何平均数）</li>
+<li><strong><em>harmonic mean</em></strong>:$\dfrac{n}{\sum\limits_{i=1}^n\frac{1}{a_i}}$（调和平均数）</li>
+<li><strong><em>quadratic mean</em></strong>:$\sqrt{\dfrac{\sum\limits_{i=1}^na_i^2}{n}}$（平方平均数）</li>
+<li><strong><em>tile</em></strong>:填充<ul>
+<li><strong><em>checkerboard</em></strong>:若干方格组成的矩形棋盘</li>
 <li><strong><em>standard checkerboard</em></strong>:$8\times8$的棋盘</li>
-<li><strong><em>domino</em></strong>：$1\times2$的骨牌</li>
+<li><strong><em>domino</em></strong>:$1\times2$的骨牌</li>
 </ul>
 </li>
-<li><strong><em>Fermat’s last theorem</em></strong>：若$xyz\neq0$，则$x^n+y^n=z^n(n\ge2)$无整数解（费马大定理）</li>
+<li><strong><em>Fermat’s last theorem</em></strong>:若$xyz\neq0$，则$x^n+y^n=z^n(n\ge2)$无整数解（费马大定理）</li>
 </ul>
 <hr>
 <h3 id="2-集合与函数"><a href="#2-集合与函数" class="headerlink" title="2 集合与函数"></a>2 集合与函数</h3><h4 id="2-1-集合"><a href="#2-1-集合" class="headerlink" title="2.1 集合"></a>2.1 集合</h4><ul>
 <li><strong><em>set</em></strong>:集合</li>
-<li><strong><em>contain</em></strong>：包含</li>
-<li><strong><em>elements/members</em></strong>：集合的成员</li>
-<li><strong><em>roster method</em></strong>：$\{a,b,c,d\}$（穷举表示集合）</li>
+<li><strong><em>contain</em></strong>:包含</li>
+<li><strong><em>elements/members</em></strong>:集合的成员</li>
+<li><strong><em>roster method</em></strong>:$\{a,b,c,d\}$（穷举表示集合）</li>
 <li><strong><em>set builder</em></strong>:$\{x|\dots\}$（构造符号表示）</li>
-<li><strong><em>empty set/null set</em></strong>：空集</li>
-<li><strong><em>singleton set</em></strong>：只有一个元素的集合</li>
-<li><strong><em>universal set</em></strong>：全集</li>
-<li><strong><em>Venn diagram</em></strong>：维恩图</li>
-<li><strong><em>subset</em></strong>：子集</li>
-<li><strong><em>superset</em></strong>：超集</li>
-<li><strong><em>proper subset</em></strong>：真子集</li>
-<li><strong><em>finite set</em></strong>：有限集</li>
-<li><strong><em>cardinality</em></strong>：集合元素的个数，记作$|S|$（基数）</li>
+<li><strong><em>empty set/null set</em></strong>:空集</li>
+<li><strong><em>singleton set</em></strong>:只有一个元素的集合</li>
+<li><strong><em>universal set</em></strong>:全集</li>
+<li><strong><em>Venn diagram</em></strong>:维恩图</li>
+<li><strong><em>subset</em></strong>:子集</li>
+<li><strong><em>superset</em></strong>:超集</li>
+<li><strong><em>proper subset</em></strong>:真子集</li>
+<li><strong><em>finite set</em></strong>:有限集</li>
+<li><strong><em>cardinality</em></strong>:集合元素的个数，记作$|S|$（基数）</li>
 <li><strong><em>power set</em></strong>:所有子集的集合，记作$\Rho(S)$（幂集合）</li>
 <li><strong><em>ordered n-tuple</em></strong>:$(a_1,a_2,\dots,a_n)$（有序$n$元组）<ul>
 <li><strong><em>ordered pairs</em></strong>:有序二元组</li>
 </ul>
 </li>
-<li><strong><em>Cartesian product</em></strong>：$A\times B=\{(a,b)|a\in A\land b\in B\};A_1\times A_2\times\dots\times A_n=\{(a_1,a_2,\dots,a_n)|a_i\in A_i\ for\ i=1,2,\dots,n\}$（笛卡尔积）<ul>
+<li><strong><em>Cartesian product</em></strong>:$A\times B=\{(a,b)|a\in A\land b\in B\};A_1\times A_2\times\dots\times A_n=\{(a_1,a_2,\dots,a_n)|a_i\in A_i\ for\ i=1,2,\dots,n\}$（笛卡尔积）<ul>
 <li>$A\times B$的一个子集称为$a\ relation\ from\ the\ set\ A\ to\ the\ set\ B$</li>
 <li>$A\times A$的一个子集被称为$a\ relation\ on\ A$</li>
 </ul>
 </li>
-<li><strong><em>truth set</em></strong>：$\{x\in D|P(x)\}$（真值集合）</li>
+<li><strong><em>truth set</em></strong>:$\{x\in D|P(x)\}$（真值集合）</li>
 </ul>
 <hr>
 <h4 id="2-2-集合操作"><a href="#2-2-集合操作" class="headerlink" title="2.2 集合操作"></a>2.2 集合操作</h4><ul>
-<li><strong><em>union</em></strong>：$A\cup B$（并集）</li>
-<li><strong><em>intersection</em></strong>：$A\cap B$（交集）</li>
-<li><strong><em>disjoint</em></strong>：$A\cap B=\emptyset$</li>
+<li><strong><em>union</em></strong>:$A\cup B$（并集）</li>
+<li><strong><em>intersection</em></strong>:$A\cap B$（交集）</li>
+<li><strong><em>disjoint</em></strong>:$A\cap B=\emptyset$</li>
 <li><strong><em>principle of inclusion–exclusion</em></strong>:$|A\cup B|=|A|+|B|-|A\cap B|$（容斥原理）</li>
 <li><strong><em>complement<br>of B with respect to A/difference</em></strong>:$A-B$（差集）</li>
-<li><strong><em>complement</em></strong>：$\overline{A}$（补集）</li>
-<li><strong><em>membership tables</em></strong>：成员表，类似真值表</li>
+<li><strong><em>complement</em></strong>:$\overline{A}$（补集）</li>
+<li><strong><em>membership tables</em></strong>:成员表，类似真值表</li>
 <li><strong><em>multiset</em></strong>:$\{m_1\cdot a_1,m_2\cdot a_2,\dots,m_n\cdot a_n\}$（可重集）<ul>
 <li><strong><em>multiplicities</em></strong>:元素出现的次数$m_i$</li>
 <li>并集$m_i$取$\max$，交集$m_i$取$\min$，差集$m_i$相减（最小为$0$），和集（<strong><em>sum</em></strong>）$m_i$相加</li>
@@ -921,7 +921,7 @@
 </ul>
 </li>
 <li><strong><em>big-Omega notation</em></strong>:如果$\exists C&gt;0,k,|f(x)|\ge C|g(x)|$对$\forall x&gt;k$成立，则称$f(x)\ is\ \Omega(g(x))$</li>
-<li><strong><em>big-Theta notation</em></strong>:若$f(x)\ is\ O(g(x)),f(x)\ is\ \Omega(g(x))$，则称：<ul>
+<li><strong><em>big-Theta notation</em></strong>:若$f(x)\ is\ O(g(x)),f(x)\ is\ \Omega(g(x))$，则称:<ul>
 <li>$f(x)\ is\ \Theta(g(x))$</li>
 <li>$f(x)\ is\ big-Theta\ of\ g(x)$</li>
 <li>$f(x)\ is\ of\ order\ g(x)$</li>
@@ -987,9 +987,9 @@
 <li>$\pi(x)$:$\le x$的质数个数，接近于$\dfrac{x}{\ln x}$</li>
 <li><strong><em>greatest common divisor of a and b</em></strong>:$\gcd(a,b)$</li>
 <li><strong><em>a and b are relatively prime</em></strong>:$a\perp b$（互质）</li>
-<li><strong><em>pairwise relatively prime</em></strong>：一堆数两两互质</li>
-<li><strong><em>least common multiple</em></strong>：$lcm$</li>
-<li><strong><em>The Euclidean Algorithm</em></strong>：辗转相除法</li>
+<li><strong><em>pairwise relatively prime</em></strong>:一堆数两两互质</li>
+<li><strong><em>least common multiple</em></strong>:$lcm$</li>
+<li><strong><em>The Euclidean Algorithm</em></strong>:辗转相除法</li>
 <li>$\exists s,t\in\mathbb{Z},\gcd(a,b)=sa+tb$<ul>
 <li><strong><em>Bezout coefficients of a and b</em></strong>:s,t</li>
 <li><strong><em>Bezout’s identity</em></strong>:等式$\gcd(a,b)=sa+tb$</li>
@@ -998,8 +998,8 @@
 </ul>
 <hr>
 <h4 id="4-4-逆元"><a href="#4-4-逆元" class="headerlink" title="4.4 逆元"></a>4.4 逆元</h4><ul>
-<li><strong><em>inverse</em></strong>：逆元</li>
-<li><strong><em>The Chinese Remainder Theorem</em></strong>：中国剩余定理<br>$\boxed{\begin{matrix}x\equiv a_1\pmod {m_1}\\x\equiv a_2\pmod {m_2}\\\vdots\\x\equiv a_n\pmod {m_n}\end{matrix}}$</li>
+<li><strong><em>inverse</em></strong>:逆元</li>
+<li><strong><em>The Chinese Remainder Theorem</em></strong>:中国剩余定理<br>$\boxed{\begin{matrix}x\equiv a_1\pmod {m_1}\\x\equiv a_2\pmod {m_2}\\\vdots\\x\equiv a_n\pmod {m_n}\end{matrix}}$</li>
 </ul>
 <p>$\boxed{\begin{matrix}m=\prod\limits_{i=1}^nm_i\\M_k=\dfrac{m}{m_k}\\y_k\equiv M_k^{-1}\pmod {m_k}\\x\equiv\sum\limits_{i=1}^na_iM_iy_i\pmod m\end{matrix}}$</p>
 <ul>
@@ -1010,7 +1010,7 @@
 </li>
 <li><strong><em>pseudoprimes to the base b</em></strong>:满足$b^{n-1}\equiv1\pmod n$的合数$n$（伪素数）</li>
 <li><strong><em>Carmichael number</em></strong>:满足对$\forall b\perp n$有$b^{n-1}\equiv1\pmod n$的合数$n$</li>
-<li><strong><em>primitive root</em></strong>：原根<ul>
+<li><strong><em>primitive root</em></strong>:原根<ul>
 <li>若$g^k\mod m(0\le g,k\le m-1)$两两不同，则$g$为模数$m$的原根</li>
 <li>若$g^b\equiv a\pmod m$，则称b is the <strong>discrete logarithm</strong> of a modulo m to the base g</li>
 </ul>
@@ -1018,9 +1018,9 @@
 </ul>
 <hr>
 <h4 id="4-5-同余的应用"><a href="#4-5-同余的应用" class="headerlink" title="4.5 同余的应用"></a>4.5 同余的应用</h4><ul>
-<li><strong><em>Hashing Functions</em></strong>：哈希</li>
-<li><strong><em>Pseudorandom Numbers</em></strong>：伪随机数<ul>
-<li><strong><em>linear congruential method</em></strong>：$x_{n+1}=(ax_n+c)\mod m$</li>
+<li><strong><em>Hashing Functions</em></strong>:哈希</li>
+<li><strong><em>Pseudorandom Numbers</em></strong>:伪随机数<ul>
+<li><strong><em>linear congruential method</em></strong>:$x_{n+1}=(ax_n+c)\mod m$</li>
 <li><strong><em>modulus</em></strong>:m</li>
 <li><strong><em>multiplier</em></strong>:a</li>
 <li><strong><em>increment</em></strong>:c</li>
@@ -1031,7 +1031,7 @@
 </ul>
 <hr>
 <h3 id="5-归纳-amp-递归"><a href="#5-归纳-amp-递归" class="headerlink" title="5 归纳&amp;递归"></a>5 归纳&amp;递归</h3><h4 id="5-1-数学归纳法"><a href="#5-1-数学归纳法" class="headerlink" title="5.1 数学归纳法"></a>5.1 数学归纳法</h4><ul>
-<li><strong><em>mathematical induction</em></strong>：数学归纳法<ol>
+<li><strong><em>mathematical induction</em></strong>:数学归纳法<ol>
 <li>设$P(n)$</li>
 <li>$Basis\ Step:P(1)\ is\ true$</li>
 <li>$Inductive\ Step:\forall k,P(k)\rightarrow P(k+1)\ is\ true$</li>
@@ -1048,23 +1048,23 @@
 </ul>
 <hr>
 <h4 id="5-3-递归定义-amp-结构化归纳"><a href="#5-3-递归定义-amp-结构化归纳" class="headerlink" title="5.3 递归定义&amp;结构化归纳"></a>5.3 递归定义&amp;结构化归纳</h4><ul>
-<li><strong><em>recursion/inductive definition</em></strong>：递归定义的函数<ul>
-<li><strong><em>basis step</em></strong>：初始定义</li>
-<li><strong><em>recursive step</em></strong>：递归规则</li>
-<li><strong><em>exclusion rule</em></strong>：例外规则</li>
+<li><strong><em>recursion/inductive definition</em></strong>:递归定义的函数<ul>
+<li><strong><em>basis step</em></strong>:初始定义</li>
+<li><strong><em>recursive step</em></strong>:递归规则</li>
+<li><strong><em>exclusion rule</em></strong>:例外规则</li>
 </ul>
 </li>
 </ul>
 <hr>
 <h3 id="6-数数"><a href="#6-数数" class="headerlink" title="6 数数"></a>6 数数</h3><h4 id="6-1-数数基础"><a href="#6-1-数数基础" class="headerlink" title="6.1 数数基础"></a>6.1 数数基础</h4><ul>
 <li><strong><em>product rule</em></strong>:乘法原理</li>
-<li><strong><em>sum rule</em></strong>：加法原理</li>
+<li><strong><em>sum rule</em></strong>:加法原理</li>
 <li><strong><em>the subtraction rule/principle of inclusion–exclusion</em></strong>:容斥原理</li>
-<li><strong><em>tree diagrams</em></strong>：树状图</li>
+<li><strong><em>tree diagrams</em></strong>:树状图</li>
 </ul>
 <hr>
 <h4 id="6-2-抽屉原理"><a href="#6-2-抽屉原理" class="headerlink" title="6.2 抽屉原理"></a>6.2 抽屉原理</h4><ul>
-<li><strong><em>The Pigeonhole Principl</em></strong>：抽屉原理<ul>
+<li><strong><em>The Pigeonhole Principl</em></strong>:抽屉原理<ul>
 <li>n个物品放到n+1个盒子里，则至少有一个盒子有不少于1个物品</li>
 <li>k+1个元素的集合到k个元素的集合的函数一定不单射</li>
 <li>n个物品放到k个盒子里，至少有一个盒子有不少于$\left\lceil\dfrac{n}{k}\right\rceil$个物品</li>
@@ -1074,17 +1074,17 @@
 </ul>
 <hr>
 <h4 id="6-3-排列组合"><a href="#6-3-排列组合" class="headerlink" title="6.3 排列组合"></a>6.3 排列组合</h4><ul>
-<li><strong><em>permutation</em></strong>：$P(n,r)$（排列）<ul>
+<li><strong><em>permutation</em></strong>:$P(n,r)$（排列）<ul>
 <li><strong><em>r-permutation</em></strong>:r个数的排列</li>
 </ul>
 </li>
-<li><strong><em>combination</em></strong>：$C(n,r)\dbinom{n}{r}$（组合）</li>
-<li><strong><em>binomial coefficient</em></strong>：二项式系数</li>
+<li><strong><em>combination</em></strong>:$C(n,r)\dbinom{n}{r}$（组合）</li>
+<li><strong><em>binomial coefficient</em></strong>:二项式系数</li>
 <li><strong><em>combinatorial proof</em></strong>:组合数证明</li>
 </ul>
 <hr>
 <h4 id="6-4-二项式系数和一堆等式"><a href="#6-4-二项式系数和一堆等式" class="headerlink" title="6.4 二项式系数和一堆等式"></a>6.4 二项式系数和一堆等式</h4><ul>
-<li><strong><em>The Binomial Theorem</em></strong>：二项式定理</li>
+<li><strong><em>The Binomial Theorem</em></strong>:二项式定理</li>
 <li><strong><em>pascal’s identity</em></strong>:$C_{n+1}^m=C_n^m+C_n^{m-1}$</li>
 <li><strong><em>Pascal’s triangle</em></strong>:杨辉三角</li>
 <li><strong><em>vandermonde’s identity</em></strong>:范德蒙德恒等式</li>
@@ -1092,28 +1092,28 @@
 </ul>
 <hr>
 <h4 id="6-5-广义的排列组合？"><a href="#6-5-广义的排列组合？" class="headerlink" title="6.5 广义的排列组合？"></a>6.5 广义的排列组合？</h4><ul>
-<li><strong><em>with repetition</em></strong>：可重</li>
+<li><strong><em>with repetition</em></strong>:可重</li>
 <li>$x_1+x_2+\dots+x_n=r(x_i\ge0)$:$C_{n+r-1}^{n-1}$</li>
 <li>$x_1+x_2+\dots+x_n=r(x_i&gt;0)$:$C_{r-1}^{n-1}$</li>
 <li><strong><em>Stirling numbers of the second kind</em></strong>:第二类斯特林数</li>
 </ul>
 <hr>
 <h3 id="8-进阶数数技巧"><a href="#8-进阶数数技巧" class="headerlink" title="8 进阶数数技巧"></a>8 进阶数数技巧</h3><h4 id="8-2-线性递推关系"><a href="#8-2-线性递推关系" class="headerlink" title="8.2 线性递推关系"></a>8.2 线性递推关系</h4><ul>
-<li><strong><em>linear homogeneous recurrence</em></strong>：$a_n=c_1a_{n-1}+c_2a_{n-2}+\ldots+c_ka_{n-k}$（线性齐次递推关系）</li>
-<li><strong><em>root</em></strong>：方程的解</li>
-<li><strong><em>multiplicity</em></strong>：方程某个根的重数</li>
+<li><strong><em>linear homogeneous recurrence</em></strong>:$a_n=c_1a_{n-1}+c_2a_{n-2}+\ldots+c_ka_{n-k}$（线性齐次递推关系）</li>
+<li><strong><em>root</em></strong>:方程的解</li>
+<li><strong><em>multiplicity</em></strong>:方程某个根的重数</li>
 <li>对递推关系$a_n=c_1a_{n-1}+c_2a_{n-2}+\ldots+c_ka_{n-k}$，解特征方程方程$r^k-c_1r^{k-1}-\ldots-c_k=0$得根$r_1,r_2\ldots r_t$和对应重数$m_1,m_2\ldots m_t$，则$a_n=\sum\limits_{i=1}^nr_i^n\sum\limits_{j=0}^{m_i-1}\alpha_{i,j}n^j$，$\alpha_{i,j}$的值由初始条件确定</li>
-<li><strong><em>linear nonhomogeneous recurrence relation with constant coefficients</em></strong>：$a_n=c_1a_{n-1}+c_2a_{n-2}+\ldots+c_ka_{n-k}+F(n),F(n)\neq0$且$F(n)$只与$n$有关（常系数线性非齐次递推关系）</li>
-<li><strong><em>associated homogeneous recurrence relation</em></strong>：上面那个去掉$F(n)$的递推关系（关联齐次递归关系）</li>
+<li><strong><em>linear nonhomogeneous recurrence relation with constant coefficients</em></strong>:$a_n=c_1a_{n-1}+c_2a_{n-2}+\ldots+c_ka_{n-k}+F(n),F(n)\neq0$且$F(n)$只与$n$有关（常系数线性非齐次递推关系）</li>
+<li><strong><em>associated homogeneous recurrence relation</em></strong>:上面那个去掉$F(n)$的递推关系（关联齐次递归关系）</li>
 <li>对常系数线性非齐次递推关系，若$\{a_n^{(p)}\}$为其一个特解（即忽略初始条件的解），$\{a_n^{(h)}\}$为其关联齐次递推关系的解，则其解为$a_n=a_n^{(p)}+a_n^{(h)}$</li>
 <li>若$F(n)=s^n\sum\limits_{i=0}^tb_in^i$，$s$为关联齐次递归关系的特征方程根且重数为$m$，则有特解$a_n^{(p)}=n^m\sum\limits_{i=0}^tp_in^i$；否则有特解$a_n^{(p)}=\sum\limits_{i=0}^tp_in^i$（即$m=0$）</li>
 <li>若$F(n)=G(n)+H(n)$，$a_n=\sum\limits_{i=1}^kc_ia_{n-i}+F(n),p_n=\sum\limits_{i=1}^kc_ip_{n-i}+G(n),q_n=\sum\limits_{i=1}^kc_iq_{n-i}+H(n)$，则$a^{(p)}_n=p^{(p)}_n+q^{(p)}_n$</li>
 </ul>
 <hr>
 <h4 id="8-4-生成函数"><a href="#8-4-生成函数" class="headerlink" title="8.4 生成函数"></a>8.4 生成函数</h4><ul>
-<li><strong><em>generating function for the sequence </em></strong>：数列的生成函数$\sum\limits_{n=0}^\infty a_nx^n$</li>
+<li><strong><em>generating function for the sequence </em></strong>:数列的生成函数$\sum\limits_{n=0}^\infty a_nx^n$</li>
 <li><strong><em>ordinary generating function</em></strong>:普通型生成函数</li>
-<li><strong><em>extended binomial coefficient</em></strong>：广义二项式系数$C_n^k=\begin{cases}\dfrac{n(n-1)\ldots(n-k+1)}{k!}&amp;k&gt;0\\0&amp;k=0\end{cases}$</li>
+<li><strong><em>extended binomial coefficient</em></strong>:广义二项式系数$C_n^k=\begin{cases}\dfrac{n(n-1)\ldots(n-k+1)}{k!}&amp;k&gt;0\\0&amp;k=0\end{cases}$</li>
 <li><strong><em>the extended binomial theorem</em></strong>:广义二项式定理</li>
 </ul>
 <hr>
@@ -1123,9 +1123,9 @@
 </ul>
 <hr>
 <h3 id="9-关系"><a href="#9-关系" class="headerlink" title="9 关系"></a>9 关系</h3><h4 id="9-1-关系和其性质"><a href="#9-1-关系和其性质" class="headerlink" title="9.1 关系和其性质"></a>9.1 关系和其性质</h4><ul>
-<li><strong><em>binary relation from A to B</em></strong>：$A\times B$的一个子集</li>
-<li><strong><em>A relation on a set A</em></strong>：$A\times A$的一个子集</li>
-<li><strong><em>reflexive</em></strong>：$\forall a\in A,(a,a)\in R$</li>
+<li><strong><em>binary relation from A to B</em></strong>:$A\times B$的一个子集</li>
+<li><strong><em>A relation on a set A</em></strong>:$A\times A$的一个子集</li>
+<li><strong><em>reflexive</em></strong>:$\forall a\in A,(a,a)\in R$</li>
 <li><strong><em>symmetric</em></strong>:$\forall a,b\in A,(a,b)\in R\leftrightarrow (b,a)\in R$</li>
 <li><strong><em>antisymmetric</em></strong>:$\forall a,b\in A,(a,b)\in R\land(b,a)\in R\rightarrow a=b$</li>
 <li><strong><em>transitive</em></strong>:$\forall a,b,c\in A,(a,b)\in R\land(b,c)\in R\rightarrow (a,c)\in R$</li>
@@ -1135,71 +1135,71 @@
 </ul>
 <hr>
 <h4 id="9-3-表示关系"><a href="#9-3-表示关系" class="headerlink" title="9.3 表示关系"></a>9.3 表示关系</h4><ul>
-<li><strong><em>Matrix</em></strong>：矩阵表示$A=\{a_i\},B=\{b_i\},m_{ij}=\begin{cases}1&amp;(a_i,a_j)\in R\\0&amp;(a_i,a_j)\notin R\end{cases}$</li>
+<li><strong><em>Matrix</em></strong>:矩阵表示$A=\{a_i\},B=\{b_i\},m_{ij}=\begin{cases}1&amp;(a_i,a_j)\in R\\0&amp;(a_i,a_j)\notin R\end{cases}$</li>
 <li><strong><em>digraph/directed graph</em></strong>:用有向图表示<ul>
 <li><strong><em>vertex(pl. vertices)/node</em></strong>:节点</li>
 <li><strong><em>edge/arc</em></strong>:边</li>
-<li><strong><em>initial vertex</em></strong>：边的起点</li>
-<li><strong><em>terminal vertex/end vertex</em></strong>：终点</li>
-<li><strong><em>loop</em></strong>：自环</li>
+<li><strong><em>initial vertex</em></strong>:边的起点</li>
+<li><strong><em>terminal vertex/end vertex</em></strong>:终点</li>
+<li><strong><em>loop</em></strong>:自环</li>
 </ul>
 </li>
 </ul>
 <hr>
 <h4 id="9-4-传递闭包"><a href="#9-4-传递闭包" class="headerlink" title="9.4 传递闭包"></a>9.4 传递闭包</h4><ul>
-<li><strong><em>transitive closure</em></strong>：传递闭包$R^\ast$</li>
-<li><strong><em>path</em></strong>：图的路径</li>
-<li><strong><em>circuit/cycle</em></strong>：起点和终点相同的路径（环）</li>
+<li><strong><em>transitive closure</em></strong>:传递闭包$R^\ast$</li>
+<li><strong><em>path</em></strong>:图的路径</li>
+<li><strong><em>circuit/cycle</em></strong>:起点和终点相同的路径（环）</li>
 <li>$R^\ast=\bigcup\limits_{i=1}^nR^i$</li>
-<li><strong><em>Warshall algorithm</em></strong>：$W_k=[w_{ij}^{[k]}]$表示只允许走编号不超过$k$的节点作为中间节点的路径（不包括起终点），$i,j$的连通性矩阵，则$M_{R^\ast}=W_n,w_{ij}^{[k]}=w_{ij}^{[k-1]}\lor(w_{ik}^{[k-1]}\land w_{kj}^{[k-1]})$</li>
+<li><strong><em>Warshall algorithm</em></strong>:$W_k=[w_{ij}^{[k]}]$表示只允许走编号不超过$k$的节点作为中间节点的路径（不包括起终点），$i,j$的连通性矩阵，则$M_{R^\ast}=W_n,w_{ij}^{[k]}=w_{ij}^{[k-1]}\lor(w_{ik}^{[k-1]}\land w_{kj}^{[k-1]})$</li>
 </ul>
 <hr>
 <h4 id="9-5-等价关系"><a href="#9-5-等价关系" class="headerlink" title="9.5 等价关系"></a>9.5 等价关系</h4><ul>
-<li><strong><em>equivalence relation</em></strong>：reflexive, symmetric, and transitive（等价关系）</li>
+<li><strong><em>equivalence relation</em></strong>:reflexive, symmetric, and transitive（等价关系）</li>
 <li><strong><em>equivalent</em></strong>:两个元素能被等价关系关联，记为$a\thicksim b$</li>
 <li><strong><em>equivalence class</em></strong>:在等价关系$R$中与$a$关联的所有元素的集合，记为$[a]_R$（只考虑$R$时可省略$R$）</li>
 </ul>
 <hr>
 <h4 id="9-6-偏序关系"><a href="#9-6-偏序关系" class="headerlink" title="9.6 偏序关系"></a>9.6 偏序关系</h4><ul>
-<li><strong><em>partial ordering or partial order</em></strong>：reflexive, antisymmetric, and transitive（偏序关系）</li>
-<li><strong><em>partially ordered set/poset</em></strong>：集合$S$和一个偏序关系$R$，记作$(S,R)$<ul>
+<li><strong><em>partial ordering or partial order</em></strong>:reflexive, antisymmetric, and transitive（偏序关系）</li>
+<li><strong><em>partially ordered set/poset</em></strong>:集合$S$和一个偏序关系$R$，记作$(S,R)$<ul>
 <li><strong><em>comparable</em></strong>:要么$(a,b)\in R$，要么$(b,a)\in R$</li>
 <li><strong><em>incomparable</em></strong>:$(a,b)\notin R,(b,a)\notin R$</li>
 </ul>
 </li>
 <li><strong><em>totally ordered/linearly ordered set/chain</em></strong>:$(S,R)$中所有元素对都$comparable$，$R$被称为total order/linear order（全序集）</li>
 <li><strong><em>upper bound</em></strong>:$(S,R)$中，$A$为$S$的一个子集$\forall a\in A,a\preccurlyeq u$的$u$</li>
-<li><strong><em>lower bound</em></strong>：上面的反义</li>
-<li><strong><em>least upper bound</em></strong>：所有的upper bound中最小的</li>
-<li><strong><em>greatest lower bound</em></strong>：上面的反义</li>
-<li><strong><em>maximal</em></strong>：没有$a\prec b$</li>
+<li><strong><em>lower bound</em></strong>:上面的反义</li>
+<li><strong><em>least upper bound</em></strong>:所有的upper bound中最小的</li>
+<li><strong><em>greatest lower bound</em></strong>:上面的反义</li>
+<li><strong><em>maximal</em></strong>:没有$a\prec b$</li>
 <li><strong><em>minimal</em></strong>:没有$b\prec a$</li>
 <li><strong><em>greatest element</em></strong>:$\forall b,b\preccurlyeq a$</li>
 <li><strong><em>least element</em></strong>:$\forall b,a\preccurlyeq b$</li>
 <li><strong><em>dual</em></strong>:$(S,R^{-1})$，其中如果$(a,b)\in R$，则$(b,a)\in R^{-1}$</li>
-<li><strong><em>Hasse diagram</em></strong>：哈斯图<ul>
-<li><strong><em>y covers x</em></strong>：y覆盖x，$x\prec y$且不存在$z$使得$x\prec z\prec y$</li>
-<li>构造哈斯图：如果y覆盖x，则把y画在x上面并用无向线段连接x,y</li>
+<li><strong><em>Hasse diagram</em></strong>:哈斯图<ul>
+<li><strong><em>y covers x</em></strong>:y覆盖x，$x\prec y$且不存在$z$使得$x\prec z\prec y$</li>
+<li>构造哈斯图:如果y覆盖x，则把y画在x上面并用无向线段连接x,y</li>
 </ul>
 </li>
 </ul>
 <hr>
 <h3 id="10-图论"><a href="#10-图论" class="headerlink" title="10 图论"></a>10 图论</h3><h4 id="10-1-图"><a href="#10-1-图" class="headerlink" title="10.1 图"></a>10.1 图</h4><ul>
-<li><strong><em>endpoints</em></strong>：边两边的端点，边<strong>connect its endpoints</strong></li>
+<li><strong><em>endpoints</em></strong>:边两边的端点，边<strong>connect its endpoints</strong></li>
 <li><strong><em>infinite graph</em></strong>:边集或点集无限</li>
-<li><strong><em>simple graph</em></strong>：无重边无自环的无向图（简单图）</li>
+<li><strong><em>simple graph</em></strong>:无重边无自环的无向图（简单图）</li>
 <li><strong><em>simple directed graph</em></strong>:简单有向图</li>
-<li><strong><em>multigraphs</em></strong>：允许有重边无自环的无向图</li>
+<li><strong><em>multigraphs</em></strong>:允许有重边无自环的无向图</li>
 <li><strong><em>pseudograph</em></strong>:重边自环都允许的无向图</li>
-<li><strong><em>mixed graph</em></strong>：既有无向边又有有向边</li>
+<li><strong><em>mixed graph</em></strong>:既有无向边又有有向边</li>
 </ul>
 <hr>
 <h4 id="10-2-图的术语和常见的图"><a href="#10-2-图的术语和常见的图" class="headerlink" title="10.2 图的术语和常见的图"></a>10.2 图的术语和常见的图</h4><ul>
 <li><strong><em>adjacent/neighbors</em></strong>:无向图中两点相邻，连接它们的边被称为incident with the vertices u<br>and v</li>
-<li><strong><em>neighborhood</em></strong>：与$v$相邻的点集$N(v)$</li>
+<li><strong><em>neighborhood</em></strong>:与$v$相邻的点集$N(v)$</li>
 <li><strong><em>degree</em></strong>:度数$\deg(v)$，自环算2度</li>
-<li><strong><em>isolated</em></strong>：度数为0</li>
-<li><strong><em>pendant</em></strong>：度数为1</li>
+<li><strong><em>isolated</em></strong>:度数为0</li>
+<li><strong><em>pendant</em></strong>:度数为1</li>
 <li>$\sum\limits\deg(i)=2m$</li>
 <li>无向图中，奇度数的点有偶数个</li>
 <li>有向图中有边(u,v)，则称u is adjacent to v或v is adjacent from u</li>
@@ -1209,50 +1209,50 @@
 <li><strong><em>complete graph</em></strong>:完全图，记作$K_n$</li>
 <li><strong><em>cycle</em></strong>:环，$V=\{(v_1,v_2),(v_2,v_3)\ldots,(v_n,v_1)\}$，记作$C_n$</li>
 <li><strong><em>wheel</em></strong>:记作$W_n$<br><img src="/images/离散英语及其应用-4.png" alt=""></li>
-<li><strong><em>n-dimensional hypercube/n-cube</em></strong>：记作$Q_n$<br><img src="/images/离散英语及其应用-5.png" alt=""></li>
+<li><strong><em>n-dimensional hypercube/n-cube</em></strong>:记作$Q_n$<br><img src="/images/离散英语及其应用-5.png" alt=""></li>
 <li><strong><em>bipartite graphs</em></strong>:二分图</li>
 <li>一个简单图是二分图等价于能给每个点黑白染色且相邻点异色</li>
 <li>$K_{m,n}$:两边分别有$m,n$个节点的完全二分图</li>
-<li><strong><em>subgraph</em></strong>：子图</li>
-<li><strong><em>subgraph induced by a subset W</em></strong>：点集为W，边集为所有连接W中的点的边</li>
-<li><strong><em>union</em></strong>：两个图组合，记作$\cup$</li>
+<li><strong><em>subgraph</em></strong>:子图</li>
+<li><strong><em>subgraph induced by a subset W</em></strong>:点集为W，边集为所有连接W中的点的边</li>
+<li><strong><em>union</em></strong>:两个图组合，记作$\cup$</li>
 </ul>
 <hr>
 <h4 id="10-3-图的表示"><a href="#10-3-图的表示" class="headerlink" title="10.3 图的表示"></a>10.3 图的表示</h4><ul>
-<li><strong><em>adjacency lists</em></strong>：邻接表<ul>
+<li><strong><em>adjacency lists</em></strong>:邻接表<ul>
 <li>无向图<br><img src="/images/离散英语及其应用-6.png" alt="" style="height:150px;width:auto;"></li>
 <li>有向图<br><img src="/images/离散英语及其应用-7.png" alt="" style="height:150px;width:auto;"></li>
 </ul>
 </li>
-<li><strong><em>adjacency matrix</em></strong>：邻接矩阵</li>
+<li><strong><em>adjacency matrix</em></strong>:邻接矩阵</li>
 <li><strong><em>incidence matrix</em></strong>:$m_{ij}=\begin{cases}1&amp;e_j\ is\ incident\ with\ v_i\\0&amp;otherwise\end{cases}$</li>
-<li><strong><em>isomorphic</em></strong>：对于图$G_1(V_1,E_1),G_2(V_2,E_2)$，若存在双射函数$f(n):V_1\rightarrow V_2$，使得任意$G_1$中相邻的$v_i,v_j$，有$G_2$中$f(v_i),f(v_j)$相邻，则$G_1,G_2$同构，函数$f$称为isomorphism</li>
+<li><strong><em>isomorphic</em></strong>:对于图$G_1(V_1,E_1),G_2(V_2,E_2)$，若存在双射函数$f(n):V_1\rightarrow V_2$，使得任意$G_1$中相邻的$v_i,v_j$，有$G_2$中$f(v_i),f(v_j)$相邻，则$G_1,G_2$同构，函数$f$称为isomorphism</li>
 </ul>
 <hr>
 <h4 id="10-4-连通性"><a href="#10-4-连通性" class="headerlink" title="10.4 连通性"></a>10.4 连通性</h4><ul>
 <li><strong><em>simple path/circuit</em></strong>:路径或环中没有同一条边</li>
-<li><strong><em>connected</em></strong>：无向图中任意两点都有路径</li>
-<li><strong><em>cut vertices</em></strong>：割了就不连通的点（割点）</li>
+<li><strong><em>connected</em></strong>:无向图中任意两点都有路径</li>
+<li><strong><em>cut vertices</em></strong>:割了就不连通的点（割点）</li>
 <li><strong><em>cut edge/bridge</em></strong>:割边</li>
 <li><strong><em>nonseparable graph</em></strong>:无割点的连通图</li>
-<li><strong><em>strongly connected</em></strong>：有向图中，任意两点$a,b$都有路径$(a,b),(b,a)$</li>
+<li><strong><em>strongly connected</em></strong>:有向图中，任意两点$a,b$都有路径$(a,b),(b,a)$</li>
 <li><strong><em>weakly connected</em></strong>:有向图中任意两点间有路径</li>
 </ul>
 <hr>
 <h4 id="10-5-两个回路"><a href="#10-5-两个回路" class="headerlink" title="10.5 两个回路"></a>10.5 两个回路</h4><ul>
-<li><strong><em>Euler circuit</em></strong>：包含所有边的简单环（欧拉回路）</li>
-<li><strong><em>Euler path</em></strong>：包含所有边的简单路径（欧拉路径）</li>
+<li><strong><em>Euler circuit</em></strong>:包含所有边的简单环（欧拉回路）</li>
+<li><strong><em>Euler path</em></strong>:包含所有边的简单路径（欧拉路径）</li>
 <li>一个连通multigraph有欧拉回路当且仅当所有点度数为偶数</li>
 <li>一个连通multigraph有欧拉路径但没有欧拉回路当且仅当恰好有两个点度数为奇数</li>
 <li><strong><em>Hamilton circuit</em></strong>:包含所有点的简单环（哈密顿回路）</li>
-<li><strong><em>Hamilton path</em></strong>：包含所有店的简单路径（哈密顿路径）</li>
-<li><strong><em>dirac’s theorem</em></strong>：若所有点度数不低于$\dfrac{n}{2}$，则存在哈密顿回路</li>
+<li><strong><em>Hamilton path</em></strong>:包含所有店的简单路径（哈密顿路径）</li>
+<li><strong><em>dirac’s theorem</em></strong>:若所有点度数不低于$\dfrac{n}{2}$，则存在哈密顿回路</li>
 <li><strong><em>ore’s theorem</em></strong>:若所有不相邻的点$u,v$有$\deg(u)+\deg(v)\ge n$，则有哈密顿回路</li>
 </ul>
 <hr>
 <h4 id="10-7-平面图"><a href="#10-7-平面图" class="headerlink" title="10.7 平面图"></a>10.7 平面图</h4><ul>
-<li><strong><em>planar</em></strong>：平面图，能在平面中画出来且没有边交错的图</li>
-<li><strong><em>regions</em></strong>：平面图中，被边分割出的区域，其度数为包围它的边数，且$\sum\deg(R)=2m$</li>
+<li><strong><em>planar</em></strong>:平面图，能在平面中画出来且没有边交错的图</li>
+<li><strong><em>regions</em></strong>:平面图中，被边分割出的区域，其度数为包围它的边数，且$\sum\deg(R)=2m$</li>
 <li>简单连通平面图中，$r$为区域数，$e$为边数，$v$为点数，则$r=e-v+2$（欧拉公式），$e\le 3v-6$</li>
 <li>若$G$为简单连通平面图，则有一个度数不超过5的点</li>
 <li>一个图是非平面图当且仅当它有一个子图与$K_{3,3}$或$K_5$同构</li>
@@ -1261,42 +1261,51 @@
 <h3 id="11-树"><a href="#11-树" class="headerlink" title="11 树"></a>11 树</h3><h4 id="11-1-树树"><a href="#11-1-树树" class="headerlink" title="11.1 树树"></a>11.1 树树</h4><ul>
 <li>树是没有简单环的连通无向图</li>
 <li>一个无向图是树当且仅当任意两点间都有且仅有一条简单路径</li>
-<li><strong><em>rooted tree</em></strong>：有根树<ul>
-<li><strong><em>parent</em></strong>：父节点</li>
-<li><strong><em>child</em></strong>：子节点</li>
-<li><strong><em>siblings</em></strong>：兄弟节点</li>
-<li><strong><em>ancestors</em></strong>：祖先</li>
-<li><strong><em>descendants</em></strong>：子孙</li>
-<li><strong><em>leaf</em></strong>：叶子节点</li>
-<li><strong><em>internal vertices</em></strong>：内部节点（不是叶子的节点）</li>
+<li><strong><em>rooted tree</em></strong>:有根树<ul>
+<li><strong><em>parent</em></strong>:父节点</li>
+<li><strong><em>child</em></strong>:子节点</li>
+<li><strong><em>siblings</em></strong>:兄弟节点</li>
+<li><strong><em>ancestors</em></strong>:祖先</li>
+<li><strong><em>descendants</em></strong>:子孙</li>
+<li><strong><em>leaf</em></strong>:叶子节点</li>
+<li><strong><em>internal vertices</em></strong>:内部节点（不是叶子的节点）</li>
 </ul>
 </li>
-<li><strong><em>ordered rooted trees</em></strong>：儿子有序</li>
-<li><strong><em>m-ary tree</em></strong>：m叉树</li>
+<li><strong><em>ordered rooted trees</em></strong>:儿子有序</li>
+<li><strong><em>m-ary tree</em></strong>:m叉树</li>
 <li><strong><em>full m-ary tree</em></strong>:满m叉树</li>
-<li><strong><em>binary tree</em></strong>：二叉树</li>
-<li><strong><em>subtree</em></strong>：子树</li>
+<li><strong><em>binary tree</em></strong>:二叉树</li>
+<li><strong><em>subtree</em></strong>:子树</li>
 <li>有i个内部节点的满m叉树一共有mi+1个节点和(m-1)i+1个叶子</li>
-<li><strong><em>level</em></strong>：节点深度</li>
-<li><strong><em>height</em></strong>：树高</li>
-<li>高为h的m叉树最多有$m^h$个节点</li>
+<li><strong><em>level</em></strong>:节点深度（根节点为0）</li>
+<li><strong><em>height</em></strong>:树高</li>
+<li><strong><em>balanced</em></strong>:所有叶子深度为h或h-1</li>
+<li>高为h的m叉树最多有$m^h$个叶子</li>
+<li>$h\ge\lceil\log_ml\rceil$（当且仅当满且平衡等号成立）</li>
+</ul>
+<hr>
+<h4 id="11-2-树的应用"><a href="#11-2-树的应用" class="headerlink" title="11.2 树的应用"></a>11.2 树的应用</h4><ul>
+<li><strong><em>binary search tree</em></strong>:二叉搜索树（平衡树的前身）</li>
+<li><strong><em>prefix codes</em></strong>:前缀编码，任意编码不是其他编码的前缀</li>
+<li><strong><em>Huffman coding</em></strong>:哈夫曼编码，为前缀编码，频率出现越高的字符编码越短。构造过程:初始有代表各个字符的若干个只有一个节点的树，每个点以字符出现频率作为权值。随后选取权值最小的两棵树，创建根节点连接两棵树，权值较大的作为根的左子树，权值较小作为右子树，合并后的新树权值为两数权值之和。不断重复此过程直到只剩下一棵树，该树上往左走为0，往右走为1，即可得到各个字符的哈夫曼编码。</li>
+<li><strong><em>game tree</em></strong>:博弈树</li>
 </ul>
 <hr>
 <h4 id="11-3-树的遍历"><a href="#11-3-树的遍历" class="headerlink" title="11.3 树的遍历"></a>11.3 树的遍历</h4><ul>
-<li><strong><em>preorder traversal</em></strong>：先序遍历（先父后子）</li>
+<li><strong><em>preorder traversal</em></strong>:先序遍历（先父后子）</li>
 <li><strong><em>inorder traversal</em></strong>:中序遍历（先第一个儿子，再自己，最后其他儿子）</li>
-<li><strong><em>postorder traversal</em></strong>：后序遍历（先子后父）</li>
+<li><strong><em>postorder traversal</em></strong>:后序遍历（先子后父）</li>
 <li><strong><em>Polish notation</em></strong>:前缀表达式</li>
 <li><strong><em>reverse Polish notation</em></strong>:后缀表达式</li>
 <li><strong><em>prefix/infix/postfix form</em></strong>:以先序/中序/后序遍历一个表达式的树</li>
 </ul>
 <hr>
 <h4 id="11-4-生成树"><a href="#11-4-生成树" class="headerlink" title="11.4 生成树"></a>11.4 生成树</h4><ul>
-<li><strong><em>spanning tree</em></strong>：包含所有节点且为树的子图（生成树）</li>
+<li><strong><em>spanning tree</em></strong>:包含所有节点且为树的子图（生成树）</li>
 <li>简单图连通当且仅当其有生成树</li>
-<li><strong><em>depth-first search</em></strong>：深搜</li>
-<li><strong><em>breadth-first search</em></strong>：广搜</li>
-<li><strong><em>minimum spanning tree</em></strong>：最小生成树（Prim和Kruskal）</li>
+<li><strong><em>depth-first search</em></strong>:深搜</li>
+<li><strong><em>breadth-first search</em></strong>:广搜</li>
+<li><strong><em>minimum spanning tree</em></strong>:最小生成树（Prim和Kruskal）</li>
 </ul>
 
             
