@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">斐波那契堆学习笔记 | ctz&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/googlefont.css" media="all">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1421426_0q2nihn6w0a.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css"> -->
+  <style>
+  .emoji-coda {
+      display: inline-block !important;
+      position: relative;
+      width: 47px;
+      top: 2px;
+      margin: -3px 3px !important;
+      padding: 0;
+  }
+  </style>
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "ctz's blog";
+  mashiro_option.author_name = "ctz's blog";
+  mashiro_option.site_url = "https://ctz45562.github.io";
+  mashiro_option.v_appId = "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz";
+  mashiro_option.v_appKey = "jqULEjwlbvOCM08eEOpTIGOI";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index1.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index2.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index3.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index4.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index5.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index6.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/index7.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.0.4/index8.jpg,https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.2.9/index9.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#3ca0ff}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#3ca0ff}::-webkit-scrollbar-thumb{background:#3ca0ff}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#3ca0ff}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#3ca0ff}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="ctz's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><style type="text/css">
+    @import url("/code.css");
+  </style>
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed;bottom:64px;left:28px;"> 
+  <div class="theme-controls row-container"> 
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> background <i style="color:grey" class="fa fa-chevron-right"></i></p>
+    <ul class="menu-list"> 
+	  <li id="white-bg"> 
+	    <i class="fa fa-television">
+		</i>
+	  </li> 
+	<li id="sakura-bg"> 
+      <i class="iconfont icon-sakura">
+	  </i>
+	</li> 
+    <li id="gribs-bg"> 
+      <i class="fa fa-slack">
+	  </i>
+    </li> 
+    <li id="KAdots-bg"> 
+      <i class="iconfont icon-dots">
+      </i>
+    </li> 
+    <li id="totem-bg"> 
+      <i class="fa fa-optin-monster">
+      </i>
+    </li> 
+    <li id="pixiv-bg"> 
+      <i class="fa fa-star">
+	  </i>
+      </li> 
+    <li id="bing-bg"> 
+      <i class="fa fa-picture-o">
+	  </i>
+    </li> 
+    <li id="dark-bg"> 
+      <i class="fa fa-moon-o">
+      </i>
+    </li> 
+  </ul> 
+  </div > 
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> font <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="font-family-controls row-container">
+    <button type="button" class="control-btn-serif " data-mode="serif" onclick="mashiro_global.font_control.change_font()">Serif</button>
+    <button type="button" class="control-btn-sans-serif" data-mode="sans-serif" onclick="mashiro_global.font_control.change_font()">Sans Serif</button>
+  </div>
+  <hr>
+  <p style="text-align:center;font-family:'Monaco';font-weight:bold;color:#444"><i style="color:grey" class="fa fa-chevron-left"></i> script <i style="color:grey" class="fa fa-chevron-right"></i></p>
+  <div class="theme-controls row-container">
+  <ul class="menu-list">
+  <style>li>.ctz{font-size: 21px;}</style>
+	<li id="empty-effect">
+	  <i class="ctz ctz-jinzhi">
+	  </i>
+	</li>
+	<li id="sakura-rain-effect">
+	  <i class="ctz ctz-huaxiang">
+	  </i>
+	</li>
+	<li id="snowy-effect">
+	  <i class="ctz ctz-snow">
+	  </i>
+	</li>
+	<li id="lines-effect">
+	  <i class="ctz ctz-xianlu">
+	  </i>
+	</li>
+	<li id="colorful-belts-effect">
+	  <i class="ctz ctz-caidai"></i>
+	  </i>
+	</li>
+	<li id="words-rain-effect">
+	  <i class="ctz ctz-zimuletters2"></i>
+	</li>
+	<li id="point-rain-effect">
+	  <i class="ctz ctz-diandiandian" style="font-size:19px"></i>
+	</li>
+	<li id="rain-drop-effect">
+	  <i class="ctz ctz-yu"></i>
+	</li>
+  </ul>
+  </div>
+<canvas id="night-mode-cover">
+</canvas>
+</div> 
+  <div class="changeSkin-gear no-select" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; visibility: visible; bottom: 0px;"> 
+  <div class="keys" id="setbtn"> 
+    <button id="open-skinMenu">
+		<style>
+		button#open-skinMenu{
+			transition: all 0.2s linear 0s;
+			outline:none;
+			position:fixed;
+			bottom:12px;
+			left:13px;
+			font-size:16px;
+			background-color: rgba(255,255,255,.95);
+			border-radius: 20px;
+			box-shadow: 0 3px 8px 0 rgba(0,0,0,0.1), 0 3px 8px 0 rgba(0,0,0,0.1);
+		}
+		button#open-skinMenu:hover{
+			transition: all 0.2s linear 0s;
+			background-color: #2f98fc;
+			color: rgba(255,255,255);
+		}
+		</style>
+		<i class="iconfont icon-gear inline-block rotating">
+	  </i> 
+		SCHEME TOOL | 主题工具 
+	</button>
+  </div> 
+</div>
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dim">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://ctz45562.github.io">
+          <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Re&amp;Re</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://www.luogu.com.cn/user/111762" target="_blank" class="social-github" title="洛谷">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.1/social/luogu.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://github.com/ctz45562" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/github.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="mailto:cctz45562@163.com" target="_blank" class="social-github" title="e-mail">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/mail.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://space.bilibili.com/229790690" target="_blank" class="social-github" title="bilibili">
+                    <img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.3/social/bilibili.jpg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <!-- <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%8A%A8%E6%BC%AB/">
+                          <i class="ctz ctz-bilibili-fill"></i>
+                          动漫
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E7%82%B9%E5%85%94/">
+                          <i class="ctz ctz-tuzi1"></i>
+                          点兔
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%9D%82%E7%89%A9/">
+                          <i class="ctz ctz-playstation"></i>
+                          杂物
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+ -->
+      <header class="site-header no-select gizle sabit sheader" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">ctz&#39;s blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/" class="faa-parent animated-hover">
+                    <i class="fa fa-fort-awesome faa-tada"></i>
+                    首页
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives" class="faa-parent animated-hover">
+                    <i class="fa fa-archive faa-falling faa-fast"></i>
+                    归档
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                          <i class="fa fa-code"></i>
+                          题解
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                          <i class="fa fa-book"></i>
+                          笔记
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                          <i class="ctz ctz-diary"></i>
+                          日常
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%8A%A8%E6%BC%AB/">
+                          <i class="ctz ctz-bilibili-fill"></i>
+                          动漫
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E7%82%B9%E5%85%94/">
+                          <i class="ctz ctz-tuzi1"></i>
+                          点兔
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E6%9D%82%E7%89%A9/">
+                          <i class="ctz ctz-playstation"></i>
+                          杂物
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/" class="faa-parent animated-hover">
+                    <i class="fa fa-tags faa-vertical"></i>
+                    标签
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/" class="faa-parent animated-hover">
+                    <i class="fa fa-paper-plane faa-float faa-fast"></i>
+                    友链
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/about/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-guanyuwo faa-bounce"></i>
+                    关于
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/comments/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-comment-copy faa-spin"></i>
+                    留言板
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/games/" class="faa-parent animated-hover">
+                    <i class="ctz ctz-game faa-shake"></i>
+                    游戏
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml" class="faa-parent animated-hover">
+                    <i class="ctz ctz-rss faa-horizontal"></i>
+                    RSS
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.0/tocbot.css">
+<div class="pattern-center-blank"></div>
+<div class="gather">
+
+  <div class="pattern-center-sakura single-center">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.4.8/fbnqdxxbj.jpg);" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.4.8/fbnqdxxbj.jpg">
+    </div>
+    <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
+      <h1 class="entry-title">
+      斐波那契堆学习笔记</h1>
+      <p class="entry-census">
+	    <span><a href="https://ctz45562.github.io"><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.3.0/avatar.jpg" style="margin-right:4px">ctz</a>
+        </span>
+		<span class="bull"></span>
+		&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp
+        2023-4-4
+    <span class="bull"></span>
+    
+      <span><i class="fa fa-archive"></i> 分类于  
+        <span class="article-category"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" > 学习笔记</a></span>
+      
+    </span>
+    
+    <span class="bull"></span>
+		<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span id='/2023/04/04/斐波那契堆学习笔记/' class="leancloud-visitors" data-flag-title="斐波那契堆学习笔记">
+        <a class="leancloud-visitors-count text-cursor">loading...</a>
+        <a class="post-meta-item-text text-cursor"> 次阅读</a>
+        </span>
+      </p>
+	  
+      
+    <div>
+		  <ul class="spfk-ul">
+		    &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<li class="spfk-li"><span class="triangle"></span><a href="/tags/数据结构/" class="butterfly-tags">数据结构</a></li><li class="spfk-li"><span class="triangle"></span><a href="/tags/堆/" class="butterfly-tags">堆</a></li>
+          </ul>
+		</div>
+		<script>
+			function colorInit(c,num){for(var i=1;i<=num;++i)c.push(i+'');}
+			function paintTags(){
+				var colorNumber=8,tagColors=[],tags=document.getElementsByClassName('spfk-li');
+				for(var i = 0 ; i < tags.length ; ++i){
+					if(!tagColors.length)colorInit(tagColors,colorNumber);
+					var j=Math.floor(Math.random()*tagColors.length);
+					tags[i].classList.add("spfk-color"+tagColors[j]);
+					tagColors.splice(j,1);
+        }
+			}
+			paintTags()
+		</script>
+    
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="gather toc" style="width:230px;max-height:372px;"></div>
+        
+        <div class="entry-content">
+          <p>摆子复活了。</p>
+<p>摆子写了篇笔记。</p>
+<p>摆子又死了。</p>
+<a id="more"></a>
+<hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>为了做ADS的Project学的。难度堪比LCT，不过还是比红黑树略逊一筹。</p>
+<p>斐波那契堆拥有及其优秀的理论复杂度：$O(1)$插入和减小键值，$O(\log n)$删除最值。然而也只是理论复杂度了。实际上堆里的斐波那契堆就好比平衡树里的splay，有个巨大的常数，所以只是个嘴巴算法。</p>
+<hr>
+<h1 id="抄袭来源"><a href="#抄袭来源" class="headerlink" title="抄袭来源"></a>抄袭来源</h1><blockquote>
+<p><a href="https://blog.51cto.com/u_13393656/5093051" target="_blank" rel="noopener">https://blog.51cto.com/u_13393656/5093051</a></p>
+<p><a href="https://blog.csdn.net/Foliciatarier/article/details/57472656" target="_blank" rel="noopener">https://blog.csdn.net/Foliciatarier/article/details/57472656</a></p>
+<p><a href="https://www.luogu.com.cn/blog/Atalod/learning-note-fibonacci-heap#" target="_blank" rel="noopener">https://www.luogu.com.cn/blog/Atalod/learning-note-fibonacci-heap#</a></p>
+</blockquote>
+<hr>
+<h1 id="define"><a href="#define" class="headerlink" title="#define"></a>#define</h1><ul>
+<li>$key$：节点排序的键值</li>
+<li>度数：节点的儿子数</li>
+<li>$flag$：Decrease Key中使用的标记，用于记录该节点是否有儿子被剪切过。加入根链表中的节点自动清空$flag$。</li>
+<li>$fib_n$：斐波那契数列第n项</li>
+</ul>
+<hr>
+<h1 id="斐波那契堆"><a href="#斐波那契堆" class="headerlink" title="斐波那契堆"></a>斐波那契堆</h1><p>以最小堆为例。</p>
+<p>斐波那契堆跟二项堆很像，是由多个最小堆组成的森林。所有堆的根节点用循环双向链表链接，形成<strong>根链表</strong>。额外存储一个指针$\min$指向根链表中$key$最小的节点。</p>
+<p>偷一张图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.4.8/fbnqdxxbj/fbnqdxxbj-1.jpg" alt=""></p>
+<h2 id="Insert"><a href="#Insert" class="headerlink" title="Insert"></a>Insert</h2><p>往斐波那契堆中插入一个新节点。</p>
+<p>直接把节点插入到根链表的结尾。因为根链表是循环双向链表，所以直接插入到$\min$的前一位即可。之后检查新节点的$key$是否小于$\min$的$key$，如果是则更新$\min$为新节点。</p>
+<h2 id="Delete-Min"><a href="#Delete-Min" class="headerlink" title="Delete Min"></a>Delete Min</h2><p>删除斐波那契堆中$key$最小的节点（即$\min$节点）。</p>
+<p>首先新建一个临时存放子树的区域，叫做temp区域。把$\min$的所有子节点和根链表中$\min$以外的节点进行以下操作：</p>
+<ol>
+<li>将节点带着其子树加入temp区域</li>
+<li>检查temp区域中是否存在度数相同的树，如果有，合并两棵子树。具体的说，把$key$较小的根节点作为父，$key$较大的作为子，建立父子关系。</li>
+<li>重复第2步直到不存在度数相同的树</li>
+</ol>
+<p>随后，把temp区域中所有根节点用链表链接作为新的根链表，并更新$\min$节点，此时temp区域里即为删除完成的堆。</p>
+<p>再偷一张图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.4.8/fbnqdxxbj/fbnqdxxbj-2.jpg" alt=""></p>
+<h2 id="Decrease-Key"><a href="#Decrease-Key" class="headerlink" title="Decrease Key"></a>Decrease Key</h2><p>将斐波那契堆中指定节点的$key$减小。</p>
+<p>如果减小后的$key$仍然比父节点的$key$大，则啥都不用做。</p>
+<p>否则该节点违反了堆的性质，执行以下<strong>“级联剪切”</strong>操作：</p>
+<ol>
+<li>如果目标节点在根链表中，退出</li>
+<li>断开目标节点与其父节点的父子关系</li>
+<li>将目标节点带着子树加入根链表中，并更新$\min$节点</li>
+<li>如果目标节点原来的父节点的未被标记$flag$，则标记；否则清除其标记并对其进行级联剪切</li>
+</ol>
+<p><del>图不好，不偷了</del></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>斐波那契堆还支持合并、Increase Key、删除任意节点等操作。因为Dijstra用不到就不写了<del>懒</del>。</p>
+<hr>
+<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>假设有一斐波那契堆$H$，定义其势函数为$\Phi(H)=t(H)+2m(H)$，其中$t(H)$为根链表中节点的数目，$m(H)$为堆中被标记节点的数目。操作后$H$变为$H’$。</p>
+<p>则进行一次操作的摊还代价为$T+\Phi(H’)-\Phi(H)$，其中$T$为该次操作实际代价。</p>
+<h2 id="Insert-1"><a href="#Insert-1" class="headerlink" title="Insert"></a>Insert</h2><p>一眼丁真，鉴定为$O(1)$。</p>
+<h2 id="Delete-Min-1"><a href="#Delete-Min-1" class="headerlink" title="Delete Min"></a>Delete Min</h2><p>假设在有$n$个节点的斐波那契堆中，任意节点的最大度数为$D(n)$。</p>
+<p>在删除操作中，我们先是提取出删除节点的子节点加入temp区域（最多有$D(n)$个），再把根链表的节点全部加入temp区域（有$t(H)-1$个）。其中，由于合并两棵树是$O(1)$的，所以加入temp区域这一操作是$O(1)$的，则实际代价为$O(D(n)+t(H))$</p>
+<p>删除后，势函数最坏情况为没有被标记节点加入根链表（否则$m(H’)$会减少）。因为相同度数的节点都被合并了，所以删除后根链表最多有$D(n)$个节点，则操作后势函数为$D(n)+2m(H)$。</p>
+<blockquote>
+<p>一个sb问题：为什么删除后根链表最多有$D(n)$个节点？</p>
+<p>A：因为删除后根链表里的节点度数两两不同，而$D(n)$定义就是根链表中最大的度数，所以最坏情况下就是度数为$1,2,\dots D(n)$的节点各有一个，最多$D(n)$个</p>
+</blockquote>
+<p>摊还代价为$\\O(D(n)+t(H))+D(n)+2m(H)-t(H)-2m(H)\\=O(D(n))+D(n)+O(t(H))-t(H)\\=O(D(n))$</p>
+<p>接下来问题变为$D(n)$是多少。</p>
+<p>假设度数为$k$的节点最少有$f_k$个节点。一个度数为$k$的节点$p$可以拆分成一个度数为$k-1$的节点和其度数最大的子节点$p_{max}$。</p>
+<p>由于只有在删除操作中两个节点度数相同时会建立父子关系，且操作后父节点度数只会+1，所以$p$的子节点度数为$1,2,\dots k-1$（不考虑Decrease Key）。考虑Decrease Key操作，因为一个子节点最多会删掉一个孙子节点（再删就被切走了），所以$p_{max}$的度数最小为$k-2$。</p>
+<blockquote>
+<p>又一个sb问题：但是$p$也可能删掉子节点，如果把$p_{max}$删掉了，最大度数就不是$k-2$了。</p>
+<p>A：删掉后$p$的度数也会-1啊…</p>
+</blockquote>
+<p>综上，有$f_k\ge f_{k-1}+f_{k-2}$。</p>
+<p>这个式子跟斐波那契数列很像，于是有$f_k\ge fib_k$。</p>
+<p>即度数为$k$的节点子树最少有$fib_k$个节点。而斐波那契数列增长速度是指数级的，所以$D(n)=O(\log n)$，即删除操作均摊复杂度为$O(\log n)$。</p>
+<h2 id="Decrease-Key-1"><a href="#Decrease-Key-1" class="headerlink" title="Decrease Key"></a>Decrease Key</h2><p>显然一次剪切操作是$O(1)$。</p>
+<p>如果修改后违反了堆的性质：</p>
+<p>还是用势函数分析。</p>
+<p>假设一次操作触发了$c$次剪切，则实际代价为$O(c)$。根链表中多了被剪切的$c$个节点，则$t(H’)=t(H)+c$。除了剪切被修改节点，其余每次剪切清除一个标记，最后一个被剪切的节点的父节点可能被标记，则$m(H’)=m(H)-c+2$。</p>
+<p>所以摊还代价为$\\O(c)+t(H’)+2m(H’)-t(H)-2m(H)\\=O(c)+t(H)+c+2m(H)-2c+4-t(H)-2m(H)\\=4\\=O(1)$</p>
+<hr>
+<h1 id="优化Dijstra"><a href="#优化Dijstra" class="headerlink" title="优化Dijstra"></a>优化Dijstra</h1><p>传统的堆优化Dijstra是靠插入新节点和打标记来实现Decrease Key的，所以复杂度在$m$上有个$\log$。</p>
+<p>但是斐波那契堆可以在更新$dis$时直接对对应节点进行$O(1)$的$Decrease Key$，复杂度为$O(n\log n+m)$。并且由于该操作不增加新的节点，所以可以保证堆的空间复杂度从$O(m)$变为$O(n)$。<del>虽然存边还是有个O(m)的空间</del></p>
+<hr>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>基本纯手搓，很丑常数大还可能有bug。不过至少能跑过洛谷的最短路。</p>
+<pre><code class="lang-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define MAXN 100005
+#define INF 0x7f7f7f7f
+
+/*----- Fibonacci堆 声明 BEGIN -----*/ 
+struct FibonacciNode{
+    struct FibonacciNode *left;//根链表的前驱或左兄弟
+    struct FibonacciNode *right;//根链表的后继或右兄弟
+    struct FibonacciNode *fa;//父节点
+    struct FibonacciNode *child;//第一个孩子
+    int key;//权值
+    int ref;//该节点代表的图中的节点 
+    int flag;//标记
+    int degree;//度数
+};
+typedef FibonacciNode *FibNode;
+FibNode min;
+FibNode temp_min;//删除时使用的临时最小节点
+FibNode temp[MAXN];//删除时使用的临时数组，temp[i]存储当前度数为i的节点
+int max_degree;//删除时记录的最大度数
+int max(int a,int b);
+FibNode newNode(int key);//创建一个新节点，权值为key
+void swap(FibNode *a,FibNode *b);
+void link(FibNode pre,FibNode next);//连接两个节点，pre在前，next在后
+void cut(FibNode p);//级联剪切节点p
+void mark(FibNode p);//标记节点p，若已被标记则级联剪切p
+void addNode(FibNode p);//将节点p插入到根链表中
+void addTemp(FibNode p);//将节点p加入进temp数组中
+void addChild(FibNode fa,FibNode ch);//将节点ch设为节点fa的儿子
+int getMin();//获取堆中最小值对应的图中节点编号 
+int isEmpty();//询问当前堆是否为空 
+FibNode insert(int key,int ref);//插入一个节点，权值为key，代表图中节点ref 
+void deleteMin();//删除最小节点
+void decreaseKey(FibNode p,int key);//将节点p的权值改为key，且保证新的key比原来小
+/*----- Fibonacci堆 声明 END -----*/ 
+
+/*----- Dijstra 声明 BEGIN -----*/ 
+struct EdgeNode{
+    struct EdgeNode *next;
+    int v,l;
+};
+typedef EdgeNode *Edge;
+Edge first[MAXN];
+FibNode node[MAXN];//图中节点在堆中对应的节点 
+int n,m,s;//节点数，边数，起点 
+int dis[MAXN];
+void addEdge(int x,int y,int l);
+void dijstra();
+/*----- Dijstra 声明 END -----*/ 
+
+int main(){
+    scanf(&quot;%d%d%d&quot;,&amp;n,&amp;m,&amp;s);
+    while(m--){
+        int x,y,l;
+        scanf(&quot;%d%d%d&quot;,&amp;x,&amp;y,&amp;l);
+        addEdge(x,y,l);
+    }
+    dijstra();
+    for(int i=1;i&lt;=n;++i)
+        printf(&quot;%d &quot;,dis[i]);
+}
+
+/*----- Fibonacci堆 定义 BEGIN -----*/ 
+int max(int a,int b){return a&gt;b?a:b;}
+FibNode newNode(int key){
+    FibNode p=(FibNode)malloc(sizeof (struct FibonacciNode));
+    p-&gt;left=p-&gt;right=p;
+    p-&gt;fa=p-&gt;child=NULL;
+    p-&gt;key=key;
+    p-&gt;flag=0;
+    p-&gt;degree=0;    
+}
+void swap(FibNode *a,FibNode *b){
+    FibNode temp=*a;
+    *a=*b;
+    *b=temp;
+}
+void link(FibNode pre,FibNode next){
+    pre-&gt;left=next-&gt;left;
+    next-&gt;left-&gt;right=pre;
+    next-&gt;left=pre;
+    pre-&gt;right=next;
+}
+int getMin(){
+    return min-&gt;ref;
+}
+int isEmpty(){
+    return min==NULL;
+}
+void cut(FibNode p){
+    if(p-&gt;fa==NULL)return;
+    if(p-&gt;fa-&gt;child==p){
+        p-&gt;fa-&gt;child=p-&gt;right;
+        if(p-&gt;right!=NULL)p-&gt;right-&gt;left=NULL;
+    }
+    else {
+        p-&gt;left-&gt;right=p-&gt;right;
+        if(p-&gt;right!=NULL)p-&gt;right-&gt;left=p-&gt;left;
+    }
+    mark(p-&gt;fa);
+    p-&gt;fa=NULL;
+    addNode(p);
+}
+void mark(FibNode p){
+    if(p-&gt;fa==NULL)return;
+    if(p-&gt;flag)cut(p);
+    else p-&gt;flag=1;
+}
+void addNode(FibNode p){
+    p-&gt;flag=0;
+    if(min==NULL)min=p-&gt;left=p-&gt;right=p;
+    else{
+        link(p,min);
+        if(min-&gt;key&gt;p-&gt;key)min=p;
+    }
+}
+void addTemp(FibNode p){
+    int d=p-&gt;degree;
+    p-&gt;left=p-&gt;right=p;
+    p-&gt;fa=NULL;
+    if(temp[d]==NULL){
+        max_degree=max(max_degree,d);
+        temp[d]=p;
+    }
+    else {
+        if(temp[d]-&gt;key&gt;p-&gt;key)swap(&amp;temp[d],&amp;p);
+        addChild(temp[d],p);
+        addTemp(temp[d]);
+        temp[d]=NULL;
+    }
+}
+void addChild(FibNode fa,FibNode ch){
+    if(fa-&gt;child!=NULL){
+        ch-&gt;right=fa-&gt;child;
+        fa-&gt;child-&gt;left=ch;
+    }
+    else ch-&gt;right=NULL;
+    fa-&gt;child=ch;
+    ch-&gt;left=NULL;
+    ch-&gt;fa=fa;
+    max_degree=max(max_degree,++fa-&gt;degree);
+}
+FibNode insert(int key,int ref){
+    FibNode p=newNode(key);
+    p-&gt;ref=ref;
+    addNode(p);
+    return p;
+}
+void deleteMin(){
+    max_degree=0;
+    temp_min=NULL;
+    if(min-&gt;child!=NULL)
+        for(FibNode p=min-&gt;child,next=p;p!=NULL;p=next)next=next-&gt;right,addTemp(p);
+    for(FibNode p=min-&gt;right,next=p-&gt;right;p!=min;p=next,next=next-&gt;right)addTemp(p);
+    free(min);
+    min=NULL;
+    for(int i=0;i&lt;=max_degree;++i)
+        if(temp[i]!=NULL)addNode(temp[i]),temp[i]=NULL;
+}
+void decreaseKey(FibNode p,int key){
+    p-&gt;key=key;
+    if(p-&gt;fa==NULL){
+        if(min-&gt;key&gt;key)min=p;
+    }
+    else if(key&lt;p-&gt;fa-&gt;key)cut(p);
+}
+/*----- Fibonacci堆 定义 END -----*/ 
+
+/*----- Dijstra 定义 BEGIN -----*/
+void addEdge(int x,int y,int l){
+    Edge e=(Edge)malloc(sizeof (struct EdgeNode));
+    e-&gt;v=y;
+    e-&gt;l=l;
+    e-&gt;next=first[x];
+    first[x]=e;
+}
+
+void dijstra(){
+    for(int i=1;i&lt;=n;++i){
+        if(i!=s)dis[i]=INF;
+        node[i]=insert(dis[i],i);        
+    }
+    while(!isEmpty()){
+        int x=getMin();
+        deleteMin();
+        for(Edge e=first[x];e!=NULL;e=e-&gt;next){
+            int y=e-&gt;v;
+            if(dis[x]+e-&gt;l&lt;dis[y]){
+                dis[y]=dis[x]+e-&gt;l;
+                decreaseKey(node[y],dis[y]);
+            }
+        }
+    }
+}
+/*----- Dijstra 定义 END -----*/
+</code></pre>
+<p><del>不写数组改写指针了，函数声明和定义分开了，终究是被大学磨平了棱角</del></p>
+<p><del>话说c是真tm难用，没了面向对象我怎么活啊</del></p>
+
+            
+        </div>
+      </article>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2022/03/21/%E7%A6%BB%E6%95%A3%E8%8B%B1%E8%AF%AD%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.7.9/lazyload.gif" data-src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.4.7/lsyyjqyyxxbj.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.4.7/lsyyjqyyxxbj.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                离散英语及其应用学习笔记</h3>
+              </div> 
+            </a>
+			</div>
+        
+      </section> 
+    </main>
+</div>
+</div>
+</div>
+<div class="gather">
+
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "NxBO47zlYAFf4BVlTQMnJtnY-gzGzoHsz",
+        appKey: "jqULEjwlbvOCM08eEOpTIGOI",
+        path: window.location.pathname,
+		visitor: true,
+        placeholder: "日々私たちが过ごしている日常は、実は奇迹の连続なのかもしれない。"
+      })
+  }
+</script>
+
+
+</div>
+
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+
+<script>
+function imgInit(){
+	var imgs=document.getElementsByClassName('entry-content').item(0).getElementsByTagName('img');
+	for(var i=0;i<imgs.length;++i){
+		var element = document.createElement("a"),record=imgs[i],dsrc=record.getAttribute("data-src");
+		element.setAttribute("data-fancybox","gallery");
+    element.setAttribute("href",dsrc||imgs[i].src);
+		element.setAttribute("id","escape-link");
+		imgs[i].parentNode.appendChild(element);
+		imgs[i].parentNode.removeChild(imgs[i]);
+		element.appendChild(record);
+	}
+}
+var spoiler=document.getElementsByClassName('spoiler');
+for(var i=0;i<spoiler.length;++i)
+spoiler[i].onclick=function(){this.classList.toggle("revealed");};
+imgInit();
+</script>
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <div id="gitalk-container"></div> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.6.7/articleload.gif">
+      </div>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Github Pages</a>
+        </span>
+		<!-- <span style="color: #b9b9b9;display:block">图片外链由<a href="https://img.fghrsh.net/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">FGHRSH图床</a>提供 -->
+        <!-- </span> -->
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.9.4/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@1.4.2/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<!-- <script src="//cdn.jsdelivr.net/gh/ctz45562/cdn@1.2.0/js/valine.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/ctz45562/cdn@2.1.4/js/volantis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/yremp/yremp-js@1.1/gitalk.js"></script>
+<script type="text/javascript">
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { 
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          tocSelector: '.toc', 
+          contentSelector: '.entry-content', 
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', 
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;ww">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
